@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<product>
+	<result>
+		<handler type="class"></handler>
+	</result>
+	<filters>
+		<filter name="title">
+			<tags>
+				<tag name="h3" content="text" resultkey="title"/>
+			</tags>
+			<model>
+				<div id="detail">
+					<h3></h3>
+				</div>
+			</model>
+		</filter>
+		<filter name="image">
+			<tags>
+				<tag name="img" content="attr" attr="src" resultkey="image"/>
+			</tags>
+			<model>
+				<img id="J_ImgBooth" src="" />
+			</model>
+		</filter>
+		<filter name="price">
+			<tags>
+				<tag name="strong" content="text" resultkey="price"/>
+			</tags>
+			<model>
+				<strong id="J_StrPrice"></strong>
+			</model>
+		</filter>
+	</filters>
+</product>

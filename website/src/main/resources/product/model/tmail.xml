@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<product>
+	<path>
+		<body>
+			<div id="detail">
+				<h3><a>${title}</a></h3>
+			</div>
+			<div class="tb-detail-bd tb-clear">
+				<img id="J_ImgBooth" src="${image}" />
+				<strong id="J_StrPrice">${price}</strong>
+			</div>
+		</body>
+	</path>
+</product>

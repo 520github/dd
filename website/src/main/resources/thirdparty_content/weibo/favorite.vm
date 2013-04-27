@@ -1,0 +1,3 @@
+<div><img src="$avatar">$nickName </div>
+<div><p>$text</p></div>
+<div><img src="$image"></div>

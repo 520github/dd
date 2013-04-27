@@ -1,0 +1,55 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta content="width=device-width, initial-scale=0.5, user-scalable=no" name="viewport"/>
+	<title>详情</title>
+	<link rel="stylesheet" href="../pub/pub.css">
+	<script language="javascript" type="text/javascript" src="../pub/jquery.js"></script>
+	<script language="javascript" type="text/javascript" src="../pub/custom.js"></script>
+</head>
+
+<body >
+<div id="container">
+	<h1>$!responseContent.title</h1>
+	<div style="margin:10px 0;">
+	<div class="panel-info">
+		<span class="years">$!responseContent.date</span>
+	</div>
+	<div class="from">
+		<p>来自：</p><span>$!responseContent.url</span><img src="../pub/icon-1.png" alt="">
+	</div>
+	</div>
+
+	<div id="content">
+	    <!--
+		<div class="map">
+			<img src="../pub/tu-1.jpg" alt="">
+		</div>
+		-->
+		
+		$!responseContent.web.content
+		
+		<!--用户选择的选择-->
+		<div class="user-option-select">
+			<ul>
+				<li class="icon read">阅读 <span>$!responseContent.counter.visit</span></li>
+				<li class="icon favorites">收藏 <span>$!responseContent.counter.collect</span></li>
+				<li class="icon share">分享  <span>$!responseContent.counter.share</span></li>
+			</ul>
+		</div>
+		<!---->
+		<div class="comment">
+			<div class="star">
+				<i style="width:50px;"></i><!--星星23*23-->
+			</div>
+			<div class="user-comment">
+				评论<span>$!responseContent.counter.comment</span>
+			</div>
+		</div>
+
+	   <div id="feedback">
+	       <a href="view://feedback">查看全部评论</a>
+	   </div>
+    </div>
+</div>
+</body>
