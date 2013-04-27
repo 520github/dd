@@ -1,0 +1,76 @@
+<html>
+<head>
+<title>title</title>
+</head>
+<body>
+
+<div>
+	<div id="a"><img id="J_ImgBooth" src="http://img03.taobaocdn.com/bao/uploaded/i3/T1.05qXod7XXbnbvM1_041148.jpg_310x310.jpg" /></div>
+	<strong id="J_StrPrice">${price}</strong>
+	<script type="text/javascript">
+
+					    function jdPshowRecommend(url,stype) {
+
+					        var title = "name";
+
+					        var content = "我在@京东商城 发现了一个非常不错的商品：AKG K520  耳机 时尚达人的出街良选，家中电影欣赏的理想选择 白色“白色恋人”抢先看！K420、K450完美融合！，京东价：￥price。感觉不错，分享一下";
+
+					        var img ="image";
+
+					        var productUrl ="http://www.360buy.com/product/369114.html?sid=";
+
+					        var pin = readCookie("pin")||"";
+
+					        if (stype == "qzone") {
+
+					            url = url + "&title=" + content + "&pic=" + img + "&url=" + productUrl + pin;
+
+					        }
+
+					        if (stype == "sina") {
+
+					            url = url + "&title=" + encodeURIComponent(content) + "&pic=" + encodeURIComponent(img) + "&url=" + encodeURIComponent(productUrl) + pin;
+
+					            PostSinaDate();
+
+					            window.open(url, "", "height=500, width=600");
+
+					        }
+
+					        if (stype == "renren") {
+
+					            url = url + "title=" + title +"&content="+ content + "&pic=" + img + "&url=" + productUrl + pin;
+
+					        }
+
+					        if (stype == "kaixing") {
+
+					            url = url + "rtitle=" + title + "&rcontent=" + content + "&rurl=" + productUrl + pin;
+
+					        }
+
+					        if (stype == "douban") {
+
+					            url = url + "title=" + title + "&comment=" + content + "&url=" + productUrl + pin;
+
+					        }
+
+					        if (stype == "MSN") {
+
+					            url = url + "url=" + productUrl + pin + "&title=" + title + "&description=" + content + "&screenshot=" + img;
+
+					        }
+
+					        if (stype != "sina") {
+
+					            window.open(encodeURI(url), "", "height=500, width=600");
+
+					        }
+
+					    }
+
+
+	</script>
+</div>
+</body>
+</html>

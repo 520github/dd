@@ -1,0 +1,2 @@
+<h2 style="color: red;">请点击下面链接地址</h2>
+<a href="${token}">${token}</a>

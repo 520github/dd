@@ -1,0 +1,156 @@
+<html>
+<head>
+<title>title</title>
+</head>
+<body>
+<div class="tb-detail-hd">
+	<h3><a>name</a></h3>
+</div>
+<div>
+	<div id="a"><a><img id="J_ImgBooth" src="image.jpg_310x310.jpg" /></a></div>
+	<strong id="J_StrPrice">price</strong>
+</div>
+<div>
+<script>
+	TShop.poc('buyshow');
+    (function () {
+		
+	  TShop.Setup({
+							rstShopId:58014452, 						valLoginIndicator: "http:\/\/buy.taobao.com\/auction\/buy.htm?from=itemDetail&x_id=&item_id=14046403630&id=14046403630",
+						renderSystemServer:'http://render.taobao.com', valMode:128, 	shopVipUrl:"http:\/\/tbskip.taobao.com\/json\/promotion_info_list.htm?price=345.00&seller_id=228784630&buyer_id=0",		
+			"valCartInfo":{"itemId" : "14046403630","dbNum"  : "","cartUrl": "http:\/\/cart.taobao.com\/my_cart.htm?from=bdetail","statsUrl":"http://www.atpanel.com/1.gif?category=cart_{loc}_50000697"},
+		    "apiBidCount":  "http:\/\/tbskip.taobao.com\/json\/show_bid_count.htm?itemNumId=14046403630&old_quantity=8411&date=1361264734000",
+			"apiAddCart" : "http:\/\/cart.taobao.com\/add_cart_item.htm?item_id=14046403630",			
+			"valVipRate":0,
+			"valPointRate" : "0.5",
+		  						"apiItemViews": "http:\/\/count.taobao.com\/counter2?keys=ICVT_7_14046403630&inc=ICVT_7_14046403630&sign=681894989345673384055f0ccd9212673d261",
+			"apiItemCollects": "http:\/\/count.tbcdn.cn\/counter3?keys=ICCP_1_14046403630",
+               "valTimeLeft": "78477",
+																				"valItemInfo":{
+											"defSelected":
+							[],
+						"skuMap":{
+							";20509:28314;1627207:28332;":{"skuId" : "22894294452","price" : "345.00","priceCent" : "34500","stock" :"67"},";20509:28315;1627207:28332;":{"skuId" : "22894294454","price" : "345.00","priceCent" : "34500","stock" :"132"},";20509:28316;1627207:28332;":{"skuId" : "22894294456","price" : "345.00","priceCent" : "34500","stock" :"159"},";20509:28317;1627207:28332;":{"skuId" : "22894294458","price" : "345.00","priceCent" : "34500","stock" :"81"},";20509:28318;1627207:28332;":{"skuId" : "22894294460","price" : "345.00","priceCent" : "34500","stock" :"37"},";20509:28314;1627207:90554;":{"skuId" : "23541127130","price" : "345.00","priceCent" : "34500","stock" :"452"},";20509:28315;1627207:90554;":{"skuId" : "23541127131","price" : "345.00","priceCent" : "34500","stock" :"729"},";20509:28316;1627207:90554;":{"skuId" : "23541127132","price" : "345.00","priceCent" : "34500","stock" :"609"},";20509:28317;1627207:90554;":{"skuId" : "23541127133","price" : "345.00","priceCent" : "34500","stock" :"511"},";20509:28318;1627207:90554;":{"skuId" : "23541127134","price" : "345.00","priceCent" : "34500","stock" :"174"},";20509:28314;1627207:28338;":{"skuId" : "23803910611","price" : "345.00","priceCent" : "34500","stock" :"215"},";20509:28315;1627207:28338;":{"skuId" : "23803910612","price" : "345.00","priceCent" : "34500","stock" :"257"},";20509:28316;1627207:28338;":{"skuId" : "23803910613","price" : "345.00","priceCent" : "34500","stock" :"254"},";20509:28317;1627207:28338;":{"skuId" : "23803910614","price" : "345.00","priceCent" : "34500","stock" :"178"},";20509:28318;1627207:28338;":{"skuId" : "23803910615","price" : "345.00","priceCent" : "34500","stock" :"41"}
+						}
+									},
+			
+			"isSevenDaysRefundment" : true,
+			"isAreaSell": false,
+			"isService": false,
+			"isHouseholdService": false,
+			"isTmallComboSupport": false,
+			"standardItem" : false,
+			"tmallRateType" : 0, 			"isWTContract": false, 			"isMeiz":false,
+			"trialItemId": 0 ,
+			"trialErrNum": 0  ,
+						"releaseTime":"1361787320000",
+			"renderTime":"1361787320541",
+										"apiMember":'http://tmm.taobao.com/member/query_member_for_detail.do',
+				"vipBirthJumpLink":'http://vip.tmall.com/vip/privilege.htm?priv=birthdaygift&spm=2001.1.4.3',
+						
+						   														 			 						 															  						  	 				 				 
+			 			     												
+																																							
+									
+						
+			"initApi" : "http://mdskip.taobao.com/core/initItemDetail.htm?ump=true&trialErrNum=0&isSpu=false&isIFC=false&sellerUserTag4=35326779261315&notAllowOriginPrice=false&sellerUserTag2=27027233098968078&sellerUserTag3=721209259110465664&isAreaSell=false&isForbidBuyItem=false&isMeizTry=false&tmallBuySupport=true&itemTags=4,8,1025,1346,1478,2049,2882,3974,4166,4801,5698,5954,6146,7810,7938,8578&household=false&sellerUserTag=509178912&tgTag=false&itemId=14046403630&isUseInventoryCenter=true&isSecKill=false&isApparel=true&service3C=false&cartEnable=true",
+			"changeLocationApi":"http://mdskip.taobao.com/core/changeLocation.htm?ump=true&itemTags=4,8,1025,1346,1478,2049,2882,3974,4166,4801,5698,5954,6146,7810,7938,8578&sellerUserTag=509178912&household=false&tgTag=false&isSpu=false&itemId=14046403630&isUseInventoryCenter=true&isSecKill=false&sellerUserTag4=35326779261315&notAllowOriginPrice=false&sellerUserTag2=27027233098968078&sellerUserTag3=721209259110465664&isAreaSell=false&service3C=false&cartEnable=true",
+			"initExtensionApi":  "http://mdskip.taobao.com/extension/initExtension.htm?showBreadCrumb=true&sellerId=228784630&brand=%C1%D1%B2%AF&showSpuMaintainer=false"  ,
+			"initExtraApi":"http://mdskip.taobao.com/extension/initExtra.htm",
+						
+			   			
+						
+			  
+			
+			"api":{
+				"fetchDcUrl" : "http://tdecorate.tbcdn.cn/dc/fetchDc.htm?pid=8176531&sellerId=228784630&t=1361787320000"
+			},
+			
+			"itemDO" : {
+				'categoryId':'50000697',
+				'itemId':'14046403630',
+				'isBidden':false,
+				'isInRepository':false,
+				'auctionType':'b',
+				'auctionStatus':'0',
+				'canView':true,
+				'sellerFreeze':false,
+				'quantity':3896,
+				'isOnline':true,
+				'isSecondKillFromPC':false,
+				'isSecondKillFromPCAndWap':false,
+				'userId':'228784630',
+				"sellerNickName" : '%E8%A3%82%E5%B8%9B%E6%9C%8D%E9%A5%B0%E6%97%97%E8%88%B0%E5%BA%97',
+				'isEcardAuction':false,
+				'brand' :  '\u88C2\u5E1B' ,
+				'brandId' : '115437',
+				'isDcAsyn' : true,
+				'reservePrice' : '345.00',
+				'spuId':'142035515',
+				
+				'feature':    '1',
+				'validatorUrl': 'http://store.taobao.com/tadget/shop_stats.htm',
+				'templateName': '',
+				'templateId':  ''
+			},
+			"detail":{
+				'canEditInItemDet':true,
+				'autoccUser':false,
+				'isShowPreClosed':false,
+				'goNewAuctionFlow':false,
+				'isAllowReport':true,
+				'isTeMai':false,
+				'isIFCShop':false,
+				'isItemAllowSellerView':true,
+				'isAuthSeller':true,
+				'timeKillAuction':false,
+				'quantityList':[],
+				'defaultItemPrice':'345.00',
+				'rateEnable' : true,
+				'loginBeforeCart':false,
+				'cdn75': false,
+				'rateCloudDisable' : false,
+				'isDownShelf' : false,
+				'dsrFromCounterEnable' :  false 			},
+			"idsMod": [],
+			"tag":{
+				"isAsynDesc":true,				'isMedical':false,
+				'isRightRecommend':true,
+				'isBrandAttr':true
+			},
+			"url":{
+				'topUploadServerBaseUrl':'http://upload.taobao.com',
+				'BIDRedirectionitemDomain':'http://paimai.taobao.com',
+				'tradeBaseUrl':'http://trade.taobao.com/trade',
+				'tgDomain':'http://ju.taobao.com',
+				'mallList':'http://list.tmall.com',
+				'buyBase':'http://buy.taobao.com/auction',
+				"tbskip":"http://tbskip.taobao.com",
+				"rate":"http://rate.tmall.com"
+			},
+						"tradeType": 2 ,
+			"cartEnable":true,
+
+									"tradeConfig":{
+				1 : "http://buy.taobao.com/auction/buy_now.jhtml",
+				2 : "http://buy.tmall.com/order/confirm_order.htm",
+				3 : "http://obuy.tmall.com/home/order/confirm_order.htm",
+				4 : ""
+			},
+			"noSkipMode":{
+				timeout : 15000,
+				tradeResult:{
+                    cartEnable: true ,
+                    cartType:2,
+                    tradeEnable: true ,
+                    tradeType: 2 ,
+                    tradeDisableTypeEnum:""                }
+												
+			}
+    });
+	
+})();</script>
+
+</div>
+</body>
+</html>

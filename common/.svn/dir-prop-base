@@ -1,0 +1,15 @@
+K 10
+svn:ignore
+V 37
+.settings
+.project
+target
+.classpath
+
+K 13
+svn:mergeinfo
+V 170
+/origin/server/the-point/branches/2.4/common:9298-9478
+/origin/server/the-point/branches/2.5/common:9547-9750
+/origin/server/the-point/tags/duoduo-2.2.18/common:9292-9297
+END
