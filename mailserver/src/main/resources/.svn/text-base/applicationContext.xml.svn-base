@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" 
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+            http://www.springframework.org/schema/beans/spring-beans-3.1.xsd  
+            http://www.springframework.org/schema/context  
+            http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+    <context:annotation-config />
+
+    <bean id="messageSource" 
+		class="org.springframework.context.support.ResourceBundleMessageSource"
+		p:basename="i18n.messages" />
+	<bean id="springContext" class="me.twocoffee.common.SpringContext">
+	</bean>
+
+	<!-- db -->
+	<bean id="mongo" class="com.mongodb.Mongo" scope="singleton"
+		lazy-init="false">
+		<constructor-arg index="0" type="java.lang.String"
+			value="db.cloud.mduoduo.in" />
+		<constructor-arg index="1" type="int" value="27017" />
+	</bean>
+	
+	<bean id="morphia" class="com.google.code.morphia.Morphia"/>
+	
+	<bean id="datastore" class="me.twocoffee.common.MongoDataStore" init-method="init">
+	  <constructor-arg ref="morphia"/>
+	  <!-- Mongo连接器 -->
+	  <constructor-arg ref="mongo"/>
+	  <!-- 数据库名 -->
+	  <constructor-arg value="mduoduo"/>
+	  
+	  <property name="modelPackages">
+		<list>
+		  <value>me.twocoffee.entity</value>
+		</list>
+	  </property>
+	  <property name="connectionsPerHost" value="512"/>
+	  <property name="threadsAllowedToBlockForConnectionMultiplier" value="512"/>
+	</bean>
+
+	<bean id="dfs" class="me.twocoffee.common.dfs.fastdfs.FastdfsFileOperator">
+		<constructor-arg value="fdfs_client.conf"/>
+	</bean>
+	<!-- 自动搜索Controller标注的类 -->
+	<context:component-scan base-package="me.twocoffee.dao" />
+	
+	<bean id="accountService" class="me.twocoffee.mail.service.AccountService">
+		<constructor-arg ref="accountDaoImpl"/>
+		<constructor-arg ref="friendDaoImpl"/>
+		<constructor-arg value="SFGDGfdjkj#$$%#sdf123#$%DJjsdf=sdfs#@$@"/>
+	</bean>
+	
+	<bean id="contentService" class="me.twocoffee.mail.service.ContentServiceHttpImpl">
+	</bean>
+	<bean id="thirdPartyContactService" class="me.twocoffee.service.impl.ThirdPartyContactMatcherServiceImpl">
+		<property name="thirdpartyService" ref="thirdPartyServiceImpl"></property>
+		<property name="accountService" ref="accountServiceImpl"></property>
+		<property name="matchers">
+			<map>
+				<entry key="Weibo" value-ref="uidBasedContactMatcher" />
+				<entry key="Phone" value-ref="phoneContactMatcher" />
+			</map>
+		</property>
+	</bean>
+</beans>

@@ -1,0 +1,28 @@
+<configuration>
+	<appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+		<filter class="ch.qos.logback.classic.filter.LevelFilter">
+			<level>INFO</level>
+		</filter>
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36}-%L - %msg%n</pattern>
+		</encoder>
+	</appender>
+	<!-- 业务信息日志，输出级别为info的日志，按日滚动 -->
+	<appender name="infoFile"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>mail.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>mail.%d{yyyy-MM-dd}.log
+			</fileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+		<encoder>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36}-%L - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<root level="INFO">
+		<appender-ref ref="stdout" />
+		<appender-ref ref="infoFile" />
+	</root>
+</configuration>
