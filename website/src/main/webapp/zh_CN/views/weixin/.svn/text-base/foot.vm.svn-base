@@ -1,0 +1,3 @@
+#parse("/zh_CN/views/template/popup.vm" )
+</body>
+</html>

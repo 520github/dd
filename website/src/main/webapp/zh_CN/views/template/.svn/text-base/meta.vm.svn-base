@@ -1,0 +1,19 @@
+<link type="image/x-icon" mce_href="$!imgPath/2coffee.ico" href="$!imgPath/2coffee.ico" rel="shortcut icon">
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8, IE=9" /> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta content="target-densitydpi=device-dpi, width=device-width,target-densitydpi=320, minimum-scale=0.5, maximum-scale=0.5, user-scalable=no" name="viewport">
+<!--描述-->
+#if(!$metaDescription)
+    #set($metaDescription="多多，通过多多采集工具收藏你喜欢的文章、商品、视频、图片、链接，你可以离线查看、永久保存、邮件收集、分享给好友。")
+#end
+<meta name="description" content="$!metaDescription">
+<!--关键字-->
+#if(!$metaKeywords)
+    #set($metaKeywords="多多,duoduo,好友,发现,喜欢,收藏,收集,收藏，插件,工具,浏览,阅读,存储,保存,离线,文章,图片,商品,链接,邮件收集，新饮，推荐，图片，商品，视频，文章，互享空间，资料仓库，随时随地，朋友分享")
+#end
+<meta name="Keywords" content="$!metaKeywords">
+<!--标题-->
+#if(!$browserTitle)
+    #set($browserTitle="收藏、分享你的喜欢和发现")
+#end
+<title>多多 - $!browserTitle</title>

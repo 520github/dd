@@ -1,0 +1,17 @@
+#parse("/zh_CN/views/template/prefix.vm" ) 
+<head>
+#set($browserTitle="好友登录")
+#parse("/zh_CN/views/template/meta_include.vm" ) 
+<script src="/zh_CN/js/web/login.js"></script>
+</head>
+<body style="background:#fff;">
+#parse("/zh_CN/views/head/head.vm" )
+#parse("/zh_CN/views/user/login_base.vm")
+<script type="text/javascript">
+function getCause() {
+	return '$!cause';
+}
+</script>
+<input id="isPoll" type="hidden" value="false">
+
+#parse("/zh_CN/views/template/footer.vm" ) 

@@ -1,0 +1,74 @@
+  <!--分享人模板-->
+  #if($shareFriends && $shareFriends.size() >0)
+  <div id="$!friendTypeId" class="plug-in-2coffee-panel-title">
+		<h2>
+			<b class="plug-in-2coffee-panel-icon"><a href="javascript:friendAction.selectAllFriend('$!friendTypeId')">咖啡杯</a></b>
+			<a onclick="friendAction.toggleDiv('$!friendTypeId')">
+			$!friendTypeName
+			</a>
+			#if($!isOpen =="yes")	
+			<span class="plug-in-pfeil-auf" onclick="friendAction.toggleDiv('$!friendTypeId')"></span><!--打开箭头-->
+			#else
+			<span class="plug-in-pfeil-weniger" onclick="friendAction.toggleDiv('$!friendTypeId')"></span><!--收起箭头-->
+			#end
+		</h2>
+		#set($display='none')
+		#if($!isOpen =="yes")	
+		    #set($display='block')
+		#end
+		<div  class="plug-in-2coffee-panel-title-left" style="display:$!display">
+		   <div id="scroll_$!friendTypeId" >
+			    <ul >
+				    #foreach($friend in $shareFriends)
+				        #if($!friend.id != $!kexiaoke)
+							<li id="$!friend.id" >
+							    <!--左边图片-->
+								<b class="plug-in-2coffee-panel-icon">
+								    <a href="javascript:friendAction.selectShareFriend('$!friend.id','$!friendTypeId')">咖啡杯</a>
+								</b> 
+								<!--<b class="plug-in-2coffee-panel-icon-1"><a href="#">咖啡杯</a></b> 选中后class替换成plug-in-2coffee-panel-icon-1 -->
+								<!--肖像图片-->
+								<span class="plug-in-2coffee-panel-portrait">
+								    <img src="$friend.avatar.small" alt="" onclick="friendAction.selectShareFriend('$!friend.id','$!friendTypeId')">
+								</span>
+								<!--昵称-->
+								<p class="plug-in-2coffee-panel-nickname">
+								    <a href="javascript:friendAction.selectShareFriend('$!friend.id','$!friendTypeId')" title="$!friend.name">
+								    $text.subString($friend.name, 12, 3)
+								    </a>
+								    #if ($!friend.friend.alias && $!friend.friend.alias!="")
+										    <a href="javascript:friendAction.selectShareFriend('$!friend.id','$!friendTypeId')" title="$!friend.friend.alias">
+											    ($text.subString($!friend.friend.alias, 12, 3))
+										    </a>
+									#end
+								</p>
+							</li>	
+						#end
+					#end					
+			    </ul>
+		   </div>
+	   </div>
+  </div>
+  #end
+  #if($friendTypeId=='friendId' && (!$shareFriends || $shareFriends.size() <1))
+      <div id="notFoundFriendId" class="plug-in-2coffee-panel-title">
+		<h2>
+			<b class="plug-in-2coffee-panel-icon"><a >咖啡杯</a></b>
+			<a >
+			$!friendTypeName
+			</a>
+			<span class="plug-in-pfeil-auf" ></span><!--打开箭头-->
+		</h2>
+		<div  class="plug-in-2coffee-panel-title-left" >
+		    <ul >
+		        <li >
+		           <br>
+		        </li>
+		        <li >
+		           <br>
+		                            你还没有多多好友,是否现在就去<a href="/friend/find" target="blank" style="color:red;">添加好友</a>
+		        </li>
+		    </ul>
+		</div>
+     </div>
+  #end

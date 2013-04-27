@@ -1,0 +1,146 @@
+		<div class="plug-in-pic-top"></div>
+		<div class="plug-in-2coffee-right-c">	
+		    <!--基本-->	
+			<div class="plug-in-2coffee-rightA">
+				<div class="plug-in-2coffee-logo">
+					<img src="/zh_CN/images/plug-in-logo.gif" alt="" onclick="go2indexPage()">				
+				</div>
+				<div class="plug-in-2coffee-user-name">
+					<img src="$!account.photos.get('35')" alt="" onclick="go2indexPage()">
+					<a title="$!{account.name}"> $text.subString($!{account.name}, 6, 3)</a>								
+				</div>
+			</div>
+			
+			<!--搜索-->
+			<div class="plug-in-2coffee-suchen">
+				<span><input type="text" id="searchFriendText" value="查找好友" ></span>
+				<b class="plug-in-2coffee-suchen-icon">
+				    <button type="submit" id="searchFriendButton" value="2coffee 搜索" name="btnG"></button>
+				</b>
+			</div>
+			
+			<!--分享列表 -->
+			<div id="shareFriendId" class="plug-in-2coffee-panel scrollbar-list" >
+			    <div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
+			    <div class="viewport">
+			        <div class="overview" style="width:100%">
+					    <!--我-->
+						<div id="my" class="plug-in-2coffee-panel-title plug-in-2coffee-panel-title-1">
+							<h2>
+							    <!---->
+								<b class="plug-in-2coffee-panel-icon-1">
+								    <a href="javascript:friendAction.selectAllFriend('my')">咖啡杯</a>
+								</b>
+								
+								我 
+								<span class="plug-in-pfeil-auf" ></span>
+							</h2>					
+							<div class="plug-in-2coffee-panel-title-left">
+								<ul>
+									<li id="$!account.id">
+									    <!--左边图片-->
+										<b class="plug-in-2coffee-panel-icon-1"><a href="javascript:friendAction.selectShareFriend('$!account.id','my')">咖啡杯</a></b> 
+										<!--肖像图片-->
+										<span class="plug-in-2coffee-panel-portrait">
+										    <img src="$!account.photos.get('35')" onclick="friendAction.selectShareFriend('$!account.id','my')">
+										</span>
+										<!--昵称-->
+										<p class="plug-in-2coffee-panel-nickname">
+										    <a href="javascript:friendAction.selectShareFriend('$!account.id','my')">
+										        $!{account.name}
+										    </a>
+										</p>
+									</li>
+								</ul>
+							</div>
+						</div>
+						
+						
+                    </div>
+                </div>
+			</div>
+			
+			<div class="plug-in-2coffee-panel plug-in-2coffee-panel-1">
+				<div class="plug-in-2coffee-textarea">
+					<textarea id="ddClpComment" cols="" rows="">我觉得这个东东可能对你有帮助，希望你喜欢哦！</textarea>
+					<b id="ddClpFont">还可输入<font id="ddCommentRemain">140</font>字</b>
+					<p>
+					    <a class="plug-in-2coffee-btn-cancel" href="javascript:void(0)" id="ddCloseBtn">取消</a>
+						<a class="plug-in-2coffee-btn-determine" href="javascript:void(0)" id="ddClipperBtn">确定</a>
+					    <!--
+						<a href="#" class="plug-in-2coffee-btn-cancel">取消</a>
+						<a href="#" class="plug-in-2coffee-btn-determine">确定</a>
+						<input id="ddCloseBtn" type="image" src="/zh_CN/images/plug-in-canceled.png" name="">
+				        <input id="ddClipperBtn" type="image" src="/zh_CN/images/png_r9_c1.png" name="">
+						-->
+					</p>
+				</div>	
+			</div>
+	</div>	
+	<div class="plug-in-pic-bottom">
+	    <div id="appointFriendId" style="display:none">
+	    1111111,222222
+	    </div>
+	</div>	
+	
+	<div id="template" style="display:none">
+		<div id="friendShareTemplate" >
+		    <div id="{{friendTypeId}}" class="plug-in-2coffee-panel-title">
+					<h2>
+						<b class="plug-in-2coffee-panel-icon"><a href="javascript:friendAction.selectAllFriend('{{friendTypeId}}')">咖啡杯</a></b>
+						<a onclick="friendAction.toggleDiv('{{friendTypeId}}')">
+						{{friendTypeName}}
+						</a>
+						<!--收起箭头plug-in-pfeil-weniger  打开箭头plug-in-pfeil-auf-->
+						<span class="plug-in-pfeil-auf" onclick="friendAction.toggleDiv('{{friendTypeId}}')"></span>
+					</h2>
+					<div  class="plug-in-2coffee-panel-title-left" style="display:block">
+					   <div id="scroll_{{friendTypeId}}" >
+						    <ul >
+							    {{#result}}
+									<li id="{{id}}" >
+									    <!--左边图片-->
+										<b class="plug-in-2coffee-panel-icon">
+										    <a href="javascript:friendAction.selectShareFriend('{{id}}','{{friendTypeId}}')">咖啡杯</a>
+										</b> 
+										<!--<b class="plug-in-2coffee-panel-icon-1"><a href="#">咖啡杯</a></b>
+										<!--肖像图片-->
+										<span class="plug-in-2coffee-panel-portrait">
+										    <img src="{{avatar.small}}" onclick="friendAction.selectShareFriend('{{id}}','{{friendTypeId}}')" />
+										</span>
+										<!--昵称-->
+										<p class="plug-in-2coffee-panel-nickname">
+										    <a href="javascript:friendAction.selectShareFriend('{{id}}','{{friendTypeId}}')" title="{{fullAliasName}}">
+										    {{aliasName}}
+										    </a>		
+										</p>
+									</li>	
+								{{/result}}					
+						    </ul>
+					   </div>
+				   </div>
+			  </div>
+		</div>
+		<div id="notFriendTemplate">
+			  <div id="{{noFriendId}}" class="plug-in-2coffee-panel-title">
+					<h2>
+						<b class="plug-in-2coffee-panel-icon"><a >咖啡杯</a></b>
+						<a >
+						{{friendTypeName}}
+						</a>
+						<span class="plug-in-pfeil-auf" ></span><!--打开箭头-->
+					</h2>
+					<div  class="plug-in-2coffee-panel-title-left" >
+					    <ul >
+					        <li >
+					           <br>
+					        </li>
+					        <li >
+					           <br>
+					           {{message}}<a href="{{url}}" target="blank" style="color:red;">{{urlName}}</a>
+					        </li>
+					    </ul>
+					</div>
+		     </div>
+		</div>
+	</div>

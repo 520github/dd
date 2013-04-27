@@ -1,0 +1,79 @@
+<div id="customObjectTemp" style="display:none">
+	<div id="durian">	
+		<div class="durian">
+			<h1><span>设置自定义对象</span><a id="go2back" href="#" class="durian-set-up durian-return">返回</a></h1>
+			<div class="edit-contact">
+				<div class="edit-contact-search">
+					<input type="text" value="昵称/帐号" id="searchText">
+					<span><img src="$dragImgPath/search.png"  id="searchTextButton"></span>
+				</div>
+				<!-- scroll -->
+				<div id="scroll" class="example">
+					<div id="my" class="edit-contact-box">
+						<div class="edit-contact-nav-list">
+							<span onclick="FriendCustomObject.switchDivShowOrHide('my')"></span>
+							<input name="" type="checkbox" value="" checked="checked" onchange="FriendCustomObject.selectedMy(this)"> 
+							<strong>我</strong> 
+						</div>
+						<ul class="edit-contact-list">
+							<li>
+								<a href="#">
+									<input name="" type="checkbox" value="" checked="checked" onchange="FriendCustomObject.selectedMy(this)"> 						
+									<img src="images1/drag/drag.jpg">
+									<p>有希望(小D)</p>
+								</a>
+							</li>																																															
+						</ul>
+					</div>	
+					<div id="favority" class="edit-contact-box">
+						<div class="edit-contact-nav-list"  >
+							<!--折叠时 加上 class="edit-contact-fold"-->
+							<span onclick="FriendCustomObject.switchDivShowOrHide('favority')"></span>
+							<input name="" type="checkbox" value="" onclick="FriendCustomObject.selectedAllFriend(this,'#favority')"> 
+							<strong>常用联系人</strong> 
+						</div>
+						<ul class="edit-contact-list">
+																									
+						</ul>
+					</div>	
+					<div id="all" class="edit-contact-box">
+						<div class="edit-contact-nav-list">
+							<span onclick="FriendCustomObject.switchDivShowOrHide('all')"></span>
+							<input name="" type="checkbox" value="" onclick="FriendCustomObject.selectedAllFriend(this,'#all')"> 
+							<strong>全部好友</strong> 
+						</div>
+						<ul class="edit-contact-list">
+																							
+						</ul>
+					</div>	
+				</div>				
+				<div id="selected" class="keep-bar drag-countdown">
+					<ul>
+							
+					</ul>
+					<span><a  id="go2save" href="#">保存</a></span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="oneCustomObjectTemp" style="display:none">
+    <li>
+		<a href="#">
+			<input name="" type="checkbox" value="" ok="no"> 						
+			<img src="images/drag.jpg">
+			<p>有希望(小D)</p>
+		</a>
+	</li>	
+</div>
+
+<div id="selectedFriendTemp" style="display:none">
+    <li>
+		<a href="#" title="" onclick="" onmouseenter="">
+		    <img src="">
+		 </a>		
+		<!--当鼠标放上时出现-->				
+		<p style="display:none"><a href="#" title="删除"><img src="$dragImgPath/delete-ico.png"></a></p>
+	</li>
+</div>

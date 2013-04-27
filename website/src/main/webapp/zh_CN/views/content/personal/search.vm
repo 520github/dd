@@ -1,0 +1,179 @@
+<div id="select">
+      <div class="select-title">
+		<h4>
+		   #if($menuType == "favorite")
+		              我的最爱  
+		   #elseif($menuType == "later")
+		     $springMacroRequestContext.getMessage("later")
+		   #elseif($menuType == "read")
+		     $springMacroRequestContext.getMessage("read")  
+		   #elseif($menuType == "friend")
+		     $springMacroRequestContext.getMessage("friendIntroduction")  
+		   #elseif($menuType == "all")
+		              全部
+		   #elseif($menuType == "unread")
+		              所有未读
+		   #elseif($menuType == "myrecommend")
+		             我的分享
+		   #elseif($menuType == "weibo")
+		             微博收藏
+		   #elseif($menuType == "renren")
+		             人人网收藏
+		   #elseif($menuType == "upload")
+		             电脑文件上传
+		   #elseif($menuType == "productwish")
+		             心愿单
+		   #elseif($menuType == "public")
+		             随便看看
+		   #elseif($menuType == "weixinpublic")
+		             微信
+		   #end
+		   
+		   #if($menuType != "read")
+		   (
+		   #end
+		   <span id="numCount"></span>
+		   #if($menuType != "read")
+		   ) 
+		   #end
+		</h4>
+		<span></span> 
+      </div>
+		
+		#if($menuType == "read")
+		   <div class="check-box">
+			<ul>
+				<li class="check-box-press-l"><a href="javascript:queryReadCond('',this)"  >看过的</a></li>
+				<li ><a href="javascript:queryReadCond('My_Recommend',this)" >我推荐的</a></li>
+				<!--
+				<li class=""><a onclick="queryReadCond('My_Comment',this)">我评论的</a></li>
+				-->
+			</ul>
+           </div>
+		#end
+		
+		#if($menuType != "read")
+		<div class="cssmenu">
+			<ul>
+			    #if($menuType != "read")
+				<li id="contentTypeId" class="active ">
+				    <a href="#"><span>$springMacroRequestContext.getMessage("contentType")</span></a>
+					<ul>
+						<li><a href="javascript:queryContentType('','全部');"><span>全部</span></a></li>
+						<li><a href="javascript:queryContentType('Type_Web','网页')"><span>网页</span></a></li>
+						<li><a href="javascript:queryContentType('Type_HtmlClip','文摘')"><span>文摘</span></a></li>
+						<li><a href="javascript:queryContentType('Type_Image','图片')"><span>图片</span></a></li>
+						<li><a href="javascript:queryContentType('Type_Product','商品')"><span>商品</span></a></li>
+						<li><a href="javascript:queryContentType('Type_Video','视频')"><span>视频</span></a></li>
+					</ul>
+				</li>
+				#end
+				#if($menuType != "friend" && $menuType != "read")
+				<li id="contentSourceId" class="active-2">
+				    <a href="#"><span>$springMacroRequestContext.getMessage("contentSource")</span></a>
+					<ul>
+						<li><a href="javascript:queryContentSource('','全部来源')"><span>全部来源</span></a></li>
+						<li><a href="javascript:queryContentSource('Source_Plugin','来自多多插件')"><span>来自插件</span></a></li>					
+						#if($menuType != "later")
+						    <li><a href="javascript:queryContentSource('Source_Friend','来自好友推荐')"><span>来自好友分享</span></a></li>
+						#end
+						<!--
+						<li><a href="javascript:queryContentSource('Source_Mail','来自邮件收集')"><span>来自邮件收集</span></a></li>
+						<li><a href="javascript:queryContentSource('Source_Square','来自广场')"><span>来自广场</span></a></li>
+						<li><a href="javascript:queryContentSource('Source_Subscription','来自达人分享')"><span>来自达人分享</span></a></li>
+						-->
+					</ul>
+				</li>
+				#end
+				#if($menuType == "favorite")
+				<li id="editTagId" class="active-4" style="display:none">
+				  <a href="#"><span>$springMacroRequestContext.getMessage("tag")</span></a>
+        		  <ul>
+        		  </ul>
+                </li>
+				#end
+				#if($menuType == "friend")
+				<li class="active-2" style="display:none">
+				    <a href="javascript:void(0)"><span>$springMacroRequestContext.getMessage("friendList")</span></a>
+					<ul id="friends">
+					</ul>
+				</li>
+				<li id="editTagId" class="active-4" style="display:none">
+				   <a href="#"><span>$springMacroRequestContext.getMessage("tag")</span></a>
+        		   <ul>
+        		   </ul>
+				</li>
+				#end
+				
+				<!--				
+				<li id="sortTypeId" class="active-2">
+				    <a href="#"><span>排序</span></a>
+					<ul>
+						<li><a href="javascript:switchSortType('timeline','$springMacroRequestContext.getMessage("sortTime")')"><span>$springMacroRequestContext.getMessage("sortTime")</span></a></li>
+						<li><a href="javascript:switchSortType('comment','$springMacroRequestContext.getMessage("sortComment")')"><span>$springMacroRequestContext.getMessage("sortComment")</span></a></li>
+						<li><a href="javascript:switchSortType('visit','$springMacroRequestContext.getMessage("sortVisit")')"><span>$springMacroRequestContext.getMessage("sortVisit")</span></a></li>
+						<li><a href="javascript:switchSortType('share','$springMacroRequestContext.getMessage("sortShare")')"><span>$springMacroRequestContext.getMessage("sortShare")</span></a></li>
+						<li><a href="javascript:switchSortType('collect','$springMacroRequestContext.getMessage("sortCollent")')"><span>$springMacroRequestContext.getMessage("sortCollent")</span></a></li>
+					</ul>
+				</li>
+				-->
+				
+				
+			
+			</ul>
+		</div>
+	   #end
+	<!--查找内容和标签-->
+		<div class="find">
+		<!--
+			<form id="search">
+		-->
+		   <form onsubmit="getDataList('refresh');return false;" id="search" >
+		        <input type="hidden" name="userRole" value="" />
+			    <input type="hidden" name="currentPage" value="1"  />
+				<input type="hidden" name="itemsPerPage" value="200"  />
+				<input type="hidden" name="isLastPage" value="false"  />
+				<input type="hidden" name="contentType"  />
+				<input type="hidden" name="contentSource"  />
+				<input type="hidden" name="indexType" value="1" />				    
+				<input type="hidden" name="userTag"  />
+				<input type="hidden" name="tag"  />
+				<input type="hidden" name="token" value="$token" />
+				<input type="hidden" name="menuType" value="$!menuType" />
+				<input type="hidden" name="offset" value="0"  />
+				<input type="hidden" name="limit" value="20"  />
+				<input type="hidden" name="scroll" value="true"  />
+				<input type="hidden" name="sortType" value="timeline"  />
+				<input type="hidden" name="showType" value="H"  />
+				<input type="hidden" name="friendFilter" value="$!friendId"  />
+				<input type="hidden" name="myUseTag" value="$!myUseTag"  />	
+				<input type="hidden" name="readCond" />		
+				<input type="hidden" name="loadNum" value="0"/>
+				<input type="hidden" name="isFirstLogin" value="$!isFirstLogin"/>		
+				<!--
+				排序方式：时间&nbsp;&nbsp;&nbsp;
+				-->
+				<input name="keyword" type="text" size="40" placeholder="" >
+			</form>
+			<span class="right button-find">
+			    <button onclick="getDataList('refresh')">
+					<img src="/zh_CN/images/pic-2_03.png" alt="">
+				</button>
+			</span>
+			<!--
+			</form>
+			-->
+		</div>
+
+		<!--点击切换 横屏 和竖屏按钮-->
+		<!--
+		<div class="anyway">
+			<ul>
+				<li class="vertical-pic vertical-pic-jump"><a href="javascript:switchShowType('V')" title="竖屏">竖屏按钮</a></li>
+				<li class="transverse-pic transverse-pic-jump "><a href="javascript:switchShowType('H')" title="横屏">横屏按钮</a></li>
+
+				</ul>
+		</div>
+		-->
+
+</div>

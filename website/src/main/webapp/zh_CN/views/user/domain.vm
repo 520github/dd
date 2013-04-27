@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="/zh_CN/css/register.css" />
+<link rel="stylesheet" href="/zh_CN/css/header.css" />
+<link rel="stylesheet" href="/zh_CN/css/main.css" />
+<script src="/zh_CN/js/web/jquery/jquery.js"></script>
+<script src="/zh_CN/js/web/jquery/jquery.blockUI.js"></script>
+<script src="/zh_CN/js/web/jquery/jquery.form.js"></script>
+<script src="/zh_CN/js/web/domain.js"></script>
+<title>设置二级域名</title>
+</head>
+
+<body>
+<div id="header">
+	<div class="header-center">
+		<div class="logo">
+			<img src="/zh_CN/images/logo.png" alt="" />
+		</div>
+	</div>
+</div>
+
+<div id="stage" class="single single-1">
+	<div id="container" class="set-up">
+		<div class="set-up-top">
+			<img src="/zh_CN/images/pic5.gif" alt="" />
+			<ul>
+			     #if($accountType=='TwoCoffeeEmail')
+         		<li>邮箱验证成功！</li>
+				<li>
+					<p class="left-set">你注册的帐号为</p>
+					<p class="right-set">$!loginName</p>
+				</li>
+       			#elseif($accountType=='TwoCoffeeMobile')
+        		<li>手机验证成功！</li>
+				<li>
+					<p class="left-set">你注册的帐号为</p>
+					<p class="right-set">$!loginName</p>
+				</li>
+				#else 
+				<li>身份验证成功！</li>
+       			#end
+				
+				<li>
+					<p class="left-set">你的昵称为</p>
+					<p class="right-set">$nickName</p>
+				</li>
+			</ul>
+		</div>
+	
+		<div class="set-up-top set-up-top-1">
+			<img src="/zh_CN/images/pic-6.gif" alt="" />
+			<ul>
+				<li>希望拥有个性化的首页地址么？</li>
+				<li>抢先设置自己的个性域名，让朋友更容易记住！（默认填写为你的邮箱前缀）</li>
+		</ul>
+		</div>
+		<form id="regForm" name="regForm" action="/account/default/domain" method="post" >
+		<div class="set-up-text">
+			<h2>设置个性化域名：</h2>
+			<ul>
+				<li class="set-list-1">
+					<p class="set-list-text"><input type="text" id="domain"  name="domain" value="$!dm">.mduoduo.com</p>
+					<p id="msgDm" class="set-up-text-remind">请使用长度为4~20的数字、字母，支持点和下划线。</p>
+				</li>
+				<li class="set-list-2">
+					<p class="set-list-2b">同时，我们将为你分配一个对应的多多邮箱：</p>
+					<p class="set-up-text-remind"><input type="text" id="email" name="email" value="$!dm">@$!mailSuffix</p>
+					<p id="msgEmail"></p>
+				</li>
+				<li class="set-list-3">
+					<p><input name="" type="image" src="/zh_CN/images/confirm.png" /></p>
+					<p  class="set-up-text-remind">以后可以通过积分对二级域名、多多邮箱进行修改。</p>
+				</li>
+			</ul>
+		</div>
+		</form>
+		<div class="set-up-right">
+			 <h3>多多邮箱可以做什么？</h3>
+			 <span>
+				拥有多多邮箱即可在任何地方，通过与多多绑定的邮箱将你感兴趣的内容收藏到我的。将你喜欢的内容通过邮件发到好友的多多邮箱中。让分享无处不在！
+				<img src="/zh_CN/images/pic-7.gif" alt="" />
+				<a href="#">查看多多邮箱使用帮助</a>
+			 </span>
+		</div>	
+	</div>
+	
+
+</div>
+</body>
+</html>

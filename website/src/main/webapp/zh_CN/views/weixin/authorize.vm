@@ -1,0 +1,25 @@
+#parse("/zh_CN/views/template/prefix.vm" )
+<head>
+    #set($browserTitle="微信公共帐号重新绑定")
+	#parse("/zh_CN/views/weixin/meta_include.vm" )
+</head>
+#parse("/zh_CN/views/weixin/head.vm" )	
+	<div id="content">
+		<div class="div-a">
+			<strong class="strong-text">你已经授权“多多收藏”访问你的帐号</strong>
+		</div>
+	
+		<div class="div-b div-c">
+				<span>$!name</span><a href="javascript:void(0)">（不是你本人？）</a>			
+				
+		</div>
+	
+		<div class="div-d">
+			<a class="determine-btn" href="/weixin/login/$!id">重新授权</a>
+			<!--
+			<a class="determine-btn cancel-btn" href="javascript:window.close();">取消访问</a>
+			-->
+		</div>
+	</div>
+</body>
+</html>

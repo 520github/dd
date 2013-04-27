@@ -1,0 +1,133 @@
+#parse("/zh_CN/views/template/prefix.vm" )
+<head>
+    #set($browserTitle="多多-商务合作")
+	#parse("/zh_CN/views/template/meta_include.vm" )
+	<script>
+function display(id){
+	document.getElementById("feedback").style.display="none";
+	document.getElementById("contact").style.display="none";
+	document.getElementById("business").style.display="none";
+	document.getElementById("development").style.display="none";
+	document.getElementById("media").style.display="none";
+	//document.getElementById("company").style.display="none";
+	document.getElementById(id).style.display="";
+}
+</script>
+</head>	
+
+#parse("/zh_CN/views/head.vm" )
+
+<div  id="stage" class="about-us contact">
+		<div class="left contact-left">
+			<h2 class="title">
+				联系我们
+			</h2>
+			<ul>
+				<li><a href="javascript:display('feedback')">用户反馈</a></li>
+				<li><a href="javascript:display('contact')"">客服联络</a></li>
+				<li><a href="javascript:display('business')"">商务合作</a></li>
+				<li><a href="javascript:display('development')"">开发者合作</a></li>
+				<li><a href="javascript:display('media')"">媒体合作</a></li>
+				<!--
+				<li><a href="javascript:display('company')"">公司信息</a></li>
+				-->
+			</ul>
+		</div>	
+		<div class="right contact-right">
+			<div class="banner">
+				<img src="/zh_CN/images/contact.jpg" alt="联系我们" />
+			</div>
+			<div class="real-wrap" id="feedback" style="">
+				<h2>
+					用户反馈 
+				</h2>			
+				<p>我们珍视您提出的每一个关于产品意见，无论尖锐也好，<br/>
+						常见也罢，<br/>
+						我们都心怀感激。<br/>
+						<br/>
+						诚挚的感谢您分享多多的看法，有您的参与我们将会变得更加完善,请直接用微信和邮箱与我们联络。<br/>
+						<br/>
+				</p>
+				<ol>
+					<li class="title">微信帐号:</li>
+					<li><img src="$!imgPath/ray.png" alt="二维码微信">2323857</li>
+					<li><img src="$!imgPath/duoduosandy.png" alt="二维码微信">duoduosandy  </li>
+				</ol>
+			</div>
+			<!--客服联络-->
+			<div class="real-wrap" id="contact" style="display:none;">
+				<h2>
+					客服联络 
+				</h2>			
+				<p>欢迎来我们的微博逛逛，微博小编会快速消除您的疑问，期待您的关注留言，期待您的互动参与。<br/>
+				如果您有急事联络，请直接来我们的QQ或者微信留言吧，客服人员会及时解答。<br /><br />
+				新浪微博：<a href="http://weibo.com/duoduofenxiang" target="_blank">多多-分享</a><br />
+				腾讯微博：<a href="http://t.qq.com/duoduoshare" target="_blank">多多分享</a><br />				
+                QQ帐号： 2308854559<br />                                           
+                                          客服电话： 010-85862671<br />
+                                          客服邮箱：help@imduoduo.com
+                </p>
+                <ol>
+					<li class="title">微信帐号:</li>
+					<li><img src="$!imgPath/QR-share.png" alt="二维码微信">duoduofenxiang </li>
+				</ol>
+			</div>
+			<!--商务合作-->
+			<div class="real-wrap" id="business" style="display:none;">
+				<h2>
+					商务合作 
+				</h2>			
+				<p>多多期待与各类网站建立合作，我们可以帮助将您的网站内容社交化、移动化，给用户带来全新阅读体验。<br />
+				也欢迎互联网产品与我们接洽，希望与您共同探讨合作方式。<br/><br />联系人：王小姐<br />
+联络电话：13910837072<br />
+联络邮箱：wen.wang@imduoduo.com
+</p>
+			</div>
+			<!--开发者合作-->
+			<div class="real-wrap" id="development" style="display:none;">
+				<h2>
+					开发者合作 
+				</h2>			
+				<p>多多对产品内有“分享需求”的移动开发者敞开怀抱，欢迎与我们联络洽谈产品接口合作，多多将给您的用户带来更优的分享体验。<br/><br/>
+				联系人：王小姐<br />
+联络电话：13910837072<br />
+联络邮箱：wen.wang@imduoduo.com
+</p>
+			</div>
+			<!--媒体合作-->
+			<div class="real-wrap" id="media" style="display:none;">
+				<h2>
+					媒体合作 
+				</h2>			
+				<p>欢迎对多多充满兴趣的媒体朋友与我们联络，希望能够在第一时间为您提供，新鲜的多多新闻资讯。
+				<br/><br/>联系人：肖小姐<br />
+联络电话：13552916066<br />
+联络邮箱：saihua.xiao@imduoduo.com
+</p>
+			</div>
+			<!--公司信息-->
+			<!--
+			<div class="real-wrap" id="company" style="display:none;">
+				<h2>
+					公司信息 
+				</h2>			
+				<p>公司名称：巴别塔（北京）科技有限公司<br />
+公司电话：010-65958882<br />
+公司传真：010-87754142
+</p>
+<p>公司地址<br />
+北京总部: 北京朝阳区工人体育场东路20号百富大厦A座25层<br />     
+上海办公室: 上海天山路600弄2号捷运大厦20F<br />
+成都办公室: 成都二环路北一段万科加州湾V派商务空间505室</p>
+<p>我们的总部在这里：</p>
+<p><img src="/zh_CN/images/pic7.jpg" /></p>
+			</div>
+			-->
+			<div class="bottom-area-pic">
+			</div>
+		</div>
+		
+	</div>
+
+
+#parse("/zh_CN/views/template/footer.vm" )

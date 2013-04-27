@@ -1,0 +1,7 @@
+#parse("/zh_CN/views/template/footer.vm" )
+<!--中间气球-->
+<div class="footer-pic">
+	<span></span>	
+</div>
+</body>
+</html>

@@ -1,0 +1,105 @@
+#parse("/zh_CN/views/template/prefix.vm" ) 
+<head> 
+        #set($browserTitle="第三方帐号管理")
+        #parse("/zh_CN/views/template/meta_include.vm" ) 
+		<script src="/zh_CN/js/web/user/thirdparty_manage.js"></script>
+		<script src="/zh_CN/js/popup.js"></script>
+</head> 
+
+
+<body>
+<script type="text/javascript"> var head_icon_change_id='menu-file-set';</script>
+#parse("/zh_CN/views/head.vm" )
+<div id="stage" class="left-right">
+	<!--左边-->
+#parse("/zh_CN/views/user/user_left.vm" )
+<script>var left_li_focus="left_li_4";</script>
+
+<!--right-->
+		<div id="container" class="friend-list add-friend third-party">
+			<!--选择-->
+			<div id="select">
+				<!--标题-->
+				<div class="select-title">
+				<h4>
+					第三方帐号管理
+				</h4>	
+				<span></span> 
+				</div>
+			</div>
+				<!--横屏 排列-->
+				<div class="transverse">
+				
+			        <!--  第三方 新浪微博 -->
+			        <div class="panel friend-content">
+						<div class="title">
+							<h1 class="title-registration size16 lh60 weight9">新浪微博帐号管理</h1> 
+						</div>
+						
+						<!--导语-->
+						<div class="lead">
+							<h2 class="title-deputy size14 lh24 color2">绑定新浪微博，你可以添加新浪微博的互粉好友为多多好友，这会使得分享更方便，同时绑定微博可以将微博的内容导入进来永久保存，即使原文删除，仍然可以在这里查看。</h2> 
+						</div>
+						
+						<!--互粉好友 添加-->
+						<div class="sina-weibo">
+							#if($thirdPartyProfileWeibo.bind=="true")	
+								<div class="title-weibo">
+									<h2 class="sina-weibo-logo"><img src="/images/sina-weibo-logo.png"  width="80%" alt="新浪微博"  /></h2>
+									<span id="unbindweibo" class="rt"><a href="javascript:unbindweibo();" class="lh30 color8">取消绑定</a></span>
+									<span id="bindweibo" class="rt" style="display:none"><a href="javascript:auth('$token')" class="lh30 color8 cancel">绑定微博</a></span>
+								</div>
+									<input type="hidden" id="syncContent" value="$thirdPartyProfileWeibo.syncContent">
+								#if($thirdPartyProfileWeibo.syncContent=="true")	
+									<div id="cclosesync" class="sina-management">
+										<p class="lt lh25"><strong class="color2 size14">管理微博收藏同步功能,</strong><br/>你已开启了微博收藏同步功能，微博收藏内容将自动导入多多收藏中，导入后可以永久保存。</p>
+										<span class="rt">
+										<a href="javascript:setSyncStatus();" class="close">关 闭</a>
+										</span>
+									</div>
+									<div id="oopensync" class="sina-management" style="display:none">
+										<p class="lt lh25"><strong class="color2 size14">管理微博收藏同步功能,</strong><br/>你已关闭了微博收藏同步功能，如需要导入微博收藏内容，请将此功能设置为"开启"</p>
+										<span class="rt">
+										<a href="javascript:setSyncStatus();" class="open">开 启</a>
+										</span>
+									</div>
+								#else
+									<div id="cclosesync" class="sina-management" style="display:none">
+										<p class="lt lh25"><strong class="color2 size14">管理微博收藏同步功能,</strong><br/>你已开启了微博收藏同步功能，微博收藏内容将自动导入多多收藏中，导入后可以永久保存。</p>
+										<span class="rt">
+										<a href="javascript:setSyncStatus();" class="close">关 闭</a>
+										</span>
+									</div>
+									<div id="oopensync" class="sina-management">
+										<p class="lt lh25"><strong class="color2 size14">管理微博收藏同步功能,</strong><br/>你已关闭了微博收藏同步功能，如需要导入微博收藏内容，请将此功能设置为"开启"</p>
+										<span class="rt">
+										<a href="javascript:setSyncStatus();" class="open">开 启</a>
+										</span>
+									</div>
+								#end
+							#else	
+								<div class="title-weibo">
+									<h2 class="sina-weibo-logo"><img src="/images/sina-weibo-logo.png" alt="新浪微博"  /></h2>
+									#if($account.accountType == "Weibo")
+										<span id="unbindweibo" class="rt"  style="display:none"><a href="javascript:unbindweibo();" class="lh30 color8">取消绑定</a></span>
+									#end
+									<span id="bindweibo" class="rt"><a href="javascript:auth('$token');" class="lh30 color8 cancel">绑定微博</a></span>
+								</div>
+							#end
+							
+						</div>							
+					</div>
+					<!--  end of 第三方 新浪微博-->
+					
+					<!--   add other thirdparty-->
+					
+					
+					
+			    </div>
+			
+		</div>
+	</div>	
+	
+</div>	
+
+#parse("/zh_CN/views/template/footer.vm" ) 

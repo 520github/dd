@@ -1,0 +1,15 @@
+<!--
+<script type="text/javascript" >
+   var remark = "";
+   jQuery(document).ready(function() {
+       var browser = getBrowser();
+       remark = getBookRemark(browser);
+   });
+</script>
+<a onclick="alert(remark);return false;" href="javascript:void((function(){if(document.getElementsByTagName('body').length<=0){document.createElement('body');}if(!document.getElementById('ddAutoClip')){var i=!/*@cc_on!@*/0?document.createElement('input'):document.createElement('<input/>');i.type='hidden';i.id = 'ddAutoClip';i.value='true';document.body.appendChild(i);}else{document.getElementById('ddAutoClip').value='true';}var%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://$!domainName/js/clipper/bookmark.js?r='+Math.random()*99999999);document.body.appendChild(e)})());">
+	+ 多多 +
+</a>
+-->
+<a onclick="return false;" href="javascript:void((function(){var httpType='http';var webUrl=window.location.href;if(webUrl.indexOf(':')>-1){httpType=webUrl.substring(0,webUrl.indexOf(':'));};if(document.getElementsByTagName('body').length<=0){document.createElement('body');}if(!document.getElementById('ddAutoClip')){var i=document.createElement('input');i.type='hidden';i.id = 'ddAutoClip';i.value='true';document.body.appendChild(i);}else{document.getElementById('ddAutoClip').value='true';}var%20e=document.createElement('script');e.id='ddClipScript';e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src',httpType+'://$!domainName/js/clipper/bookmark.js?r='+Math.random()*99999999);document.body.appendChild(e)})());">
+	+采集到多多+
+</a>

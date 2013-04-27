@@ -1,0 +1,167 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="/zh_CN/css/main.css">
+<link rel="stylesheet" href="/zh_CN/css/head.css" />
+<script type="text/javascript" src="/zh_CN/js/web/jquery/jquery.js"></script>
+<script type="text/javascript">
+jQuery(document).ready(function() {
+    setUserBase();
+});
+
+function reRemove() {//暂时未用
+   if(jQuery(".header-1").length > 0 
+        && jQuery(".header-2").length > 0) {
+        var html = jQuery(".user-name span a").html();
+        if(html.indexOf(">")+1 >= html.length) {
+            jQuery(".header-1").remove();
+        }
+        else {
+            jQuery(".header-2").remove();
+        }
+    }
+}
+
+//设置用户基本信息
+function setUserBase() {
+    var token = {"Authorization":"AuthToken "+getToken()};
+    jQuery.ajax({
+        url:"/account/default?r="+(Math.random()*99999999),
+        type:"get",
+        dataType:"json",
+        headers:token,
+	    success:function(resp) {
+	        jQuery(".header-2").remove();
+	        jQuery(".header-1").show();
+	        var domain = "/"+resp.accountName;
+	        domain = "/" + resp.id;
+	        var photo = resp.smallPhotoUrl;
+	        var name = resp.name;
+	   
+	       /*  jQuery(".user-name span a").attr("href",domain);
+	        jQuery(".user-name span a img").attr("src",photo); */
+
+	        jQuery("#accountMsg a").attr("href","http://www.xxxxxx.com/"+resp.id);
+	        jQuery("#accountMsg a img").attr("src",photo);
+	        var html = jQuery(".user-name span a").html();
+	        
+	        var index = html.lastIndexOf(">");
+	        if(index > -1)html = html.substring(0,index+1);
+	        html = html + name;
+	        jQuery(".user-name span a").html(html);
+	    },
+	    complete:function(XMLHttpRequest,textStatus) {
+	        if(XMLHttpRequest.status!=200) {
+	            jQuery(".header-1").remove();
+	            jQuery(".header-2").show();
+	        }
+        }
+	         
+    });
+}
+//获取token
+function getToken() {
+    var cookValue = document.cookie;
+    var name = "authToken=";
+    var start = getCookieStart(name);
+    if(start < 0)return "";
+    start = start + name.length;
+    var end  = getCookieEnd(name);
+    
+    cookValue = unescape(cookValue.substring(start,end));
+    return cookValue;
+}
+
+function getCookieStart(name) {
+    return document.cookie.indexOf(name);
+}
+
+function getCookieEnd(name) {
+    var start = getCookieStart(name);
+    start = start + name.length;
+    var end = document.cookie.indexOf(";",start);
+    if(end ==-1)end = document.cookie.length;
+    return end;
+}
+
+function logout() {
+    document.cookie = "authToken=;expire=0;domain=.mduoduo.com;path=/";
+    var target = '';
+    if(target !="") {
+       parent.location.href = "/";
+    }
+    else {
+        location.href = "/";
+    } 
+}
+</script>
+<div id="header" class="header-2" style="display:none">
+  <div class="backdrop-top">
+		
+	</div>
+	<div class="header-center">
+		<div class="logo">
+			<a href="#"><img src="/zh_CN/images/logo-index.png" alt="多多 - 一杯收藏一杯分享"></a>
+		</div>
+		
+		<!--点击注册 和 app 登录-->
+		<div class="button-jump">
+			<span class="jump-app"><a href="/account/default/login">会员登录</a></span>
+			<span class="jump-app-register"><a href="/account/default/register/">注册</a></span>
+		</div>			
+		
+		<ul id="nav">
+			<li id="home"><a href="/">首页</a></li>
+			<li id="nav-download"><a href="/about/tools">下载 </a></li>
+			<li id="nav-help"><a href="/help/us">帮助</a></li>
+		</ul>
+
+	</div>
+</div>
+
+<div id="header" class="header-1" style="display:none">
+    <input type="hidden" name="type" value="home"/>
+	<div class="header-1-r">
+		<!--点击插件 和 app 跳转-->
+		<div class="button-jump">
+			<span class="jump-plug-in"><a href="/about/plugtool" >插件</a></span>
+			<span class="jump-app"><a href="/about/tools" >APP</a></span>
+			<!--
+			<span class="jump-on"><a href="/about/us" >关于</a></span>
+			-->
+			<span class="jump-help"><a href="/help/us" >帮助</a></span>
+		</div>
+		<!--用户姓名-->
+		<div class="user-name">
+		    <span id="accountMsg">
+			    <a href=""><img src="" /></a>
+			</span>
+			<p>
+				<a href="http://www.xxxxxx.com/account/default/login" >切换帐号</a>
+				<a href="javascript:logout()" >退 出</a>
+			</p>
+</div>		
+	</div>
+
+    <div style="height:10px; clear:both; overflow:hidden; margin:0 auto;"></div>
+	<div class="header-center header-center-1">
+		<div class="logo">
+			<a href="/" ><img src="/zh_CN/images/logo-2.png" /></a>
+		</div>
+		<ul>
+			<li id="menu-news"><a href="/message/private/session/view" title="纸条" >纸条</a></li>
+			<li id="menu-friend"><a href="/friend" title="好友" >好友</a></li>			
+			<li id="menu-file-set"><a href="/account/user/information" title="我" >我</a></li>
+			<li id="home-1"><a href="/" title="今日新饮">今日新饮</a></li>
+		</ul>
+	</div>
+
+	<!--弹出小窗口-->
+	<div class="window">
+		<div class="pop-up-window">
+		<!--关闭按钮-->
+		<p><a href="#" onclick="closePopup();">×</a></p>
+			<ul>
+			</ul>
+		</div>
+	</div>
+</div>
+<div style="height:40px; clear:both; overflow:hidden; margin:0 auto;"></div>

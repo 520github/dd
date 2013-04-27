@@ -1,0 +1,137 @@
+#parse("/zh_CN/views/template/prefix.vm" ) 
+<head>
+#set($browserTitle="微博好友")
+#parse("/zh_CN/views/template/meta_include.vm" ) 
+<script src="/js/message.js"></script>
+<script src="/js/friend.js"></script>
+<script src="/zh_CN/js/web/thirdFriendMatch.js"></script>
+<script src="/js/jquery.tinyscrollbar.min.js"></script>
+<script type="text/javascript">
+		$(document).ready(function(){
+			//Example 1
+			var oScroll1 = $('#scrollbar1');
+			if(oScroll1.length > 0){
+				oScroll1.tinyscrollbar();
+			}
+
+			//Other stuff
+			var oCon = document.getElementById('mcon');
+			if(oCon ){
+				var oLink = document.createElement('a');
+				var oText = document.createTextNode("Click here for my email."); 
+				var sParts = ['ma','ilto:wie','ringen','@gm','ail.com'];
+				oLink.href = sParts[0]+sParts[1]+sParts[2]+sParts[3]+sParts[4];
+				oCon.appendChild(oLink);
+				oLink.appendChild(oText);
+			}
+		});
+		</script>
+
+</head>
+<body>
+#parse("/zh_CN/views/head.vm")
+<div id="stage" class="left-right">
+	<!--左边-->
+	#set($leftTitle="微博好友")
+	#parse("/zh_CN/views/friend/friend_left.vm" )
+	
+	<div id="container" class="friend-list add-friend">
+    <!--选择-->
+    <div id="select">
+        <!--标题-->
+        <div class="select-title">
+            <h4>添加好友</h4>
+            <span></span>
+		</div>
+    </div>
+    <!--横屏 排列-->
+    <div class="transverse">
+        <div class="panel friend-content">
+			<div class="title">
+			#if($bind) 
+				<h1 class="title-registration size16 lh60 weight9"><img src="/images/sina-pic.png" alt="" />新浪微博</h1> 
+			#else
+				<h1 class="title-registration size16 lh60 weight9">从新浪微博互粉好友中添加好友</h1>
+			#end
+			</div>
+			<!--导语-->
+			<div class="lead">
+			#if($bind) 
+				<h2 class="title-deputy size14 lh24 color2">添加好友后，您可以收到好友分享的有趣东东，也可以把自己发现的分享给好友。</h2> 
+			#else
+				<h2 class="title-deputy size14 lh24 color2">添加好友后,您可以收到好友分享的有趣东东,也可以把自己发现的分享给好友.</h2>
+				<span><a href="javascript:auth('$token')"><img alt="" src="/images/loginsina.gif"></a></span>
+			#end
+			</div>
+			#if($bind) 
+			<!--互粉好友 添加-->
+			<div id="scrollbar1" class="fans-content scrollbar-list add-fans-content">
+				<div class="fans-people viewport">
+				<div class="scrollbar">
+                    <div class="track">
+                        <div class="thumb">
+                            <div class="end"></div>
+                        </div>
+                    </div>
+                </div>
+					<div class="overview">
+
+					<!--提示标题-->
+					<div class="fans-list">
+						 <h2 class="lh35 weight9 size14">已在多多的微博互粉好友 <span>（${duoduoContacts.size()}人）</span></h2>
+						 <ul class="list">
+						 #if($duoduoContacts&&$duoduoContacts.size()>0)
+					     #foreach ($contact in $duoduoContacts)
+					 	<li class="weight9">
+							<a href="/$!contact.account.id"><img src="$!contact.account.avatar.large" alt="" /></a>
+							<span class="lh30" title="$!contact.account.name">
+							    <a href="/$!contact.account.id">$text.subString($!contact.account.name, 10, 3)</a>
+							</span>
+							<!--当鼠标经过时出现 <b></b>-->
+							<b><a href="javaScript:showDialog('$!contact.account.id','$!contact.account.name')" class="add-btn size14 lh28">添 加</a></b>
+						</li>
+						#end
+						#end
+						 </ul>
+					</div>
+					<!--提示标题-->
+					<div class="fans-list">
+						 <h2 class="lh35 weight9 size14">还不在多多的微博互粉好友 <span>（${notDuoduoContacts.size()}人）</span> </h2>
+						 <ul class="list">
+						 #if($notDuoduoContacts&&$notDuoduoContacts.size()>0)
+					     #foreach ($contact in $notDuoduoContacts)
+					 	<li class="weight9">
+							<a href="#"><img src="$!contact.avatar" alt="" /></a>
+							<span class="lh30">
+							    <a href="#" title="$!contact.name">$text.subString($!contact.name, 10, 3)</a>
+							</span>
+							<!--当鼠标经过时出现 <b></b>-->
+							<b><a href="javaScript:inviteFriend('$!token', '$!contact.name')" class="add-btn size14 lh28">邀请</a></b>
+						</li>
+						 #end
+					     #end
+						 </ul>
+					</div>
+					</div>
+				</div>
+			</div>
+			#end
+		</div>
+    </div>
+</div>
+</div>
+<div id="invite"  style="display:none;">
+<div id="pop-up" class="pop-up-later pop-up-playing-tag pop-up-add sina-friends display:none">
+    <h2> 邀请新浪微博互粉好友 </h2>
+    <div class="text-box">
+        <textarea rows="" cols="" id="inviteMessage" name="inviteMessage"></textarea>
+    </div>
+	<div class="count" id="message_size">
+		98/120
+	</div>
+    <div class="r-frien-button"> <a class="ignore" href="javascript:layer_close()" >取消</a> <a class="friends-btn" href="javascript:sendInvite()">发送邀请</a> </div>
+</div>
+</div>
+#parse("/zh_CN/views/user/addFriendView.vm" )
+<input id="isPoll" type="hidden" value="false">
+#parse("/zh_CN/views/template/footer.vm" )

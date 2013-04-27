@@ -1,0 +1,76 @@
+.register{
+	background:url(../images1/tologin/register-back.png) repeat-x;
+}
+
+#register{  width:826px;  height:496px; 
+	min-height:80%; 
+	background: #ffffff; /* Old browsers */
+	background: -moz-linear-gradient(top,  #ffffff 38%, #f7f7f7 99%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(38%,#ffffff), color-stop(99%,#f7f7f7)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #ffffff 38%,#f7f7f7 99%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #ffffff 38%,#f7f7f7 99%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #ffffff 38%,#f7f7f7 99%); /* IE10+ */
+	background: linear-gradient(to bottom,  #ffffff 38%,#f7f7f7 99%); /* W3C */
+	padding:20px 45px; 
+}
+#register h2{
+	display:block;
+	margin:10px 0;
+}
+
+.lt-register {
+	width:331px; background:url(../images1/tologin/img-3.png) right top no-repeat;
+	padding-left:24px;
+	height:335px;
+}
+.deputy-title{
+	display:block;  margin:10px 0 15px 0;
+}
+.lt-register ul li{ margin:0 0 18px 0px;}
+.lt-register ul li a, .agreement input[type=submit]{
+	 background:url(../images1/btn/register-btn.png) no-repeat; overflow:hidden; display:block; text-indent:-9999px;
+}
+.lt-register ul li a{
+	width:245px; height:44px; 
+}
+
+.lt-register ul .sina-webo-icon a{
+	background-position:-4px -3px;
+}
+/* .lt-register ul .qq-webo-icon a{
+	background-position:-4px -50px;
+} */
+.lt-register ul .qq-webo-icon a{
+	background-position:-4px -195px;
+}
+/* .lt-register ul .renren-webo-icon a{
+	background-position:-4px -98px;
+} */
+.lt-register ul .renren-webo-icon a{
+	background-position:-4px -246px;
+}
+
+
+.rt-register{ width:400px;}
+
+.rt-register ul li { margin-bottom:5px;}
+.rt-register ul li span{
+	color:#999; width:60px; line-height:36px; display:inline-block;
+}
+.rt-register ul li input[type=text], .rt-register ul li input[type=password] {
+	width:268px;
+}
+.rt-register ul .an-error {
+	color:#F06C06;
+	line-height:20px; margin-bottom:0; padding-left:60px; font-size:12px;
+}
+.agreement{margin:10px 0 0 60px; }
+.agreement input[type=submit]{
+	width:175px; height:45px; background-position:-4px -150px;   
+}
+.agreement a { display:block; float:left; line-height:30px;}
+
+
+.re-pic-bottom{
+	background:url(../images1/tologin/re-pic-bottom.png) no-repeat right; width:207px; height:116px; float:left; position:relative; right:-710px; bottom:-25px; z-index:-1;
+}

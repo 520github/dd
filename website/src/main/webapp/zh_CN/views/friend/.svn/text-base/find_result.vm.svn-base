@@ -1,0 +1,138 @@
+#parse("/zh_CN/views/template/prefix.vm" ) 
+<head>     
+      #set($browserTitle="查找朋友结果") 
+      #parse("/zh_CN/views/template/meta_include.vm" )  
+      
+      <script type="text/javascript" src="/js/message.js"></script>
+	  <script type="text/javascript" src="/js/friend.js"></script>
+<script type="text/javascript" >
+$(document).ready(function(){
+	var reg=/[''"":;\.\/<>~!@#%&]/g;
+	$("#showDialog_message").keyup(function(){
+		$(this).val($(this).val().replace(reg,""));
+		var str=$(this).val();
+		if(str.length>140){
+			$(this).val(str.substring(0, 140));
+		}	
+	});
+	$("#showDialog_message").focus(initShowDialog_message);
+	$("#showDialog_remark").focus(initShowDialog_remark);
+	
+});
+</script>	  
+</head> 
+
+<body>
+#parse("/zh_CN/views/head.vm" )
+
+<div id="stage" class="left-right">
+	#set($leftTitle="查找")
+	#parse("/zh_CN/views/friend/friend_left.vm" )
+	
+	<div id="container">
+		<div id="select">
+		  #set($selectedTitle="查找结果")
+		  #parse("/zh_CN/views/template/title.vm" )
+		    
+		
+	</div>
+	<div class="transverse">
+	<div class="panel friend-content">
+	
+	  <div class="a-few">
+		  	#if ($friends)
+		  	共找到<b>$friends.size()</b>条结果
+		  	#else
+		  	抱歉！没有找到TA，试试查找其他好友？
+		  	#end
+		  </div>
+	
+		#if ($friends)
+			#foreach ($f in $friends)
+		<div class="friend-home-list">
+			
+			<div class="friend-pic-icon">
+				#if($f.account.id != $!kexiaoke)
+					<a href="/$f.account.id">
+				#else
+					<a>
+				#end
+				<img src="$f.account.middlePhotoUrl" />
+				</a>
+			</div>
+			<div class="friend-content-l">
+				<h2>
+					#if($f.account.id != $!kexiaoke)
+						<a href="/$f.account.id">
+					#else
+						<a>
+					#end
+					$f.account.name<strong>$!f.remarkName</strong></a>
+					
+					#if ($f.account.gender == 'male')
+					<span class="male">
+					#elseif ($f.account.gender == 'female')
+					<span class="female">
+					#else
+					<span class="secrecy-m-f">
+					#end
+				</h2>
+				<ul>
+					<li>
+						
+						#if($f.account.id != $!kexiaoke)
+							好友 <a href="/$f.account.id">$!f.account.friendNumber</a>
+						#else
+							我是大家的好好友
+						#end
+					</li>
+				</ul>
+				<div class="desc verification-information">
+					<p>简介：$!f.account.introduce</p>
+				</div>
+			</div>
+			
+			<div class="r-frien-button">
+				#if ($f.myFriend)
+					<a href="javascript:aheadto('$f.account.id','$f.account.name');"><b>$f.sharedToMe</b>为我推荐</a>
+					#if($f.account.id != $!kexiaoke)
+						<a href="javascript:removeFriend('$f.account.id')" class="no-background ignore">解除好友</a>
+					#end
+				#else
+					<a href="javascript:showDialog('$f.account.id','$f.account.name')" class="friends-btn">加为好友</a>
+				#end
+			</div>
+		</div>
+			#end
+		#end
+	</div>
+	</div>
+	
+	</div>
+	
+	</div>
+</div>
+
+<div id="showDialog"  style="display:none;">
+<div id="pop-up"class="pop-up-later pop-up-playing-tag pop-up-add">
+	<h2>
+		添加 <b id="showDialog_name">小胖子</b> 为好友
+	</h2>
+	<div class="recommend-list" >
+		<ul>
+			<li><input type="hidden" name="showDialog_accountId" id="showDialog_accountId" value="" />
+				<p><input type="text"  name="showDialog_remark" id="showDialog_remark"  maxlength="16" /><font></font></p>
+			</li>
+		</ul>			
+	</div>
+	<div class="text-box">
+		<textarea rows="" cols="" id="showDialog_message" name="showDialog_message"></textarea>
+	</div>
+	<div class="r-frien-button">
+		<a class="ignore" href="javascript:layer_close()" >取消</a>
+		<a class="friends-btn" href="javascript:addFriend()">发送申请</a>
+	</div>
+</div>
+</div>
+
+#parse("/zh_CN/views/template/footer.vm" ) 

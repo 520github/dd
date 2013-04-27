@@ -1,0 +1,3 @@
+<script src="/zh_CN/js/web/drag/drag_constant.js"></script>
+<script src="/zh_CN/js/web/drag/drag_monitor.js"></script>
+<script src="/zh_CN/js/web/drag/drag_upload.js"></script>

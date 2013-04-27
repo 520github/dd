@@ -1,0 +1,36 @@
+	<div>
+		 用户平均评分： <span class="avgScore">6</span>
+	</div>
+	<div class="star_star"></div>
+	<div class="point">
+		<form name="api-readonly">
+			<p class="right-comment">力荐!</p>
+			<p class="right-comment-r">还可以输入</p><p class="wordsnumberleft" id="wordsnumberleft">140</p><p>个字</p>												
+		</form>
+	</div>
+			
+	<input type="hidden" id="score" value="0">
+	<div class="text-box">
+		给出你的评价：
+			<textarea class="textarea_comment" id="textarea_comment" cols="100" rows="4" onclick="checkContent()" style="color:gray">我觉得这个东东可能对你有帮助，希望你喜欢哦！</textarea>
+	</div>
+	<div class="btm-box">
+		<input type="image" src="/images/confirm-1.png" value="$contentId" id="btnCommend" onclick="postcomment(this.value);" />
+	</div>
+	<div class="commentlist">
+		#if ($comments)
+			#foreach ($c in $comments)
+			<div id="cmt_$c.id">
+				------------------------------------------------------------------------
+				<div class="fixStar" score="$c.score"></div>
+				
+				<div class="user-info">
+					昵称:$c.accountId&nbsp;&nbsp;评分:$c.score
+				</div>
+				<div class='comment-rst'>
+					$c.text
+           		</div>
+           	</div>
+			#end
+		#end
+	</div>

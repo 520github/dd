@@ -1,0 +1,54 @@
+<div class="stepDiv">
+	<h3>多多采集工具可以做什么？</h3>
+	<div class="stepList">
+		<div class="stepListImg"><img src="$!imgPath/img11.png"></div>
+		<div>
+			<h4>方便的收藏</h4>
+			<p>发现自己喜欢的内容，直接点浏览器插件，选择将内容收藏下来，或者直接把内容推荐给朋友。</p>
+		</div>
+	</div>
+	<div class="stepList">
+		<div class="stepListImg"><img src="$!imgPath/img12.png"></div>
+		<div>
+			<h4>支持多内容</h4>
+			<p>插件智能判断收集是正文、文摘、商品、视频、图片还是链接，同时你也可以自由设置内容类型。</p>
+		</div>
+	</div>
+	<div class="stepList">
+		<div class="stepListImg"><img src="$!imgPath/img13.png"></div>
+		<div>
+			<h4>直接分享</h4>
+			<p>在收藏时，可以直接选择分享给朋友，选定朋友的名称后，对方就会收到来自你的分享了。同时你也可以装将内容发布到微博中去。</p>
+		</div> 
+	</div><br><br>
+	</div>
+	<div id="stepDiv_ie" class="stepDiv" style="display:none">
+		<h3>如何才能使用</h3>
+		<table cellspacing="10" cellpadding="0">
+			<tbody><tr>
+				<td><img src="$!imgPath/img8.png"><p>首先你得是多多注册用户<br><a href="/account/default/register/">还没有多多帐号？点击申请新帐号</a></p></td>
+				<td><img src="$!imgPath/img9.png"><p>安装多多的多多采集工具</p></td>
+				<td><img src="$!imgPath/img10.png"><p>右键收藏到多多<br><a href='#'>访问你想收藏的网站，点击多多的插<br>件按钮即可。</a></p></td>
+			</tr>
+		</tbody></table>
+	</div>
+	<div id="stepDiv_chrome" class="stepDiv"  style="display:none">
+		<h3>如何才能使用</h3>
+		<table cellspacing="10" cellpadding="0">
+			<tbody><tr>
+				<td><img src="$!imgPath/img8.png"><p>首先你得是多多注册用户<br><a href="/account/default/register/">还没有多多帐号？点击申请新帐号</a></p></td>
+				<td><img src="$!imgPath/img9.png"><p>安装多多的多多采集工具</p></td>
+				<td><img src="$!imgPath/img10.png"><p>点击Chrome上的扩展插件<br><a href='#'>访问你想收藏的网站，点击多多的插<br>件按钮即可。</a></p></td>
+			</tr>
+		</tbody></table>
+	</div>
+	<div id="stepDiv_firefox" class="stepDiv"  style="display:none">
+		<h3>如何才能使用</h3>
+		<table cellspacing="10" cellpadding="0">
+			<tbody><tr>
+				<td><img src="$!imgPath/img8.png"><p>首先你得是多多注册用户<br><a href="/account/default/register/">还没有多多帐号？点击申请新帐号</a></p></td>
+				<td><img src="$!imgPath/img9.png"><p>安装多多的多多采集工具</p></td>
+				<td><img src="$!imgPath/img10.png"><p>点击Firefox上的扩展插件<br><a href='#'>访问你想收藏的网站，点击多多的插<br>件按钮即可。</a></p></td>
+			</tr>
+		</tbody></table>
+	</div>

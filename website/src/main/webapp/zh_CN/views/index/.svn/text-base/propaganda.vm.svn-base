@@ -1,0 +1,108 @@
+<script>
+    $(document).ready(function(){
+		$(".acc > div").hide().eq(0).show();
+		$(".switch-list >ul > li").each(function(i){
+			$(this).mousemove(function(){
+				$(".acc > div").hide().eq(i).show();	
+				removeOtherClass($(this),i);
+			});
+			$(this).mouseout(function(){
+				$(this).addClass("switch-btn-"+(i+1));
+				removeOtherClass($(this),i);
+			});
+		});
+		
+		function removeOtherClass(obj,index) {
+		    obj.parent().find("li").each(function(j){
+			     if(index == j)return;
+				 var css = $(this).attr("class");
+				 var length = css.indexOf("switch-btn");
+				 if(length >-1) {
+				     css = css.substring(0,length);
+				 }
+				$(this).attr("class",css);
+		    });
+		}
+	});
+</script>
+<div id="recommend">
+	<div class="recommend">
+		<div class="acc">
+			<div class="pages-1" style="display: block; ">
+				<img src="$!imgPath/Slides-1.jpg" alt="">
+				<div class="floating-layer">
+					<h2>一键到手机</h2>
+					<h3>
+					    多多是一款快捷的社会化分享工具，<br>
+                                                         通过多多采集工具，你可以一键将互联网或电脑里的文案、<br>
+                                                         图片、视频推送到自己或好友的手机。
+                    </h3>
+					<ul>
+						<li><a href="/about/tools" target="blank">下载多多手机客户端</a></li>
+						<li><a href="/about/plugtool" target="blank">安装多多采集工具</a></li>
+					</ul>
+					<span class="btn">
+					    <!--
+						<a href="/account/default/register" class="understand-btn" target="blank">了解更多</a>
+						-->
+						<a href="/account/default/register" class="register-btn" target="blank">注册</a>
+					</span>						
+				</div>
+			</div>
+			<div class="pages-2" style="display: none; ">
+				<img src="$!imgPath/Slides-2.jpg" alt="">
+				<div class="floating-layer">
+					<h2 class="lh50">多多分享</h2>
+					<h3>真正的朋友</h3>
+					<h4>
+					    不是让我跟随他每日的流水鸡毛<br>
+                                                          而是知晓和支持我的兴趣<br>
+                                                          告诉我此时需要的及时雨<br>
+                                                          点对点好友分享，你也可以成为那阵及时雨
+					</h4>
+					<span class="btn">
+						<a href="/account/default/register" class="understand-btn" target="blank">注 册</a>
+					</span>						
+				</div>					
+			</div>	
+			<div class="pages-3" style="display: none; ">
+				<img src="$!imgPath/Slides-4.jpg" alt="">
+				<div class="floating-layer floating-layer-1">
+					<h2 class="lh50">内容管理收藏</h2>
+					<h3>
+					         对于你倾注心力收集来的文章、图片、视频、<br>
+					         商品均可依照自己的喜好分门别类，<br>
+					         建立自己的云端资料仓库。
+					</h3>
+					<span class="btn">
+						<a href="/account/default/login" class="iphome-btn" target="blank">登 录</a>
+					</span>						
+				</div>						
+			</div>
+			<div class="pages-4" style="display: none; ">
+				<img src="$!imgPath/Slides-3.jpg" alt="">
+				<div class="floating-layer">
+					<h2 class="lh50">离线观看</h2>
+					<h3>
+					         多多几乎可以在每一台电脑、手机和移动设备上使用，<br>
+					         并且支持离线阅读功能，<br>
+					         不管你是在家里或是去公司的路上，<br>
+					         不管你有无网络，<br>
+					         阅读从此不再受到网络和环境的制约。
+					</h3>
+					<span class="btn">
+						<a href="/account/default/login" class="understand-btn" target="blank">登 录</a>
+					</span>						
+				</div>						
+			</div>
+		</div>	
+		<div class="switch-list">
+			<ul class="">
+				<li class="switch-list-1 switch-btn-1">一键到手机</li>
+				<li class="switch-list-2">分享给朋友</li>
+				<li class="switch-list-3">内容管理收藏</li>
+				<li class="switch-list-4">离线阅读</li>
+			</ul>
+		</div>
+	</div>
+</div>

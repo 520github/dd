@@ -1,0 +1,103 @@
+#parse("/zh_CN/views/template/prefix.vm" ) 
+<head>     
+      #set($browserTitle="站外邀请朋友") 
+      #parse("/zh_CN/views/template/meta_include.vm" )  
+      <script src="/zh_CN/js/web/invite.js"></script>
+</head> 
+ 
+<!-- 头部 -->
+#parse("/zh_CN/views/head.vm" ) 
+
+<div id="stage" class="left-right">
+	<!--左边-->
+	#set($leftTitle="邀请")
+	#parse("/zh_CN/views/friend/friend_left.vm" )
+
+<!--right-->
+	<div id="container">
+	
+	<!--选择-->
+	<div id="select">
+		#set($selectedTitle="站外邀请好友")
+		#parse("/zh_CN/views/template/title.vm" )
+		<!--查找内容和标签-->
+		<!--
+		<div class="find">
+			<form method="get" action="/search" id="search">
+				<input name="q" type="text" size="40" placeholder="输入昵称" />
+			</form>
+		</div>		
+		-->
+
+
+</div>
+	
+	
+	
+		<!--横屏 排列-->
+		<div class="transverse">
+			<input type="text" id="code" name="code" value="$code" style="display:none;"/>
+			<div class="panel search-friends outside-invitation">		
+				<div class="a-few">选择你喜欢的方式，邀请朋友一起品尝多多吧</div>
+			<ul class="form-set-list">
+
+              <li class="form-set-list-3 left-pic-no">
+					<strong>方法一：通过邮箱邀请 </strong>
+					<span>输入朋友的邮箱号：</span>
+					<input type="text" id="inviteByEmail" name="inviteByEmail" value=""/>
+					<b class="Remind-color"></b> 
+				</li>
+				<li class="register-button">
+					<a href="#" onclick="return invite('Email');">发送邀请</a>					
+				</li>
+
+
+            	<li class="form-set-list-3 left-pic-no">
+					<strong>方法二：通过短信邀请朋友 </strong>
+					<p >直接输入朋友手机号码，邀请他开通多多预览邀请短信内容</p>
+					<span>对方手机号码：</span>
+					<input type="text" id="inviteByMoblie" name="inviteByMoblie" value=""/>
+					<b class="small-i">hi,我是$name，我在多多玩的特开心，邀请你也来看看！快来体验吧！</b> 
+				</li>
+	
+	
+				<li class="register-button">
+					<a value="发送邀请" href="#" onclick="javaScript:invite('Mobile')">发送邀请</a>
+
+				</li>	
+
+
+				<li class="form-set-list-2">
+					<strong>方法三：发送邀请链接给朋友 </strong>
+					<p>复制下面的链接，用QQ、MSN、邮件等发送给你的朋友，让你的朋友一起来玩转多多吧！</p>
+					<input id="copy"  name="copy" value="$url" type="text" />
+					<b class="Remind-color"></b> 
+				</li>
+				
+				
+					
+						
+					
+				
+
+			</ul>
+				
+			<div style="height:10px; clear:both; overflow:hidden; margin:0 auto;"></div>
+				
+			
+			</div>
+	
+			
+			
+		
+		</div>
+
+
+		
+	</div>
+</div>
+</div>
+<!-- 尾部 -->
+#parse("/zh_CN/views/template/footer.vm" ) 
+ 
+

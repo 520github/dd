@@ -1,0 +1,17 @@
+<div id="header">
+	<div class="header-center">
+		<div class="logo">
+			<a href="http://www.xxxxxx.com"><img src="/images/logo.png" alt="多多" /></a>
+		</div>
+		<ul>
+			<li id="home"><a href="/">首页</a></li>
+			<li id="menu-find"><a href="/friend/find">找人</a></li>
+			<li id="menu-find"><a href="/about/tools">工具</a></li>
+		</ul>
+		<div class="find">
+			<form method="get" action="/search" id="search">
+				<input name="q" type="text" size="40" placeholder="搜索" />
+			</form>
+		</div>
+	</div>
+</div>

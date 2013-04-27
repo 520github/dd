@@ -1,0 +1,37 @@
+    <!--多多应用场景-->
+	<div id="a-area" class="lt">
+		<div class="a-area">
+			<h1 class="weight9 size22 color6 lh50">多多应用场景</h1>
+			<ul class="li_type">
+				<li>
+					<img src="$!imgPath/features.jpg" alt="我的私密分享">
+					<h2 class="lh50 color6 size17">我的私密分享</h2>
+					<p class="lh20 color5">亲爱的朋友，我眼见的美好，只想分享给心中的那个你。网站上的所有内容，无论文章、图片、视频、商品，使用多多点对点分享，特别的内容只给特别的你。</p>
+				</li>
+				<li>
+					<img src="$!imgPath/features-1.jpg" alt="">
+					<h2 class="lh50 color6 size17">朋友分享给我</h2>
+					<p class="lh20 color5">幸福是有几个知心好友，知道我的喜好，愿意与我分享志同道合的兴趣、肝胆相照的勉励、知寒问暖的心灵鸡汤。在多多，有知心朋友也有无私分享。</p>
+				</li>
+				<li>
+					<img src="$!imgPath/features-2.jpg" alt="心愿商品">
+					<h2 class="lh50 color6 size17">心愿商品</h2>
+					<p class="lh20 color5">心中总有一张愿望购物单，想要精打细算，却不想在电商大战里沦陷。把心仪的商品全部收集我的多多，比价、管理、分享我的购物点滴很方便。</p>
+				</li>
+				<li>
+					<img src="$!imgPath/features-3.jpg" alt="在地铁同样也能精彩">
+					<h2 class="lh50 color6 size17">在地铁同样也能精彩</h2>
+					<p class="lh20 color5">有人说在地铁上阅读很文艺范儿，我只是不愿在路上蹉跎了大好时光。使用多多随时随地用移动设备上离线查看，在地铁也不受信号阻碍，我可以一路精彩到家。</p>
+				</li>
+				<li>
+					<img src="$!imgPath/features-4.jpg" alt="我是收藏控">
+					<h2 class="lh50 color6 size17">我是收藏控</h2>
+					<p class="lh20 color5">当收藏控不是整理控，再好的内容，混乱堆积只会是一场灾难。在多多中收藏的内容自动按类型和来源归类，或者按自己的喜好分门别类，不会为搜索不到内容而抓狂。</p>
+				</li>
+			</ul>
+			<!--右下角图片-->
+			<div class="right-pic rt">
+				
+			</div>
+		</div>
+	</div>

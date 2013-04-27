@@ -1,0 +1,7 @@
+#set($shareFriends = $weibos)
+#set($friendTypeName = '新浪微博互粉好友')
+#set($friendTypeId = 'weiboId')
+#set($bindDescription = '你还没有绑定新浪微博，绑定后就可以将内容分享给微博的互粉好友啦！马上绑定吧！')
+#set($bindName = '绑定新浪微博')
+#set($bindAction = "auth('"+$token+"')")
+#parse("/zh_CN/views/friend/share/thirdparty_share_friend_tp.vm")

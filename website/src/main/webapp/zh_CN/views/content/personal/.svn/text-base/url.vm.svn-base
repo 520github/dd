@@ -1,0 +1,13 @@
+#parse("/zh_CN/views/template/prefix.vm" )
+<head>
+	<base target="_blank" /> 
+	#set($browserTitle="多多跳转源网址链接")
+	#parse("/zh_CN/views/template/meta_include.vm" )
+</head>
+
+<frameset rows="125,*,40" border="0" id="urlFrame">
+     <frame  src="/private/urlhead" name="topFrame" id="topFrame" scrolling="no" noresize="noresize" />
+     <frame src="/private/third?url=$!url" name="mainFrame" id="mainFrame" scrolling="no" noresize="noresize"/>
+     <frame  src="/private/shareperson?contentId=$!contentId&menuType=$!menuType" name="bFrame" id="bFrame" scrolling="no"  noresize="noresize"/>
+ </frameset>
+</html>

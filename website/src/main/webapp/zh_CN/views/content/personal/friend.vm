@@ -1,0 +1,27 @@
+#parse("/zh_CN/views/content/personal/listresource.vm" )
+
+	<script lanuage="javascript">
+	function getFriendList() {
+		var friendList = "[{'id':'','name':'全部'}";
+		#if ($friends)
+		#foreach ($f in $friends)
+		friendList += ",{'id':'$f.id','name':'$f.name'}";
+		#end
+		#end
+		friendList += "]";
+		var json = eval("(" + friendList + ")");
+		var html = "";
+		for (var i=0; i<json.length; i++) {
+			html += '<li><a href="javascript:queryFriend(\''+json[i].id+'\',\''+json[i].name+'\');hiddenUl();"><span>'+json[i].name+'</span></a></li>';
+		}
+		
+		$("#friends").html(html);
+	}
+    jQuery(document).ready(function() {
+	      getFriendList();
+      });
+	</script>
+</head>
+#parse("/zh_CN/views/content/personal/iframe.vm" )
+<div id="friends" style="display:none">
+</div>

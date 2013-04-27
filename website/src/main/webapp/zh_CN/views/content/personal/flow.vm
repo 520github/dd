@@ -1,0 +1,243 @@
+<script>
+    function closeGuestShowReg() {
+        jQuery("#guestShowReg").hide();
+    }
+    function closeGuestShowPlugin() {
+        jQuery("#guestShowPlugin").hide();
+    }
+</script>
+<!--列表内容模板 -->
+<div id="itemTemplate" style="display:none">
+    <div class="panel" id="%repositoryId%">
+		<div id="friendShareId" class="personal-comments">
+				
+		</div>
+
+		<div class="panel-title">
+				<h2 >
+				   %title%
+				</h2>
+				<div class="panel-info">
+				   <span class="left">%date%</span>
+				</div>
+		</div>
+		
+		<div class="panel-content">	
+		    <div class="panel-content-video">
+				<a href="javascript:openItemDetail('%repositoryId%','%url%','%sourceType%')"><img alt="" src="%image%"></a>
+				<!--  for Type_Video-->
+				<span>
+				  <a href="javascript:openItemDetail('%repositoryId%','%url%','%sourceType%')">
+				  <img alt="" src="$!imgPath/video.png"></a>
+				</span>
+				<!--  for Type_File-->
+                <p>文件大小:</p> 
+                <a href="#" class="open-drag">打开</a> 
+                <a href="#" class="download-drag">下载</a>
+			</div>
+			<div class="panel-title">
+				<span class="price">%price%</span>
+			</div>	
+			%summary%
+			<a id="readFullContent" style="color:#0082cb; float:right;" href="/private/item?id=%repositoryId%&menuType=$!menuType"  onclick="javascript:openItemDetail('%repositoryId%','%url%','%sourceType%');return false;" >查看全文>></a>
+		</div>
+		
+		<div  class="user-option">
+			<div class="from">				
+		      <p> 来自：</p>
+		      <!--
+		      <span><img src="$!imgPath/logo-national-flag.gif" alt=""></span>
+		      <a href="/private/url?menuType=$!menuType&contentId=%repositoryId%&url=%url%" onclick="javascript:openUrl('%url%','%repositoryId%');return false;" >%url%</a>
+			  -->
+			  <a href="%url%" onclick="javascript:openTargetUrl('%url%');return false;" >%url%</a>
+			  
+			</div>
+			
+			#parse("/zh_CN/views/content/personal/operatebutton.vm")
+		</div>
+
+			<div id="oldUserTag" class="recommend-list" >
+				<ul>
+					<li>
+						%tag%
+					</li>
+				</ul>			
+			</div>
+			<div id="comment_layer_%contentId%" style="display:none" state="0">
+				<input type="hidden" id="PageNum" value="0">
+				<input type="hidden" id="PageSize" value="10">
+				<div id="zhankai_div" class="view rl">
+					<span>后面还有<p id="remainNum"></p>条评论，<a href="javascript:openComment('%repositoryId%','%contentId%','2')">展开</a>>></span>
+				</div>
+			</div>
+	</div>
+</div>
+
+<div id="showLoginOrRegPage" class="content-pop-up" style="display:none">
+	<div class="close-pop-up"><a href="javascript:layer_close()">X</a></div>
+	<p class="size14">请先登录，登录后才能继续刚才的操作</p>
+	<div class="content-pop-up-login">
+		<a href="/account/default/login" target="_blank" class="go-login-btn">去登录</a>
+	    <a href="/account/default/register/" target="_blank">没有帐号，去注册</a>
+    </div>
+</div>
+
+<div id="guestShowReg" style="display:none">
+	<div id="footer-fixed">
+		<div class="footer-fixed size14">
+			<div class="text-div">
+				<p>不用注册，<br>用这些帐号直接登录多多登录后可同步内容到手机</p>
+			</div>
+	
+			<div class="account-connector">
+				<ul>
+					<li><a href="javascript:getReffer()"><img src="$img1Path/footer/sina-weibo-pic.png" alt="新浪微博">新浪微博</a></li>
+				</ul>
+			</div>
+	
+			<div class="close-btn">
+				<a href="javascript:closeGuestShowReg()"><img src="$img1Path/footer/close.png"></a>
+			</div>
+		
+			<div class="footer-login-register">
+				<span class="no-login-register-list">
+					<a href="/account/default/login" target="_blank">已有帐号登录</a>
+			        <a href="/account/default/register/" target="_blank">新用户注册</a>
+			        <a href="/help/us" target="_blank">查看帮助</a>
+				</span>
+			</div>
+	
+		</div>	
+	</div>
+</div>
+
+<div id="guestShowPlugin" style="display:none">
+	<div id="footer-fixed">
+		<div class="footer-fixed size14">
+			<div class="text-div">
+				<p>
+					赶快体验多多采集工具吧!<br>
+					多多采集工具可以帮你快速收集网络上的图片、视频、商品和网页。
+				</p>
+			</div>
+	
+			<div class="close-btn">
+				<a href="javascript:closeGuestShowPlugin()" ><img src="$img1Path/footer/close.png"></a>
+			</div>
+		
+			<div class="footer-login-register install-already-btn">
+				<span class="install-btn">
+					<a href="/about/plugtool" target="_blank">去安装</a>			
+				</span>			
+			</div>
+	
+		</div>	
+	</div>
+</div>
+
+<!--按钮临时引用 -->
+<div  id="btnTemp" style="display:none;">
+
+</div>	
+
+<!--点击打标签弹出小窗口 -->
+<div id="addTag" >
+<div id="pop-up" class="pop-up-later pop-up-playing-tag" style="display:none;">
+    <h2><strong>打标签</strong>（仅限12个字符，用空格分隔）</h2>
+    <div class="recommend-list">
+	  <ul>
+		<li>
+			<p><input type="text" name="userTagValue" value="最多添加三个标签"></p><p>
+		</p></li>
+		<li id="contentHotTag" style="display:none">
+			<span>该文章的热门标签：</span>
+		</li>
+		<li id="myUseTagId">
+			<span>我常用的标签：</span>
+		</li>
+		<li class="pop-up-bottom">
+		    <input name="" type="image" src="$!imgPath/canceled-button.png" onclick="layer_close()">
+			<input name="" type="image" src="$!imgPath/save.png" onclick="addTag()">
+		</li>
+	  </ul>			
+   </div>		
+</div>
+</div>
+
+<div >
+	<div class="small-window" id="shareFriend" style="display:none;">
+	
+	</div>	
+	
+	<!--内容类型 -->
+	<div id="contentType" style="display:none">
+	   <a class="take" href="javascript:queryContentType('','全部')" >
+	                全部
+	   </a>
+	   &nbsp; &nbsp;
+	   <a class="take" href="javascript:queryContentType('HtmlClip','网页链接')" >
+	                网页链接
+	   </a>
+	   &nbsp; &nbsp;
+	   <a class="take" href="javascript:queryContentType('Web','文本')" >
+	                文本
+	   </a>
+	   &nbsp; &nbsp;
+	   <a class="take" href="javascript:queryContentType('Image','图片')" >
+	                图片
+	   </a>
+	   &nbsp; &nbsp;
+	   <a class="take" href="javascript:queryContentType('Product','商品')" >
+	                商品
+	   </a>
+	</div>
+	
+	<!--内容来源 -->
+	<div id="contentSource" style="display:none">
+	   <a class="take" href="javascript:queryContentSource('','全部来源')" >
+	                全部来源
+	   </a>
+	   &nbsp; &nbsp;
+	   <a class="take" href="javascript:queryContentSource('Source_Plugin','来自多多插件')" >
+	                来自多多插件
+	   </a>
+	   &nbsp; &nbsp;
+	   <a class="take" href="javascript:queryContentSource('Shared','来自达人分享')" >
+	                来自达人分享
+	   </a>
+	   &nbsp; &nbsp;
+	   <a class="take" href="javascript:queryContentSource('Source_Square','来自广场')" >
+	                来自广场
+	   </a>
+	   &nbsp; &nbsp;
+	   <a class="take" href="javascript:queryContentSource('Friend','来自我关注的人')" >
+	                来自我关注的人
+	   </a>
+	</div>
+	
+	<!--选择标签 -->
+	<div id="selectTag" style="display:none">
+	   
+	</div>
+	
+	<!--分享显示 -->
+	<div id="shareTemplate" style="display:none">
+	  <dl>
+	  	  <dt class="person-logo">
+	  	  	<img src="%logo%" alt="" />
+	  	  </dt>
+	  	  <dd class="right-line">
+	  	  	<p>%name%</p>
+	  	  	<!--
+	  	  	<span class="xing">
+	  	  		<i style="width:50px;"></i>
+	  	  	</span>
+	  	  	-->
+	  	  	<div >
+	  	  	   %score%
+	  	  	</div>
+	  	  	<p class="money">%comment%</p>
+	  	  </dd>
+	  </dl>
+	</div>
+</div>

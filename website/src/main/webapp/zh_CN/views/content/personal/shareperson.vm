@@ -1,0 +1,135 @@
+#parse("/zh_CN/views/template/prefix.vm" )
+<head>
+    #set($browserTitle="多多跳转源网址链接")
+	#parse("/zh_CN/views/template/meta_include.vm" )
+	#parse("/zh_CN/views/content/personal/js.vm" )
+	
+	<script lanuage="javascript">
+	    var show = false;
+	    var top = "125";
+	    var perRow = 100;
+        function setFrameSize() {
+            var row =40;
+            if(show) {
+               show = false;
+               jQuery("#stage .panel").hide();
+            }
+            else{
+                show = true;
+                row = row + perRow*jQuery("#stage .panel").length;
+                jQuery("#stage .panel").show();
+            }
+            
+            window.parent.frames['urlFrame'].rows="125,*," + row; 
+            if(jQuery("#stage .panel").is(":visible")) {
+                jQuery("#direction").attr("class","");
+            }
+            else {
+                jQuery("#direction").attr("class","arrow-up");
+                if(jQuery("#stage .panel").length < 1) {
+                    jQuery("#direction").css("background","none");
+                }     
+            }
+        }
+        
+        var token;
+        jQuery(document).ready(function() {
+            token = {"Authorization":"WebToken $token"};
+            jQuery("#stage .panel").hide();
+            
+            var html = jQuery("#stage").html();
+            var data = {};
+            data.id = '$item.id';
+            ////所有关系ID改为内容ID
+            //data.responseId = '$item.responseId';
+            data.collect = '$item.counter.collect';
+            data.comment = '$item.counter.comment';
+            var folders = '$item.folders';
+            folders = folders.replace("[","");
+            folders = folders.replace("]","");
+            data.folder = folders.split(",");
+           
+	        html = replaceOperateButton(html,data);
+	        jQuery("#stage").html(html);
+	        jQuery("#btnTemp").empty();
+	        
+	        setOperatePosition();
+	        setDirection();
+        });
+        
+        
+        function setOperatePosition() {
+            jQuery("#stage #allBtn a").each(function(){
+                var href = jQuery(this).attr("href");
+                href = href.replace("javascript:","");
+                href = "javascript:bigPosition();" + href + ";smallPosition();";
+                jQuery(this).attr("href",href);
+            });
+        }
+        
+        //设置箭头方向
+        function setDirection() {
+            var size = '$!item.from.size()';
+            var length = 0;
+	        try{
+	            if(size != "")
+	            length = parseInt(size);
+	        }catch(e) {
+	            length = 0;
+	        }
+	        if(length < 1) {
+	            //jQuery("#direction").attr("class","");
+	            jQuery("#direction").css("background","none");
+	        }
+	        else {
+	            jQuery("#direction").attr("class","arrow-up");
+	        }
+        }
+        
+        function bigPosition() {
+            window.parent.frames['urlFrame'].rows="125,0,*"; 
+        }
+        
+        function smallPosition() {
+            if(show)show =false;
+            else show = true;
+            jQuery("#direction").attr("class","");
+            jQuery("#direction").css("background","");
+            //setTimeout("setFrameSize()","5000"); 
+            //setFrameSize();
+        }
+    </script>
+</head>
+   <div class="embedded" id="stage" style="background: url($!imgPath/body-bei.gif);">
+     <div id="middle-color">
+         <div class="user-option">
+			  #parse("/zh_CN/views/content/personal/operatebutton.vm" )
+			  #if($!item.from.size() > 0)
+			     #set($remark="分享者：")
+			  #end
+			  <div class="right sharer">
+			     $!remark<a id="direction" href="javascript:setFrameSize()">向下箭头</a>
+			  </div>
+		  </div>
+		
+       #if($!item.from.size() > 0)
+       #foreach($share in $item.from)     
+       <div class="panel"> 
+           <div class="panel-title">
+					<div class="panel-info">
+						<span class="left">$!share.date</span>
+					</div>
+		   </div>   
+           <div class="personal-comments first-share">
+			 #parse("/zh_CN/views/content/personal/share.vm" )
+		   </div>	
+	   </div>
+       #end
+       #end
+     </div> 
+   </div> 
+   
+    <!--按钮临时引用 -->
+ <input type="hidden" name="menuType" value="$!menuType" />	
+ #parse("/zh_CN/views/define.vm" )
+ #parse("/zh_CN/views/content/personal/flow.vm")  

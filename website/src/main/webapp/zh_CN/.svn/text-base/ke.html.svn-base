@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>kexiaoke</title>
+
+</head>
+
+<body>
+
+		<div class="form-set">			
+			<form name="regForm" id="regForm" action="/ke/xiaoke" method="post">
+				id:<input id="id" name="id" value=""/>
+				code:<input id="code" name="code" value=""/>
+				title:<input id="title" name="title" value=""/>
+				summary:<input id="summary" name="summary" value=""/>
+				content:<input id="content" name="content" value=""/>
+				 <input type="submit" value="submit"/> 				
+			</form>
+		</div>
+	
+</body>
+</html>

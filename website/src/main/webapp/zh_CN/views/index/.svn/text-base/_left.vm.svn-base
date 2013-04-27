@@ -1,0 +1,15 @@
+	<div id="left-pane">
+		<div id="left-profile">
+			<div class="person-info he-home">
+				<dl>
+					<dt class="person-logo">
+						<img src="$user.largePhotoUrl" alt="" />
+					</dt>
+					<dd>
+						<p>$!user.name</p>
+					</dd>
+				</dl>
+			</div>
+			
+		</div>
+	</div>

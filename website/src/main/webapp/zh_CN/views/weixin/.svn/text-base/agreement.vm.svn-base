@@ -1,0 +1,18 @@
+#parse("/zh_CN/views/template/prefix.vm" )
+<head>
+    #set($browserTitle="微信公共账号注册绑定")
+	#parse("/zh_CN/views/weixin/meta_include.vm" )
+	<script src="/zh_CN/js/web/agreement.js"></script>
+	<script src="/zh_CN/js/web/newreg.js"></script>
+	<script>
+	    jQuery(document).ready(function(){
+	        $("#guide").show();
+	        $(".maskTop").hide();
+	    });
+	</script>
+</head>
+
+#parse("/zh_CN/views/weixin/head.vm" )	
+    #parse("/zh_CN/views/user/agreement.vm" )
+#parse("/zh_CN/views/weixin/foot.vm" )
+

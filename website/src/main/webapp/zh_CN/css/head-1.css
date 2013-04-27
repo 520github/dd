@@ -1,0 +1,144 @@
+#head{ 
+	position:fixed;
+	width:100%;
+	height:56px;
+	margin-bottom:30px;
+	background:url(../images1/head/head-back.png) repeat-x; 
+	z-index:1000;
+}
+
+#head-1{
+	width:940px;
+	height:56px;
+	margin:0 auto;
+}
+
+#head-1 h1{
+	float:left;
+	font-size:24px;
+	line-height:56px;
+	padding:0 30px 0 20px;;
+}
+
+#log{
+	float:left;
+	position:relative;
+}
+
+.tool-download{
+	float:left;
+	line-height:50px;
+	font-size:14px;
+}
+.tool-download a{
+	padding:0 10px;
+	font-weight:900;
+}
+
+#user-account{
+	float:right;
+	width:160px;
+}
+
+.no-login .no-login-div a{
+	float:right;
+	width:108px;
+	padding:0 10px;
+	line-height:51px;
+}
+
+.no-login .no-login-div a img{
+	float:left;
+	max-width:35px;
+	max-height:35px;
+	margin:9px 10px 8px 0;
+}
+
+.no-login .no-login-div a span{
+	display:block;
+	font-size:14px;
+	font-weight:900;
+	overflow: hidden;
+    text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+
+.no-login:hover > .user-account-list{
+	display:block;
+}
+
+
+.have-been-login .user-account-list{
+	display:none;
+	float:right;
+	height:auto;
+	background:#fff;
+	border:1px solid #c6c6c6;
+	box-shadow: 0 2px 5px -1px rgba(0, 0, 0, 0.25);
+}
+
+.have-been-login .user-account-list li{
+	line-height:21px;
+	font-size:14px;
+	font-weight:900px;
+}
+
+.have-been-login .user-account-list li a{
+	display:block;	
+	width:85px;
+	padding:5px 30px;
+}
+
+.have-been-login .user-account-list li:hover{
+	background:#e2e2e2;
+}
+
+.user-account-list li.user-account-list-quit {
+	line-height:41px;
+	border-top:1px dashed  #d8d8d8;;
+}
+
+/*登录以后小图*/
+.have-been-login .no-login-div a{
+	background:url(../images1/head/down-icon.png) no-repeat 95% center;
+}
+
+.have-been-login .no-login-div a:hover{
+	background:#e2e2e2 url(../images1/head/down-icon.png) no-repeat 95% center;
+}
+
+/*login register*/
+.login-register{
+	float:right;
+	margin-left:20px;
+}
+
+.login-register a{
+	float:left;
+	line-height:21px;
+	padding:0 10px;
+	margin:16px 10px 0 0 ;
+	background:#e2e2e2;
+}
+
+
+.window{ width:100%;} 
+.pop-up-window{ width:970px; display:none;   position:relative; margin:0 auto;}
+.pop-up-window ul { width:244px;   z-index:10;
+ float:right; padding:0 0 0 10px; 
+ -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); overflow:hidden;
+-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); 
+border:2px solid #8cc63f;
+-webkit-border-radius: 15px;
+-moz-border-radius: 15px;
+ border-radius: 15px; 
+ background:#fff;
+ position:absolute;
+ right:0;
+ top:80px;
+ }
+.pop-up-window ul li { float:left; border:none; text-align:left;width:254px;  font-weight:100; line-height:25px; height:25px;}
+.pop-up-window ul li a{ color:#5c9c1e;}         .pop-up-window  p{ font-weight:900;  padding:0 10px 0 0; font-size:18px;   margin:0 0 0 100px;  position:absolute;  right:0; top:80px;  z-index:100;}          
+.pop-up-window  p a{ color:#ccc;}

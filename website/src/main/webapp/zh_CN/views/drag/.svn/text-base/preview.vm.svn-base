@@ -1,0 +1,70 @@
+<script>
+    function go2UserCustome() {
+         $("#dragActionId").hide();
+         switchPushFriend('customeId');
+         _friendCustomObject.getFriendsList();
+         $("#customObjectTemp").show();
+    }
+    
+    function switchPushFriend(id) {
+        $("#dragActionId .drag-push>div").attr("class","drag-list1 drag-list2");
+        $("#dragActionId .drag-push>#"+id).attr("class","drag-list1 bak-color");
+    }
+    
+    function go2SetUp() {
+        _settings.getSharingGroup();
+        $("#dragActionId").hide();
+        $("#setUpTemp").show();
+    }
+    
+</script>
+<div id="previewTemp" style="display:none">
+	<div id="durian" >	
+		<div class="durian">
+			<h1><span>多多</span><a href="javascript:go2SetUp()" class="durian-set-up">设置</a></h1>
+			<div class="drag">
+			    <img id="previewTempImg" src="" style="display:none">
+				<!--图片预览-->
+				<div class="drag-img">
+					<div id="image_id" class="drag-img-1">
+					    <span>
+					        <img src="" alt="">
+					    </span>
+					</div>
+					<div class="drag-mask">
+						<span class="rag-mask-top">未上传</span>
+						<span class="rag-mask-bottom"></span>
+					</div>
+				</div>
+				<div class="img-title"><input type="text" value="" maxlength="30"></div>
+				<div class="drag-push">
+					<h2>上传并推送给：</h2>
+					<div id ="commonId" class="drag-list1 bak-color">
+					    <input type="hidden" id="commonValue" >
+						<h3 onclick="switchPushFriend('commonId')">我和我的常用联系人
+						 <span><a href="javascript:go2SetUp()">修改</a></span>
+						</h3>
+					</div>
+					<div id="customeId" class="drag-list1 drag-list2">
+					    <input type="hidden" id="customeFriendIds" >
+						<h3 onclick="switchPushFriend('customeId')">自定义对象<span><a id="customeFriendNum" href="#"></a></span></h3>
+						<div class="keep-bar keep-bar-1">
+						    <ul style="display:none">														
+						    </ul>
+						    <div class="drag-add-ico">
+						        <a href="javascript:go2UserCustome()"><img src="$dragImgPath/an.gif"></a>
+					        </div>	
+						</div>			
+					</div>				
+				</div>
+				<div class="drag-text-box">
+					<input id="commentId" type="text" value="我觉得这个东东对你有帮助，希望你喜欢哦!">
+				</div>
+				<div class="ok-cancel-btn">
+					<input class="durian-cancel-btn" type="button" value="取消" onclick="DragMonitor.hiddenDragUpload()">
+					<input id="uploadFile" class="durian-ok-btn" type="submit" value="确定">		
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

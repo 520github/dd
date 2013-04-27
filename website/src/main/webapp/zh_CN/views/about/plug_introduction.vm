@@ -1,0 +1,245 @@
+#parse("/zh_CN/views/define.vm")
+<div id="container">
+	<div class="nav-title">
+		<ul>
+		    <li class="cheetah-nav"><a href="javaScript:show('cheetah')">cheetah</a></li>
+			<li class="chrome-nav "><a href="javaScript:show('chrome')">chrome</a></li>
+			<li class="mozilla-nav"><a href="javaScript:show('mozilla')">mozilla</a></li>
+			<li class="ie-nav"><a href="javaScript:show('ie')">ie</a></li>		
+		</ul>
+	</div>
+	
+	<!-------------------------------------------------------chrome start------------------------------------------------------->
+	<div id="chrome-none" class="container-chrome container-mozilla">	
+		<div class="coffeeBookmark coffeeBookmark2">
+			<img src="/zh_CN/images/img15.png" alt="duoduo-chrome" />
+			<h2>多多采集工具</h2>
+			<!-- <p>什么是多多采集工具呢？<br/>它是一个便捷的浏览器插件，有了它，收藏与分享一触即达<br/>多多帐号，多多越玩越嗨！</p> -->
+			<p>你使用的是chrome浏览器吗？那就请安装我们为你准备的chrome浏览器插件，为您的收藏带来更多的便捷！开始多多之旅吧！</p>
+			<div class="button"><a href="javaScript:downloadChrome()">下载多多采集工具</a></div>
+		</div>
+		<div class="stepDiv">
+	<h3>多多采集工具可以做什么？</h3>
+	<div class="stepList">
+		<div class="stepListImg"><img src="$!imgPath/img11.png"></div>
+		<div>
+			<h4>方便的收藏</h4>
+			<p>发现自己喜欢的内容，直接点浏览器插件，选择将内容收藏下来，或者直接把内容推荐给朋友。</p>
+		</div>
+	</div>
+	<div class="stepList">
+		<div class="stepListImg"><img src="$!imgPath/img12.png"></div>
+		<div>
+			<h4>支持多内容</h4>
+			<p>插件智能判断收集是正文、文摘、商品、视频、图片还是链接，同时你也可以自由设置内容类型。</p>
+		</div>
+	</div>
+	<div class="stepList">
+		<div class="stepListImg"><img src="$!imgPath/img13.png"></div>
+		<div>
+			<h4>直接分享</h4>
+			<p>在收藏时，可以直接选择分享给朋友，选定朋友的名称后，对方就会收到来自你的分享了。同时你也可以装将内容发布到微博中去。</p>
+		</div> 
+	</div><br><br>
+	</div>
+	<div id="stepDiv_chrome" class="stepDiv" >
+		<h3>如何才能使用</h3>
+		<table cellspacing="10" cellpadding="0">
+			<tbody><tr>
+				<td><img src="$!imgPath/img8.png"><p>首先你得是多多注册用户<br><a href="/account/default/register/">还没有多多帐号？点击申请新帐号</a></p></td>
+				<td><img src="$!imgPath/img9.png"><p>安装多多的多多采集工具</p></td>
+				<td><img src="$!imgPath/img10.png"><p>点击Chrome上的扩展插件<br><a href='#'>访问你想收藏的网站，点击多多的插<br>件按钮即可。</a></p></td>
+			</tr>
+		</tbody></table>
+	</div>
+	</div>
+	<!-------------------------------------------------------chrome end------------------------------------------------------->
+	
+	<!-------------------------------------------------------火狐 start------------------------------------------------------->
+	<div id="mozilla-none" class="container-mozilla">	
+		<div class="coffeeBookmark">
+			<img src="/zh_CN/images/mozilla-pic.jpg" alt="duoduo-mozilla" />
+			<h2>多多采集工具</h2>
+			<p>什么是多多采集工具呢？<br/>它是一个便捷的浏览器插件，有了它，收藏与分享一触即达<br/>多多帐号，多多越玩越嗨！</p>
+			<div class="button"><a href="/extension/多多采集工具.xpi" target="_blank">下载多多采集工具</a></div>
+		</div>
+		<div class="download-browser-cheetah">
+			<img alt="火狐浏览器" src="$!imgPath/mozilla-pic.gif">
+			<p>Firefox 16 全新发布<br>遇见最好的浏览器！</p>
+			<span>
+				<a href="http://firefox.com.cn/" target="blank">立即下载</a>
+				<p>支持系统: Windows／Linux／Mac OS</p>
+			</span>
+		</div>
+		<div class="contentRdiv">
+			<h3>如何安装？</h3>
+			<div class="qaDiv">
+				<p class="Qp">我发现了一个快速安装firefox插件的方法,<br/>你可以试试看：<br/>
+1.把多多采集工具下载到电脑上</p>
+			</div>
+				<img src="/zh_CN/images/mozillaPic1.jpg" />
+				<p class="Qp">2.用鼠标点住它，直接拖到firefox浏览器中</p>				
+				<img src="/zh_CN/images/mozillaPic2.jpg" />
+				<p class="Qp">3.安提示安装成功后你会发现“多多采集工具”出现了</p>			
+				<img src="/zh_CN/images/mozillaPic3.jpg" />
+		</div>
+		<div class="stepDiv">
+	<h3>多多采集工具可以做什么？</h3>
+	<div class="stepList">
+		<div class="stepListImg"><img src="$!imgPath/img11.png"></div>
+		<div>
+			<h4>方便的收藏</h4>
+			<p>发现自己喜欢的内容，直接点浏览器插件，选择将内容收藏下来，或者直接把内容推荐给朋友。</p>
+		</div>
+	</div>
+	<div class="stepList">
+		<div class="stepListImg"><img src="$!imgPath/img12.png"></div>
+		<div>
+			<h4>支持多内容</h4>
+			<p>插件智能判断收集是正文、文摘、商品、视频、图片还是链接，同时你也可以自由设置内容类型。</p>
+		</div>
+	</div>
+	<div class="stepList">
+		<div class="stepListImg"><img src="$!imgPath/img13.png"></div>
+		<div>
+			<h4>直接分享</h4>
+			<p>在收藏时，可以直接选择分享给朋友，选定朋友的名称后，对方就会收到来自你的分享了。同时你也可以装将内容发布到微博中去。</p>
+		</div> 
+	</div><br><br>
+	</div>
+	<div id="stepDiv_firefox" class="stepDiv">
+		<h3>如何才能使用</h3>
+		<table cellspacing="10" cellpadding="0">
+			<tbody><tr>
+				<td><img src="$!imgPath/img8.png"><p>首先你得是多多注册用户<br><a href="/account/default/register/">还没有多多帐号？点击申请新帐号</a></p></td>
+				<td><img src="$!imgPath/img9.png"><p>安装多多的多多采集工具</p></td>
+				<td><img src="$!imgPath/img10.png"><p>点击Firefox上的扩展插件<br><a href='#'>访问你想收藏的网站，点击多多的插<br>件按钮即可。</a></p></td>
+			</tr>
+		</tbody></table>
+	</div>
+	</div>
+	<!-------------------------------------------------------火狐 end------------------------------------------------------->
+	
+	<!-------------------------------------------------------ie start------------------------------------------------------->
+	<div id="ie-none" class="container-chrome container-mozilla container-ie">	
+		<div class="coffeeBookmark">
+			<img src="/zh_CN/images/ie-pic.jpg" alt="duoduo-ie" />
+			<h2>多多采集工具</h2>
+			<p >什么是多多采集工具呢？<br/>它是一个便捷的浏览器插件，有了它，收藏与分享一触即达<br/>多多帐号，多多越玩越嗨！</p>
+			<div class="button"><a href="/extension/多多采集工具.exe" target="_blank">下载多多采集工具</a></div>
+			<p style="padding-left:290px;">同时支持浏览器：世界之窗、遨游、腾讯TT、360、搜狗、百度</p>		
+		</div>
+		<div class="contentRdiv">
+			<h3>如何安装？</h3>
+			<div class="qaDiv">
+				<p class="Qp" style="text-indent:2em;">IE浏览器插件的安装方法，对我们来说一点都不陌生哦！和任何常见的软件一样，只要下载这个exe格式文件，直接双击安装就可以了。请放心下载，在多多的下载绝对安全无毒。</p>
+				<p class="Qp" style="text-indent:2em;">安装完成后重启浏览器，在你喜欢的内容页面点鼠标右键，就可以看到“多多”的选项了，
+快点击尝试！</p>
+			</div>
+			<img src="/zh_CN/images/ie-pic-7.jpg" />
+		</div>
+		
+		<div class="stepDiv">
+			<h3>多多采集工具可以做什么？</h3>
+			<div class="stepList">
+				<div class="stepListImg"><img src="$!imgPath/img11.png"></div>
+				<div>
+					<h4>方便的收藏</h4>
+					<p>发现自己喜欢的内容，直接点浏览器插件，选择将内容收藏下来，或者直接把内容推荐给朋友。</p>
+				</div>
+			</div>
+			<div class="stepList">
+				<div class="stepListImg"><img src="$!imgPath/img12.png"></div>
+				<div>
+					<h4>支持多内容</h4>
+					<p>插件智能判断收集是正文、文摘、商品、视频、图片还是链接，同时你也可以自由设置内容类型。</p>
+				</div>
+			</div>
+			<div class="stepList">
+				<div class="stepListImg"><img src="$!imgPath/img13.png"></div>
+				<div>
+					<h4>直接分享</h4>
+					<p>在收藏时，可以直接选择分享给朋友，选定朋友的名称后，对方就会收到来自你的分享了。同时你也可以装将内容发布到微博中去。</p>
+				</div> 
+			</div><br><br>
+	    </div>
+		<div id="stepDiv_ie" class="stepDiv">
+			<h3>如何才能使用</h3>
+			<table cellspacing="10" cellpadding="0">
+				<tbody>
+				    <tr>
+						<td><img src="$!imgPath/img8.png"><p>首先你得是多多注册用户<br><a href="/account/default/register/">还没有多多帐号？点击申请新帐号</a></p></td>
+						<td><img src="$!imgPath/img9.png"><p>安装多多的多多采集工具</p></td>
+						<td><img src="$!imgPath/img10.png"><p>右键收藏到多多<br><a href='#'>访问你想收藏的网站，点击多多的插<br>件按钮即可。</a></p></td>
+					</tr>
+			   </tbody>
+			</table>
+		</div>
+	</div>
+	<!-------------------------------------------------------ie end------------------------------------------------------->
+	
+	<!-------------------------------------------------------猎豹 start------------------------------------------------------->
+	<div id="cheetah-none" class="container-mozilla container-cheetah" style="display: none; ">	
+		<div class="coffeeBookmark">
+			<img src="$!imgPath/cheetah-pic.jpg" alt="Cheetah 猎豹浏览器">
+			<h2>多多采集工具</h2>
+			<p>什么是多多采集工具呢？<br/>它是一个便捷的浏览器插件，有了它，收藏与分享一触即达<br/>多多帐号，多多越玩越嗨！</p>
+			<div class="button"><a href="http://www.liebao.cn/store/crx/duoduo/duoduo.crx" >下载多多采集工具</a></div>
+		</div>
+		<div class="download-browser-cheetah">
+			<img src="$!imgPath/cheetah-ico.gif" alt="Cheetah 猎豹浏览器">
+			<p>首款双核安全浏览器<br>更快更炫更安全</p>
+			<span>
+				<a href="http://www.liebao.cn" target="blank">立即下载</a>
+				<p>支持系统: Win7/XP</p>
+			</span>
+		</div>
+		<div class="contentRdiv">
+			<h3>安装后点击插件按钮没有反应？</h3>
+
+			<img src="$!imgPath/cheetah-img.jpg">
+			<p>在当前页面点击鼠标右键，选择“切换到急速模<br>式”。一切OK！赶紧来体验一下吧！</p>				
+		</div>
+		<div class="stepDiv">
+			<h3>多多采集工具可以做什么？</h3>
+			<div class="stepList">
+				<div class="stepListImg"><img src="$!imgPath/img11.png"></div>
+				<div>
+					<h4>方便的收藏</h4>
+					<p>发现自己喜欢的内容，直接点浏览器插件，选择将内容收藏下来，或者直接把内容推荐给朋友。</p>
+				</div>
+			</div>
+			<div class="stepList">
+				<div class="stepListImg"><img src="$!imgPath/img12.png"></div>
+				<div>
+					<h4>支持多内容</h4>
+					<p>插件智能判断收集是正文、文摘、商品、视频、图片还是链接，同时你也可以自由设置内容类型。</p>
+				</div>
+			</div>
+			<div class="stepList">
+				<div class="stepListImg"><img src="$!imgPath/img13.png"></div>
+				<div>
+					<h4>直接分享</h4>
+					<p>在收藏时，可以直接选择分享给朋友，选定朋友的名称后，对方就会收到来自你的分享了。同时你也可以装将内容发布到微博中去。</p>
+				</div> 
+			</div><br><br>
+		</div>
+		
+		<div class="stepDiv stepDivA">
+			<h3>如何才能使用</h3>
+			<table cellspacing="10" cellpadding="0">
+				<tbody>
+				    <tr>
+						<td><img src="$!imgPath/img8.png"><p>首先你得是多多注册用户<br><a href="/account/default/register/">还没有多多帐号？点击申请新帐号</a></p></td>
+						<td><img src="$!imgPath/img9.png"><p>安装多多的多多采集工具</p></td>
+						<td><img src="$!imgPath/img10.png"><p>点击猎豹上的扩展插件<br><a href='#'>访问你想收藏的网站，点击多多的插<br>件按钮即可。</a></p></td>
+					</tr>
+			   </tbody>
+			</table>
+		</div>
+		<div class="mix-pic">
+			
+		</div>
+	</div>
+	<!-------------------------------------------------------猎豹 end------------------------------------------------------->
+</div>

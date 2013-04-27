@@ -1,0 +1,5 @@
+<script src="/zh_CN/js/common/browserUtil.js"></script>
+<script src="/zh_CN/js/common/eventUtil.js"></script>
+<script src="/zh_CN/js/common/cookieUtil.js"></script>
+<script src="/zh_CN/js/common/dateUtil.js"></script>
+<script src="/zh_CN/js/common/objectUtil.js"></script>

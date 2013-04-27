@@ -1,0 +1,27 @@
+#parse("/zh_CN/views/template/prefix.vm" ) 
+<head>
+#set($browserTitle="好友插件登录")
+#parse("/zh_CN/views/template/meta_include.vm" ) 
+<script type="text/javascript" src="/js/clipper/clipper.js"></script>
+<script type="text/javascript" src="/zh_CN/js/web/login.js"></script>
+<script>
+function clipperContent() {
+    window.location = "/newbookmark/private/portal";
+}
+</script>
+</head>
+<body onload="postMsgToParent('hiddenScroll')">
+<br>
+#set($target="target='_blank'")
+#parse("/zh_CN/views/user/login_base.vm")
+<!--提示信息 -->
+<div id="messageTemplate" class="pop-up-later pop-up-success" style="display:none">
+    <img /><span class="pop-up-later-text">%message%</span>
+</div> 
+<!--提示信息 -->
+<div id="messageId" >
+	<div id="pop-up" class="pop-up-later" style="display:none"></div>
+</div>
+<input type="hidden" id="pluginLogin" name="pluginLogin" value="true"/>
+</body>
+</html>

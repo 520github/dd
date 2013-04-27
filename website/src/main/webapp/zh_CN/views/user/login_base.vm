@@ -1,0 +1,35 @@
+	<div id="single" class="gradient-x">
+		<div class="top-img">
+			
+		</div>
+		<div class="login">
+			<div class="login-center rt">
+				<div class="rt-center">
+					<h2><img src="/zh_CN/images1/login/login-title.png" alt="登录" /></h2>
+					<div class="sina-webo-login">
+						<a href="/account/weibo/oauth/">通过新浪微博登录</a>
+					</div>
+					<div class="or-login">
+						or
+					</div>
+					<!--输入密码 账号-->
+					<form name="regForm" id="regForm" action="/account/default/login" method="post" onsubmit="return false;">
+					<ul class="input-text">
+						<li><input id="loginName" name="loginName" type="text" placeholder="用户名" /></li>
+						<li id="uerror" class="an-error"></li>
+						<li><input id="password" name="password" type="password" placeholder="密码"/></li>
+						<li id="perror" class="an-error"></li>
+						<!--<li><a href="#" class="forget lt">忘记密码?</a>--> 
+						<input type="submit" class="rt" /></li>
+					</ul>
+					</form>
+				</div>
+				<div class="pic-bottom-login">
+					
+				</div>
+			</div>
+		</div>
+	</div>
+<div class="display:none">
+<input id="error" type="hidden" value="$!error"> 
+</div>

@@ -1,0 +1,22 @@
+<script type="text/javascript" src="/zh_CN/js/web/friend/editcontact.js"></script>
+<script type="text/javascript" src="/zh_CN/js/web/friend/customobject.js"></script>
+<script type="text/javascript" src="/zh_CN/js/web/friend/settings.js"></script>
+<script>
+    $(document).ready(function() {
+        //_friendEditContact.getFriendsList();
+        _friendCustomObject.init();
+        _friendEditContact.init();
+        
+    });
+</script>
+<div id="dragActionId">
+    #parse("/zh_CN/views/drag/monitor.vm" )
+</div>
+
+#parse("/zh_CN/views/drag/monitor.vm" )
+#parse("/zh_CN/views/drag/preview.vm" )
+#parse("/zh_CN/views/drag/editcontact.vm" )
+#parse("/zh_CN/views/drag/customobject.vm" )
+#parse("/zh_CN/views/drag/setup.vm" )
+#parse("/zh_CN/views/drag/success.vm" )
+#parse("/zh_CN/views/drag/error.vm" )

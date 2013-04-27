@@ -1,0 +1,131 @@
+<div id="login" style="width:600px; margin:0 auto; height:auto; padding:5px ;-webkit-box-shadow: #6f6f6f 0px 4px 7px;-moz-box-shadow: #6f6f6f 0px 4px 7px;box-shadow: #6f6f6f 0px 4px 7px;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;	behavior: url(css/PIE.htc); ">
+
+	<!--关闭按钮-->
+	<div style="position:relative; z-index: 100;"><img id="ddCloseBtn" src="http://www.xxxxxx.com/images/close-pic.png" alt="" style="position:absolute; left:590px; top:-15px;cursor:pointer;" /></div>
+
+	<div style="-webkit-border-radius: 5px;-moz-border-radius: 5px; border-radius: 5px;width:570px; height:auto; background:url(http://www.xxxxxx.com/images/body-bei.gif); padding:5px 15px 25px;  overflow:hidden; position:relative">
+		<h1 style="margin:0;">
+			<img src="http://www.xxxxxx.com/images/logo-1.png" alt="" style="position: absolute;  top:5px;"/>
+			<span style="float:right; font-size:14px;line-height:55px; color:#0081cb;  ">
+				<img src="http://www.xxxxxx.com/images/sina-pic.png" alt="" style="float:left; margin:15px 5px 0 0 ; border:1px solid #dadbd9; padding:1px; widht:27px; height:27px;-webkit-border-radius: 12px;-moz-border-radius: 12px;  border-radius: 12px;	 background:#fff;" />${account.name}
+			</span>
+		</h1>
+	<div cass="single" style="width:570px; background:#fff; overflow: hidden;border: 1px solid #f0f0f0; border-right:1px solid #d3d3d3; border-bottom:1px solid #d3d3d3;-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; margin:55px 0 0 0; ">
+		<div style=" float:left; padding:10px 0 0px 0px;"	>
+		
+		
+		<div style="width:570px; height:auto; background:#fff; padding:10px 0;  overflow:hidden;">
+	<!--网页快照-->
+	<div id="ddPreview" style="width:200px; height:400px;margin:0px 0px 0px 10px; float:left;overflow:scroll">
+		
+	</div>
+	
+	<div style=" float:right; width:338px;margin:0 10px 0  0;">
+		<h2 style="font-size:14px; line-height:31px; background:#f4f4f4; width:328px;-webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;padding: 0 0 0 10px;  ">同步到:</h2>
+		<ul style="list-style-type:none;font-size:12px; width:338px; padding:0;">
+			<li style="width:328px; line-height:30px; float:left; border-bottom:1px dashed #e2ded9; padding:0 0 0 10px;">
+				<p style="float:left; width:90px; margin: 5px 0;"><input id="ddReadLater" type="checkbox" style="margin:8px 5px 0 0; float:left;" checked="checked"/>稍后读</p>
+				<p style="float:left; width:90px; margin: 5px 0;"><input id="ddCollect" type="checkbox" style="margin:8px 5px 0 0; float:left;"/>收藏</p>
+				<p style="float:left; width:90px; margin: 5px 0;#if (!$account.hasRole("Seed")) display:none;#end"><input id="dd2Coffee" type="checkbox" style="margin:8px 5px 0 0; float:left;"/>duoduo</p>
+			</li>
+		</ul>
+	
+	<div style="float:left;">
+		<div id="ddFriPageBar" style="font-size:14px; line-height:31px; background:#f4f4f4; width:338px;-webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; float:left;">
+			<h2 style="font-size:14px; line-height:31px;width:60px; float:left; margin:0;padding: 0 0 0 10px;">推荐给:</h2>
+			
+			<div style="float:right; margin:1px 10px 0 15px ; ">
+				<ul style="list-style-type:none;">
+					<!--当没有时按钮变灰色  左边按钮-->
+					<li style="float:left; margin:0 5px 0 0; width:11px	; height:13px; "><img id="ddFriFirstPage" src="http://www.xxxxxx.com/images/plug-in-pic-left.png" alt="" style="border:0; float:right;  margin:8px 6px 0 0;"/></li>
+					<li style="display:none; float:left; margin:0 5px 0 0; width:11px; height:13px;cursor:pointer; "><img id="ddFriPrepage" src="http://www.xxxxxx.com/images/plug-in-pic-left-color.png" alt=""style="border:0; float:right;  margin:8px 6px 0 0;"/></li>
+					
+					<li style="float:left; margin:0 5px 0 0; width:11px; height:13px; cursor:pointer;"><img id="ddFriNextPage" src="http://www.xxxxxx.com/images/plug-in-pic-right-color.png" alt="" style="border:0; float:right;  margin:8px 6px 0 0;"/></li>
+					
+					<!--当没有时按钮变灰色  右边按钮-->
+					<li style="display:none; margin:0 5px 0 0;float:left; width:11px; height:13px;"><img id="ddFriLastpage" src="http://www.xxxxxx.com/images/plug-in-pic-right.png" alt=""style="border:0; float:right;  margin:8px 6px 0 0;"/></li>
+				</ul>
+			</div>
+			
+				<!--当点击绿色按钮时  绿色点移动-->
+ 			<div id="ddFriPageIndexContainer" style="margin: 12px 0px 0 0px; height:5px; float:right;">
+	 			<!--每个点11*5-->
+				<img src="http://www.xxxxxx.com/images/plug-in-pic-1.png" style="width:11px; float:right; margin:0; height:5px;" />
+				<img src="http://www.xxxxxx.com/images/plug-in-pic-1.png" style="width:11px; float:right; margin:0; height:5px;" />
+				<img src="http://www.xxxxxx.com/images/plug-in-pic-1.png" style="width:11px; float:right; margin:0; height:5px;" />
+				<img src="http://www.xxxxxx.com/images/plug-in-pic-di-color-1.png" style="width:11px; float:right; margin:0; height:5px;" />
+			</div>
+		</div>
+	
+		<div style="margin:0;border-bottom:1px dashed #e2ded9; float:left; ">
+			<ul id="ddCPFriendsList" style=" margin:0; list-style-type:none; padding:0; float:left;">
+		
+			</ul>
+			
+			<!--你还没有任何好友-->
+			<ul id="addDDFriendsContainer" style=" margin:0; list-style-type:none; padding:0; float:left; display:none; ">
+
+				<li style="float:left; width:338px;  line-height:30px; float:left;margin:15px 0px 0 11px ; ">
+					<span style="font-size:12px;">
+					你还没有任何好友，<br/>通过<strong><a href="http://www.xxxxxx.com/friend/find" target="_blank" style="color:#4585bf">找人</a></strong>或<strong><a href="javascript:alert('还没有这功能哦，亲！')"style="color:#4585bf">邀请好友</a></strong>去找到你的朋友吧！
+					</span>
+				</li>
+			</ul>
+		</div>
+		
+		<div id="ddSelectAllFriContainer">
+			<ul style="list-style-type:none;font-size:12px; width:338px; padding:0;">
+				<li style="width:328px; line-height:30px; float:left;  padding:0 0 0 10px;">
+					
+					<p style="float:left; width:90px; margin: 5px 0; color:#4585bf;"><input name="allDDFri" value="select" type="radio" style="margin:8px 5px 0 0; float:left; "/>全选</p>
+					<p style="float:left; width:90px; margin: 5px 0;"><input name="allDDFri" type="radio" value="deSelect" style="margin:8px 5px 0 0; float:left;"/>全取消</p>
+				</li>
+			</ul>
+		</div>
+	</div>
+	
+		<div style="float:left;">
+		<div style="font-size:14px; line-height:31px; background:#f4f4f4; width:338px;-webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; float:left;">
+			<h2 style="font-size:14px; line-height:31px;width:60px; float:left; margin:0;padding: 0 0 0 10px;">评价:</h2>
+		
+			<div id="ddCMStarContainer"></div>
+				<input type="hidden" id="ddCliperScore" value="0"/>
+			</div>
+		</div>
+	
+		<div style="margin:0; float:left; ">
+			<ul style=" margin:0; list-style-type:none; padding:0; float:left;">
+
+				<li style="float:left; width:320px; height:92px; text-align:center; line-height:22px; float:left;	position:relative; margin:15px 0px 0 5px ; ">
+					<textarea id="ddClpComment" cols="" rows="" style=" width:319px; height:92px;  color:#666; font-size:14px; line-height:30px;">写下悄悄话，让好友更懂你推荐的理由！</textarea>
+				</li>
+
+			</ul>
+			
+		</div>
+	
+		<div>
+			<ul style="list-style-type:none;font-size:12px; width:338px; padding:0;">
+				<li style="width:338px; line-height:30px; float:left; ">
+					<p style="float:left; width:120px; line-height:50px; margin: 5px 0; color:#666666;">还可以输入<font id="ddCommentRemain">140</font>个字</p>
+					<p style="float:right; width:102px; margin: 20px 0;"><input id="ddClipperBtn" type="image" src="http://www.xxxxxx.com/images/png_r9_c1.png" /></p>
+				</li>
+	</ul>
+		</div>
+	</div>
+	
+	
+	
+	</div>
+	</div>
+		
+		
+		
+		
+		</div>
+	
+		
+
+	</div>
+	</div>
+</div>

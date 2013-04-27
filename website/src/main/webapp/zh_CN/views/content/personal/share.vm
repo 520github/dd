@@ -1,0 +1,71 @@
+
+<dl>
+	<dt class="person-logo">
+		<img src="$!share.avatar.small" alt="">
+	</dt>
+	<dd>
+		<p>$!share.name</p>
+		
+		
+		
+		
+		
+		<div class="panel-info">
+		#if("false" == $isFriend)
+						<span class="left"></span>
+		#else
+						<span class="left">$dateTool.formatUTC2String($!share.date)</span>
+		#end
+						
+					</div>
+					
+		
+		<span class="xing">
+		
+		
+		   #*
+		   #set($nums=[1,2,3,4,5])
+		   #set($imgLight="$!imgPath/star-on-big.png")
+		   #if($!share.comment.score < 0) 
+		       #set($imgLight="$!imgPath/star-on-si.png")
+		   #end
+		   #set($imgDark="$!imgPath/star-off-big.png")
+		   #if($!share.comment.score < 0) 
+		       #set($imgLight="$!imgPath/star-on-si.png")
+		   #end
+		   
+		   #if($!share.comment.score)
+		       #foreach($index in $nums)
+		          #if($velocityCount <= $math.abs($!share.comment.score))
+		              <img src="$!imgLight" />
+		          #else
+		              <img src="$!imgDark" />
+		          #end
+		       #end
+		   #else   
+		       
+		   #end
+		   *#
+  	  	</span>
+  	  	#if("false" == $isFriend)
+  	  		<span></span>
+  	  	#else
+	  	  	<span class="no-read-news"><a href="javascript:replyFromFriend('$!share.accountId','$!item.id')">$!badge.get($!share.accountId)</a></span>
+	  	 	<p class="money">
+			    $!share.comment.text
+			</p>
+		#end
+  				
+		
+	</dd>
+</dl>
+
+	<div class="r-frien-button">
+		#if("false" == $isFriend)
+	  	  		<p></p>
+	  	#else
+			<a href="javascript:replyFromFriend('$!share.accountId','$!item.id')">回 复</a>
+		#end
+	</div>
+	<input type="hidden" id="accId" value="$!share.accountId"/>
+	<input type="hidden" id="cId" value="$!item.id"/>

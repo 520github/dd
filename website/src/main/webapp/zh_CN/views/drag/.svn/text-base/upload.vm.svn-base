@@ -1,0 +1,161 @@
+<script src="/zh_CN/js/web/drag/drag_upload.js"></script>
+<script>
+    function getData(file) {
+        var boundary = '———————–' + new Date().getTime();
+        var data;
+        var filename = file.name;
+        if(window.FormData) {
+            var formData = new FormData();
+            formData.append("file",file);
+            formData.append("filename",filename);
+            data = formData;
+            //alert("formdata");
+        }
+        else if(file.getAsBinary) {
+            data = "-" + boundary + "";
+        }
+        return data;
+    }
+    
+    function uploadFile(file) {
+        var uploadFileType = "reqeust";
+        if(uploadFileType =="ajax") {
+            ajaxUploadFile(file);
+        }
+        else {
+            //alert("request");
+            httpRequestUploadFile(file);
+        }
+    }
+    
+    function ajaxUploadFile(file) {
+        //alert("start ajaxUploadFile:" +file);
+        var data = getData(file);
+        jQuery.ajax({
+            url:"service/storage",
+            type:"post",
+            dataType:"json",
+            data:data,
+            contentType:false,
+            processData:false,
+            xhr:xhr_provider,
+            success:function(resp) {
+                //alert("ajax upload file success:" +file+"|"+resp.contentId+"|"+resp.id);
+                share2friends(resp,file);
+            },
+            error:function() {
+                alert("ajax upload file error");
+            }
+        });
+    }
+    
+    function httpRequestUploadFile(file) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST","service/storage",true);
+        xhr.setRequestHeader("Accept", "application/json");
+        var data = getData(file);
+        xhr.onreadystatechange = function(x) {
+            if(xhr.readyState ==4 && xhr.status == 200) {
+                var responseData = JSON.parse(xhr.responseText);
+                share2friends(responseData,file);
+                //alert(responseData.id);
+            }
+        }
+        xhr.send(data);
+    }
+    
+    var xhr_provider = function() {
+        var xhr = jQuery.ajaxSettings.xhr();
+        addUploadEvent(xhr);
+        return xhr;
+    }
+    
+    function addUploadEvent(xhr) {
+        if(onprogress && xhr.upload) {
+            xhr.upload.addEventListener('progress',onprogress,false);
+            xhr.upload.addEventListener('load',onsucess,false);
+            xhr.upload.addEventListener('error',onerror,false);
+        }
+    }
+    
+    function onprogress(e) {//upload file progress
+        var percentage = Math.round((e.loaded*100)/e.total);
+		$(".upload span").html(percentage+"%");
+    }
+    
+    function onsucess(e) {
+        $(".upload span").html("100%");
+    }
+    
+    function onerror(e) {
+        alert(e);
+    }
+    
+    function share2friends(resp,file) {
+        var title = getFileTitle(file);
+        var contentType = getContentType(file);
+        //alert("" +resp.id + "|" +resp.contentId);
+        var data = getResporityData(resp.id,resp.contentId,contentType,title);
+        
+        getJSON("/newbookmark/private/store", data,
+			function(data) {
+			    var code = data.code;
+			    if(code ==200) {
+			        //alert("操作成功");
+			        //$(".progressbar p").css("width",200);
+			        //$(".progressbar span").html("文件上传成功并分享成功！");
+			        window.location.reload();
+			    }
+			    else {
+			        //$(".progressbar span").html("sorry,文件上传失败了！");
+			        //$(".progressbar p").css("width",0);
+			        alert("操作失败");
+			    }
+	   });
+    }
+    
+    function getResporityData(url,contentId,contentType,title) {
+        var data = {
+            "contentType":"Image",
+            "url":url,
+            "title":title,
+            "tag":'Collect',
+            "toFriends":'all',
+            "comment" : '',
+			"score" : '',
+			"id":contentId
+       };
+       return data;
+    }
+    
+    function getContentType(file) {
+        var type = "Web";
+        if(file.type.indexOf("image") >-1) {
+            type = "Image";
+        }
+        //alert("contentType:"+ type);
+        return type;
+    }
+    
+    function getFileTitle(file) {
+        var title = "未知标题";
+        if(file) {
+            title = file.name;
+        }
+        if(title.indexOf(".") >-1)title=title.substring(0,title.indexOf("."));
+        //alert("title:"+title);
+        return title;
+    }
+    
+    function getJSON(url, data, callback) {
+		jQuery.ajax({
+			url : url,
+			dataType : 'json',
+			type : 'POST',
+			cache : false,
+			async : false,
+			data : data,
+			success : callback
+		});
+   }
+</script>

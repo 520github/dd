@@ -1,0 +1,6 @@
+<script src="/zh_CN/js/common/html5/LocalStorageData.js"></script>
+<script src="/zh_CN/js/app/onekey-firefox/onekeyFirefox.js"></script>
+<script src="/zh_CN/js/app/onekey-firefox/onekeyFirefoxSyncServer.js"></script>
+<script>
+    OneKeyFirefoxSyncServer.obj.startSyncDatas2Server();
+</script>

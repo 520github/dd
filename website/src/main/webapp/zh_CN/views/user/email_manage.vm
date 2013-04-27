@@ -1,0 +1,83 @@
+#parse("/zh_CN/views/template/prefix.vm" ) 
+<head> 
+      #set($browserTitle="邮箱管理")
+      #parse("/zh_CN/views/template/meta_include.vm" ) 
+<script src="/zh_CN/js/web/user/email_manage.js"></script>
+</head> 
+
+
+<body>
+<script type="text/javascript"> var head_icon_change_id='menu-file-set';</script>
+#parse("/zh_CN/views/head.vm" )
+<div id="stage" class="left-right">
+	<!--左边-->
+#parse("/zh_CN/views/user/user_left.vm" )
+<script>var left_li_focus="left_li_4";</script>
+
+<!--right-->
+	<div id="container">
+
+	
+	<!--选择-->
+	<div id="select">
+		<!--标题-->
+		<div class="select-title">
+		<h4>
+			邮箱管理
+		</h4>	
+		<span></span> 
+		</div>
+	</div>
+		<!--横屏 排列-->
+	<div class="transverse" >
+			<div class="panel search-friends outside-invitation mail-manage">		
+				<h5>多多邮箱也是你收集内容的利器哦！朋友也可以通过多多邮箱推荐精彩内容给你。<br/>这个地方我会写很多文案告诉你什么是多多邮箱，以及他的作用的。</h5>
+				<div class="i-email">
+					我的邮箱 <strong>$!account.duoduoEmail</strong><p><input name="friendsVisible" id="friendsVisible" type="checkbox" #if($!account.mailConfig.friendsVisible)checked="checked"#end  />仅好友可见</p>
+				</div>
+			<!--我的常用邮箱box-->
+				<div class="i-commonly-email">
+					<h5><strong>我的常用邮箱</strong>(可以添加最多2个邮箱，如果你是邮箱注册用户，你的邮箱默认就是常用邮箱了，不过可以修改哦)</h5>
+					<ul class="text-list">
+						<li>将你的常用邮箱地址添加到“我的常用邮箱”。</li>
+						<li>你可以使用这些常用邮箱，将网络上喜欢的内容用邮件发送到你的多多邮箱收集；<br/>或者把精彩内容邮件到你朋友的多多邮箱，与TA分享。</li>
+					</ul>
+				<!--新增常用邮箱-->
+					<div class="new-commonly">
+						<ul>
+							<li>
+								<input type="text" id="email" name="email"   maxlength="35"/>
+								<a href="#;return false;" id="addAnchor">新增常用邮箱</a>
+							</li>
+							#foreach($mail in $!account.mailConfig.mails)
+						       <li class="remove-modified-btn">
+								<span>$mail</span>
+								<a href="#;return false;" onclick="deleteEmail(this)">移 除</a>
+								<a href="#;return false;" onclick="modifyEmail(this)">修 改</a>
+							   </li>
+						     #end 
+							
+						</ul>
+					</div>
+
+				</div> 
+				<!--邮件收集保存位置-->
+				<div class="i-commonly-email save-email ">
+					<h5><strong>邮件收集保存位置：</strong>你可以设置多多邮箱收集到内容展示的地方。（可多选）</h5>
+					<div class="i-email">
+						<p><input name="Later"  type="checkbox" #foreach($tag in $!account.mailConfig.inTags)  #if($tag=="Later")checked="checked"#end  #end />稍后看</p>
+						<p><input name="Collect"  type="checkbox" #foreach($tag in $!account.mailConfig.inTags)  #if($tag=="Collect")checked="checked"#end  #end  />私   藏</p>
+					</div>
+				</div> 			
+			<div style="height:10px; clear:both; overflow:hidden; margin:0 auto;"></div>
+				
+			
+			</div>
+		</div>
+		
+	</div>
+	</div>	
+	
+</div>	
+
+#parse("/zh_CN/views/template/footer.vm" ) 

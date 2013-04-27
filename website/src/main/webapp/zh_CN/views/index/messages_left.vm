@@ -1,0 +1,33 @@
+	<script type="text/javascript"> 
+	    var head_icon_change_id='menu-news';
+	    jQuery(document).ready(function(){
+	        var url = window.location.href;
+	        if(url.indexOf("private/message/view") >-1) {//评论详情
+	            jQuery(".left-floder-list-2 a").css("background-position","-792px -111px");
+	        }
+	        else if(url.indexOf("private/session/view") >-1) {//评论
+	            jQuery(".left-floder-list-2 a").css("background-position","-792px -111px");
+	        }
+	        else if(url.indexOf("messages")>-1) {//系统消息
+	            jQuery(".left-floder-list-1 a").css("background-position","-792px -111px");
+	        }
+	        else {
+	            jQuery(".left-floder-list-2 a").css("background-position","-792px -111px");
+	        }
+		});
+	</script>
+	<div id="left-pane">
+		<div id="left-folder" class="left-friend">
+			<div class="title">
+				<h3>纸条</h3>
+			</div>
+			
+			<ul class="left-floder-list">
+			    <li class="left-floder-list-2"><a href="/message/private/session/view">收到的评论</a></li>
+				<li class="left-floder-list-1"><a href="/messages">系统信息</a></li>
+				<!--
+				<li class="left-floder-list-3"><a href="#">收到的评论</a></li>
+				-->
+			</ul>
+		</div>
+	</div>

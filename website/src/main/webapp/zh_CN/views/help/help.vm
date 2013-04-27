@@ -1,0 +1,142 @@
+#parse("/zh_CN/views/template/prefix.vm" )
+<head>
+    #set($browserTitle="帮助")
+	#parse("/zh_CN/views/template/meta_include.vm" )
+	<style>
+		.help .panel p{display: block;}
+	</style>
+	<script type="text/javascript">
+		function alternate(num){
+			$("div.left.contact-left ul li").removeClass("color");
+			$("div.left.contact-left ul li:eq("+num+")").addClass("color");
+			$("div.right.contact-right").hide();
+			$("#div_help_"+num).show();
+		}
+	</script>
+	
+</head>
+
+#parse("/zh_CN/views/head.vm")
+
+<div id="stage" class="about-us  single help">
+
+	<div class="left contact-left">
+		<span>
+		</span>
+		<h2 class="title">
+				你在哪儿遇到了问题？
+		</h2>
+		<ul>
+			<li class="color"><a href="javascript:alternate('0')">收集工具</a></li>
+			<li><a href="javascript:alternate('1')">移动客户端</a></li>
+			<li><a href="javascript:alternate('2')">多多功能</a></li>
+			<li style="display:none"><a href="javascript:alternate('3')">收集邮箱</a></li>
+			<li><a href="javascript:alternate('4')">分&nbsp;享</a></li>
+			<li><a href="javascript:alternate('5')">其&nbsp;他</a></li>
+		</ul>
+	</div>	
+
+	<div class="right contact-right" id="div_help_0">
+		<h2>
+			收集工具
+		</h2>
+		<div class="panel">
+			<h3 class="ask ask-2">Q：怎么把喜欢的内容收集进多多？</h3>
+			<p class="ask-list">A：多多采集工具和书签可以帮助你收集互联网内容（文字、图片、视频、商品、链接）的工具。</p>
+			<p>这里有更详细的<a href="http://$!domainName/about/plugtool?toolType=plug">多多采集工具指南</a>和<a href="http://$!domainName/about/plugtool?toolType=bookmark">书签</a>使用方法，也许可以帮到你。</p>
+			<!--
+			<p>当你在邮箱或手机中看到感兴趣的内容时，也可以通过邮件将内容发送至自己的多多邮箱，或分享到朋友的多多邮箱。</p>
+			-->
+		</div>
+	</div>
+	
+	<div class="right contact-right" id="div_help_1" style="display:none;">
+		<h2>
+			移动客户端
+		</h2>
+		<div class="panel">
+			<h3 class="ask ask-5">Q：我可以用手机使用多多吗？</h3>
+			<p class="ask-list">A：当然可以！</p>
+			<p>多多手机客户端可以同步一个帐号的所有信息，并且可以离线阅读，方便在地下铁或机场使用。</p>
+			<p>选择适合你的客户端吧：</p>
+			<p>iPhone / iPad</p>
+			<p>Android</p>
+			<p>Windows Mobile</p>
+		</div>	
+		<div class="panel">
+			<h3 class="ask ask-9">Q：用移动客户端看多多会不会很费流量？</h3>
+			<p class="ask-list">A：多多可以在任何移动客户端离线查看。</p>
+			<p>在wifi网络下载好内容，你就可以免去耗损流量的苦恼离线查看了！甚至在没有网络的地下铁或机场，也可以安心享用多多。</p>
+		</div>			
+	</div>	
+	<div class="right contact-right" id="div_help_2" style="display:none;">
+		<h2>
+			多多功能
+		</h2>
+		<div class="panel">
+			<h3 class="ask ask-1">Q：多多是什么？能做什么？</h3>
+			<p class="ask-list">A：简单的说，在多多，你可以做两件事：收藏与分享。</p>
+			<p>首先，在多多，你可以使用多多采集工具/书签、多多邮箱把任何互联网内容（文字、图片、视频、商品、链接）永久收藏，并且可以离线查看。</p>
+			<p>其次，你还可以把某个朋友感兴趣的内容，无论是一件商品、一段视频还是文章美图分享给TA，并在评论中与TA就这一内容展开交流。</p>
+		</div>		
+	</div>	
+	<!--
+	<div class="right contact-right" id="div_help_3" style="display:none;">
+		<h2>
+			收集邮箱
+		</h2>
+		<div class="panel">
+			<h3 class="ask ask-6">Q：什么是“多多邮箱”？</h3>
+			<p class="ask-list">A：多多为你创建了专属的多多邮箱。当你在邮箱或手机中看到感兴趣的内容时，可以通过邮件将内容发送至自己的多多邮箱，或分享到朋友的多多邮箱。这些内容可以在多多的“稍后看”、“收藏”或“好友推荐”中查看。</p>
+			</div>
+		<div class="panel">
+			<h3 class="ask ask-7">Q：什么是“我的常用邮箱”？</h3>
+			<p class="ask-list">A：添加常用邮箱地址到“我的常用邮箱”，可以用这些邮箱把精彩内容发送至自己或好友的多多邮箱。</p>		
+		</div>		
+	</div>	
+	-->
+	<div class="right contact-right" id="div_help_4" style="display:none;">
+		<h2>
+			分&nbsp;享
+		</h2>
+		<div class="panel">
+			<h3 class="ask ask-3">Q：怎么把精彩内容分享给朋友？</h3>
+			<p class="ask-list">A：多多支持与站内好友（好友）的点对点分享。</p>
+			<p>在网上看到对好友有价值的内容，可以在使用采集工具收藏时直接选择分享给TA： </p>
+			<p><img src="/zh_CN/images/pic1.jpg" /></p>
+			<p>你也可以将已经收藏入多多的内容分享给好友：</p>
+			<p><img src="/zh_CN/images/pic2.jpg" /></p>
+			<p>PS：分享时写下评论，会让好友更懂你的推荐理由哦！</p>
+		</div>
+		<div class="panel">
+			<h3 class="ask ask-4">Q：我该如何添加好友？</h3>
+			<p class="ask-list">A：你可以点击“好友”中的“站内查找朋友”，查找朋友并添加TA为好友：</p>
+			<p><img src="/zh_CN/images/pic3.jpg" /></p>
+			<p>站外邀请朋友中提供了链接、邮箱、短信三种邀请方式，邀请朋友和你一起加入多多</p>	
+			<p><img src="/zh_CN/images/pic4.jpg" /></p>	
+		</div>
+	</div>	
+	<div class="right contact-right" id="div_help_5" style="display:none;">
+		<h2>
+			其&nbsp;他
+		</h2>
+		<div class="panel real-wrap">
+			<h3 class="ask ask-11">Q：太罗嗦了，没找到我想了解的问题！</h3>
+			<p class="ask-list">A：如您在使用过程中遇到其它问题，请联系多多，让我们为您解答。<br />
+			新浪微博：<a href="http://weibo.com/duoduofenxiang" target="_blank"> 多多-分享</a><br />
+			腾讯微博：<a href="http://t.qq.com/duoduoshare" target="_blank"> 多多分享</a><br />	
+			QQ帐号： 2308854559<br />        
+			客服电话： 13718818407<br />
+			客服邮箱： help@imduoduo.com
+			</p>
+			 <ol>
+				<li class="title">微信帐号:</li>
+				<li><img src="$!imgPath/QR-share.png" alt="二维码微信">duoduofenxiang </li>
+			</ol>
+		</div>
+		</div>		
+	</div>					
+	
+</div>
+
+#parse("/zh_CN/views/template/footer.vm" )

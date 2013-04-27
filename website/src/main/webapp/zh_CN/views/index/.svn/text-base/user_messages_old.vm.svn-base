@@ -1,0 +1,62 @@
+#parse("/zh_CN/views/template/prefix.vm" ) 
+<head>     
+      #set($browserTitle="系统消息")
+      #parse("/zh_CN/views/template/meta_include.vm" ) 
+	  	<script type="text/javascript" src="/js/message.js"></script>
+		<script type="text/javascript">
+			jQuery(document).ready(function(){
+				jQuery(".left-floder-list-1 a").css("background-position","-792px -111px");
+			});
+		</script>	  	
+</head> 
+ 
+<!-- 头部 -->
+
+#parse("/zh_CN/views/head.vm" )
+
+	<div id="stage" class="left-right">
+		#parse("/zh_CN/views/index/messages_left.vm" )
+		<div id="container">			
+			<div id="select">
+			    #set($selectedTitle="系统信息")
+			    #parse("/zh_CN/views/template/title.vm" )
+			    #if($messagesList.size() > 0)
+				<span class="btn-right"><a href="javascript:deleteAllMessage();">清空所有记录</a></span>
+				#end
+				<!--横屏 排列-->
+			</div><!-- end of select -->
+				<div class="transverse  file-set" id="My_index">
+				<div id="Template">
+				#if($messagesList&&$messagesList.size()>0)
+					#foreach ($message in $messagesList)
+					第$velocityCount篇
+					<div class="panel friend-content">		
+						<div class="r-frien-button">
+						<a href="javascript:deleteMessage('$message.id');">删 除</a>
+						</div>
+						<div class="friend-content-l">
+							<h2>$message.subject</h2>
+							<p>$message.content.url<a href="#">查看详情</a></p>	
+						</div>
+						<div style="height:10px; clear:both; overflow:hidden; margin:0 auto;"></div>
+					</div>
+					#end
+				#else 
+					<div class="panel friend-content">		
+						<div class="r-frien-button">
+						</div>
+						<div class="friend-content-l">
+							你还没有收到多多发出的系统消息
+						</div>
+						<div style="height:10px; clear:both; overflow:hidden; margin:0 auto;"></div>
+					</div>
+				#end
+				</div> <!-- end of Template -->
+				$paging.page($!totalNumber,$!PageSize)
+				</div><!-- end of transverse -->
+			
+		</div> <!-- end of container -->
+	</div>
+
+<!-- 尾部 -->
+#parse("/zh_CN/views/template/footer.vm" ) 

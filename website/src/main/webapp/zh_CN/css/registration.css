@@ -1,0 +1,71 @@
+*{margin:0; border:0; padding:0;}
+a{ color:#000; text-decoration:none:}
+a:hover{ color:#f0f0f0; text-decoration:none;}
+ul li, ol li{list-style-type:none;}
+body{ font-family:"微软雅黑"; font-size:12px; text-shadow:1px 1px 0px #fff;}
+
+#registration{ width:960px; height:auto; margin:0 auto;}
+
+.registration-top{ width:960px; height:auto; background:#f2f2f2; float:left;  text-align:center;  }
+.registration-left span{width:300px; height:500px;display:table-cell; vertical-align: middle;}
+.registration-right{ float:right;  width:960px; height:atuo; background:#f2f2f2;border:1px solid #bfbfbf;}
+
+.registration-right h1{ color:000; widht:950px; height:auto; line-height:50px; font-size:20px; padding:0 0 0 10px;}
+
+.registration-list  li{ widht:630px; height:auto; line-height:80px;}
+
+.registration-list .cloor{ color:#ee0000; }
+
+.registration-list input{ width:200px; height:25px; border:1px solid #000; margin:0 10px;  }
+
+.registration-list span{float:left; text-align:right; width:100px;}
+
+.registration-list  .Remind{color:#828282;}
+.registration-list  .Remind-color{color:#007b20; font-size:20px;}
+.registration-list  .register-button input{border:none;background:#008ef2; }
+.registration-list  .agree input{margin:0 0 0 70px;}
+
+
+/*帐号注册成功*/
+#success{ width:960px; height:auto; margin:0 auto;}
+.success-top{ border-bottom:1px solid #000; line-height:90px; width:960px;}
+.success-top h1{ width:300px;float:left;}
+.success-top .account-for-the{ }
+.success-bottom{ float:right;  width:960px; height:atuo;}
+#success .remind{color:#bfbfbf; line-height:50px;}
+
+.success-bottom .personality{ line-height:30px;}
+
+.registration-right h1{ color:000; widht:960px; height:auto; line-height:50px; font-size:20px; padding:0 0 0 10px;}
+
+.success-list  li{ widht:960px; height:auto; line-height:80px;}
+
+.success-list .cloor{ color:#ee0000; }
+
+.success-list .text{ font-weight:bold;}
+.success-list input{ width:200px; height:25px; border:1px solid #000; margin:0 10px;  }
+
+.success-list span{float:left; text-align:right; width:200px;}
+
+.success-list  .Remind{color:#828282;}
+.success-list  .Remind-color{color:#007b20; font-size:20px;}
+.success-list  .register-button input{border:none;background:#008ef2; }
+.success-list  .agree input{margin:0 0 0 70px;}
+
+
+
+/*完善资料*/
+#perfect-information {width:960px; height:auto;margin:0 auto;}
+#perfect-information .skip-button{width:960px; height:auto; float:right;}
+#perfect-information .skip-button input	{float:right;}
+#perfect-information h1{ color:000; width:960px; height:auto; line-height:50px; font-size:20px; padding:0 0 0 10px;}
+#perfect-information .step{width:960px; height:auto; text-align:center; border:1px solid #999; float:left;}
+#perfect-information .step ul li{float:left; line-height:50px; padding:0 30px 0 50px;}
+#perfect-information .remind-button{ width:500px; background:#f2f2f2; border:1px solid #000;heigt:auto; overflow:hidden;}
+#perfect-information .remind-button ul li{ line-height:30px;float:left;width:500px;}
+#perfect-information .remind-button ul li p{ float:left; padding:10px 40px;}
+.perfect-information-1 {width:300px; height:auto;}
+.perfect-information-1 span{float:right;}
+.perfect-information-1 input{width:100xp; height:20px;border:1px solid #000;}
+.optional{margin:20px 0 20px 0; overflow:hidden; float:left;}
+.optional .remind{ line-height:50px;}

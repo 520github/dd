@@ -1,0 +1,13 @@
+<!--提示信息 -->
+<div id="messageTemplate"  style="display:none">
+     <img  >
+	<span class="pop-up-later-text">
+	   %message%
+	</span>
+</div>
+
+<!--提示信息 -->
+<div id="messageId" >
+   <div id="pop-up" class="pop-up-later" style="display:none">
+   </div>
+</div>

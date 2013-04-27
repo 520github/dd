@@ -1,0 +1,12 @@
+#set($imgPath="/zh_CN/images")
+#set($img1Path="/zh_CN/images1")
+#set($weixinPath="/zh_CN/images1/weixin")
+#set($dragImgPath="/zh_CN/images1/drag")
+#set($fileTypeImgPath="/zh_CN/images1/filetype")
+#set($kexiaoke="504a1e20e4b0454adefeb9ce")
+#set($domainName=$springMacroRequestContext.getMessage("domainName"))
+#set($cookieDomain=$springMacroRequestContext.getMessage("cookieDomain"))
+#set($mailSuffix=$springMacroRequestContext.getMessage("mailSuffix"))
+#set($androidDownloadUrl="http://partner-download.mduoduo.com/mobile/android/DuoDuo_Android_V2.4.0.apk")
+#set($iphoneDownloadUrl="https://itunes.apple.com/cn/app/duo-duo/id567772073")
+

@@ -1,0 +1,15 @@
+#parse("/zh_CN/views/content/personal/resource.vm" )
+
+<script lanuage="javascript">
+	    //取消收藏
+	   function cancelFavorite999(repositoryId) {
+	      if(confirm('好不容易收藏，你真舍得抛弃吗？')) {
+	           window.opener.cancelFavoriteMes(repositoryId);
+	           window.close();
+	           /*if(result) {
+	               alert("取消收藏成功！");
+	               window.close();
+	           }*/
+	      }    
+	   }	   
+</script>

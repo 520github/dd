@@ -1,0 +1,20 @@
+<script>
+   jQuery(document).ready(function(){
+       jQuery("#footer[class='lt']").hide();
+   });
+</script>
+#parse("/zh_CN/views/head.vm" )
+
+<div id="stage" class="left-right">
+     #parse("/zh_CN/views/content/personal/left.vm" )
+	 #parse("/zh_CN/views/content/personal/right.vm" )
+	 #parse("/zh_CN/views/content/personal/detail.vm" )
+</div>
+
+#parse("/zh_CN/views/content/personal/flow.vm" )
+#parse("/zh_CN/views/content/personal/prompt.vm" )
+
+#include("/zh_CN/views/template/popup.vm" )
+
+#parse("/zh_CN/views/template/footer.vm" )
+

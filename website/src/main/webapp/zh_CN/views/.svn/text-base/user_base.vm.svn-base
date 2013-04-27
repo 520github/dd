@@ -1,0 +1,9 @@
+<div class="user-name">
+		    <span>
+			    <a href="/$!account.domain" $!target><img src="$!account.smallPhotoUrl" />$!account.name</a>
+			</span>
+			<p>
+				<a href="/account/default/login" $!target>切换帐号</a>
+				<a href="javascript:logout()" $!target>退 出</a>
+			</p>
+</div>		

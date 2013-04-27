@@ -1,0 +1,32 @@
+	<!--PC端工具-->
+	<div class="d-area" >
+	    <a name="1" ></a>
+		<h1>多多采集工具</h1>
+		<div class="pc-left">
+			<h2 class="title">浏览器书签按钮</h2>
+			<dl>
+				<dt><img src="/zh_CN/images/goolge.png" alt=""></dt>
+				<dd>按 Shift+Ctrl+B 打开书签工具栏， 将这个按钮直接拖拽到你的书签工具栏，即可尽情浏览和收藏你的发现！</dd>
+				<dd class="button">
+				  <a href="/about/plugtool/?toolType=bookmark"></a>
+				</dd>
+			</dl>
+		</div>
+		<div class="pc-left pc-right">
+			<h2 class="title">多多采集工具</h2>
+			<dl>
+				<dt><img src="/zh_CN/images/goolge-1.png" alt=""></dt>
+				<dd>
+				什么是多多采集工具呢？<br>
+                                          它是一个便捷的浏览器插件，<br>
+                                          有了它，收藏与分享一触即达<br>
+                                          多多帐号，多多越玩越嗨！
+                </dd>
+				<dd class="button">
+				   <a href="/about/plugtool/?toolType=plug"></a>
+				</dd>
+			</dl>
+		</div>
+		
+	</div>
+	

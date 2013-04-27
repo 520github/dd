@@ -1,0 +1,88 @@
+<script lanuage="javascript">
+    function closePop() {
+        jQuery("#guide").dialog("close");
+    }
+    
+    //切换稍后看与好友分享div
+    function switchDiv(id) {
+        if(id == "later") {
+             if(jQuery("#laterDiv").is(":visible")) {
+                 return;
+             }
+             jQuery("#later").attr("class","tab-left");
+             jQuery("#share").attr("class","tab-right");
+             jQuery("#laterDiv").show();
+             jQuery("#shareDiv").hide();
+        }
+        else if(id == "share") {
+             if(jQuery("#shareDiv").is(":visible")) {
+                 return;
+             }
+             jQuery("#share").attr("class","tab-right-press");
+             jQuery("#later").attr("class","tab-left-press");
+             jQuery("#laterDiv").hide();
+             jQuery("#shareDiv").show();
+        }
+    }
+    //查找好友
+    function findFriend() {
+        var loginName = jQuery("input[name=loginName]").val();
+        loginName =jQuery.trim(loginName);
+        if(loginName == "") {
+            alert("请输入您想要查找的好友昵称哦！");
+            return;
+        }
+        var para = "";
+        if(loginName !="") {
+            para = "?";
+            para = para + "name=" + loginName;
+        } 
+        window.open("/friend/findResult"+para);
+    }
+    
+    var remark = "";
+    jQuery(document).ready(function() {
+        remark = getBookRemark(getBrowser());
+    });
+    
+</script>
+<div id="guide" style="display:none;margin-left:50px;">
+	<div id="success-pop-up">
+	<div class="tab">
+		<a id="later" href="javascript:switchDiv('later')" class="tab-left" title="稍后看"><span>稍后看</span></a> 
+		<!-- <a href="#" class="tab-left-press"><span>稍后看</span></a> 当鼠标经点击过后-->
+		<a id="share" href="javascript:switchDiv('share')" class="tab-right" title="好友共亨"><span>好友共亨</span></a> 
+		<!-- <a href="#" class="tab-right-press"><span>好友共亨</span></a> 当鼠标经点击过后 -->
+	</div>
+	
+	<div id="laterDiv" class="content-box">
+		 <h1><img src="$!imgPath/later-to-see-pic.jpg" alt="介绍稍后看"></h1>
+		 <p>上网看见了有意思的信息和资料，但是又没有时间或者一会还想再看怎么办？添加到收藏夹？不行，里面的收藏已经够多的了。从“历史”里面访问？太麻烦了吧！那还能怎么办？</p>
+		 <p>多多的稍后看，就是为了专门解决上面那个纠结的问题而设计的。碰到喜欢的网页，点一下多多专门插件图标，这个网页就被永久放到“稍后看”的列表中； 下次再登录多多帐户的时候，直接从列表里面选择，你发现的信息就打开了，并且可以随时随地离线浏览。</p>
+		<ul class="success-pop-up-btn">
+			<li class="installation-ch">
+			#parse("/zh_CN/views/about/plug_action.vm" )
+			</li>
+			<li class="installation-bookmark">
+			     #parse("/zh_CN/views/about/bookmark_action.vm")
+			</li>
+			<li class="ok-know"><a href="javascript:closePop()">好，知道了</a></li>
+		</ul>		
+	</div>
+
+	<div id="shareDiv" class="content-box" style="display:none">
+		 <h1><img src="$!imgPath/friends-share-pic.jpg" alt="好友共享"></h1>
+		 <p>如果你已经在第一杯多多的香浓中沉醉，在其中看到对某一个好友有用的信息。请在多多中选择指定的好友，将有价值的内容分享给TA，用第二杯多多传递,让TA也享受到这份美味吧！</p>
+		<!--查找-->
+		<div class="success-find">
+			      查找<span><input type="text" name="loginName" value="请输入好友昵称" onclick="this.value=''"></span>
+			   <a href="javascript:findFriend()">go</a>
+		</div>
+		 <ul class="success-pop-up-btn">
+			<li class="writing"><a href="/invite/outside" target="blank">邀请朋友来使用多多</a></li>
+			<li class="ok-know"><a href="javascript:closePop()" >知道了</a></li>
+		</ul>		
+	</div>
+	
+</div>
+</div>

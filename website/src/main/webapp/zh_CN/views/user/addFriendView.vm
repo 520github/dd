@@ -1,0 +1,23 @@
+<!--添加好友-begin-->	
+<div id="showDialog"  style="display:none;">
+<div id="pop-up"class="pop-up-later pop-up-playing-tag pop-up-add">
+	<h2>
+		添加 <b id="showDialog_name">小胖子</b> 为好友
+	</h2>
+	<div class="recommend-list" >
+		<ul>
+			<li><input type="hidden" name="showDialog_accountId" id="showDialog_accountId" value="" />
+				备注名<p><input type="text"  name="showDialog_remark" id="showDialog_remark"  maxlength="16" /><font></font></p>
+			</li>
+		</ul>			
+	</div>
+	<div class="text-box">
+		附言<textarea rows="" cols="" id="showDialog_message" name="showDialog_message">写一段附言呗！让他知道你是谁~~~!</textarea>
+	</div>
+	<div class="r-frien-button">
+		<a class="ignore" href="javascript:layer_close()" >取消</a>
+		<a class="friends-btn" href="javascript:addThirdFriend('Weibo')">发送申请</a>
+	</div>
+</div>	
+</div>
+<!--添加好友-end-->

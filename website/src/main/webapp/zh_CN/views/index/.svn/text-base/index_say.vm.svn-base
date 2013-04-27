@@ -1,0 +1,52 @@
+<!--他们说-->
+	<div id="they-said" style="display:block;">
+		<div class="they-said">
+			<h2 class="lh50 color6 size17">他们说</h2>
+			<!--左右幻灯片-->
+			<div class="left-right-slideshow">
+				<!--按钮-->
+				<div class="left-btn-slideshow lt">
+					<span id="prevBtn">
+							<a href="javascript:void(0);" class="lt">Previous</a>
+					</span> 
+				</div>
+				<div class="right-btn-slideshow rt">
+					<span id="nextBtn">
+						<a href="javascript:void(0);" class="rt">Next</a>
+					</span>  
+				</div>
+				<!-- 幻灯内容-->
+				<div id="slider" style="width: 475px; height: 258px; overflow: hidden; margin: 0px auto; ">
+					<div class="slideshow-1" style="width: 1900px; margin-left: -950px; ">					     
+					    #set($prefaceName='许丽')	
+					    #set($prefacePosition='上海IPTV媒介总监')	
+					    #set($prefaceImg=$!imgPath+'/ta-portrait1.png')
+					    #set($prefaceContent='在信息社会我面临着两大困惑：海量信息扑面而来，让我模糊了自己想要的东西。另一个是碎片化的社交时代，阅读成为快消品。而多多就像一个贴身管家，帮我进行信息有序管理，让我有时间泡杯咖啡，重新学会慢慢阅读，细细品味。')
+					    #set($prefaceStyle='')
+					    #parse("/zh_CN/views/index/index_say_template.vm")
+					    
+					    #set($prefaceName='张锐')	
+					    #set($prefacePosition='春雨移动健康创始人')	
+					    #set($prefaceImg=$!imgPath+'/ta-portrait2.png')
+					    #set($prefaceContent='Read It Later？Dropbox？都不是，是多多。有艺术气息的离线存储与分享工具，是一条连接PC互联网和移动互联网的信息快速路。在轻松的点按和滑动中，知识的积累和分享，更简单。')
+					    #set($prefaceStyle='')
+					    #parse("/zh_CN/views/index/index_say_template.vm")
+					    
+					    #set($prefaceName='萧秋水')	
+					    #set($prefacePosition='知识管理专家')	
+					    #set($prefaceImg=$!imgPath+'/ta-portrait3.png')
+					    #set($prefaceContent='知识经济时代，我们需要学习知识的有效获取、收藏和沉淀，也需要分享我们的收获，让朋友们在分享中感受到我们的友情，共同浏览世界。在多多里，最引人入胜的功能就是这个点对点分享了吧！')
+					    #set($prefaceStyle='')
+					    #parse("/zh_CN/views/index/index_say_template.vm")
+					    
+					    #set($prefaceName='王丫米')	
+					    #set($prefacePosition='资深活动策划人')	
+					    #set($prefaceImg=$!imgPath+'/ta-portrait4.png')
+					    #set($prefaceContent='分手以后，前男友把博客上给我写的情书全删除了，嘿嘿，因为多多有离线功能，所以我全都保留在手机上了，真想告诉他这个消息，告诉他如果落后于时代，连赌气这种事做起来都会很苍白！')
+					    #set($prefaceStyle='')
+					    #parse("/zh_CN/views/index/index_say_template.vm")
+					</div>					
+				</div>
+			</div>
+		</div>
+	</div>

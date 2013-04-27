@@ -1,0 +1,17 @@
+<!--目前暂时作废-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="Keywords" content="多多,duoduo,好友,发现,喜欢,收藏,收集,收藏，插件,工具,浏览,阅读,存储,保存,离线,文章,图片,商品,链接,邮件收集，新饮，推荐，图片，商品，视频，文章，互享空间，资料仓库，随时随地，朋友分享">
+	<meta name="description" content="多多，通过多多采集工具收藏你喜欢的文章、商品、视频、图片、链接，你可以离线查看、永久保存、邮件收集、分享给好友。">
+	<title>多多 – 工具下载</title>
+	#parse("/zh_CN/views/css.vm" )
+	<script type="text/javascript" src="/js/jquery.min.js"></script>
+</head>	
+#parse("/zh_CN/views/head.vm" )
+<body>
+<div id="stage" class="index">
+#parse("/zh_CN/views/index/plug.vm" )
+#parse("/zh_CN/views/index/app.vm" )
+</div>
+</body>

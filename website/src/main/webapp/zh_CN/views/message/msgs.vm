@@ -1,0 +1,174 @@
+#parse("/zh_CN/views/template/prefix.vm" ) 
+<head> 
+      #set($browserTitle="评论详情")
+      #parse("/zh_CN/views/template/meta_include.vm" ) 
+	  <script type="text/javascript" src="/js/page.js"></script>
+      <script type="text/javascript" src="/js/content/action.js"></script>
+      <script type="text/javascript" src="/js/privatemessage.js"></script>
+ 
+</head> 
+
+#parse("/zh_CN/views/head.vm" )
+
+<input id="sessionId" type="hidden" value="$sessionId"/>
+
+<div id="stage" class="left-right comment-detal">
+		#parse("/zh_CN/views/index/messages_left.vm" )
+<!--right-->
+	<div id="container">
+
+	
+	<!--选择-->
+	<div id="select">
+		<!--标题-->
+		<div class="select-title">
+		<h4>
+			评论详情
+		</h4>	
+		<span></span> 
+		</div>
+	</div>
+		<!--横屏 排列-->
+	<div class="transverse" >
+		<div class="panel panel-text-pic panel-video panel-commodity panel-img comment-detail" style="display: none;" id="content_list">
+		<!--<panel 纯文本><panel-text-pic 左图右文>  < panel-video视频> <panel-commodity 商品>-->
+			<div class="panel-a">			
+				<div class="panel-title" >
+				
+						<h2 id="title" ><a href="$content.url">$content.title</a></h2>
+			  
+						<div class="panel-info">
+							<span class="left" id="c_time"></span>
+						</div>
+					
+					</div>
+				<div id="text" class="panel-content">
+					
+					</div>
+				<div id="web" class="panel-content"><!--左图右文-->
+					<img id="firstImage" src="" alt="" />
+					<div class="right crawl-article">
+										
+					<a href="#" id="more">查看更多>></a>
+					</div>
+				</div>					
+				<div id="video" class="panel-content"><!--视频-->
+					<div class="panel-content-video" id="video_image">
+						<a href="#"><img alt="" src="/zh_CN/images/logo-national-flag.gif"></a>
+						<span><a href="#"><img alt="" src=""></a></span>
+					</div>
+					<div class="panel-title">
+						<h2 style="background: none repeat scroll 0% 0% transparent; padding: 0px;"><a id="video_title"></a></h2>
+
+					</div>		
+				</div>
+				<div id="product" class="panel-content"><!--商品-->
+					<div class="panel-content-video"  id="product_image">
+						<a href="#"><img alt="" src=""></a>
+
+					</div>
+					<div class="panel-title">
+						<h2 style="background: none repeat scroll 0% 0% transparent; padding: 0px;"><a id="product_title"></a></h2>
+						<span id="product_price" class="price">2000</span>
+					</div>		
+				</div>
+				
+				<div id="image" class="panel-content"><!--图片-->
+					<img alt="" src="">
+				</div>
+				
+				<div class="user-option">
+					<div class="from">
+					<p>来自：</p><a id="from" href="#"></a>
+					</div>
+				</div>			
+			</div>
+	
+			<div id="comments" class="pop-up-later pop-up-recommend">
+		<!-- 回复-->
+		<div  class="friend-home-list">
+		<!--文本输入框-->
+		<div class="friend-content-l">
+		<div class="friend-pic-icon">
+		  <img id="myicon" src=""/>
+		</div>
+		<div class="dialogue">
+		<b></b>
+		<div class="text-box">
+			<textarea cols="" rows="" id="back_val" onFocus="this.innerHTML='';">对这个内容做个评价呗！</textarea>
+		</div>
+		
+		
+	    </div>
+	    <!--输入字数-->
+		<div class="enter">
+			<p class="right-comment-r" id="message_size">还可以输入140个字</p>														
+		</div>
+
+		<!--回复按钮-->
+	    <div class="btm-box r-frien-button">
+		<a class="friends-btn" href="#" id="enter_back">回复</a>
+		
+		</div>
+	    
+	    
+	    </div>
+		</div>		
+		
+		
+		
+		
+			
+		<div id="c_back">		
+		<div class="personal-comments">
+			<dl>
+						<dt class="person-logo">
+							<img src="/zh_CN/images/logo-national-flag.gif" alt="" />
+						</dt>
+						<dd>
+							<p>艺述英国</p>
+							<span class="release-time"></span><!--时间-->
+							<p class="money"></p>
+						</dd>
+					</dl>
+
+		</div>
+		<!--中间没有颜色   personal-comments-1-->
+		<div class="personal-comments personal-comments-1 personal-comments-l-right">
+			<dl>
+						<dt class="person-logo">
+							<img src="/zh_CN/images/logo-national-flag.gif" alt="" />
+						</dt>
+						<dd>
+						<span class="release-time"></span><!--时间-->
+							<p>艺述国</p>
+							
+							<p class="money"></p>
+						</dd>
+					</dl>
+
+		</div>		
+		<div class="personal-comments">
+			<dl>
+						<dt class="person-logo">
+							<img src="/zh_CN/images/logo-national-flag.gif" alt="" />
+						</dt>
+						<dd>
+							<p>艺述英国</p>
+							<span class="release-time">2012-6-23 12：14</span><!--时间-->
+							<p class="money"></p>
+						</dd>
+					</dl>
+
+		</div>		
+		</div>	
+		</div>
+			 <div style="height:10px; clear:both; overflow:hidden; margin:0 auto;"></div>
+		</div>			
+ <div style="height:10px; clear:both; overflow:hidden; margin:0 auto;"></div>
+		</div>
+	</div>
+		
+	</div>
+
+#parse("/zh_CN/views/template/footer.vm" ) 

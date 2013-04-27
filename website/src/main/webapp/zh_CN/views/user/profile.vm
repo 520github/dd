@@ -1,0 +1,55 @@
+#parse("/zh_CN/views/template/prefix.vm" ) 
+<head>
+#set($browserTitle="完善个人信息")
+#parse("/zh_CN/views/template/meta_include.vm" ) 
+<script src="/zh_CN/js/web/agreement.js"></script>
+<script src="/zh_CN/js/web/profile.js"></script>
+<title>档案设置</title>
+</head>
+<body>
+#parse("/zh_CN/views/head.vm")
+
+<div id="stage" class="single">
+	<div id="container" class="perfect">
+		<div class="pic-top"></div>
+		<div class="form-set">
+			<form name="regForm" id="regForm" action="/account/default/register/verify" method="POST">
+			<input type="hidden" name="registerType" value="email">
+			<input type="hidden" id="type" name="type" value="$!type">
+			<div class="portrait">
+			<img src="#if($!picurl=="") /zh_CN/images/default-100.jpg #else $!picurl #end" alt="个人图片" />
+			</div>
+		
+			<!--完善个人信息-->
+			<ul class="form-set-list">
+				<li class="form-set-list-1">
+					<span>hi，</span>
+					<p>$!name<strong>（设置后可修改昵称）</strong></p>
+				</li>
+				<!--提醒 -->
+				<li class="form-set-list-3">
+					<b>请设置你的Email帐号吧，它可以用来登录、找回密码等</b>
+				</li>
+				<li class="form-set-list-2">
+					<span>我的邮箱</span>
+					<input id = "email" name="email" type="text" value="$!email" />
+				</li>
+				<!--提醒 -->
+				<li class="form-set-list-3">
+					<b>请填写有效邮箱，它将成为你登录多多的帐号！</b>
+				</li>
+				<li class="register-button send-emali-btn">
+					<input name="" type="image" src="/zh_CN/images/send-emali-btn.png" />
+				</li>
+				<li class="agree">
+					<input name="agree" id="agree" type="checkbox" value="" /><a href="javaScript:showAgreement()">我已经阅读并且同意了<strong>《多多网络服务条款》</strong></a>
+				</li>
+			</ul>
+			</form>
+		</div>
+	</div>
+</div>
+
+<input id="isPoll" type="hidden" value="false">
+#parse("/zh_CN/views/user/agreement.vm" )
+#parse("/zh_CN/views/template/footer.vm" )

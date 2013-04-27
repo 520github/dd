@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>搜索</title>
+	<script type="text/javascript" src="/js/jquery.min.js"></script>
+	<script lanuage="javascript">
+	function showAddFriend(id) {
+		$("#uid").val(id);
+		$("#addFriendDiv").show();
+	}
+	function addFriend(id) {
+		jQuery.post("/friend/add", {friendId:id,remark:''}, function(data) {
+			if (data == "0") {
+				alert("添加失败。");
+				return;
+			}
+			else if (data == "1") {
+				alert("成功添加申请。");
+			}
+			else if (data == "2") {
+				alert("已添加好友。");
+			}
+			else if (data == "3") {
+				alert("你跟自己已是基友。");
+			}
+		});
+	}
+	</script>
+</head>
+<body>
+<div>
+	<form action="/search" method="get">
+		<div>
+			<h1>搜索用户<input type="hidden" name="type" value="1" /></h1>
+			<p>关键字<input type="text" name="q" value="$!q"/></p>
+			<p><input type="submit" value="查找" /></p>
+		</div>
+  	</form>
+</div>
+<div>
+	#if ($accounts)
+	#foreach($a in $accounts)
+	<p>$a.name - $a.email - <a href="javascript:addFriend('$a.id')">添加好友</a></p>
+	#end
+	#else
+	<p>$q is not found.</p>
+	#end
+	<div id="addFriendDiv" style="display:none">
+		<p>
+			<input type="hidden" id="uid" />
+			好友昵称：<span id="aname"></span></p>
+		<p>
+			备注：<input type="text" id="remark" />
+		</p>
+		<p>
+			<input type="submit" value="申请" onclick="addFriend()" />
+		</p>
+	</div>
+</div>
+</body>
+</html>

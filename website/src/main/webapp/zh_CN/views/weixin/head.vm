@@ -1,0 +1,8 @@
+<body>	
+	<div id="head">
+		<div class="head">
+			<div id="log"><img src="$weixinPath/log.png" atl="多多收藏"></div>	
+			<h1>多多收藏</h1>
+			<div class="address">mduoduo.com</div>
+		</div>
+	</div>

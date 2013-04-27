@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8, IE=9"/>
+<link rel="stylesheet" href="/zh_CN/css/pop-up.css">
+<link rel="stylesheet" href="/zh_CN/css/plug-in.css" />
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/layer/layer.js"></script>
+<script type="text/javascript" src="/js/jquery.blockUI.js"></script>
+<script type="text/javascript" src="/js/jquery.raty.min.js"></script>
+<script type="text/javascript" src="/js/json2.js"></script>
+<script type="text/javascript" src="/js/jquery.tinyscrollbar.js"></script>
+<script type="text/javascript" src="/js/clipper/clipper.js"></script>
+<script type="text/javascript" src="/js/clipper/friend.js"></script>
+<script>
+var plugin=new DDPlugin();
+$(document).ready(function(){
+	$("#ddCloseBtn").click(function(){
+			postMsgToParent("closeDialog");
+	});
+	
+	preparePostMessage();
+	
+	/*window.addEventListener('message',function(e) {
+		eval("var data="+e.data);
+		if(data.action=='setUrl'){
+			plugin.setClipContentUrl(data.data);
+		}else if(data.action=='setClipInfo'){
+			plugin.setClipAction(data.data.clipAction);
+			plugin.setClipContentType(data.data.contentType);
+			plugin.setClipTitle(data.data.title);
+			plugin.setClipContentUrl(data.data.url);
+			
+			if(data.data.contentType=='Image'){
+				plugin.setClipContentUrl(data.data.content);
+				plugin.preview(data.data.url);
+			}else if(data.data.contentType=='HtmlClip'){
+				var html = "<h3>" + data.data.title + "</h3>";
+				html += "<font style='font-size:12px;color:#868686;line-height:18px'>"
+					+ data.data.content + "</font>";
+				$("#ddPreview").html(html);
+			}else if(data.data.contentType=='Web'){
+				plugin.setClipContentUrl(data.data.url);
+				plugin.preview(data.data.url);
+			}else if(data.data.contentType=='Video'){
+				plugin.setClipContentUrl(data.data.url);
+				plugin.preview(data.data.url);
+			}
+		}
+	});*/
+	
+	plugin.prepareClipDialog();
+});
+
+function setHeight() {
+    var doc = document[document.compatMode == "CSS1Compat"?'documentElement':'body'];
+    
+    //document.getElementById("plug-in-2coffee").style.height = doc['clientHeight'] +"px";
+    //alert(document.getElementById("plug-in-2coffee").style.height);
+}
+</script>
+</head>
+<body onload="postMsgToParent('report','clipper')" style="background:none;">
+
+   <div id="plug-in-2coffee" class="plug-in-2coffee" style="display:none">
+   <div id="ddPreview" class="plug-in-2coffee-left" style="display:none">
+	    <!--正常抓取内容-->
+		<div id="ddPreview_yes"  class="plug-in-2coffee-content">
+			<h2 id="ddPreview_title"></h2>
+			<div id="ddPreview_content"  class="plug-in-2coffee-article">
+			  		
+			</div>
+		</div>
+		
+		<!--无法抓取内容-->
+		<div id="ddPreview_no" class="plugin-error-2coffee" style="display:none">
+			<div class="plugin-error-2coffee-title">
+				<h2>
+					<p class="plugin-error-2coffee-title-h2">2coffee助手再次神奇般的出现了！</p>
+					<p>“2coffee插件是比较适合抓取单篇正文、图片、商品、视频的，比如一篇博客、一段视频、一个商品......</p>
+					<p>你现在抓取的网站令我们解析起来很困惑哦！  收藏该内容的网址行吗  ？”</p>
+				</h2>
+			</div>
+			<div id="ddPreview_url" class="plugin-error-2coffee-url">
+				
+			</div>
+        </div>
+        
+        <div id="ddPreview_mes" class="loading-2coffee collection-success-2coffee" style="display:none">
+			
+		</div>
+		
+	</div>
+	<div id="ddAction" class="plug-in-2coffee-right">
+	    <div class="plug-in-pic-top"></div>
+	    <div class="plug-in-2coffee-right-c">		
+				<div class="plug-in-2coffee-rightA">
+					<div class="plug-in-2coffee-logo">
+						<img src="/zh_CN/images/plug-in-logo.png" alt="">				
+					</div>
+					<div class="plug-in-2coffee-user-name">
+						<img src="$!photo" alt="">
+						$!{account.name}	
+					</div>
+				</div>
+			    <div class="plug-in-2coffee-panel">
+				    <div class="plug-in-2coffee-panel-title">
+					   <h2>
+						选择发送到：
+					    </h2>
+				    </div>
+				    <ul>
+					    <li>
+						    <p><input id="ddReadLater" name="ddReadLater" type="checkbox" checked="checked">稍后看（推到手机稍后看）</p>
+						    <p><input id="ddCollect" name="ddCollect" type="checkbox" >永久收藏</p>
+					    </li>
+				    </ul>	
+			    </div>
+			
+			    #parse("/zh_CN/views/clipper/bookmark/friends.vm")	
+		</div>	    
+	    <div class="plug-in-pic-bottom"></div>
+    </div>	
+</div>
+
+
+<div id="collection-success" class="loading-2coffee collection-success-2coffee" style="display:none">
+	<span>
+		内容收藏成功！是否现在就去 我的2coffee 看看？
+	</span>
+	
+</div>
+
+<!--提示信息 -->
+<div id="messageId" class="collection-success-2coffee">
+    <div id="pop-up" class="collection-success-2coffee-1" style="display:none">
+       <span>
+       </span>
+    </div>
+</div>
+<script type="text/javascript">
+	 
+	 function preparePostMessage(){
+	  //var plug = this;
+	  postMessageEvent = function(e) {
+	  	eval("var data="+e.data);
+	  	//alert("action2:" +data.action +";contentType:" +data.data.contentType);
+		if(data.action=='setUrl'){
+			plugin.setClipContentUrl(data.data);
+		}
+		else if(data.action=='setClipInfo'){
+		    //alert("setClipInfo");
+			plugin.setClipAction(data.data.clipAction);
+			plugin.setClipContentType(data.data.contentType);
+			plugin.setClipTitle(data.data.title);
+			plugin.setClipContentUrl(data.data.url);
+			
+			if(data.data.contentType=='Image'){
+			    plugin.setImgHeight(data.data.imgHeight);
+				plugin.setClipContentUrl(data.data.content);
+				plugin.preview(data.data.url);
+			}else if(data.data.contentType=='HtmlClip'){
+				$("#ddPreview_title").html(data.data.title);
+				$("#ddPreview_content").html(data.data.content);
+				plugin.resetImg(data.data);
+			}else if(data.data.contentType=='Web'){
+				plugin.setClipContentUrl(data.data.url);
+				plugin.preview(data.data.url);
+			}else if(data.data.contentType=='Video'){
+				plugin.setClipContentUrl(data.data.url);
+				plugin.preview(data.data.url);
+			}
+			
+
+			$("#plug-in-2coffee").show();
+			
+			var height = document.getElementById("ddPreview").offsetHeight;
+			var scrollHeight = document.getElementById("ddPreview").scrollHeight;
+			//alert("height:" + height +"|" + scrollHeight);
+			if(scrollHeight > height)height = scrollHeight;
+			//postMsgToParent('getPreviewHeight',height);
+			
+			bindDisplayScrollbar();
+		}
+	  }
+	  bind(window, 'message', postMessageEvent);
+   }
+
+function bind(obj, type, fn ) {
+    if ( obj.attachEvent ) {
+        obj['e'+type+fn] = fn;
+        obj[type+fn] = function(){obj['e'+type+fn]( window.event );}
+        obj.attachEvent( 'on'+type, obj[type+fn] );
+    } else
+        obj.addEventListener( type, fn, false );
+}
+</script>
+</body>
+</html>

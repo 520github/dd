@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Cache-Control" content="max-age=864000" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8, IE=9"/>
+<link rel="stylesheet" href="/zh_CN/css/plug-in.css">
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/layer/layer.js"></script>
+<script type="text/javascript" src="/js/json2.js"></script>
+<script type="text/javascript" src="/js/jquery.tinyscrollbar.js"></script>
+<script type="text/javascript" src="/js/clipper/clipper.js"></script>
+<script type="text/javascript" src="/js/clipper/friend.js"></script>
+
+<script type="text/javascript" src="/zh_CN/js/componet/mustache.js"></script>
+<script type="text/javascript" src="/zh_CN/js/common/stringUtil.js"></script>
+<script type="text/javascript" src="/zh_CN/js/common/objectUtil.js"></script>
+<script type="text/javascript" src="/zh_CN/js/common/dateUtil.js"></script>
+<script type="text/javascript" src="/zh_CN/js/common/cookieUtil.js"></script>
+<script type="text/javascript" src="/zh_CN/js/log/log.js"></script>
+<script type="text/javascript" src="/zh_CN/js/rest/rest.js"></script>
+<script type="text/javascript" src="/zh_CN/js/rest/friendRest.js"></script>
+<script type="text/javascript" src="/zh_CN/js/page/template/template.js"></script>
+<script type="text/javascript" src="/zh_CN/js/page/template/friends/friendsTemplate.js"></script>
+<script type="text/javascript" src="/zh_CN/js/business/friend/inner/innerFriend.js"></script>
+<script type="text/javascript" src="/zh_CN/js/business/friend/inner/innerAllFriend.js"></script>
+<script type="text/javascript" src="/zh_CN/js/business/friend/inner/innerFavoriteFriend.js"></script>
+<script type="text/javascript" src="/zh_CN/js/business/friend/inner/innerLastFriend.js"></script>
+<script type="text/javascript" src="/js/clipper/pluginFriendsShare.js"></script>
+<script type="text/javascript" src="/js/clipper/pluginLog.js"></script>
+<script type="text/javascript" src="/zh_CN/js/componet/jq/jq-textAreaCounter.js"></script>
+
+<script>
+var cycleId;
+var useHeightCycleId;
+jQuery(document).ready(function(){
+    PluginLog.obj.setEndRequestTime(new Date().getTime());
+    __coffee2innerCommon__.log("load coffee2 inner......");
+    __coffee2innerEvent__.post2parentMessage('slowFall','80px');
+    __coffee2innerEvent__.preparePostMessage();
+    __coffee2innerBusi__.request();
+    __coffee2innerBusi__.showFastStep();
+    __coffee2innerEvent__.post2parentMessage('requestClipper','');
+    
+    friendAction.bindEventAction();   
+    friendAction.initFriendDiv();
+    //friendAction.autoSelectFriendByType();
+    //cycleId = window.setInterval("checkHeight()",1000);
+    useHeightCycleId = window.setInterval("checkUseHeight()",1000);
+});
+
+function go2indexPage() {
+    window.open("http://www.mduoduo.com/","blank");
+}
+
+function checkHeight() {
+    var height = $(".overview").height();
+    if(height >0) {
+        friendAction.bindShareFriend();
+        window.clearInterval(cycleId);
+    }
+}
+
+function checkUseHeight() {
+    var useHeight = __coffee2innerData__["useHeight"];
+    if(useHeight !=null && useHeight >0) {
+        friendCommon.setFriendViewportHeight(constant.shareHeight());
+        //friendShowOrHidden.hideOrShowFriendScroll();
+        window.clearInterval(useHeightCycleId);
+    }
+}
+</script>
+</head>
+<body >
+#parse("/zh_CN/views/define.vm" )
+<div id="plug-in-2coffee" class="plug-in-2coffee" >
+    <input type="hidden" id="isLogin" value="yes"/>
+    <input type="hidden" id="friendType" value="appoint"/>
+    <input type="hidden" id="authToken" value="$!token"/>
+    <div id="ddFastStep" class="plug-in-2coffee-crawl" style="display:none">
+		<div class="plug-inLogo-2coffee">
+			<img src="/zh_CN/images/plug-inLogo.gif" alt="">
+		</div>
+		<div id="ddFastTips" class="plug-in-2coffee-crawl-content">
+			<h3> 内容抓取中......</h3>
+		</div>
+		<div id="ddFastMore" class="plug-in-2coffee-crawl-btn">
+			<a href="javascript:__coffee2innerBusi__.go2more()" ><img src="/zh_CN/images/plug-inBtn.png" alt="更多操作" ></a>
+		</div>
+		<div id="guestUserDiv" class="plug-in-mduoduo-login-register" style="display:none">
+			<a href="/account/default/login" target="_blank">登录</a>
+			<a href="/account/default/register/" target="_blank">注册</a>
+		</div>
+		<div class="plug-in-2coffee-crawl-close">
+			<a href="javascript:__coffee2innerBusi__.close();"><img src="/zh_CN/images/plug-inClose.png" alt="关闭" ></a>
+		</div>
+	</div>
+	
+	<!--内容-->
+	<div id="ddPreview" class="plug-in-2coffee-left" style="display:none">
+	    <!--正常抓取内容-->
+		<div id="ddPreview_yes"  class="plug-in-2coffee-content">
+			<h2 id="ddPreview_title"></h2>
+			<div id="ddPreview_content"  class="plug-in-2coffee-article">
+			  		
+			</div>
+		</div>
+		
+		<!--无法抓取内容-->
+		<div id="ddPreview_no" class="plugin-error-2coffee" style="display:none">
+			<div class="plugin-error-2coffee-title">
+				<h2>
+					<p class="plugin-error-2coffee-title-h2">多多助手再次神奇般的出现了！</p>
+					<p>“多多插件是比较适合抓取单篇正文、图片、商品、视频的，比如一篇博客、一段视频、一个商品......</p>
+					<p>你现在抓取的网站令我们解析起来很困惑哦！  收藏该内容的网址行吗  ？”</p>
+				</h2>
+			</div>
+			<div id="ddPreview_url" class="plugin-error-2coffee-url">
+				
+			</div>
+        </div>
+        
+        <div id="ddPreview_mes" class="loading-2coffee collection-success-2coffee" style="display:none">
+			
+		</div>
+	</div>
+	
+	<div id="ddAction" class="plug-in-2coffee-right" style="display:none">
+	     #parse("/zh_CN/views/clipper/bookmark/share.vm")
+    </div>	
+</div>
+
+
+<!--loading-->
+<div id="ddPreview_loading" class="loading-2coffee" style="display:none">
+	<img src="/zh_CN/images/loading-plug.gif" alt="2coffee加载图">
+</div>
+
+<div id="collection-success" class="loading-2coffee collection-success-2coffee" style="display:none">
+	<span>
+		内容收藏成功！是否现在就去 我的多多看看？
+	</span>
+</div>
+
+<div id="collection-close" class="plug-in-2coffee-left-stop" style="display:none">
+    <p>
+		<a href="javascript:postMsgToParent('closeDialog');"><img src="/zh_CN/images/stop-pin.png" alt=""></a>
+	</p>
+</div>
+
+<!--提示信息 -->
+<div id="messageId" class="collection-success-2coffee">
+    <div id="pop-up" class="collection-success-2coffee-1" style="display:none">
+       <span>
+       </span>
+    </div>
+</div>
+</body>
+</html>

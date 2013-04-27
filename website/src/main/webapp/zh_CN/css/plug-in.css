@@ -1,0 +1,417 @@
+body{
+	margin:0 auto;	
+	width:100%;
+	background:#4c4c4c;
+}
+.plug-in-2coffee{
+
+	width:100%;
+	min-height:100%;
+	color:#fff;	
+}
+.plug-in-2coffee h1{
+	font-size:16px; 
+	line-height:35px;
+}
+.plug-in-2coffee-left {
+	float:left;
+	overflow:hidden;
+	width:64%;
+	margin:0 auto;
+	height:100%;
+
+/* 	-moz-box-shadow:-50px 0px 65px #373737 inset;             /* For Firefox3.6+ 
+	-webkit-box-shadow:-50px 0px 65px #373737 inset;          /* For Chrome5+, Safari5+ 
+	box-shadow:-50px -0px 65px #373737 inset;                  /* For Latest Opera */
+}
+/*==============================loading==============================*/
+.loading-2coffee{
+  position:relative;
+   /*??IE????????????????????��????*/
+/*      display: table-cell; */
+     vertical-align:middle;
+     /*??????????*/
+     text-align:center;
+     /* ???IE??Hack */
+     *display: block;
+     *font-size:175px;/*??????0.873??200*0.873 ??175*/
+     *font-family:Arial;/*?????utf-8?????hack?��??????gbk????*/
+     width:55%;
+     margin:0 auto;
+     margin-top: 300px;  
+
+}
+.loading-2coffee-img{
+	width:75%;
+	display:inline-table;
+		 height:100%;
+}
+.collection-success-2coffee-1{
+/* position:absolute;
+top:5%;
+left:25%; */
+position:fixed;
+top:350px;
+left:40%;
+}
+.collection-success-2coffee-1 span{
+	background:#fff;
+}
+
+
+.loading-2coffee img, .loading-2coffee-img span{
+	position:absolute;
+	top:45%;
+	left:40%;
+}
+.plugin-error-2coffee {
+	margin: 0 auto;
+	width:571px;
+	height:225px;
+}
+.plugin-error-2coffee-title {
+	background-image: url(../images/plugin-error.png);
+	width:511px;
+	height:210px;
+	padding:5px 30px 5px 30px;
+}
+.plugin-error-2coffee-url{
+	font-size:23px;
+	margin-top:50px;
+	line-height:30px;
+	text-align:center;
+	width:575px;
+	float:left;
+}
+.plugin-error-2coffee-title-h2{
+	font-size:23px;
+}
+.plugin-error-2coffee  h2{
+	font-weight:100;
+	font-size:20px;
+}
+.plugin-error-2coffee  h2 p{
+	margin:15px 0;
+}
+.plug-in-2coffee-content{
+	width:70%;
+	margin:0 auto;
+}
+
+div.plug-in-pic-top{
+	background-position:-206px -2px;
+	width:368px;
+	height:159px;
+}
+div.plug-in-pic-bottom{
+		background-position:-206px -180px;
+	width:421px;
+	height:49px;
+	float:left;
+}
+.plug-in-2coffee-right-c{
+	background:url(../images/plug-in-pic-c.png)  repeat-y;
+	width:318px;	
+	padding:0 25px; 
+
+	float:left;
+}
+/* .share .plug-in-2coffee-right{position:inherit;} */
+.share .plug-in-2coffee-right{ margin-top:-100px;}
+div.share .plug-in-2coffee-panel{
+	margin-top:0;
+} 
+
+.plug-in-2coffee-right{
+	float:right;
+	width:368px;
+	height:100%;
+	padding:0 25px 0 10px;
+	right:30px;
+	position:fixed;	
+/* 	-moz-box-shadow:0px 0px 6px #cfcfcf inset;             /* For Firefox3.6+ 
+	-webkit-box-shadow:0px 0px px #cfcfcf inset;          /* For Chrome5+, Safari5+ 
+	box-shadow:0px 0px 6px #1b1b1b inset;                  /* For Latest Opera  */
+	color:#000;
+	font-size:12px;
+	list-style-type:none;
+	 margin-top: -22px;
+}
+.plug-in-2coffee-rightA{
+	margin: -90px 0 0;
+
+}
+.plug-in-2coffee-logo{
+	float:left;
+	margin:10px 0 0 0;
+}
+.plug-in-2coffee-user-name {
+	float:right;
+
+	line-height:32px;
+    padding: 30px 25px 0 0;
+}
+.plug-in-2coffee-user-name img{
+	margin:0 10px 0 0 ;
+	float:left;
+	border:1px solid #dadbd9; 
+	padding:1px; 
+	widht:28px; 
+	height:28px;
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;	 
+	background:#fff;
+}
+
+.plug-in-2coffee-panel{
+	background:#fff;
+	overflow:hidden;
+	float:left;
+	width:100%;
+	-moz-box-shadow:2px 2px 2px #d8d7d7 inset;               /* For Firefox3.6+ */
+	-webkit-box-shadow:5px 5px 5px #d8d7d7 inset;            /* For Chrome5+, Safari5+ */
+	box-shadow:2px 2px 2px #d8d7d7 inset;                    /* For Latest Opera */
+}
+.plug-in-2coffee-panel-1{
+	background:none;
+	overflow:hidden;
+	float:left;
+	width:100%;
+	-moz-box-shadow:0px 0px 0px #d8d7d7 inset;               /* For Firefox3.6+ */
+	-webkit-box-shadow:0px 0px 0px #d8d7d7 inset;            /* For Chrome5+, Safari5+ */
+	box-shadow:0px 0px 0px #d8d7d7 inset;                    /* For Latest Opera */
+}	
+}
+
+
+
+.collection-success-2coffee{
+	font-size:40px;
+margin-left: 225px;
+width: 170%;
+}
+.collection-success-2coffee span a{
+	font-weight:900;
+	text-decoration:inline;
+	color:#fff;
+}
+.plug-in-2coffee-left-stop {
+	position:absolute;
+	right:20px;
+	top:0px;
+}
+.plug-in-2coffee-left-stop p img{
+	width:78px; 
+	height:78px;
+}
+.plug-in-2coffee-left-stop p strong{
+	font-weight:normal;	
+}
+
+.collection-success-2coffee span{
+  -webkit-border-radius:10px ;
+-moz-border-radius: 10px ;
+ border-radius:10px  ;
+ border:1px solid #c4b5ab;
+
+-webkit-box-shadow: 0 0 10px #a68e7c;
+-moz-box-shadow: 0 0 10px #a68e7c;
+box-shadow: 0 0 10px #a68e7c;  	
+padding:20px 40px;
+
+}
+
+
+.plug-in-2coffee-textarea .select-several{ font-size:14px;  line-height:30px; font-weight:900; margin-top:20px; float:left;}
+.plug-in-2coffee-textarea .select-several strong{color:#94bc64;}
+.plug-in-2coffee-textarea textarea{
+	width:93%; height:92px;  color:#666; font-size:14px; line-height:30px;
+	margin:10px 0 0 10px;	 float:left;
+}
+.plug-in-2coffee-textarea b{
+	line-height:60px;
+	padding:0px 0 0 10px;
+	float:left;
+}
+.share .plug-in-2coffee-textarea p {
+    margin-top: 15px;
+}
+.plug-in-2coffee-textarea p{
+	float:right;
+}
+.plug-in-2coffee-textarea p input{
+	margin:0 10px 0 0 ;
+}
+
+.plug-in-2coffee-recommend span b{
+	line-height:20px;
+	float:left;
+	margin:8px 0 0 0;
+}
+p a.plug-in-2coffee-btn-cancel{ float:left; background-position: -20px -13px;  width:81px; height:28px;  text-indent:-1000px;  overflow:hidden;}
+p a.plug-in-2coffee-btn-determine{ float:left; background-position: -110px -13px;  width:81px; height:27px;  overflow:hidden;  text-indent:-1000px;  margin:0px 10px 0 10px;}
+p a.plug-in-2coffee-btn-determine-no{ float:left; background-position: -3px -328px; }
+/*===========================�ҵĿ����б�===========================*/
+.plug-in-2coffee-panel-title{
+	width:100%;
+	float:left;
+
+}
+.plug-in-2coffee-panel-title h2{
+background: #e9f1e2; 
+	border-bottom:1px solid #bed6a8;
+	font-size:14px;
+	color:#000;
+	line-height:29px;
+	padding:0 0 0 10px;
+	margin:0;
+	float:left;            
+      	
+	box-shadow:6px 0px 3px -2px #d8d7d7 inset;
+	width:96%;
+}
+.logo-sina-share{ width:20px; height:20px; display:inline-block; margin:0px 0 0 0 ; top:5px;   overflow:hidden;  position:relative;}
+.logo-sina-share img{margin:0px 0 0 0 ;}
+.logo-sina-share-no { width:20px; height:20px; display:inline-block; margin:-20px 0 0 0 ; top:5px;  overflow:hidden; position:relative;}
+.logo-sina-share-no img{  margin:-20px 0 0 0 ; }
+.plug-in-2coffee-panel-title .plug-in-2coffee-panel-title-1A{
+	-moz-box-shadow:2px 2px 2px #d8d7d7 inset;               
+	-webkit-box-shadow:5px 5px 5px #d8d7d7 inset;           
+	box-shadow:2px 2px 2px #d8d7d7 inset;   
+}
+
+/*==========ͼƬͨ��==========*/
+.plug-in-2coffee-panel-icon a, .plug-in-2coffee-panel-icon-1 a, .plug-in-2coffee-suchen-icon, p .plug-in-2coffee-btn-cancel, p .plug-in-2coffee-btn-determine
+, .plug-in-pic-top, .plug-in-pic-bottom, .plug-in-2coffee-panel-title h2 .plug-in-pfeil-auf, .plug-in-2coffee-panel-title h2 .plug-in-pfeil-weniger, 
+.plug-in-2coffee-crawl, .plug-in-2coffee-crawl-btn a 
+{background:url(../images/plug-in-2coffee.png) no-repeat;}
+
+
+.plug-in-2coffee-panel-title h2 .plug-in-pfeil-auf{background-position:-55px -70px; float:right; width:12px; height:6px; margin:12px 10px 0 0 ; }
+.plug-in-2coffee-panel-title h2 .plug-in-pfeil-weniger{ background-position:-33px -70px;   float:right; width:12px; height:10px; margin:12px 10px 0 0 ;}
+.plug-in-2coffee-panel-title-left ul { padding-left:0; width:98%; /*margin-top:40px;*/ margin-bottom:3px;}
+.plug-in-2coffee-panel-title-left ul li{ list-style-type:none; }
+
+h2 .plug-in-2coffee-panel-icon a, h2 .plug-in-2coffee-panel-icon-1 a{  margin:5px 10px 0 0px; background-position:-83px -62px;}
+h2 .plug-in-2coffee-panel-icon-1 a{  background-position:-121px -61px; width:26px; height:26px;margin:5px 10px 0 0px;  }
+.plug-in-2coffee-panel-icon a, .plug-in-2coffee-panel-icon-1 a{ float:left; margin:5px 5px 0 9px;  width:22px; height:22px; background-position:-82px -62px;   text-indent: -9999px; overflow:hidden; }
+.plug-in-2coffee-panel-icon-1 a{  background-position:-125px -58px; width:20px; height:25px;margin:0px 5px 0 10px;   }
+.plug-in-2coffee-panel-icon img, .plug-in-2coffee-panel-icon-1 img{ border:0; width:20px; height:20px;}
+.plug-in-2coffee-panel-portrait{ width:27px; height:27px;  float:left; border:1px solid #e0e0e0;  border-radius:10px; -moz-border-radius:10px; -webkit-border-radius:10px; margin:0 10px 0 0px; }
+.plug-in-2coffee-panel-portrait img{overflow: hidden; width:25px; height:25px; margin:1px ; border:none; border-radius:10px; -moz-border-radius:10px;  -webkit-border-radius:10px; }
+.plug-in-2coffee-panel-nickname{  line-height:30px; margin:5px 0 5px 0;}
+.plug-in-2coffee-panel-nickname a{ 	text-decoration:none; color:#333;  font-size:14px;	} 
+ 
+
+ /*======================ie6 7 8 9 ����css htc========================*/
+.plug-in-2coffee-panel-portrait, .plug-in-2coffee-panel-portrait img, .plug-in-2coffee-user-name img,
+.plug-in-2coffee-suchen span input{behavior: url(./css/PIE.htc);  position:relative;}	 
+
+ 
+ /*===========================����===========================*/
+.plug-in-2coffee-suchen{width:97%; height:35px; overflow:hidden; margin:-15px 0 10px 0; padding:5px 0 0 5px;}
+.plug-in-2coffee-suchen span {width:97%;}
+.plug-in-2coffee-suchen span input{ width:285px; padding:0 10px; height:29px; border:1px solid #cccccc; border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px; line-height:29px; /* color:#ccc; */}
+.plug-in-2coffee-suchen-icon{ background-position: -168px -62px; float:right; margin:-27px 15px 0 0; height:29px; width:25px;position:relative; }
+.plug-in-2coffee-suchen-icon button{ vertical-align: top; cursor: default; background: transparent; border:none; }
+ 
+ /*===========================����ץȡ===========================*/
+ .plug-in-2coffee-crawl{
+/* 	border-top-style:   double; */
+	background-repeat: repeat-x;
+	border-top-color:red;
+	height:93px;
+	background-position:-0px -229px ;
+	padding:0 10%;
+ }
+ .plug-inLogo-2coffee {
+	width:25%;
+	float:left;
+ }
+.plug-inLogo-2coffee img{
+	margin-top:10px;
+}
+.plug-in-2coffee-crawl-content{
+	width:32%;
+	float:left;
+	display:table;
+	overflow:hidden;
+	text-align:center;
+	height:78px;
+}
+.plug-in-2coffee-crawl-content h3{
+	font-size:22px;
+	margin:0;
+	display:table-cell;
+	vertical-align:middle;
+	position: static;	
+	color:#464646;
+		font-weight:100;
+}
+.plug-in-2coffee-crawl-btn span{
+	float:left; color:#dbdada; 
+	font-size:16px;  width:90%; text-align:right; color:#737373;
+
+}
+.plug-in-2coffee-crawl-btn a{ width:188px; height:48px; background-position:-9px -102px; display:block; text-indent:-999px; overflow:hidden;}
+.plug-in-2coffee-crawl-btn a:hover{background-position:-9px -152px;   }
+.plug-in-2coffee-crawl-btn {
+	width:212px;
+	height:auto;
+	overflow:hidden;
+	margin-top:10px;
+	margin-left:80px;
+	float:left;
+
+}
+.plug-in-2coffee-crawl-btn img {
+	border:0;
+}
+.plug-in-2coffee-crawl-btn img:hover{
+	margin-top: -46px;
+}
+.plug-in-2coffee-crawl-close{
+	float:right;
+	margin-top:5px;
+}
+.plug-in-2coffee-crawl-close img{
+	border:0;
+}
+
+
+.scrollbar-list { width: 100%; clear: both; margin: 0px 0 10px; }
+.scrollbar-list .viewport { width: 99%; height: 230px; overflow: hidden; position: relative; 	border-bottom: 1px dashed #E2DED9;}
+.scrollbar-list  .overview { list-style: none; position: absolute; left: 0; top: 0; }
+
+.scrollbar-list  .thumb .end,
+.scrollbar-list  .thumb { background-color: #e6e6e6; 	-moz-border-radius: 20px; -khtml-border-radius: 20px; -webkit-border-radius: 20px; border-radius: 10px;	}
+.scrollbar-list  .scrollbar { position: absolute; right:50px; float: right; width: 5px; }
+.scrollbar-list  .track { height: 100%; width:13px; position: relative; padding: 0 1px; }
+.scrollbar-list  .thumb { height: 20px; width: 5px; cursor: pointer; overflow: hidden; position: absolute; top: 0; }
+.scrollbar-list  .thumb .end { overflow: hidden; height: 5px; width: 13px; }
+.scrollbar-list  .disable{ display: none; }
+
+
+
+.duoduo-prompt{ line-height:25px; padding:40px 20px 0px 20px;}
+.duoduo-prompt p strong{color:#88b157;}
+
+
+
+ /*===========================授权成功===========================*/
+.authorize-ok{ position:absolute; top:300px; padding:10px; border:3px solid #88b157;  display:inline-block; width:255px; height:269px; left:12%; background:#fff; border-radius:5px; -moz-border-radius:5px; -webkit-border-radius:5px;}
+.authorize-ok h2{ font-size:24px; color:#000; font-weight:900; line-height:40px; border-bottom:1px dashed  #979797; margin:0; padding-bottom:10px;}
+.authorize-ok  p{ line-height:20px;}
+.authorize-ok a
+ {background:url(../images/button.png) no-repeat; width:102px; text-decoration:none; height:30px; display:inline-block; text-align:center; line-height:30px;}
+.authorize-ok a.close{ background-position: -1189px -209px;color:#fff; font-weight:900;}
+.authorize-ok a.open{   background-position: -1189px -169px;  color:#676767;}
+.authorize-ok span{ color:#ababab; float:left; line-height:40px;}	
+.authorize-ok span strong{ color:#88b157; font-weight:900;}	
+
+/*login register*/
+.plug-in-mduoduo-login-register { float:left; }
+.plug-in-mduoduo-login-register a{ display:block; background:#00ACAA; padding:5px 20px; color:#fff; margin-top:10px;  }
+
+

@@ -1,0 +1,83 @@
+#parse("/zh_CN/views/define.vm")
+<div id="container">
+    <div class="container-chrome container-mozilla bookmark-index" style="display:block">
+        <div class="coffeeBookmark"> <img src="$!imgPath/bookmark-img1.jpg" alt="duoduo-chrome" />
+            <h2>浏览器书签按钮</h2>
+            <p>按<b>Shitf+Ctrl+B</b>打开书签工具栏，<br />
+                <span>将这个按钮直接拖拽到你的书签工具栏，</span><br />
+                即可尽情分享和收藏你的发现。</p>
+            <div class="button">
+                #parse("/zh_CN/views/about/bookmark_action.vm")
+            </div>
+        </div>
+        <div class="contentRdiv stepDiv-a">
+            <h3>如何安装？</h3>
+            <div class="qaDiv">
+                <p class="Qp">问：怎么安装书签按钮？</p>
+                <p class="Ap">答：打开书签工具栏，将这个按钮直接拖拽到你的<span>书签工具栏</span></p>
+            </div>
+            <div class="qaDiv">
+                <p class="Qp">问：我的浏览器找不到书签栏，怎么办？</p>
+                <p class="Ap">答：打开菜单“<span>书签</span>”，筛选“<span>显示书签栏</span>”</p>
+            </div>
+            <div> <img src="$!imgPath/bookmark-img2.jpg"><br>
+                <br>
+                <img src="$!imgPath/bookmark-img3.jpg"><br>
+                <br>
+                <img src="$!imgPath/bookmark-img4.jpg"><br>
+                <br>
+                <img src="$!imgPath/bookmark-img5.jpg"><br>
+                <br>
+                <img src="$!imgPath/img14.png"> </div>
+            <h3>iPad、iPhone设备浏览器</h3>
+            <div class="qaDiv">
+                <p class="Qp">问：如何在iPad和iPhone上使用“收藏到多多”？</p>
+                <p class="Ap">答：需要手工建立并编辑书签</p>
+            </div>
+            <div class="qaDiv">
+                <p class="Ap">第一步：将这一页添加到书签</p>
+                <img src="$!imgPath/bookmark-img6.jpg"> </div>
+            <div class="qaDiv">
+                <p class="Ap">第二步：全选并拷贝如下代码</p>
+                <input type="text" size="30" value="javascript:void((function(){if(!document.getElementById('ddAutoClip')){var i=!/*@cc_on!@*/0?document.createElement('input'):document.createElement('<input/>');i.type='hidden';i.id = 'ddAutoClip';i.value='true';document.body.appendChild(i);}else{document.getElementById('ddAutoClip').value='true';}var%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://$!domainName/js/clipper/bookmark.js?r='+Math.random()*99999999);document.body.appendChild(e)})());" >
+            </div>
+            <div class="qaDiv">
+                <p class="Ap">第三步：编辑书签，点击第二行的"X"删除原内容，并把刚才复制的代码粘贴进去：</p>
+                <img src="$!imgPath/bookmark-img7.jpg"> </div>
+            <div class="qaDiv">
+                <p class="Ap">第四步：安装完成！你可以从你的书签列表中选择“收藏到多多”书签并点击。</p>
+            </div>
+            <div class="qaDiv">
+                <p class="Qp">问：各种搞不定，怎么办？</p>
+                <p class="Ap">答：把问题反馈给我们，我们来帮你搞定！你可以：<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.在新浪微博上给我们<span>@</span>或<span>发私信</span>,告诉我们遇到的问题<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.要不你换个浏览器试试吧。</p>
+            </div>
+            <div class="qaDiv">
+                <p class="Qp">问：给我你们的联系方式？</p>
+                <p class="Ap">答：
+                    <!--
+			<span>新浪的</span><br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>腾讯的</span><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			-->
+                    <span><a href="mailto:help@imduoduo.com">直接电邮:help@imduoduo.com</a></span></p>
+            </div>
+        </div>
+        <div class="stepDiv">
+            <h3>如何才能使用</h3>
+            <table cellspacing="10" cellpadding="0">
+                <tbody>
+                    <tr>
+                        <td><img src="$!imgPath/img8.png">
+                            <p>首先你得是多多注册用户<br>
+                                <a href="/account/default/register/" target="blank">还没有多多帐号？点击申请新帐号</a></p></td>
+                        <td><img src="$!imgPath/img9.png">
+                            <p>安装多多的书签按钮</p></td>
+                        <td><img src="$!imgPath/img10.png">
+                            <p>点击浏览器上的书签按钮</p></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

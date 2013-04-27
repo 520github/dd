@@ -1,0 +1,10 @@
+<script>
+    jQuery(document).ready(function() {
+        _dragMt.init();
+        jQuery("#head").attr("class","");
+        jQuery("#head").show();
+        jQuery("#logoLt img").attr("src","/zh_CN/images/logo-home.png");
+    });
+</script>
+
+#parse("/zh_CN/views/head/head_logout.vm" )

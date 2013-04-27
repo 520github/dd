@@ -1,0 +1,65 @@
+#parse("/zh_CN/views/template/prefix.vm" ) 
+<head>
+#set($browserTitle="完善个人信息")
+#parse("/zh_CN/views/template/meta_include.vm" ) 
+<script src="/zh_CN/js/web/agreement.js"></script>
+<script src="/zh_CN/js/web/newprofile.js"></script>
+<title>档案设置</title>
+</head>
+<body>
+#parse("/zh_CN/views/head.vm")
+
+<div id="stage" class="right-left registration single fans perfect">
+	<div id="container" class="left-register">
+		<div class="title">
+			<h1 class="title-registration size24 lh70 color7 weight9">完善信息</h1>
+		</div>
+		<!--登录 注册-->
+		<div class="form-set">
+			<form name="regForm" id="regForm" action="/account/third/profile/" method="POST">
+			<input id="reffer" name="reffer" type="hidden" value="$!reffer"/>
+			<div class="portrait">
+				<img src="$!picurl" alt="个人图片" />
+			</div>
+			<!--邮箱注册内容-->
+			<ul class="form-set-list" >
+				<li class="form-set-list-1">
+					<span>	<b class="cloor">*</b>昵称:</span>
+					<input id = "name" name="name" type="text" value="$!name" />
+					<b id="msg_name" class="Remind">2-16个字符，支持中英文、数字 、下划线或减号</b>
+				</li>	
+				<li class="form-set-list-1">
+					<span>	<b class="cloor">*</b>手机号或邮箱:</span>
+					<input id = "email" name="email" type="text" value="$!email" />
+					<b class="Remind">请填写本人手机号或常用邮箱，它将成为你登录多多的帐号！</b>
+				</li>
+				<li class="form-set-list-1">
+					<span>	<b class="cloor">*</b>密码:</span>
+					<input name="password" id="password" type="password" />
+					<b id="msg_pwd" class="Remind">长度为6-16位字符，区分大小写</b>
+				</li>
+				<li class="form-set-list-1">
+					<span>	<b class="cloor">*</b>确认密码:</span>
+					<input id="confirmpassword" name="confirmpassword" type="password" />
+					<b id="msg_pwdconfirm" class="Remind">请再次填写密码</b>
+				</li>
+				<li class="form-set-list-1">
+					<span>邀请码:</span>
+					<input name="inviteCode" id="inviteCode" type="text" />
+					<b class="Remind">选填</b>
+				</li>
+				<li class="agree">
+					<input name="agree" id="agree" type="checkbox" value="" /><a href="javaScript:showAgreement()">我已经阅读并且同意了<strong>《多多网络服务条款》</strong></a>
+				</li>
+				<li class="register-button register-button-r">
+					<input type="submit" name="" value=" " />
+				</li>
+			</ul>
+			</form>
+		</div>
+	</div>
+</div>
+
+<input id="isPoll" type="hidden" value="false">
+#parse("/zh_CN/views/user/agreement.vm" )
+#parse("/zh_CN/views/template/footer.vm" )

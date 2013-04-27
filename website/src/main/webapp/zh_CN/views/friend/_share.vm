@@ -1,0 +1,128 @@
+<link rel="stylesheet" href="/zh_CN/css/plug-in.css">
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/layer/layer.js"></script>
+<script type="text/javascript" src="/js/jquery.blockUI.js"></script>
+<script type="text/javascript" src="/js/jquery.raty.min.js"></script>
+<script type="text/javascript" src="/js/json2.js"></script>
+<script type="text/javascript" src="/js/jquery.tinyscrollbar.js"></script>
+<script type="text/javascript" src="/js/clipper/clipper.js"></script>
+<script type="text/javascript" src="/js/content/friend.js"></script>
+<script src="/zh_CN/js/web/user/thirdparty_manage.js"></script>
+<script>
+var cycleId;
+var useHeightCycleId;
+jQuery(document).ready(function(){
+	window.document.body.style.background = 'url(../../images/body-bei.gif)';
+    __coffee2innerCommon__.log("load coffee2 inner......");
+    friendAction.bindEventAction();
+    friendAction.initFriendDiv();
+    friendAction.autoSelectFriendByType();
+    cycleId = window.setInterval("checkHeight()",1000);
+    useHeightCycleId = window.setInterval("checkUseHeight()",1000);
+});
+
+function go2indexPage() {
+    window.open("http://www.mduoduo.com/","blank");
+}
+
+function checkHeight() {
+    var height = $(".overview").height();
+    if(height >0) {
+        friendAction.bindShareFriend();
+        window.clearInterval(cycleId);
+    }
+}
+
+function checkUseHeight() {
+    var useHeight = document.documentElement.clientHeight;
+    if(useHeight !=null && useHeight >0) {
+        friendCommon.setFriendViewportHeight(constant.shareHeight());
+        window.clearInterval(useHeightCycleId);
+    }
+}
+</script>
+    #parse("/zh_CN/views/define.vm" )
+	<div class="plug-in-2coffee share">
+		<div class="plug-in-2coffee-right">
+			<div class="plug-in-pic-top"></div>
+			<div class="plug-in-2coffee-right-c">	
+			    <!--基本-->	
+				<div class="plug-in-2coffee-rightA">
+					<div class="plug-in-2coffee-logo">
+						<img src="/zh_CN/images/plug-in-logo.gif" alt="" onclick="go2indexPage()">				
+					</div>
+					<div class="plug-in-2coffee-user-name">
+						<img src="$!account.photos.get('35')" alt="" onclick="go2indexPage()">
+						<a title="$!{account.name}"> $text.subString($!{account.name}, 6, 3)</a>								
+					</div>
+					<input type="hidden" id="friendSelected" value="" />
+					<input type="hidden" id="weibofriendSelected" value="" />
+					<input type="hidden" id="repeatSelected" value="" />
+				</div>
+				
+				<!--搜索-->
+				<div class="plug-in-2coffee-suchen">
+					<span><input type="text" id="searchFriendText" value="查找好友" ></span>
+					<b class="plug-in-2coffee-suchen-icon">
+					    <button type="submit" id="searchFriendButton" value="2coffee 搜索" name="btnG"></button>
+					</b>
+				</div>
+				
+				<!--分享列表-->
+				<div id="shareFriendId" class="plug-in-2coffee-panel scrollbar-list">
+				    <div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>
+				    <div class="viewport">
+				        <div class="overview" style="width:100%">
+							
+							#set($shareFriends = $lasts)
+							#set($friendTypeName = '最近联系')
+							#set($friendTypeId = 'lastId')
+							#set($isOpen = 'no')
+							#parse("/zh_CN/views/friend/_share_friend.vm")	
+							
+							
+							
+							#set($shareFriends = $favorites)
+							#set($friendTypeName = '常用联系人')
+							#set($friendTypeId = 'favoriteId')
+							#set($isOpen = 'no')
+							#parse("/zh_CN/views/friend/_share_friend.vm")
+							
+			
+							#set($shareFriends = $friends)
+							#set($friendTypeName = '所有好友')
+							#set($friendTypeId = 'friendId')
+							#set($isOpen = 'no')
+							#parse("/zh_CN/views/friend/_share_friend.vm")
+							
+			
+							#set($shareFriends = $contacts)
+							#set($friendTypeName = '微博互粉好友')
+							#set($friendTypeId = 'weiboId')
+							#set($isOpen = 'no')
+							#parse("/zh_CN/views/friend/_weibo_share_friend.vm")
+	                    </div>
+	                </div>
+				</div>
+				
+				<div class="plug-in-2coffee-panel plug-in-2coffee-panel-1">
+					<div class="plug-in-2coffee-textarea">
+						<textarea id="commentText" cols="" rows="">我觉得这个东东可能对你有帮助，希望你喜欢哦！</textarea>
+						<b id="ddClpFont">还可以输入<font id="ddCommentRemain">140</font>个字</b>
+						<p>
+							<a class="plug-in-2coffee-btn-cancel" href="javascript:void(0)" id="btnCancel">取消</a>
+							<a class="plug-in-2coffee-btn-determine plug-in-2coffee-btn-determine-no" href="javascript:void(0)" id="btnCommend">确定</a>	
+						</p>
+					</div>	
+				</div>
+		</div>	
+		<div class="plug-in-pic-bottom">
+		    <div id="appointFriendId" style="display:none">
+		    1111111,222222
+		        <!--
+		        505178db5a6c04146d54ea57,5051798e5a6c04146d54ea5f,50517a6f5a6c04146d54ea85,50518d1813c1b9f1738343e5
+		        -->
+		    </div>
+		</div>
+	</div>	
+ </div>

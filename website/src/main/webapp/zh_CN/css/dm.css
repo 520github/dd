@@ -1,0 +1,22 @@
+#dm{background:url(../images/background.png) no-repeat; width:319px; height:557px;
+position: fixed;/*absolute*/
+z-index: 1000;
+right: 0px;
+top:0px;
+}
+
+.upload{ float:left; padding:123px 0 0 22px;}
+
+.progressbar { float:left; overflow:hidden;  padding:50px 0 0 50px ;}
+
+.progressbar span{ width:200px; height:30px; border:1px solid #909090; display:block;}
+
+.progressbar  p{
+	float:left;
+	display:block;
+	background:#dcdcdc;
+	height:30px; 
+	margin:-31px 0 0 1px ;
+}
+
+.button { float:left; overflow:hidden;  padding:50px 0 0 50px ;}

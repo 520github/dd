@@ -1,0 +1,60 @@
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td { 
+	margin:0;
+	padding:0;
+}
+table {
+	border-collapse:collapse;
+	border-spacing:0;
+}
+fieldset,img { 
+	border:0;
+}
+address,caption,cite,code,dfn,em,strong,th,var {
+	font-style:normal;
+	font-weight:normal;
+}
+ol,ul {
+	list-style:none;
+}
+caption,th {
+	text-align:left;
+}
+h1,h2,h3,h4,h5,h6 {
+	
+}
+q:before,q:after {
+	content:'';
+}
+abbr,acronym { border:0;
+}
+a{
+	text-decoration:none;
+} 
+
+/*左右*/
+.left{ float:left; }
+.right{ float:right; }
+
+/*行高*/
+.lh20{ line-height:20px; }
+.lh22{ line-height:22px; }
+.lh24{ line-height:24px; }
+.lh26{ line-height:26px; }
+.lh28{ line-height:28px; }
+.lh30{ line-height:30px; }
+
+/*margin*/
+.ml10,
+.ml15{ margin-left:10px; display:inline; }
+.ml15{ margin-left:15px; }
+
+.mt10{ margin-top:10px; }
+.mt15{ margin-top:15px; }
+
+/*padding*/
+.pl10{ padding-left:10px; }
+.pl15{ padding-left:15px; }
+
+.pt10{ padding-top:10px; }
+.pt15{ padding-top:15px; }
+

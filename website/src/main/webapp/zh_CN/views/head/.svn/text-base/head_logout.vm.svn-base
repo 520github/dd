@@ -1,0 +1,75 @@
+
+<script>
+    jQuery(document).ready(function() {
+        setSelectedMenu();
+    });
+    
+    function setSelectedMenu() {
+        clearClass();
+        var url = window.location.href;
+        if(url.indexOf("about/tools") >-1) {
+            //jQuery("#nav-client").attr("class","home");
+        }
+        else if(url.indexOf("about/plugtool") >-1) {
+            jQuery("#nav #nav-download").attr("class","home");
+        }
+        else if(url.indexOf("help/us") >-1) {
+            jQuery("#nav #nav-help").attr("class","home");
+        }
+        else {
+            jQuery("#nav #home").attr("class","home");
+        }
+    }
+    
+    function clearClass() {
+        jQuery("#nav a").attr("class","");
+    }
+</script>
+
+<div id="head">
+	<div id="head-1">
+	    <!--
+		-->
+		<div id="log">
+		    <a href="/home"><img src="$img1Path/head/log.png"></a>
+		</div>
+		<h1><a href="/home">多多藏享</a></h1>
+		<div class="tool-download">
+			<a href="/about/plugtool" target="_blank">收集工具</a>
+			<span> | </span>
+			<a href="/about/tools" target="_blank">客户端</a>
+		</div>
+		<div id="notlogin" class="login-register size14" style="display:none">
+			<a href="/account/default/login" target="_blank">登录</a>
+			<a href="/account/default/register/" target="_blank">注册</a>
+		</div>
+		<div id="user-account" class="no-login" >
+			<!--登录以后 class="no-login have-been-login"-->
+			<div class="no-login-div">
+				<a href="javascript:void(0)" target="_blank">
+					<img src="">
+					<span></span>
+				</a>
+			</div>
+			<ul class="user-account-list" style="display:none">
+			    <li><a href="/home" >首页</a></li>
+				<li><a href="/message/private/session/view" >纸条</a></li>
+				<li><a href="/friend" >好友管理</a></li>
+				<li><a href="/account/user/information" >帐号设置</a></li>
+				<li class="user-account-list-quit"><a href="/account/logout">退出登录</a></li>
+			</ul>
+		</div>
+
+	</div>
+</div>
+<!--通知弹出小窗口-->
+	<div class="window">
+		<div class="pop-up-window" style="display:none">
+		<!--关闭按钮-->
+		<p><a href="#" onclick="closePopup();">×</a></p>
+			<ul>
+			</ul>
+		</div>
+	</div>
+<div style="height:90px">
+</div>

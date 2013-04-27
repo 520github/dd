@@ -1,0 +1,18 @@
+<div id="monitorTemp" style="display:none">
+	<div id="durian">	
+		<div class="durian">
+			<h1>多多</h1>
+			<div class="drag">
+				<div class="drag-pic"><img src="$dragImgPath/drag.jpg" alt="拖拽图片介绍"></div>
+				<div class="durian-text-condition">
+					<p class="durian-text-condition-1">单文件上传，最大10MB</p>
+					<p>支持文件格式</p>
+					<p>	图片: jpg\gif\bmp\png\jpeg</p>
+					<p>	文档: txt\doc\docx\pdf\ppt\pptx\epub\
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xls\xlsx\wps</p>
+				</div>			
+			</div>
+		</div>
+	</div>
+</div>
+	

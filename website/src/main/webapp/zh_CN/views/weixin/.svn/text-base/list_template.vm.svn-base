@@ -1,0 +1,71 @@
+<script>
+    function go2detail(repositoryId) {
+        var url = "/weixin/content/item/$!id/"+repositoryId;
+        window.location.href = url;
+        //window.open(url);
+    }
+</script>
+<div id="contentTemplate" style="display:none">
+    <div id="imageContent">
+		#parse("/zh_CN/views/weixin/list_template_hd.vm")
+			<div class="news img-array">
+			   <div class="div-img">
+				  <img src="{{imageUrl}}">
+			   </div>
+			</div>
+		</div>
+	</div>
+	<div id="imageTextContent">
+		#parse("/zh_CN/views/weixin/list_template_hd.vm")
+			<div class="news img-array img-writing-array">
+				<div class="div-img">
+				  <img src="{{imageUrl}}">
+			    </div>
+				<div class="writing">
+					<p>{{summary}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="textContent">
+		#parse("/zh_CN/views/weixin/list_template_hd.vm")
+			<div class="news img-array img-writing-array writing-array">
+				<div class="writing">
+					<p>{{summary}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="fileContent">
+		#parse("/zh_CN/views/weixin/list_template_hd.vm")
+			<div class="news img-array img-writing-array writing-array file-array">
+				<div class="div-img">
+				  <img src="{{imageUrl}}">
+			    </div>
+				<div class="writing">
+					<p>大小:{{fileSize}}</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="productContent">
+		#parse("/zh_CN/views/weixin/list_template_hd.vm")
+			<div class="news img-array img-writing-array writing-array file-array commodity-array">
+				<div class="div-img">
+				  <img src="{{imageUrl}}">
+			    </div>
+				<div class="writing">
+					<p>价格: <strong>{{product.price}}</strong></p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="videoContent">
+		#parse("/zh_CN/views/weixin/list_template_hd.vm")
+			<div class="news img-array img-writing-array writing-array file-array commodity-array video-array">
+				<img src="{{imageUrl}}">
+				<img src="$weixinPath/video.png" class="video-pic">
+			</div>
+		</div>
+	</div>
+</div>

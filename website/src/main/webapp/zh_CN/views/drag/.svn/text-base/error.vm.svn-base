@@ -1,0 +1,57 @@
+<script>
+    function go2setUp() {
+        $("#setUpTemp").show();
+        $("#dragActionId").empty();
+    }
+    
+    function ok() {
+    	//$("#errorTemp").hide();
+    	$("#dragActionId").empty();
+    }
+</script>
+
+<div id="errorTemp" style="display:none">
+	<div id="durian">	
+		<div class="durian">
+			<h1><span>多多</span></h1>
+			<div class="drag">
+				<div id="error_msg" class="drag-success drag-limit-title"></div>							
+				<div class="durian-text-condition">
+				<p><span><img src="$dragImgPath/ico_03.gif"></span>每人每天最多可以上传50个文件</p>			
+				<p><span><img src="$dragImgPath/ico_03.gif"></span>仅支持单文件上传，最大 10MB</p>								
+				<p><span><img src="$dragImgPath/ico_03.gif"></span>支持文件格式</p>
+				<p>&nbsp;&nbsp;&nbsp;图片: jpg\gif\bmp\png\jpeg</p>
+				<p>&nbsp;&nbsp;&nbsp;文档: txt\doc\docx\pdf\ppt\pptx\epub\<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xls\xlsx\wps</p>
+				</div>				
+				<div class="ok-cancel-btn drag-success-btn">
+				<!--上传成功 非首页时 有 去看看按扭-->
+				<span><input class="durian-cancel-btn" type="button" value="关 闭" onclick="javascript:ok()"></span>			
+				
+				</div>
+				<div class="drag-countdown">
+					3s后自动关闭
+				</div>
+			</div>	
+		</div>
+	</div>
+</div>
+<div style="display:none">
+		<div id="dailyQuato">
+			<strong class="size22 lh30">今天的限额已经用完<br/>了，明天再传吧</strong>
+		</div>
+		<div id="serverError">
+			<strong class="size22 lh30">上传失败，请重新上传</strong>
+		</div>
+		<div id="login">
+			<strong class="size22 lh30">请先<a href="/account/default/login">登录</a>！</strong>
+		</div>
+		<div id="duplication">
+				<strong class="size22 lh30">目前仅支持单文件上<br/>传，请上传单个文件重试</strong>
+		</div>
+		<div id="length">
+				<strong class="size22 lh30">文件过大，<br/>最大可以是10MB！</strong>
+		</div>
+		<div id="invalid">
+			<strong class="size22 lh30">不支持的文件格式</strong>	
+		</div>
+</div>		

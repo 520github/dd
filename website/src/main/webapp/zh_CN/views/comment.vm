@@ -1,0 +1,313 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>评论和评分</title>
+	<link rel="stylesheet" href="/css/css.css" />
+	<link rel="stylesheet" href="/css/jquery.rating.css" type="text/css" />
+	<link rel="stylesheet" href="/css/register.css" />
+	<link rel="stylesheet" href="/css/head.css" />
+	<link rel="stylesheet" href="/css/pop-up.css" />
+	<link rel="stylesheet" href="/css/main.css" />
+	<style type="text/css">
+	    #rateStatus{float:left; clear:both; width:100%; height:20px;}
+	    #rateMe{float:left; clear:both; width:100%; height:auto; padding:0px; margin:0px;}
+	    #rateMe li{float:left;list-style:none;}
+	    #rateMe li a:hover,
+	    #rateMe .on{background:url(/images/star_on.gif) no-repeat;}
+	    #rateMe a{float:left;background:url(/images/star_off.gif) no-repeat;width:12px; height:12px;}
+	    #ratingSaved{display:none;}
+	    .saved{color:red; }
+	</style>
+	
+	<script type="text/javascript" src="/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/layer/layer.js"></script>
+	<script type="text/javascript" src="/js/content.js"></script>
+	<script type="text/javascript" language="javascript" src="/js/ratingsys.js"></script>
+	<script type="text/javascript" language="javascript" src="/js/star_rating/jquery.MetaData.js"></script>
+	<script type="text/javascript" language="javascript" src="/js/star_rating/jquery.rating.js"></script>
+	<script lanuage="javascript">
+	    // 发表评论
+	   function postcomment(repositoryId){
+	   
+	   		$('#score').val($(':checked',this.form).val() || '0' ); //alert('给点评论呗'+$('#score').val());
+	   		
+	   		var comment = jQuery("textarea[id='textarea_comment']").val();
+	   		var score = jQuery("input[id='score']").val();
+	   		
+	   		if(score == "0")alert("您给打个分呗");
+	   		if(comment == "")alert("您真的不想说点什么吗");
+	   		if(comment.length<10)alert("您真是惜字如金");
+	   		var token = cookieUtil.getHeaderToken();
+	   		var param = {
+	   			score:jQuery("input[id='score']").val(),
+	   			text:jQuery("textarea[id='textarea_comment']").val()
+	   		}
+	   		jQuery.ajax({
+	           url:"/service/comment/$item.repository.contentId",
+	           type:"post",
+	           data:JSON.stringify(param),
+	           datatype:"application/json",
+	           contentType:"application/json;charset=utf-8",
+	           headers:token,
+	           success:function(resp) {
+	               refresh_div(resp);
+	           },
+	           complete:function() {
+	               try{
+	                  // refresh_div();
+	               }catch(e){
+	               }
+	           }
+	       }
+	       );
+	   }
+	   
+	   function refresh_div(comment){
+	   	   //alert('resp='+comment.accountId+"评分:"+comment.score)
+	   	   
+	   	   var star = "<span class='star-rating-control'>"
+	   	   for(var i=1;i<=10;i++){
+	   	   	if(i<=comment.score){
+	   	   		star = star + "<div class='star-rating rater-0 star {split:2} star-rating-applied star-rating-readonly star-rating-on' style='width: 8px; '><a title='"+i+"' style='margin-left: ";
+	   	   		if(i%2==0){
+	   	   			star = star + "-8px; '>"+i+"</a></div>";
+	   	   		}else{
+	   	   			star = star + "0px; '>"+i+"</a></div>";
+	   	   		}
+	   	   	}else{
+	   	   		star = star + "<div class='star-rating rater-0 star {split:2} star-rating-applied star-rating-readonly' style='width: 8px; '><a title='"+i+"' style='margin-left: ";
+	   	   		if(i%2==0){
+	   	   			star = star + "-8px; '>"+i+"</a></div>";
+	   	   		}else{
+	   	   			star = star + "0px; '>"+i+"</a></div>";
+	   	   		}
+	   	   	}
+	   	   }
+	   	   star = star + "</span>"
+	   	    //var sstar="<span class='star-rating-control'><div class='star-rating rater-0 star {split:2} star-rating-applied star-rating-readonly star-rating-on' style='width: 8px; '><a title='1' style='margin-left: 0px; '>1</a></div><div class='star-rating rater-0 star {split:2} star-rating-applied star-rating-readonly star-rating-on' style='width: 8px; '><a title='2' style='margin-left: -8px; '>2</a></div><div class='star-rating rater-0 star {split:2} star-rating-applied star-rating-readonly star-rating-on' style='width: 8px; '><a title='3' style='margin-left: 0px; '>3</a></div><div class='star-rating rater-0 star {split:2} star-rating-applied star-rating-readonly star-rating-on' style='width: 8px; '><a title='4' style='margin-left: -8px; '>4</a></div><div class='star-rating rater-0 star {split:2} star-rating-applied star-rating-readonly star-rating-on' style='width: 8px; '><a title='5' style='margin-left: 0px; '>5</a></div><div class='star-rating rater-0 star {split:2} star-rating-applied star-rating-readonly star-rating-on' style='width: 8px; '><a title='6' style='margin-left: -8px; '>6</a></div><div class='star-rating rater-0 star {split:2} star-rating-applied star-rating-readonly star-rating-on' style='width: 8px; '><a title='7' style='margin-left: 0px; '>7</a></div><div class='star-rating rater-0 star {split:2} star-rating-applied star-rating-readonly star-rating-on' style='width: 8px; '><a title='8' style='margin-left: -8px; '>8</a></div><div class='star-rating rater-0 star {split:2} star-rating-applied star-rating-readonly' style='width: 8px; '><a title='9' style='margin-left: 0px; '>9</a></div><div class='star-rating rater-0 star {split:2} star-rating-applied star-rating-readonly' style='width: 8px; '><a title='10' style='margin-left: -8px; '>10</a></div></span>";
+	   	   
+           var uuuu = "------------------------------------------------------------------------<div class='user-info'>昵称:"+comment.accountId+"评分:"
+            +comment.score+star
+           	+"</div><div class='comment-rst'><div id='"+comment.id+"'>"+comment.text
+           	+"</div></div>";
+           jQuery("#commentlist").prepend(uuuu);
+	   }
+	   
+	   //获取query参数
+	   function getQueryPara() {
+	       
+	       var param = new Array();
+	       
+	       var comment = jQuery("textarea[id='textarea_comment']").val();
+	       if(comment == null)comment = "null comment";
+	       
+	       var score = jQuery("input[id='score']").val();
+	       if(score == null)comment = "3";
+	       
+	       param.push({name: "score",  value: score});
+		   param.push({name: "comment",  value: comment});
+	       return param;
+	   }
+	   
+	   //获取query参数
+	   function getzhankaiQueryPara() {
+	       var param = new Array();
+	       
+	       var offset = jQuery("input[id='offset']").val();
+	       
+	       var limit = jQuery("input[id='limit']").val();
+	       if(limit == null)limit = "6";
+	       
+	       
+		   param.push({name: "limit",  value: limit});
+		   param.push({name: "offset",  value: offset});
+	       return param;
+	   }
+	   
+	   //展开更多评论
+	   function zhankai() {
+	       	var token = cookieUtil.getHeaderToken();
+	   		var param = getzhankaiQueryPara();
+	   
+	        //	post_comment
+	   		jQuery.ajax({
+	           url:"/service/getcomment/$item.repository.contentId",
+	           type:"get",
+	           data:param,
+	           //contentType:"application/json;charset=utf-8",
+	           headers:token,
+	           success:function(resp) {
+	               loadCommentList(resp);
+	           },
+	           complete:function() {
+	               try{
+	                  //offset_inc();
+	               }catch(e){
+	               }
+	           }
+	       }
+	       );
+	   }
+	   
+	   //加载评论列表------加载展开按钮取回的评论
+	   function loadCommentList(resp) {
+	       var html = jQuery("#commentlist").html();
+	       var total = resp.total;
+           //alert("total="+total);
+	       var results = resp.result;
+	       for(var i=0;i<results.length;i++) {
+               var comment = results[i];
+               //alert(comment.accountId+"|"+comment.text);
+               
+               var star = ""
+		   	   for(var i=1;i<=10;i++){
+		   	   	if(i==comment.score){
+		   	   		star = star + "<input class='star {split:2}' type='radio' name='test-4-rating-3' disabled='disabled' value='" +i +"'/>";
+		   	   	}else{
+		   	   		star = star + "<input class='star {split:2}' type='radio' name='test-4-rating-3' value='" +i +"'/>";
+		   	   	}
+		   	   	
+		   	   }
+               
+               var uuuu = "------------------------------------------------------------------------<div class='user-info'>昵称:"+comment.accountId+"评分:"
+                +comment.score
+               	+"</div><div class='comment-rst'><div id='"+comment.id+"'>"+comment.text
+               	+"</div></div>";
+               jQuery("#commentlist").append(uuuu);
+           }    
+           offset_inc(total); 
+	   }
+	   //offset加1
+	   function offset_inc(total) {
+	       var offset = jQuery("#offset").val();
+	       var limit = jQuery("#limit").val();
+	       var new_offset = parseInt(offset)+1;
+	       jQuery("#offset").val(new_offset);
+	       
+	       if(new_offset*limit>total){	//	隐藏展开按钮
+	       		//alert("total"+total+"limit"+limit+"new_offset"+new_offset);
+	       		jQuery("#zhankai_button").attr("style","display:none");
+	       }
+	   }
+		
+		
+		function checkContent(){
+		  //alert('hhhhhh');
+	      var textObj = document.getElementById("textarea_comment");
+	      if(textObj.value == "我觉得这个东东可能对你有帮助，希望你喜欢哦！"){
+	           textObj.value = "";
+	      }
+		}
+	</script>
+</head>
+
+				
+	<!--	评论部分	-->
+	<div id="avg_score">
+		 用户平均评分：   $!item.content.counter.totalScore/$!item.content.counter.comment = $math.div($!item.content.counter.totalScore,$!item.content.counter.comment)
+	</div>
+	
+	<div class="point">
+		(1-10, default 7)
+		<form name="api-readonly">
+		
+			<input class="star {split:2} required" type="radio" name="test-4-rating-3" value="1"/>
+			
+			<input class="star {split:2}" type="radio" name="test-4-rating-3" value="2"/>
+			
+			<input class="star {split:2}" type="radio" name="test-4-rating-3" value="3"/>
+			
+			<input class="star {split:2}" type="radio" name="test-4-rating-3" value="4"/>
+			
+			<input class="star {split:2}" type="radio" name="test-4-rating-3" value="5"/>
+			
+			<input class="star {split:2}" type="radio" name="test-4-rating-3" value="6"/>
+			
+			<input class="star {split:2}" type="radio" name="test-4-rating-3" value="7"/>
+			
+			<input class="star {split:2}" type="radio" name="test-4-rating-3" value="8"/>
+			
+			<input class="star {split:2}" type="radio" name="test-4-rating-3" value="9"/>
+			
+			<input class="star {split:2}" type="radio" name="test-4-rating-3" value="10"/>
+			
+			<p class="right-comment">力荐!</p>
+
+			<p class="right-comment-r">还可以输入140个字</p>
+
+			<span></span>
+			
+			<!--
+				<br/>
+				
+				<input type="button" onClick="javascript:$('input',this.form).rating('disable')" value="disable"/>
+				
+				eg.: $('input').rating('disable')
+				
+				<br/>
+				
+				<input type="button" onClick="javascript:$('input',this.form).rating('enable')" value="enable"/>
+				
+				eg.: $('input').rating('enable');
+			-->													
+		</form>
+	</div>
+			
+	<div id="comment">
+		<input type="hidden" id="score" value="0">
+		<div class="text-box">
+
+			给出你的评价：
+				<textarea id="textarea_comment" cols="100" rows="4"  onclick="checkContent()" style="color:gray">我觉得这个东东可能对你有帮助，希望你喜欢哦！</textarea>
+		</div>
+		<div class="btm-box">
+
+			<input type="image" src="/images/confirm-1.png" id="btnCommend" onclick="postcomment('$item.repository.id');" />
+		</div>
+		
+		<div id="commentlist">
+			共: $!total	条
+			#foreach($comment in $comment_list)
+				<div class="personal-comments personal-comments-1">
+					<dt>
+						昵称:<img src='/images/194753.45250727.jpg'>$comment.accountId   评分:
+						
+						<input class="star {split:2}" type="radio" name="test-4-rating-6" value="1" disabled="disabled"  #if($comment.score == 1) checked="checked" #end />
+
+						<input class="star {split:2}" type="radio" name="test-4-rating-6" value="2" disabled="disabled"  #if($comment.score == 2) checked="checked" #end />
+						
+						<input class="star {split:2}" type="radio" name="test-4-rating-6" value="3" disabled="disabled"  #if($comment.score == 3) checked="checked" #end />
+						
+						<input class="star {split:2}" type="radio" name="test-4-rating-6" value="4" disabled="disabled"  #if($comment.score == 4) checked="checked" #end />
+						
+						<input class="star {split:2}" type="radio" name="test-4-rating-6" value="5" disabled="disabled"  #if($comment.score == 5) checked="checked" #end />
+						
+						<input class="star {split:2}" type="radio" name="test-4-rating-6" value="6" disabled="disabled"  #if($comment.score == 6) checked="checked" #end />
+						
+						<input class="star {split:2}" type="radio" name="test-4-rating-6" value="7" disabled="disabled"  #if($comment.score == 7) checked="checked" #end />
+						
+						<input class="star {split:2}" type="radio" name="test-4-rating-6" value="8" disabled="disabled"  #if($comment.score == 8) checked="checked" #end />
+						
+						<input class="star {split:2}" type="radio" name="test-4-rating-6" value="9" disabled="disabled"  #if($comment.score == 9) checked="checked" #end />
+						
+						<input class="star {split:2}" type="radio" name="test-4-rating-6" value="10" disabled="disabled"  #if($comment.score == 10) checked="checked" #end />
+						
+						$comment.score		发表时间:$comment.lastComment
+					</dt>
+					<dd>
+						$comment.text
+					</dd>
+				</div>
+			#end
+		</div>
+		<!-- 展开按钮 -->
+		#if(5>6)
+			<div id="zhankai_button" class="view rl">
+				<p>后面还有</p>$!total-6
+				<p>条评论</p>
+				<input type="button" value="点击查看" onclick="zhankai();"> 
+				<input type="hidden" id="limit" value="6">
+				<input type="hidden" id="offset" value="1">
+			</div>
+		#end
+	</div>

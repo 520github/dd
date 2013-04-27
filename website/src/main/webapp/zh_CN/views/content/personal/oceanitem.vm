@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta content="width=device-width, initial-scale=0.5, user-scalable=no" name="viewport"/>
+<title>多多 - 收藏、分享你的喜欢和发现</title>
+<link rel="stylesheet" href="/zh_CN/thirdpartyshare/css/share/base.css">
+<link rel="stylesheet" href="/zh_CN/thirdpartyshare/css/css.css">
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function() {
+	setOrRemoveFile();
+});
+function hiddeFooter() {
+	jQuery("#footer").hide();
+}
+function openFile(fileId) {
+	window.open("http://www.mduoduo.com/service/content/file/"+fileId+"?disposition=inline","blank");
+}
+	
+function downloadFile(fileId) {
+	    window.open("http://www.mduoduo.com/service/content/file/"+fileId,"blank");
+}
+function setOrRemoveFile() {
+          var type = '$!item.type';
+          var source = '$!item.source';
+          var length = '$!item.file.length';
+          var fileId = '$!item.file.id';
+          var extension = '$!item.file.extension';
+          extension = getFileTypeImage(extension);
+          
+          if(type == "Type_File") {
+              var size = getFileSize(length);
+              $(".commodity-price file-size>p").append(size);
+              
+              var openFile = "javascript:openFile('" + fileId + "');";
+              var downloadFile = "javascript:downloadFile('" + fileId + "');";
+              
+              $(".open-btn").attr("href",openFile);
+              $(".download-btn").attr("href",downloadFile);
+              
+              $(".commodity-img left>img").attr("src",extension);  
+          }
+          
+          if(source == "Source_Upload") {
+              $(".title a").html("我的上传");
+              $(".title a").attr("href","javascript:void(0)");
+          }
+      }
+</script>
+</head>
+
+<body>
+<div id="head">
+	<div class="head">
+		<div id="log"><img src="/zh_CN/thirdpartyshare/images/log.png" alt="多多藏享"></div>
+		<div class="title">
+			<h1>多多藏享</h1>
+			<p>做最全的网络碎片信息收集管理工具</p>
+		</div>
+		<div class="nav-app">
+			<a href="/about/tools">APP下载</a> ／ <a href="/about/plugtool">采集工具下载</a> ／ <a href="/account/default/register?inviteCode=$inviteCode&reffer=/ocean/$inviteCode/$contentId">注册</a> ／ <a href="/account/default/login?reffer=/ocean/$inviteCode/$contentId">登录</a></a>
+		</div>
+	</div>	
+</div>	
+#if($!item)
+<div id="content">
+	<div id="left-pane" class="left">
+		<div class="title">
+			<h2>$!item.title</h2>
+			<a href="javascript:openUrl('$!item.url','$!item.responseId')"><p class="come-from"><span>来自：</span>$!item.url</p></a>
+		</div>
+		<div class="detail">
+			#if($!account)
+			<div class="user-date">
+				<div class="user-portrait">
+					<img src="$!account.photos.get("150")">
+				</div>
+				<div class="user-right">
+					<div class="user-name">$!account.name</div>
+					<div class="point">
+							<div class="line"><img src="/zh_CN/thirdpartyshare/images/lien.png"></div>
+						<div class="point-text">
+							我觉得这个东东你会喜欢，希望对你有帮助
+						</div>
+					</div>
+				</div>
+			</div>
+			#end
+			<!--商品-->
+			     #if($item.type == "Type_Product")
+			<div class="commodity">
+				<div class="commodity-img left">
+					<img src="$!item.product.picture">
+				</div>
+				<div class="commodity-right">
+					<div class="commodity-price">¥ $!item.product.price</div>
+					<div class="details-btn">
+						<a href="$!item.url">查看详情</a>
+					</div>
+				</div>
+			</div>
+		         #end
+		         #if($!item.type == "Type_Web" || $!item.type == "Type_HtmlClip")
+		   <div class="text-picture commodity picture">
+				<div class="picture-content">
+					
+				</div>
+				<div class="text-picture-content">
+					#if(!$!item.web.content || $!item.web.content == "")
+		                 <a href="$!item.url" target="_blank">$!item.url</a>
+		             #else
+		                	$!item.web.content		                	
+		             #end	
+				</div>
+			</div>
+		         #end
+		         #if($!item.type == "Type_Video")
+			<div class="commodity video">
+				<div class="video-content">
+					$!item.video.embed
+				</div>
+			</div>
+			#end
+				 #if($item.type == "Type_Image")
+				 <div class="commodity picture">
+				<div class="picture-content">
+					<img src="$!item.image.url" alt="">
+				</div>
+			</div>
+				 #end
+				  #if($item.type == "Type_File")
+				  <!--文档-->
+			<div class="commodity document">
+				<div class="commodity-img left">
+					<img src="">
+				</div>
+				<div class="commodity-right">
+					<div class="details-btn">
+						<a href="#" class="open-btn">打开</a>
+						<a href="#" class="download-btn">下载</a>						
+					</div>
+					<div class="commodity-price file-size">文件大小:<p></p></div>					
+				</div>			
+			</div>
+                 #end
+		</div>
+	</div>
+	<div id="right-pane" class="right">
+		<div class="phone-QR">
+			<h3>多多手机客户端</h3>
+			<p>for iPhone/Android</p>
+			<img src="/zh_CN/thirdpartyshare/images/QR.png">
+			<a href="/about/tools" class="btn-installation">直接下载安装</a>
+		</div>
+	</div>
+</div>	
+#end
+<!--底部浮层-->
+<div id="footer">
+	<div class="footer">
+		<span>使用以下帐号直接登录</span>
+		<ul>
+			<li><a href="/account/weibo/oauth/?reffer=/ocean/$inviteCode/$contentId"><img src="/zh_CN/thirdpartyshare/images/sina-log.png">新浪微博</a></li>
+						
+		</ul>
+		<div class="footer-login-register">
+			<a href="/account/default/register?inviteCode=$inviteCode&reffer=/ocean/$inviteCode/$contentId">新用户注册</a>
+			<a href="/account/default/login?reffer=/ocean/$inviteCode/$contentId">已有帐号登录</a>			
+		</div>
+		<div class="footer-close">
+			<img src="/zh_CN/thirdpartyshare/images/close.png" onclick="javaScript:hiddeFooter()">
+		</div>
+	</div>
+</div>
+<div style="height:100px; clear:both;"></div>							
+</body>
+</html>

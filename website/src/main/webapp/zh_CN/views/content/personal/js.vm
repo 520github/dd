@@ -1,0 +1,23 @@
+    <script type="text/javascript" src="/js/content/define.js"></script>
+	<script type="text/javascript" src="/js/content/divlayer.js"></script>
+	<script type="text/javascript" src="/js/content/content.js"></script>
+	<script type="text/javascript" src="/js/content/tag.js"></script>
+	<script type="text/javascript" src="/js/content/friend.js"></script>
+	<script type="text/javascript" src="/js/content/action.js"></script>
+	<script type="text/javascript" src="/js/comment.js"></script>
+	<script type="text/javascript" src="/js/scrollpagination.js"></script>
+	<script type="text/javascript" src="/js/jquery.tinyscrollbar.min.js"></script>
+	
+	<script type="text/javascript" language="javascript" src="/js/star_rating/jquery.MetaData.js"></script>
+	<script type="text/javascript" language="javascript" src="/js/star_rating/jquery.rating.js"></script>
+	<script type="text/javascript" language="javascript" src="/js/jquery.raty.min.js"></script> 
+	<script src="/zh_CN/js/web/duoduofileupload.js"></script>
+	
+	<script type="text/javascript" src="/zh_CN/js/business/friend/share/shareConstant.js"></script>
+    <script type="text/javascript" src="/zh_CN/js/business/friend/share/shareInit.js"></script>
+    <script type="text/javascript" src="/zh_CN/js/business/friend/share/shareDo.js"></script>
+    <script type="text/javascript" src="/zh_CN/js/business/content/contentBusiness.js"></script>
+
+	
+	
+	

@@ -1,0 +1,35 @@
+
+<div id="editContactTemp" style="display:none">
+	<div id="durian">	
+		<div class="durian">
+			<h1><span>编辑常用联系人</span><a id="go2back" href="#" class="durian-set-up durian-return">返回</a></h1>
+			
+			<div class="edit-contact">
+				<div class="edit-contact-search">
+					<input type="text" value="昵称/帐号" id="searchText">
+					<span><img id="searchTextButton" src="$dragImgPath/search.png" ></span>
+				</div>
+				<div id="editContactScroll" class="example">
+					<div class="edit-contact-box">
+						<ul class="edit-contact-list">
+																																													
+						</ul>
+					</div>
+			    </div>
+				<div id="saveEditContact" class="keep-bar drag-countdown">
+					<p>选择你要设置的常用联系人</p><span><a id="go2save" href="#">保存</a></span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="oneFriendTemp" style="display:none">
+    <li>
+		<a href="#">
+			<span class="edit-contact-has-been"></span>						
+			<img src="">
+			<p title="">有希望(小D)</p>
+		</a>
+	</li>
+</div>

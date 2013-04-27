@@ -1,0 +1,42 @@
+#parse("/zh_CN/views/template/prefix.vm" ) 
+<head>
+#set($browserTitle="设置coffeeMail")
+#parse("/zh_CN/views/template/meta_include.vm" ) 
+<script src="/zh_CN/js/web/coffeemail.js"></script>
+</head>
+<body>
+#parse("/zh_CN/views/head.vm")
+
+<div id="stage" class="single single-1 registration-success">
+	<div id="container" class="set-up">
+		<div class="set-up-top">
+			<img src="/zh_CN/images/pic5.gif" alt="" />
+			<h2>恭喜注册成功！</h2>
+			<p>多多将为你创建专属的多多邮箱<br/>多多邮箱可以用来接收自己和好友邮件发来的精彩内容</p>
+		</div>
+	
+		<div class="set-up-top set-up-top-1">
+			<div class="form-set">
+			<form id="regForm" name="regForm" action="/account/user/coffeemail/" method="post" >
+			<ul class="form-set-list">
+					<li class="form-set-list-2 form-set-list-8">
+						<span><b class="cloor">*</b> 多多邮箱:</span>
+						<input name="email" id="email" type="text" value="$!dm"/>
+						<b class="Remind">@$!mailSuffix</b> 
+					</li>
+					<li id = "msg_dm" class="form-set-list-3">
+						<b class="Remind">谨慎填写，确定后不可以再次修改</b>
+					</li>
+					<li class="register-button">
+						<input type="image" name="" src="/zh_CN/images/enter-btn.png">						
+					</li>
+			</ul>
+			</form>
+			</div>
+		</div>
+	</div>
+</div>
+<input id="isPoll" type="hidden" value="false">
+#parse("/zh_CN/views/template/footer.vm" ) 
+
+

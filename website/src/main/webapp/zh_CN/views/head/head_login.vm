@@ -1,0 +1,123 @@
+#parse("/zh_CN/views/define.vm" )
+<script type="text/javascript">
+jQuery(document).ready(function() {
+    ligthSelectedMenu();
+});
+
+//设置用户名称下操作的位置
+function setUserNamePosition() {
+    var obj = jQuery(".user-name p");
+    jQuery(".user-name a").click(function(){
+        var num = jQuery(this).attr("num");
+        if(num == null)num ="0";
+        jQuery(this).attr("num",parseInt(num)+1);
+        var show =obj.is(":visible");
+        if(show) {
+            obj.hide();
+        }
+        else{
+            obj.show();
+            //jQuery(this).next().slideToggle('medium');
+        }
+    });
+    jQuery(".user-name a").mouseover(function(){
+        if(obj.is(":visible")) {
+            obj.show();
+        }
+    });
+    jQuery(".user-name a").mouseleave(function(){
+        if(jQuery(this).attr("num") == "1") {
+            obj.show();
+        }
+        else if(obj.is(":visible")) {
+            obj.show();
+        }
+    });
+}
+//高亮选中的按钮
+function ligthSelectedMenu() {
+    if( typeof(head_icon_change_id) != "undefined" ){
+    	if(head_icon_change_id=='home-1'){
+    		jQuery("#home-1 a").css("background-position","-1003px -103px");
+    		jQuery("#menu-friend a").css("background-position","-883px -20px");
+    		jQuery("#menu-file-set a").css("background-position","-945px -20px");
+    		jQuery("#menu-news a").css("background-position","-1060px -20px");
+    	}else if(head_icon_change_id=='menu-friend'){
+    		jQuery("#menu-friend a").css("background-position","-883px -103px");
+    		jQuery("#home-1 a").css("background-position","-1003px -20px");
+    		jQuery("#menu-file-set a").css("background-position","-945px -20px");
+    		jQuery("#menu-news a").css("background-position","-1060px -20px");    		
+    	}else if(head_icon_change_id=='menu-file-set'){
+    		jQuery("#menu-file-set a").css("background-position","-945px -103px");    	
+    		jQuery("#menu-friend a").css("background-position","-883px -20px");
+    		jQuery("#home-1 a").css("background-position","-1003px -20px");
+    		jQuery("#menu-news a").css("background-position","-1060px -20px");  
+    	}else if(head_icon_change_id=='menu-news'){
+    		jQuery("#menu-news a").css("background-position","-1060px -103px");
+    		jQuery("#menu-file-set a").css("background-position","-945px -20px");    	
+    		jQuery("#menu-friend a").css("background-position","-883px -20px");
+    		jQuery("#home-1 a").css("background-position","-1003px -20px"); 
+    	}
+    }
+}
+
+function goUrl(url) {
+    var target = '$!target';
+    alert(target);
+    location.href = url;
+    jQuery("input[name=type]").attr("value",url);
+}
+//退出操作
+function logout() {
+    document.cookie = "authToken=;expire=0;domain=$!cookieDomain;path=/";
+    var target = '$!target';
+    if(target !="") {
+       parent.location.href = "/";
+    }
+    else {
+        location.href = "/";
+    } 
+}
+</script>
+<div id="header" class="header-1" style="display:none">
+    <input type="hidden" name="type" value="home"/>
+	<div class="header-1-r">
+	    <div class="header-1-nav">
+			<!--点击插件 和 app 跳转-->
+			<div class="button-jump">
+				<span class="jump-plug-in"><a href="/about/plugtool" $!target>工具下载</a></span>
+				<span class="jump-app"><a href="/about/tools" $!target>客户端</a></span>
+				<!--
+				<span class="jump-on"><a href="/about/us" $!target>关于</a></span>
+				-->
+				<span class="jump-help"><a href="/help/us" $!target>新手指南</a></span>
+			</div>
+		<!--用户姓名-->
+		#parse("/zh_CN/views/user_base.vm" )
+	    </div>
+	</div>
+
+    <div style="height:10px; clear:both; overflow:hidden; margin:0 auto;"></div>
+	<div class="header-center header-center-1">
+		<div class="logo">
+			<a href="/" $!target><img src="/zh_CN/images/logo-2.png" /></a>
+		</div>
+		<ul>
+			<li id="menu-news"><a href="/message/private/session/view" title="纸条" $!target>纸条</a></li>
+			<li id="menu-friend"><a href="/friend" title="好友" $!target>好友</a></li>			
+			<li id="menu-file-set"><a href="/account/user/information" title="我" $!target>我</a></li>
+			<li id="home-1"><a href="/" title="我的首页" $!target>我的首页</a></li>
+		</ul>
+	</div>
+
+	<!--弹出小窗口-->
+	<div class="window">
+		<div class="pop-up-window" style="display:none">
+		<!--关闭按钮-->
+		<p><a href="#" onclick="closePopup();">×</a></p>
+			<ul>
+			</ul>
+		</div>
+	</div>
+</div>
+<div style="height:40px; clear:both; overflow:hidden; margin:0 auto;"></div>

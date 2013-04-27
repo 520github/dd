@@ -1,0 +1,52 @@
+<script type="text/javascript">
+jQuery(document).ready(function() {
+    AccountRest.obj.getProfile(getProfileSuccessFn,getProfileErrorFn);
+});
+
+function getProfileSuccessFn(resp) {
+    _dragMt.init();
+    setDragMy(resp);
+    var domain = "/"+resp.name;
+    domain = "/" + resp.id;
+    var photo = resp.avatar.small;
+    var name = resp.name;
+    
+    jQuery("#head-1>#user-account>div img").attr("src",photo);
+    jQuery("#head-1>#user-account>div span").html(name);
+    var role = resp.role;
+    if(role.length == 1 && role[0] == "Guest") {
+        jQuery("input[name='isGuestUser']").val("true");
+        jQuery("#head-1>#user-account>ul").hide();
+        jQuery("#head-1>#notlogin").show();
+        jQuery("#head-1 #user-account .no-login-div a").attr("href","/account/default/login");
+    }
+    else {
+        jQuery("#head-1 #user-account .no-login-div a").attr("href",domain);
+        jQuery("#head-1>#user-account>ul").show();
+        jQuery("#head-1>#notlogin").hide();
+        jQuery("#head-1>#user-account").attr("class","no-login have-been-login");
+    }
+}
+
+function getProfileErrorFn(XMLHttpRequest,textStatus) {
+    _dragMt.init();
+}
+
+function setDragMy(data) {
+    var id =  data.id;
+	var ico = data.avatar.small;
+	var name = data.name;
+	
+	$("#customObjectTemp #my").find("li p").html(name);
+	$("#customObjectTemp #my").find("li img").attr("src",ico);
+}
+
+</script>
+
+<body>
+<input type="hidden" name="isGuestUser" value=""/>
+#parse("/zh_CN/views/drag/drag.vm" )
+#parse("/zh_CN/views/head/head_logout.vm" )
+<!--
+##parse("/zh_CN/views/head/head_login.vm" )
+-->

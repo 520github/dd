@@ -1,0 +1,93 @@
+#parse("/zh_CN/views/template/prefix.vm" ) 
+<head> 
+      #set($browserTitle="修改头像")
+      #parse("/zh_CN/views/template/meta_include.vm" ) 
+<link rel="stylesheet" href="/js/jcrop/jquery.Jcrop.min.css" />
+<script src="/js/jcrop/jquery.Jcrop.min.js"></script>
+<script src="/js/jcrop/jQuery.UtrialAvatarCutter.js"></script>
+<script src="/js/jcrop/ajaxfileupload.js"></script>
+<script src="/zh_CN/js/web/user/gravatar.js"></script>
+
+</head> 
+
+<body>
+#parse("/zh_CN/views/head.vm" )
+	<div id="stage" class="left-right">
+		<!--左边-->
+		#parse("/zh_CN/views/user/user_left.vm" )
+		<script>var left_li_focus="left_li_2";</script>
+
+		<!--right-->
+		<div id="container">
+
+			<!--选择-->
+	<div id="select">
+		<div class="select-title">
+		<h4>修改头像</h4>
+		<span></span> 
+      </div>
+	</div>			
+
+
+			<div class="transverse file-set">
+				<div class="panel">
+					<!--<div class="a-few"> 好友的常用邮箱自动默认为白名单2，并显示出来，让他们给我推荐些优质的内容吧！ </div>-->
+					<div class="content-fill-in">
+
+						<span class="upload-button"> <a href="#;return false;">
+						 <input	type="file" hidefoucs="true"
+								style="background:#000"
+								name="imageFile" id="imageFile"></a>
+						<!--上传按钮-->
+						</span>
+
+
+						<div class="cutting">
+							
+							<div class="cutting-pic">
+								<span>
+								 <div id="tipsDiv">仅支持JPG、PNG的图片，且图片大小要小于5M
+								 </div> 
+								<img id="cropImage" style="max-width: 300px; max-height:300px;" />
+							  	<input type="hidden" id="coordx" />
+							    <input type="hidden" id="coordy" />
+							    <input type="hidden" id="coordw" />
+							    <input type="hidden" id="coordh" /> 
+							    <input type="hidden" id="cropImageId" />
+								</span>
+								
+								<p>你上传的图片会自动生成3种尺寸，<br>请注意小尺寸的图片是否清晰</p>
+							</div>
+							
+							<ul>
+								<li class="cutting-pic-select-1">
+								<div style="width:150px;height:150px;overflow:hidden;margin:0 auto;" id="previewDiv_1">
+								<img  id="preview1" #if ( $account.photos.get('150') ) src="$account.photos.get('150')" #else src="/zh_CN/images/avatar-150px.png" #end />
+								</div>
+									超大尺寸头像<br />150 x	150 像素  </li>
+								<li class="cutting-pic-select-2">
+								<div style="width:100px;height:100px;overflow:hidden;margin:0 auto;" id="previewDiv_2">
+								<img  id="preview2" #if ( $account.photos.get('100') ) src="$account.photos.get('100')" #else src="/zh_CN/images/avatar-100px.png" #end/>
+								</div>
+									大尺寸头像 <br />100 x 100 像素<br />（自动生成）</li>
+								<li class="cutting-pic-select-3">
+								<div style="width:35px;height:35px;overflow:hidden;margin:0 auto;" id="previewDiv_3">
+									<img  id="preview3" #if ( $account.photos.get('35') ) src="$account.photos.get('35')" #else src="/zh_CN/images/avatar-35px.png" #end/>
+								</div>
+									小尺寸头像 <br />35 x 35 像素<br />（自动生成）</li>
+							</ul>
+						</div>
+						
+						
+						<span class="save-button"> <input id="saveImage" type="image"	src="/zh_CN/images/save-1.png" />
+						</span>
+					</div>
+					<div
+						style="height: 10px; clear: both; overflow: hidden; margin: 0 auto;"></div>
+				</div>
+			</div>
+		</div>
+	</div>		
+
+
+#parse("/zh_CN/views/template/footer.vm" ) 

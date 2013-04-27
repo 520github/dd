@@ -1,0 +1,85 @@
+<script lanuage="javascript">
+</script>
+<div id="promptId" style="display:none">
+    <div id="unreadPromptId">
+        <div class="panel not-sharing">
+				<ul>
+					<li class="blank-page1"></li>
+					<li class="blank-page2"></li>
+					<li class="blank-page3"></li>
+					<li class="blank-page4"></li>
+					<li class="blank-page5"></li>
+				</ul>
+				<div class="not-sharing-1">
+					<h2>您还没有内容哦!</h2>
+					<p><b>可以通过您的电脑浏览器中安装<br>“采集工具”采集感兴趣的内容哦</b>			
+					<span><a href="/about/plugtool" target="blank">查看采集工具帮助</a></span></p>
+					<p>
+						<b>还可以绑定新浪微博，将幑博收藏<br>导入进来哦</b>	
+						<span class="sina-weiboBtn">
+							<a href="/account/user/thirdparty_config" target="blank">
+							    <img src="$!imgPath/sina-pic1.png" alt=""><strong>绑定新浪幑博</strong>
+							</a>
+						</span>
+					</p>
+				</div>
+			  <div style="height:191px; clear:both; overflow:hidden; margin:0 auto;"></div>
+		</div>
+    </div>
+    
+    <div id="laterPromptId">
+        您还没有稍后看内容<br/>
+选择稍后看，也可以永久收藏离线查看哦！
+    </div>
+    
+    <div id="favoritePromptId">
+	       <div class="panel not-sharing">
+				<ul>
+					<li class="blank-page1"></li>
+					<li class="blank-page2"></li>
+					<li class="blank-page3"></li>
+					<li class="blank-page4"></li>
+					<li class="blank-page5"></li>
+				</ul>
+				<div class="not-sharing-1">
+					<h2>您还没有未读内容哦!</h2>
+					<p><b>可以通过您的电脑浏览器中安装<br>“采集工具”采集感兴趣的内容哦</b>			
+					<span><a href="/about/plugtool">查看采集工具帮助</a></span></p>
+					<p>
+						<b>还可以绑定新浪微博，将幑博收藏<br>导入进来哦</b>	
+						<span class="sina-weiboBtn">
+							<a href="/account/user/thirdparty_config">
+							    <img src="$!imgPath/sina-pic1.png" alt=""><strong>绑定新浪幑博</strong>
+							</a>
+						</span>
+					</p>
+				</div>
+			  <div style="height:191px; clear:both; overflow:hidden; margin:0 auto;"></div>
+		</div>
+    </div>
+    
+    <div id="friendPromptId">
+        <div class="panel not-sharing not-favorite">
+			<h2>您还没有好友分享内容哦!</h2>
+			<p>1.您的好友还不知道您的存在、您的兴趣，赶紧与他们互动吧，让他们分享您感兴趣的内容</p>
+			<p>2.您还可以主动与好友互动哦，把您觉得对某个好友有价值的文字、图片、视频分享给TA</p>
+			<p>3.还可以绑定新浪微博，让微博的好友与您一起互动哦</p>		
+			<span class="sina-weiboBtn"><a href="/account/user/thirdparty_config" target="blank"><img src="$!imgPath/sina-pic.png" alt=""><strong>绑定新浪幑博</strong></a></span>
+	     </div>
+    </div>
+    
+    <div id="readPromptId">
+        您还没有历史记录<br/>
+不要再让有价值的内容沉睡了，尽情浏览、评论、推荐给好友吧！
+    </div>
+    
+    <div id="myrecommendPromptId">
+        <div class="panel not-sharing">
+	        <h2>你还没有分享过任何内容哦！</h2>
+			<p>1.通过在您的电脑浏览器中安装“采集工具”将采集到的内容分享给好友</p>
+			<span><a href="/about/plugtool" target="blank">查看采集工具使用帮助</a></span>
+			<b>您可以访问下面网址进行下载<br><a href="/about/plugtool" target="blank">https://www.mduoduo.com/about/plugtool</a></b>
+			<p>2.把自己在“收藏”中的内容分享给好友</p>
+	    </div>
+    </div>
+</div>

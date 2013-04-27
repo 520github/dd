@@ -1,0 +1,2 @@
+#parse("/zh_CN/views/friend/share/weibo_share_friend.vm")
+#parse("/zh_CN/views/friend/share/renren_share_friend.vm")

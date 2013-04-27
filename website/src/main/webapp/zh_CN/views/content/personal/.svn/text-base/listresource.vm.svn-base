@@ -1,0 +1,174 @@
+#parse("/zh_CN/views/content/personal/resource.vm" )
+<script src="/js/message.js"></script>
+<script src="/zh_CN/js/web/thirdFriendMatch.js"></script>
+<script src="/js/friend.js"></script>
+<script lanuage="javascript">
+	var token;
+	function scrollPage() {
+	    jQuery('#container').scrollPagination({
+		    'contentPage': '', // the page where you are searching for results/search/personal/favorite_data
+		    'contentData': {refresh:""}, // you can pass the children().size() to know where is the pagination
+		    'scrollTarget': jQuery(window), // who gonna scroll? in this example, the full window
+		    'heightOffset': 10, // how many pixels before reaching end of the page would loading start? positives numbers only please
+		    'beforeLoad': function(){ // before load, some function, maybe display a preloader div
+		    	jQuery('#loading').fadeIn();	
+		    },
+		    'afterLoad': function(elementsLoaded){ // after loading, some function to animate results and hide a preloader div
+		    	 jQuery('#loading').fadeOut();
+		    	 var i = 0;
+		    	 jQuery(elementsLoaded).fadeInWithDelay();
+		    	 //alert("ttt:" + jQuery("input[name='isLastPage']").val());
+		    	 if (jQuery("input[name='isLastPage']").val()=="true"){ // if more than 100 results loaded stop pagination (only for test)
+		    	 	//jQuery('#nomoreresults').fadeIn();
+		    		jQuery('#content').stopScrollPagination();
+		    	 }
+		    }
+	        });
+	   
+	      // code for fade in element by element with delay
+          jQuery.fn.fadeInWithDelay = function(){
+	         var delay = 0;
+	         return this.each(function(){
+		        jQuery(this).delay(delay).animate({opacity:1}, 200);
+		        delay += 100;
+	      });
+         };
+	}
+	
+	jQuery(document).ready(function() {
+          token = cookieUtil.getHeaderToken();
+          //统计左侧folder数量
+          statisticTag();  
+          initLoadData();
+    });
+    
+    //初始化加载数据
+    function initLoadData() {       
+        setFolderTag();
+        setMyTag();
+        //设置查询条件的显示情况
+        setSearchVisit();
+        scrollPage();
+        //reGetData();
+    }
+    
+    function reGetData() {
+        var loadDataSize = parseInt(getContentObject().children().size());
+        if(loadDataSize >0)return;
+        var isReGet = false;
+        var menuType = getMenuType();
+        if(menuType == "unread") {
+            if(jQuery("#unreadTotalNum").html() > 0)isReGet = true;
+        }
+        else if(menuType == "later") {
+            if(jQuery("#laterTotalNum").html() > 0)isReGet = true;
+        }
+        else if(menuType == "favorite") {
+            if(jQuery("#favoriteTotalNum").html() > 0)isReGet = true;
+        }
+        else if(menuType == "friend") {
+            if(jQuery("#friendTotalNum").html() > 0)isReGet = true;
+        }
+        else if(menuType == "read") {
+            if(jQuery("#readTotalNum").html() > 0)isReGet = true;
+        }
+        
+        if(isReGet) {
+            getDataList("refresh");
+        }
+    }
+    
+    //设置要查询的系统tag
+    function setFolderTag() {
+        var menuType = jQuery("input[name=menuType]").val();
+        if(menuType == "favorite") {
+            jQuery("input[name='tag']").attr("value","Collect");
+        }
+        else if(menuType == "later") {
+            jQuery("input[name='tag']").attr("value","Later");
+        }
+        else if(menuType == "read") {
+            jQuery("input[name='tag']").attr("value","Read");
+        }
+        else if(menuType == "unread") {
+            jQuery("input[name='tag']").attr("value","Unread");
+        }
+        else if(menuType == "friend") {
+            jQuery("input[name='tag']").attr("value","$!friendTag");
+        }
+        else if(menuType =="myrecommend") {
+            jQuery("input[name='tag']").attr("value","My_Recommend");
+        }
+        else if(menuType =="weibo") {
+            jQuery("input[name='tag']").attr("value","Source_Weibo");
+        }
+        else if(menuType =="renren") {
+            jQuery("input[name='tag']").attr("value","Source_Renren");
+        }
+        else if(menuType =="weixinpublic") {
+            jQuery("input[name='tag']").attr("value","Source_Weixin_Public");
+        }
+        else if(menuType =="upload") {
+            jQuery("input[name='tag']").attr("value","Source_Upload");
+        }
+        else if(menuType =="productwish") {
+            jQuery("input[name='tag']").attr("value","Product_Wish");
+        }
+        else if(menuType =="public") {
+            jQuery("input[name='tag']").attr("value","Public");
+        }
+        else if(menuType =="all") {
+            jQuery("input[name='tag']").attr("value","");
+        }
+    }
+    
+    //设置我的标签列表
+    function setMyTag() {
+        var menuType = jQuery("input[name=menuType]").val();
+        if(menuType == "favorite" || menuType == "friend") {
+            //获取我的标签数据列表
+	        getTagList(token);
+        }
+    }
+    
+    //
+    function getProfileSuccessFnInList(resp) {
+        var id = resp.id;
+        jQuery(".person-info dd p").html(resp.name);
+        jQuery(".person-info .person-logo img").attr("src",resp.avatar.large);
+        var role = resp.role;
+        //guest user
+        if(role.length == 1 && role[0] == "Guest") {
+            jQuery(".person-info .person-logo>a").attr("href","/account/default/login");
+            jQuery("#left-folder-list>#publicFolder").show();
+            jQuery("#left-folder-list>#allFolder").hide();
+            jQuery("input[name='userRole']").val("Guest");
+            jQuery("#unreadPromptId .sina-weiboBtn a").attr("href","javascript:getReffer()");
+            var laterNum = jQuery("#laterTotalNum").html();
+            try{
+                if(parseInt(laterNum)<=0) {
+                    jQuery("#guestShowPlugin").show();
+                }
+                else {
+                    jQuery("#guestShowReg").show();
+                }
+            }catch(e) {
+            }  
+            jQuery("#sinaweibo-login>a").attr("href","/account/weibo/oauth/");
+        }
+        //login user
+        else {
+            jQuery(".person-info .person-logo>a").attr("href","/"+id);
+            jQuery(".content-person-info #friendNum").show();
+            var friendNum = 0;
+            if(resp.counter != null) friendNum = resp.counter.friends;
+            jQuery(".content-person-info #friendNum strong").html(friendNum);
+            jQuery("#left-folder-list>#publicFolder").hide();
+            jQuery("#left-folder-list>#allFolder").show();
+        }
+        
+    }
+    
+    function getProfileErrorFnInList() {
+    }
+	</script>

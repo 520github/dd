@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>注册</title>
+<link rel="stylesheet" href="css/register.css" />
+<link rel="stylesheet" href="css/main.css" />
+<link rel="stylesheet" href="/zh_CN/css/header2.css" />
+<link rel="stylesheet" href="/zh_CN/css/head.css" />
+<link rel="stylesheet" href="/zh_CN/css/pop-up.css">
+<link rel="stylesheet" href="/js/clipper/jqueryui/css/ui-lightness/jquery-ui-1.8.20.custom.css" type="text/css" />
+<link href="css/mix.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/jqueryui/js/jquery-ui-1.8.20.custom.min.js"></script>
+<script src="js/web/jquery/jquery.blockUI.js"></script>
+<script src="js/web/jquery/jquery.form.js"></script>
+<script src="js/web/agreement.js"></script>
+<script src="js/web/reg.js"></script>
+<script type="text/javascript" src="/js/layer/layer.js"></script> 
+</head>
+
+<body>
+<div id="header" class="header-2">
+	<div class="header-center">
+		<div class="logo">
+			<a ><img src="/zh_CN/images/logo-index.png" alt="多多 - 一杯收藏一杯分享"></a>
+		</div>
+		
+		<!--点击注册 和 app 登录-->
+		<div class="button-jump">
+			<span class="jump-plug-in"><a href="/account/default/register/">注册</a></span>
+			<span class="jump-app"><a href="/account/default/login">登录</a></span>
+		</div>			
+		
+		<ul id="nav">
+			<li id="home"><a href="/">首页</a></li>
+			<li id="nav-on"><a href="/about/us">关于</a></li>
+			<li id="nav-help"><a href="/help/us">帮助</a></li>
+			<!--
+			<li id="nav-support"><a href="javascript:alert('是得,您的满意,是我们最大的支持!')">支持</a></li>
+			<li id="nav-blog"><a href="javascript:alert('^_^，原来还有博客哦！')">博客</a></li>
+			-->
+		</ul>
+
+	</div>
+</div>
+
+<div id="stage" class="right-left">
+		<div class="form-set" style="display:none">
+			<!--邮箱注册内容-->
+			<form  action="/clear" method="post">
+				<ul class="form-set-list">
+					<li class="form-set-list-4" >
+						<span id="loginName"><b class="cloor"></b>登录名:</span>
+						<input name="loginName" id="email" type="text"/>登录邮箱或手机号
+						<b class="Remind Remind-2"></b>
+					</li>
+					<li class="form-set-list-4" >
+						<span> <b class="cloor"></b>AccountId:</span>
+						<input name="accountId" id="mobile2" type="text" />
+						<b class="Remind Remind-2"></b>
+					</li>
+					<li class="register-button register-button-r">
+					<input name="" type="image" src="/zh_CN/images/confirm-registration.png" />
+					</li>
+					
+				</ul>				
+			</form>
+			
+		</div>
+		
+		<br><br><br>
+		<div class="form-set">
+			<form  action="/cleartag" method="post">
+			        <input type="hidden" name="type" value="productWish">
+					<ul class="form-set-list">
+						<li >
+						     <input type="submit" value="为来自插件的商品增加心愿标记" />
+						</li>
+					</ul>				
+			</form>
+		</div>
+		<br><br><br>
+		<div class="form-set">
+			<form  action="/cleartag" method="post">
+			        <input type="hidden" name="type" value="originalNone">
+					<ul class="form-set-list">
+						<li >
+						     <input type="submit" value="为本地上传内容增加无法查看原文标记" />
+						</li>
+					</ul>				
+			</form>
+			<span >$!errorMes</span>
+		</div>
+		
+		<div id = "bottom" class="verification-li-a" >
+				
+	    </div>
+	</div>
+	
+
+</body>
+</html>

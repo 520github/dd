@@ -1,0 +1,16 @@
+
+<div class="slideshow-content" style="$!prefaceStyle float: left; ">
+	<div class="slideshow-content-said">
+		<p class="lh25 size15">$!prefaceContent</p>
+		<span>三角形</span>
+	</div>
+	<div class="slideshow-content-personal">
+		<dl>
+			<dt class="portrait radius25"><img src="$!prefaceImg" alt=""></dt>
+			<dd>
+				<p class="nickname size17 color1 weight9">$!prefaceName</p>
+				<p class="post color1">$!prefacePosition</p>
+			</dd>
+		</dl>
+	</div>
+</div>

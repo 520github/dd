@@ -1,0 +1,3 @@
+#parse("/zh_CN/views/weixin/css.vm" )
+#parse("/zh_CN/views/template/meta.vm" )
+#parse("/zh_CN/views/weixin/js.vm" )

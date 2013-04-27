@@ -1,0 +1,32 @@
+<div id="comments">
+	<input type="hidden" class="isLastPage" id="isLastPage" value="$lastPage"/>
+	<input type="hidden" id="totalNumber" value="$totalNumber"/>
+	<div class="commentlist">
+		#if ($comments)
+			#foreach ($c in $comments)
+					第$velocityCount条
+				#if($velocityCount%2==1)
+					<div id="cmt_$c.id" class="personal-comments">
+				#else
+					<div id="cmt_$c.id" class="personal-comments personal-comments-1">
+				#end
+				<dl>
+					<dt class="person-logo">
+						<a href="/$c.accountId" target="_blank">
+	    				<!--	go to personal info page	-->
+							<img src="/images/logo-national-flag.gif" alt="">
+						</a>
+					</dt>
+					<dd>
+						<p>$c.accountId</p> #if($c.score>0) <div class="fixStar" score="$c.score"></div> #elseif($c.score<0) <div class="fixShit" score="$c.score"></div> #else 未评分 #end
+						<p class="money">$c.lastComment</p>
+						<p class="money">$c.text</p>
+					</dd>
+				</dl>
+				===============
+           	</div>
+			#end
+		#end
+	</div>
+</div>
+

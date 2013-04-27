@@ -1,0 +1,31 @@
+
+
+<div id="header" class="header-1">
+	<div class="header-1-r">
+		<!--点击插件 和 app 跳转-->
+		<div class="button-jump">
+			<span class="jump-plug-in"><a href="/about/tools" $!target>插件</a></span>
+			<span class="jump-app"><a href="/about/tools" $!target>APP</a></span>				
+		</div>
+		
+	</div>
+
+<div style="height:10px; clear:both; overflow:hidden; margin:0 auto;"></div>
+	<div class="header-center">
+		<div class="logo">
+			<a href="/" $!target><img src="/zh_CN/images/logo-2.png" /></a>
+		</div>		
+	</div>
+
+	<!--弹出小窗口-->
+	<div class="window">
+		<div class="pop-up-window">
+		<!--关闭按钮-->
+		<p><a href="#" onclick="closePopup();">×</a></p>
+			<ul>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div style="height:40px; clear:both; overflow:hidden; margin:0 auto;"></div>

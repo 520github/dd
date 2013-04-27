@@ -1,0 +1,64 @@
+#parse("/zh_CN/views/template/prefix.vm" )
+<head>
+    #set($browserTitle="关于我们")
+	#parse("/zh_CN/views/template/meta_include.vm" )
+</head>
+
+#parse("/zh_CN/views/head.vm")
+
+<div id="stage"  class="about-us">
+		<div class="banner">
+			<img src="/zh_CN/images/about-us.jpg" alt="关于我们" />
+		</div>
+		<div class="real-wrap">
+			<h2>
+				关于多多 
+			</h2>			
+			<p class="about-i">
+			     多多是一款快捷的社会化分享工具，它可以一键推送互联网或电脑里的文案、图片、视频到好友手机。
+			  多多还是一款拥有离线阅读功能的云端收藏工具，它可以帮助你轻松管理有价值的收藏。
+			</p>
+			<!--
+			<span>在多多你可以：</span>
+			<ul>
+				<li>采集工具一键永久收藏</li>
+				<li>多多邮箱收集内容</li>
+				<li>精彩内容与好友分享</li>
+				<li>随时随地离线查看</li>
+				<li>打标签功能方便查找</li>
+			</ul>
+			-->
+		</div>
+		<hr/ class="dashed">
+		<div class="real-wrap">
+			<h2>
+				产品理念
+			</h2>			
+			<p> 
+			           真正的收藏<br>
+				不是我的帐户中有多少则文档而是总能不经易中发现已在光亮的智慧<br>
+				随时随地为我所用<br><br>
+				
+				真正的分享<br>
+				不是我的空间上有多少位粉丝<br>
+				而是每次偶遇精彩之时<br>
+				他都能同步呼吸到我此刻的心情<br><br>
+				
+				真正的朋友<br>
+				不是让我跟随他每日的流水鸡毛<br>
+				而是知晓和支持我的兴趣<br>
+				告诉我此时需要的及时雨<br><br>
+				
+				收藏、分享和朋友<br>
+				多多 <br>
+				你真正的亲密圈分享工具<br>
+				多多 <br>
+				快乐分享
+			</p>
+		</div>		
+		<div class="bottom-area-pic">
+			
+		</div>
+	</div>
+	
+#parse("/zh_CN/views/template/footer.vm" )

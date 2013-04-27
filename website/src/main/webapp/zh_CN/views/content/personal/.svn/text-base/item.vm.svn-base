@@ -1,0 +1,312 @@
+#parse("/zh_CN/views/content/personal/detailresource.vm" )
+	<script lanuage="javascript">
+	var token; 
+    jQuery(document).ready(function() {
+          token = {"Authorization":"WebToken $token"};	    
+          var html = jQuery("#detail").html();  
+          var data = {};
+          data.id = '$item.id';
+          //所有关系ID改为内容ID
+          //data.responseId = '$item.responseId';
+          data.collect = '$item.counter.collect';
+          data.comment = '$item.counter.comment';
+          var folders = '$item.folders';
+          folders = folders.replace("[","");
+          folders = folders.replace("]","");
+          data.folder = folders.split(",");
+          
+          var userTag = '$!item.userTag';
+          userTag = userTag.replace("[","");
+          userTag = userTag.replace("]","");
+	      data.userTags = getUserTagHtml(userTag.split(",").join(" "));
+	      html = replaceOperateButton(html,data);
+	      jQuery("#detail").html(html);
+	      jQuery("#btnTemp").empty();
+	      
+	      setOrRemoveFile();
+	      
+	      userTag = jQuery.trim(data.userTags);
+	      if(userTag == "") {
+	          jQuery("#right-detail .pop-up-playing-tag span").remove();
+	      }	      
+	      
+      });
+      
+      function setOrRemoveFile() {
+          var type = '$!item.type';
+          var source = '$!item.source';
+          var length = '$!item.file.length';
+          var fileId = '$!item.file.id';
+          var extension = '$!item.file.extension';
+          extension = getFileTypeImage(extension);
+          
+          if(type == "Type_File") {
+              var css = $(".panel-content").attr("class");
+              css += " format-ion-detail";
+              $(".panel-content").attr("class",css);
+              
+              var size = getFileSize(length);
+              $(".commodity-right>p").append(size);
+              
+              var openFile = "javascript:openFile('" + fileId + "');";
+              var downloadFile = "javascript:downloadFile('" + fileId + "');";
+              
+              $(".commodity-right .open-drag").attr("href",openFile);
+              $(".commodity-right .download-drag").attr("href",downloadFile);
+              $(".commodity-img #open").attr("href",openFile);
+              $(".commodity-img #download").attr("href",downloadFile);
+              
+              $(".commodity-img>img").attr("src",extension);  
+          }  
+          else {
+              $(".commodity-img").remove();
+              $(".commodity-right").remove();
+          }
+          
+          if(source == "Source_Upload") {
+              $(".from a").html("我的上传");
+              $(".from a").attr("href","javascript:void(0)");
+          }
+      }
+      
+      //显示或隐藏更多
+      function showOrHideMore() {
+          var moreObj = jQuery("div[id^=moreComment]");
+          if(moreObj.is(":visible")) {
+              moreObj.hide();
+              jQuery(".see-more a").html("查看更多");
+          }
+          else {
+              moreObj.show();
+              jQuery(".see-more a").html("取消更多");
+          }
+      }
+      
+      //
+      jQuery(document).ready(function () {       
+        jQuery(window).scroll(function () {
+           if(jQuery(window).scrollTop()>100) {
+               setUpdown();
+               jQuery("#updown").show();
+           }
+           else {
+               jQuery("#updown").hide();
+           }
+        });
+        
+        jQuery("#up").click(function () {
+            var allBody = window.opera ? document.compatMode == "CSS1Compat" ? jQuery("html") : jQuery("body") : jQuery("html,body");
+            allBody.scrollTop(0);
+            jQuery("#updown").hide();
+        });
+        
+        window.onresize = function() {  
+            setUpdown();       
+        }    
+    });
+    
+    function setUpdown() {
+        var detailLeft = jQuery("#detail").offset().left;
+	    var detailWidth = jQuery("#detail").width();
+	    var updownLeft = detailLeft + detailWidth;
+	   
+	    var detailTop = jQuery("#detail").offset().top;
+	    var detailHeight = jQuery("#detail").height();
+	    var updownTop = detailTop + detailHeight-60;
+	    
+	    var footer = window.screen.availHeight;
+	    //jQuery("#updown").css("top",footer+"px");
+        jQuery("#updown").css("left",updownLeft+"px");
+    }
+    
+    function replyFromFriend(accountId,contentId) {
+        var isGuestUser = jQuery("input[name='isGuestUser']").val();
+	    if(isGuestUser == "true") {
+	        showLayer("#showLoginOrRegPage");
+	        return ;
+	    }
+        var url = "/message/private/message/view?accountId="+accountId+"&contentId="+contentId;
+        window.open(url);
+    }
+      
+	</script> 
+</head>
+
+ #parse("/zh_CN/views/head.vm" )
+     <div id="updown" style="display:none">
+       <div id="up" title= "回到顶部"></div>
+     </div>
+    <input type="hidden" name="myUseTag" value="$!myUseTag"  />	
+    <input type="hidden" name="token" value="$token" />
+    <input type="hidden" name="pageType" value="itemPage" />
+   
+    <div id="detail">
+	#if($item.from && $item.from.size()>0)
+		#if($item.from.size() >0)
+		    #foreach($share in $item.from) 
+		       #if($velocityCount == $item.from.size())
+		           #set($lastShare=$share)
+		       #end
+		    #end
+		#end
+		<div id="top-detail">
+		 	<div class="panel">
+				<!--最新分享-->
+				<div class="personal-comments">
+					#set($share=$lastShare)
+				    #parse("/zh_CN/views/content/personal/share.vm" )
+				</div>
+			</div>
+		</div>
+    #end
+    
+    <!--
+    <div style="height:10px; clear:both; overflow:hidden; margin:0 auto;"></div>					
+    -->
+   
+	<div id="right-detail">	
+		<div class="panel">		
+		    <div class="user-option">
+				<div class="from">
+				
+				<p>来自：</p>
+				<!--
+				<span><img src="$!imgPath/logo-national-flag.gif" alt=""></span>
+				<a href="javascript:openUrl('$!item.url','$!item.responseId')">$!item.url</a>
+				-->
+				<a href="javascript:openTargetUrl('$!item.url')">$!item.url</a>
+				</div>
+				#parse("/zh_CN/views/content/personal/operatebutton.vm")
+			</div>
+			<!--
+			<div class="return">
+			 <a href="javascript:openUrl('$!item.url','$!item.responseId')">查看原网页</a>
+			</div>
+			-->
+		    
+			<div class="panel-title">
+			        <h2>$!item.title</h2>
+				    <div class="panel-info">
+						<span class="left">$!item.date_i18n </span>
+					</div>
+			</div>
+		
+			<div class="panel-content" style="z-index:-1">
+			     <!--商品-->
+			     #if($item.type == "Type_Product")
+			       <div class="commodity-pic">
+			          <img src="$!item.product.picture" alt="">
+		           </div> 		
+			       <!--商品价格-->
+			       <span class="commodity-price">$!item.product.price</span>
+		         #end
+		         #if($!item.type == "Type_Web" || $!item.type == "Type_HtmlClip")
+		             #if(!$!item.web.content || $!item.web.content == "")
+		                 <a href="$!item.url" target="_blank">$!item.url</a>
+		             #else
+		             	#if("false" == $isFriend)
+		                	$!item.summary
+		                #else
+		                	$!item.web.content		                	
+		                #end
+		             #end
+		         #end
+				 
+				 $!item.video.embed
+				 #if($item.type == "Type_Image")
+					<img src="$!item.image.url" alt="">
+				 #end
+				 
+				 <div class="commodity-img">
+                    <img src="" alt="">
+                    <p>该文件暂不支持预览，请使用浏览器自带功能
+                    <a id="open" href="javascript:void(0);">打开</a>
+                                                      或直接
+                    <a id="download" href="javascript:void(0);">下载</a>文件
+                    </p>   
+                 </div>
+                 <div class="commodity-right">
+                    <a href="#" class="open-drag">打开</a> 
+                    <a href="#" class="download-drag">下载</a>
+                    <p>文件大小:</p> 
+                 </div>
+			</div>
+			
+			<!--打标签-->
+		    <div class="pop-up-playing-tag">
+			   <div class="recommend-list">
+				<ul>
+					<li>
+						<span>标签：</span>
+						%userTag%
+					</li>
+				</ul>			
+			   </div> 
+		    </div>	
+		    
+		    <div class="endMore">
+			    <div class="right times">
+			      #set($visit= $!item.counter.visit + 1)
+			      <!--
+				    该内容共被阅读了： $!visit次
+				  -->
+			    </div>
+		    </div>							
+			
+		</div>
+		
+		
+		<div style="height:10px; clear:both; overflow:hidden; margin:0 auto;"></div>
+		
+	</div>
+	
+	
+	<!--下面评论列表-->
+   
+  #if($sessions.size()>0)
+	<div class="panel panel-areaC right-detail">
+	    #foreach($session in $sessions)
+		   <div class="friend-home-list">				
+				<div class="friend-content-l">
+					<div class="friend-pic-icon"><img src="$!session.avatar.small" alt="图标" /></div>
+					<h2>
+						<a href="">$!session.account.name<strong>$!session.account.remarkName</strong></a>
+						<span class="no-read-news">
+							<a href="/message/private/message/view?sessionId=$session.session.id&accountId=$!share.accountId&contentId=$!session.contentId">$!badge.get($!share.accountId)</a>
+						</span>	
+					</h2>
+					<div class="desc verification-information">
+					  $!session.session.lastUpdate.message
+					</div>
+				</div>
+				<div class="r-frien-button">
+					<a href="/message/private/message/view?sessionId=$session.session.id&accountId=$!share.accountId&contentId=$!session.contentId">
+						回 复
+					</a>						
+				</div>
+			</div>
+		#end
+		</div>
+  </div>
+  #end
+</div>
+  
+<!--按钮临时引用 -->
+<input type="hidden" name="menuType" value="$!menuType" />	
+ 
+<div id="cancelFriendShareDialog"  style="display:none;">
+<div id="pop-up" class="pop-up-later pop-up-playing-tag pop-up-add">
+    <h2>确定删除内容？</h2>
+    <div class="r-frien-button"> <a id="cancel" class="ignore" href="javascript:layer_close()">取消</a> <a class="friends-btn" href="javascript:cancelFriendShareMes(_repositoryId,_menuType);">确定</a> </div>
+</div>
+</div>
+
+<div id="cancelFavoriteDialog"  style="display:none;">
+<div id="pop-up" class="pop-up-later pop-up-playing-tag pop-up-add">
+    <h2>确定取消私藏？</h2>
+    <div class="r-frien-button"> <a id="cancel" class="ignore" href="javascript:layer_close()">取消</a> <a class="friends-btn" href="javascript:cancelFavoriteMes(_repositoryId,_menuType);">确定</a> </div>
+</div>
+</div>
+
+ #parse("/zh_CN/views/content/personal/flow.vm")
+ #parse("/zh_CN/views/template/footer.vm" )

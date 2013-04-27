@@ -1,0 +1,88 @@
+#parse("/zh_CN/views/template/prefix.vm" ) 
+<head>
+#set($browserTitle="注册")
+#parse("/zh_CN/views/template/meta_include.vm" ) 
+<script src="/zh_CN/js/web/agreement.js"></script>
+<script src="/zh_CN/js/web/newreg.js"></script>
+</head>
+<body style="background:#fff;">
+#parse("/zh_CN/views/head/head.vm" )
+
+<div id="single" class="register">
+	<div class="top-img">
+			
+	</div>
+	
+	<div id="register" class="radius">
+		<h2><img src="$!img1Path/tologin/register-title.png" alt="注册"></h2>
+		<div class="lt-register lt">
+			<h3 class="deputy-title"><img src="$!img1Path/tologin/img-2.png" alt=""></h3>
+			<ul>
+				<li class="sina-webo-icon"><a href="/account/weibo/oauth/">新浪微博</a></li>
+				<li class="qq-webo-icon"><a title="即将开启">腾讯微博</a></li>
+				<li class="renren-webo-icon"><a title="即将开启">人人网</a></li>
+				<!--
+				
+				-->
+			</ul>
+		</div>
+		
+		<div class="rt-register rt">
+		    <form name="regForm" id="regForm" action="/account/default/register/" method="post">
+		        <input type="hidden" id="registerType" name="registerType" value="email"/>
+						<input type="hidden" id="mobile" name="mobile" value="13800138000"/>
+						<input id="reffer" name="reffer" type="hidden" value="$!reffer"/>
+						
+						<h3 class="deputy-title"><img src="$!img1Path/tologin/img-1.png" alt=""></h3>
+						<ul>
+							<li class="">
+							    <span>用户名</span>
+							    <input name="email" id="email" type="text" >
+							</li>
+							<li id="emailDes" class="an-error">请填写本人手机号或常用邮箱，它将成为你登录多多的帐号！</li>
+							
+							<li class="">
+							    <span>密码</span>
+							    <input name="password" id="password" type="password">
+							</li>
+							<li id="msg_pwd" class="an-error">长度为6-16位字符，区分大小写</li>
+							
+							<li class="">
+							    <span>确认密码</span>
+							    <input name="confirmpassword" id="confirmpassword" type="password" />
+							</li>
+							<li id="msg_pwdconfirm" class="an-error">请再次填写密码</li>
+							
+							<li class="">
+							    <span>昵称</span>
+							    <input name="name" id="name" type="text" maxLength= "16"/>
+							</li>
+							<li id="msg_name" class="an-error">2-16个字符，支持中英文、数字 、下划线或减号</li>
+							
+							<li class="">
+							    <span>邀请码:</span>
+							    #if($!invite != "")
+										<input name="inviteCode" id="inviteCode" type="text" readonly="readonly" value="$!invite"/>
+									#else 
+										<input name="inviteCode" id="inviteCode" type="text" />
+									#end
+							</li>
+							<li class="an-error">选填</li>
+							<li class="agreement">
+								<input type="submit" class="lt">
+								<br><br><br>
+								<a href="javaScript:showAgreement()" class="color4">《多多服务协议》</a>
+							</li>
+						</ul>	
+			  </from>	
+		</div>
+	
+		<div class="re-pic-bottom">
+		
+		</div>
+	</div>
+</div>
+
+<input id="isPoll" type="hidden" value="false">
+#parse("/zh_CN/views/user/agreement.vm" )
+#parse("/zh_CN/views/template/footer.vm" ) 

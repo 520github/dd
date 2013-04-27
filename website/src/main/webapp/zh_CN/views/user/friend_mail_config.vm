@@ -1,0 +1,109 @@
+#parse("/zh_CN/views/template/prefix.vm" ) 
+<head> 
+      #set($browserTitle="邮箱白名单")
+ 
+      #parse("/zh_CN/views/template/meta_include.vm" ) 
+      
+<script type="text/javascript">
+	function showDialog(accountId){
+		jQuery("input[name=friendId]").attr("value",accountId);
+        jQuery("input[name=isBlocked]").attr("value",true);
+
+ 		jQuery.layer({        
+          v_title:"",
+          v_istitle:false,
+          v_showclose : false,
+          //v_skin:0,
+          v_shade:true,
+          v_box : 1,
+          v_dom : '#showDialog',        //id
+          v_area : ['300px','300px'],
+          v_btns : 0,
+          v_btn  :["保存"],
+          v_move:false
+         // v_offset : ['50px','350px']//为空时数据默认
+        });
+	}
+    $(function(){
+  		$("#cancel").click(function(){
+     		layer_close();
+  		})
+	})
+    function configFriendMail(friendId,isBlocked) {
+          jQuery("input[name=friendId]").attr("value",friendId);
+          jQuery("input[name=isBlocked]").attr("value",isBlocked);
+          document.friendMailConfigForm.submit();
+    }
+</script>
+</head> 
+
+#parse("/zh_CN/views/head.vm" ) 
+
+<div id="stage" class="left-right">
+
+<form id="friendMailConfigForm" name="friendMailConfigForm" action="/account/user/friend_mail_config_do" method="post">
+   <input type="hidden" name="friendId">
+   <input type="hidden" name="isBlocked">
+</form>
+
+#parse("/zh_CN/views/user/user_left.vm" ) 
+<script>var left_li_focus="left_li_5";</script>
+<div id="container">
+	<!--选择-->
+	<div id="select">
+		<!--标题-->
+		<div class="select-title">
+		<h4>
+			邮箱白名单
+		</h4>	
+		<span></span> 
+		</div>
+	</div>
+	
+	<!--横屏 排列-->
+	<div class="transverse">
+			<div class="panel search-friends outside-invitation white-list">		
+				<h5>好友的常用邮箱自动默认为白名单，并显示出来，让他们给我推荐些优质的内容吧！</h5>
+				<ul class="white-li">
+				    #foreach($friendMail in $friendMailList)
+				        <li>
+						<span>$!friendMail.name</span>
+						<p>
+						    #foreach($mail in $friendMail.friendMails)
+						        $!mail
+						        #if($!velocityCount < $friendMail.friendMails.size())
+						        <br>
+						        #end
+						    #end
+						</p>
+						#if($friendMail.blocked)
+						<a href="javascript:configFriendMail('$!friendMail.friendId','false')">恢复为邮箱白名单</a>
+						#else
+						<a href="javascript:showDialog('$!friendMail.friendId')">解除邮箱白名单</a>
+						#end
+					</li>
+				    #end					
+				</ul>
+				
+				#if(!$friendMailList) 
+				    <ul id="addDDFriendsContainer" style="margin: 0px; list-style-type: none; padding: 0px; float: left; display: block; ">
+				       <li style="float:left; width:338px;  line-height:30px; float:left;margin:15px 0px 0 11px ; ">
+					    <span style="font-size:12px;">
+					                    你还没有任何好友，<br>通过<strong><a href="/friend/find" target="_blank" style="color:#4585bf">找人</a></strong>或<strong><a href="/invite/outside" target="_blank" style="color:#4585bf">邀请好友</a></strong>去找到你的朋友吧！
+					    </span>
+				       </li>
+			        </ul>
+				#end		
+			    <div style="height:10px; clear:both; overflow:hidden; margin:0 auto;"></div>
+		    </div>
+	  </div>
+		
+</div>
+</div>
+<div id="showDialog"  style="display:none;">
+<div id="pop-up" class="pop-up-later pop-up-playing-tag pop-up-add">
+    <h2>确定删除这个常用邮箱？</h2>
+    <div class="r-frien-button"> <a id="cancel" class="ignore" href="#">取消</a> <a class="friends-btn" href="javascript:document.friendMailConfigForm.submit()">确定</a> </div>
+</div>
+</div>
+#parse("/zh_CN/views/template/footer.vm" ) 

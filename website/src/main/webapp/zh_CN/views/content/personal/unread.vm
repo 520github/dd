@@ -1,0 +1,27 @@
+#parse("/zh_CN/views/content/personal/listresource.vm" )
+<script type="text/javascript"> var head_icon_change_id='home-1';</script>
+
+<script lanuage="javascript">
+    jQuery(document).ready(function() {
+        if(getMenuType() =="unread") {
+            var isFirstLogin = "$!isFirstLogin";
+            if(isFirstLogin == "true") {
+                //showGuide();
+            }
+        }
+        
+        try{
+            window.opener.clipperContent();
+            window.close();
+        }catch(e){
+            //alert(e);
+        }
+    });
+      
+</script>
+<script src="/js/friend.js"></script>
+</head>
+
+#parse("/zh_CN/views/content/personal/guide.vm" )
+#parse("/zh_CN/views/content/personal/iframe.vm" )
+#parse("/zh_CN/views/app/onekeyfirefox/onekeyfirefoxlogin.vm" )

@@ -1,0 +1,51 @@
+#include("/zh_CN/views/template/popup.vm" )
+
+<div style="height:10px; clear:both; overflow:hidden; margin:0 auto;"></div>
+<div id="footer" class="lt">
+	<div class="left-right-footer">
+		<div class="left footer-left  lt">
+			<ul class="about">
+				<li class="color4 weight9 lh30">
+					 <a href="/about/us">关于我们</a>  | 
+			         <!--
+			         <a href="">意见反馈</a>  | 
+			         -->
+			         <a href="/about/business">联系我们</a>  |  
+			        <!--
+			         <a href="">开放平台</a>  |  
+			        -->
+			         <a href="/about/recruitment">加入我们</a>	|
+			         <a href="/privacypolicy.html" target="_blank">隐私策略</a>
+				</li>
+			</ul>
+			<p class="copyRight" >多多瑞浩天（北京）科技有限公司 京ICP备12048978号</p>			
+		</div>	
+		<div class="right footer-right">
+			<div class="attention rt">
+				<span class="lt color2">关注我们：</span>
+				<ul>
+					<li class="sinaweibo" title="新浪微博">
+					    <a href="http://weibo.com/duoduocangxiang" target="_blank">
+					        <img alt="twocoffee" src="$!imgPath/ft-img.png">
+					    </a>
+					</li>
+					<li class="qqweibo" title="腾讯微博">
+					    <a href="http://t.qq.com/duoduoshare" target="_blank">
+					        <img alt="twocoffee" src="$!imgPath/ft-img.png">
+					    </a>
+					</li>
+					<li></li>
+				</ul>
+			</div>
+		
+		</div>
+	</div>	
+</div>
+<div id="baidutongji" style="display:none">
+<script type="text/javascript">
+var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");
+document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F216655b286d272aa3a1e66fa100fce8c' type='text/javascript'%3E%3C/script%3E"));
+</script>
+</div>
+</body>
+</html>

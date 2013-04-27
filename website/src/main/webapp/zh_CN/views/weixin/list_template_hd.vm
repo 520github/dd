@@ -1,0 +1,5 @@
+<div class="list-center" onclick="go2detail('{{repositoryId}}')">
+	<div class="hd">
+		<h2><a href="/weixin/content/item/$!id/{{repositoryId}}">{{title}}</a></h2>
+		<span>{{date_i18n}}</span>
+	</div>

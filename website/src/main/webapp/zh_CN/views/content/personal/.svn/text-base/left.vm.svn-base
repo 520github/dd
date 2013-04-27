@@ -1,0 +1,215 @@
+    <script lanuage="javascript">
+    //突出被选中的菜单
+    jQuery(document).ready(function() {
+    	
+    	if (!jQuery.browser.msie) {
+    		var html = jQuery("#selectFileTempId").html();
+    		jQuery("#selectFileButton").before(html);
+    		
+    	}
+       jQuery.ajax({
+             url:"/topic/isList",
+             dataType:"json",
+             type:"post",
+             success:function(data){
+             if(data.code==200){
+              jQuery('#banner_list').html('<a href="#">多多所有活动点我</a>');
+             }
+             }          
+        });
+        
+        var menuType = jQuery("input[name=menuType]").val();
+        jQuery("#left-folder-list>li").each(function(){
+            var href = $(this).find("a").attr("href");
+            if(href.indexOf(menuType)>-1) {
+                $(this).attr("class","left-folder-list-back");
+                return ;
+            }
+        });
+        
+    });
+    
+    function openFolderUrl(url) {
+        location.href = url;
+    }
+		
+    function getReffer() {
+    	location.href = "/account/weibo/oauth/authority?authToken=$!token&reffer=" + encodeURIComponent(window.location.href);
+    }
+    
+    function showAddAction(friendId) {
+        //$("ul>li[id='"+friendId+"']>a").show();
+    }
+    
+    function hideAddAction(friendId) {
+        //$("ul>li[id='"+friendId+"']>a").hide();
+    }
+    </script>
+    
+    <!--左侧-->
+	<div id="left-pane">
+	    <div class="download-tools">
+				<div class="download-pc">
+					<h2 class="size14 weight9 lh40">
+					    <a href="/about/plugtool" target="blank">安装多多采集工具</a>
+					</h2>
+				</div>
+				#if($!isHaveClient == 'no')
+				<div class="download-mobile">
+					<h2 class="size14 weight9 lh40">
+					   <a href="/about/tools" target="blank">下载多多手机客户端</a>
+				  </h2>
+				</div>
+				#end
+		</div>
+		
+	    <!--左侧属性-->
+	    <div id="left-profile">
+		   <div class="person-info">
+				<dl>
+					<dt class="person-logo">
+						<a href="javascript:void(0)">
+							<img src="" alt="">
+						</a>
+					</dt>
+					<dd>
+						<p></p>
+					</dd>
+				</dl>
+			</div>
+			<div class="content-person-info">
+			  <!--
+				<div class="left-module">
+					<ul>
+						<li class="colid"><a href="#"><strong>9.8</strong><span>专业度 </span></a></li>
+						<li class="colid"><a href="#"><strong>9.2</strong><span>发现力</span></a></li>
+						<li><a href="#"><strong>9.1</strong><span>分享力</span></a></li>
+					</ul>
+				</div>
+				
+				<div class="field">
+				   <ul>
+				   	<li calss="field-title">擅长领域：</li>
+				   	<li class="field-list">娱乐、音乐、旅游</li>
+				   </ul>
+				</div>
+				
+				<div class="field">
+				   <ul>
+				   	<li calss="field-title">兴趣领域：</li>
+				   	<li class="field-list">创业、餐饮娱乐、旅游</li>
+				   </ul>
+				</div>
+			   -->
+				<div id="friendNum" class="left-module left-module-1" style="display:none">
+					<ul>
+						<li class="colid"><a href="/account/user/preview"><strong>0</strong><span>好友</span></a></li>
+					</ul>
+				</div>
+				
+			</div>
+	    </div>
+	    <!-- 拖拽文件提示  从本地选取文件-->
+    	<div id="left-profile" class="left-profile-1 left-profile-2 drag-list-prompt">
+        
+        	<div id="selectFileButton" class="sinaweibo-login">
+            	<a href="#">
+                	<input type="file" style="background:#000;" name="uploadedFile" id="uploadFile1"  hidefoucs="true"  >
+                	<span><span>
+            	</a>
+        	</div>
+    	</div>  
+    	<div id="selectFileTempId" style="display:none">
+    		<ul>
+            <li><span>拖拽文件到网页任意位置可推送到自己和好友手机。</span></li>
+        	</ul>
+    	</div>
+	    <!--左侧文件夹-->
+	    <div id="left-folder">
+			<div class="title">
+				<h3></h3>
+				<span style="display:none" id="unreadTotalNum">0</span>
+			</div>
+			
+			<ul id="left-folder-list" class="left-floder-list">
+			    <li id="publicFolder" style="display:none" onclick="openFolderUrl('/private/public')" ><a href="/private/public"><img src="$!imgPath/folder-10.png"><span id="publicTotalNum"></span>随便看看</a></li>
+			    <li id="allFolder" style="display:none" onclick="openFolderUrl('/private/all')" ><a href="/private/all"><img src="$!imgPath/folder-10.png"><span id="allTotalNum"></span>全部</a></li>
+			    <li onclick="openFolderUrl('/private/later')"><a href="/private/later"><img src="$!imgPath/folder-2.png"><span id="laterTotalNum"></span>$springMacroRequestContext.getMessage("later")</a></li>		    
+				<li onclick="openFolderUrl('/private/friend')"><a href="/private/friend"><img src="$!imgPath/folder-1.png"><span id="friendTotalNum"></span>$springMacroRequestContext.getMessage("friendIntroduction")</a></li>
+				<li onclick="openFolderUrl('/private/productwish')" ><a href="/private/productwish"><img src="$!imgPath/folder-6.png"><span id="productWishTotalNum"></span>心愿单</a></li>
+				<li onclick="openFolderUrl('/private/weibo')" ><a href="/private/weibo"><img src="$!imgPath/folder-4.png"><span id="weiboTotalNum"></span>微博收藏</a></li>
+				<li onclick="openFolderUrl('/private/renren')" ><a href="/private/renren"><img src="$!imgPath/folder-5.png"><span id="renrenTotalNum"></span>人人网收藏</a></li>
+				<li onclick="openFolderUrl('/private/weixinpublic')" ><a href="/private/weixinpublic"><img src="$!imgPath/folder-11.png"><span id="weixinPublicTotalNum"></span>微信</a></li>
+				<li onclick="openFolderUrl('/private/upload')" ><a href="/private/upload"><img src="$!imgPath/folder-7.png"><span id="uploadTotalNum"></span>电脑文件上传</a></li>
+				<li onclick="openFolderUrl('/private/favorite')"><a href="/private/favorite"><img src="$!imgPath/folder-8.png"><span id="favoriteTotalNum"></span>我的最爱</a></li>
+				<li onclick="openFolderUrl('/private/myrecommend')"><a href="/private/myrecommend"><img src="$!imgPath/folder-9.png"><span id="myRecommendTotalNum"></span>我的分享</a></li>		
+				<li onclick="openFolderUrl('/private/read')" style="display:none"><a href="/private/read"><span id="readTotalNum"></span>$springMacroRequestContext.getMessage("read")</a></li>			
+			</ul>
+			
+        </div>
+        
+        #if($bind)
+		<div id="left-profile" class="left-profile-1" style="display:none">
+			<h2>你可能认识的人</h2>
+			<ul>
+				#foreach($contact in $duoduoContacts)
+				<li id="$!contact.account.id" onmouseover="showAddAction('$!contact.account.id')" onmouseout="hideAddAction('$!contact.account.id')">
+				    <img src="$!contact.account.avatar.large" alt="" />
+				    <span title="$!contact.account.name">$text.subString($!contact.account.name, 16, 3)</span>
+				    <a href="javaScript:showDialog('$!contact.account.id','$!contact.account.name')" class="add-btn">添加好友</a>
+				</li>
+				#end
+			</ul>
+			<div class="more">
+				<a href="/friend/weibo">更多好友>></a>
+			</div>
+		</div>
+		#else
+		<div id="left-profile" class="left-profile-1 left-profile-2" style="display:none">
+			<h2>你可能认识的人</h2>
+			<ul>
+				<li><img src="/images/sina-bind-icon.png" alt="" /><span>绑定新浪微博，看看互粉好友中有谁在？</span></li>
+			</ul>
+			<div id="sinaweibo-login" class="sinaweibo-login">
+				<a href="javascript:getReffer()"><img src="/images/loginsina.gif" alt="" /></a>
+			</div>
+		</div>	
+		#end
+		 
+        <div class="banner-nav">
+          <ul>
+             <li id="banner_list">
+               
+             </li>
+          </ul>
+        </div>
+        
+        <div id="footer" class="lt footer-list-left">
+	          <div class="left-right-footer">
+		            <div class="left footer-left lt">
+		                <ul class="about">
+		                    <li class="color4 weight9 lh30">
+		                        <a href="/help/us" target="_blank">新手指南</a> 
+		                        <a href="/about/recruitment" target="_blank">加入我们</a>  
+		                        <a href="/about/us" target="_blank">关于我们</a>                         
+		                        <a href="/about/business" target="_blank">联系我们</a>  
+		                        <a href="/privacypolicy.html" target="_blank">隐私策略</a>
+		                        
+		                    </li>
+		                </ul>
+		            </div>  
+		            <div class="footer-right">
+		                <div class="attention">
+		                    <span class="lt color2">关注我们：</span>
+		                    <ul>
+		                        <li class="sinaweibo"><a href="http://weibo.com/duoduocangxiang" target="_blank"><img src="$img1Path/footer/sina-weibo-pic.png" alt="新浪微博"></a></li>
+		                        <li class="qqweibo"><a href="http://t.qq.com/duoduoshare" target="_blank"><img src="$img1Path/footer/qq-weibo-pic.png" alt="qq微博"></a></li>
+		                        <li></li>
+		                    </ul>
+		                </div>
+		            </div>
+	          </div>  
+        </div>
+        
+	</div>
+	#parse("/zh_CN/views/user/addFriendView.vm" )

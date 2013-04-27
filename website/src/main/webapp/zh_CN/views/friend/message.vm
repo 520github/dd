@@ -1,0 +1,293 @@
+
+#parse("/zh_CN/views/template/prefix.vm" ) 
+<head>     
+      #set($browserTitle="好友消息")
+      #parse("/zh_CN/views/template/meta_include.vm" ) 
+      <script type="text/javascript" src="/zh_CN/js/web/thirdFriendMatch.js"></script>
+	 <script src="/zh_CN/js/web/friendmessage.js"></script>
+ 
+</head> 
+ 
+<!-- 头部 -->
+#parse("/zh_CN/views/head.vm" ) 
+
+<div id="stage" class="left-right friends-news">
+	<!--左边-->
+	#set($leftTitle="消息")
+	#parse("/zh_CN/views/friend/friend_left.vm" )
+
+<!--right-->
+	<div id="container">
+		<!--个人信息-->
+		
+	<div id="select">
+	   #set($selectedTitle="好友消息")
+	   #parse("/zh_CN/views/template/title.vm" )
+	   #if($resultList.size() > 0)
+		<span class="btn-right">
+			<a href="javascript:showDeleteDialog()">清空所有记录</a>
+		</span>
+	   #else
+	   		<!--<div class="a-few">你还没有好友消息</div>-->	   		
+       #end
+    </div>
+		
+		<!--横屏 排列-->
+		<div class="transverse" >       
+				
+		 #if($resultList.size() <= 0)		 
+			<div class="a-few">你还没有好友消息</div>
+		 #else	   	
+		 <div class="panel friend-content friend-home fridnds-news">	
+	   	#end
+	#foreach ($result in $resultList)	
+	   	#set($city = $result.attribute.city)	   	  
+		#if($result.messageType == "FriendSuggest")
+			#foreach ($action in $result.action)			
+				#if($action.name=="忽略")
+					#set($ignore = $action.action)
+				#else					
+					#set($add = $action.action)
+				#end
+			#end			
+			<div class="friend-home-list">		
+				<a href="/$result.attribute.accountId">
+					<div class="friend-pic-icon"><img src="$result.attribute.avatar.large" alt="图标" /></div>
+				</a>	
+				<div class="friend-content-l">
+						<h2>
+						<a href="/$result.attribute.accountId">$result.attribute.name<strong>
+						</strong></a>$result.subject
+						<!--<span class="$result.attribute.gender">$city</span>-->						
+					</h2>		
+						<div class="desc verification-information">
+					   <p></p>
+					</div>
+				</div>
+				
+				
+				<div class="r-frien-button">
+				#if($result.attribute.Remark==true&&$result.attribute.Remark==false)
+				<a href="javascript:showDialog('$result.attribute.accountId','$result.attribute.name','$result.id')"  class="">设置备注</a><!--当有 class="friends-btn" 出现“+好友”按钮-->			
+				#else
+				<a href="javascript:action('$add','$token','$result.id')"  class="friends-btn">添加好友</a><!--当有 class="friends-btn" 出现“+好友”按钮-->	
+				#end
+				<a href="javascript:action('$ignore','$token','$result.id')">忽 略</a>
+				</div>
+				
+			</div>
+		#elseif($result.messageType == "FriendRequest")		 
+			#foreach ($action in $result.action)			
+				#if($action.name=="忽略")
+					#set($ignore = $action.action)
+				#else					
+					#set($agree = $action.action)
+				#end
+			#end	
+			
+			   <div class="friend-home-list">			
+				<a href="/$result.attribute.account.id">
+					<div class="friend-pic-icon"><img src="$result.attribute.account.avatar.large" alt="图标" /></div>
+				</a>
+				<div class="friend-content-l">
+				
+					<h2>
+						<a href="/$result.attribute.account.id">$!result.attribute.account.name<strong>
+						#if($result.attribute.remarkName&&$result.attribute.remarkName!="")
+						($!result.attribute.remarkName)
+						#end
+						</strong></a>$result.subject
+						<!--<span class="$result.attribute.gender">$city</span>-->						
+					</h2>		 		
+					<div class="desc verification-information">
+					   <p>$!result.attribute.message</p>
+					</div>
+				</div>
+				
+				<div class="r-frien-button">
+				#if($result.attribute.Remark==true||$result.attribute.Remark==false)
+				<a href="javascript:showDialog('$result.attribute.id','$result.attribute.name','$result.id')"  class="">设置备注</a><!--当有 class="friends-btn" 出现“+好友”按钮-->				
+				#else
+				<a href="javascript:action('$agree','$token','$result.id')"  class="friends-btn">同意加为好友</a><!--当有 class="friends-btn" 出现“+好友”按钮-->				
+				#end
+				<a href="javascript:action('$ignore','$token','$result.id')" class="no-background ignore">忽 略</a>
+				</div>
+				
+				
+				
+			</div>
+			
+			<!--反馈消息-->
+		#elseif($result.messageType == "FriendRequestFeedback")	
+			#foreach ($action in $result.action)			
+				#if($action.name=="忽略")
+					#set($ignore = $action.action)
+				#else					
+					#set($agree = $action.action)
+				#end
+			#end	
+			
+			   <div class="friend-home-list">			
+				<a href="/$result.attribute.accountId">
+					<div class="friend-pic-icon"><img src="$result.attribute.avatar.large" alt="图标" /></div>
+				</a>
+				<div class="friend-content-l">
+				
+					<h2>
+						<a href="/$result.attribute.accountId">$!result.attribute.name<strong>
+						#if($result.attribute.alias&&$result.attribute.alias!="")
+						($!result.attribute.alias)
+						#end
+						</strong></a>$result.subject
+						<!--<span class="$result.attribute.gender">$city</span>-->						
+					</h2>		 		
+					<div class="desc verification-information">
+					   <p></p>
+					</div>
+				</div>
+				
+				<div class="r-frien-button">
+				<a href="javascript:showDialog('$result.attribute.accountId','$result.attribute.name','$result.id')"  class="">设置备注</a><!--当有 class="friends-btn" 出现“+好友”按钮-->				
+				<a href="javascript:action('$ignore','$token','$result.id')" class="no-background ignore">忽 略</a>
+				</div>
+				
+				
+				
+			</div>
+		#elseif($result.messageType == "Binding")
+			<div class="friend-home-list">		
+				<a href="#">
+					<div class="friend-pic-icon"><img src="$result.from.avatar.large" alt="图标" /></div>
+				</a>	
+				<div class="friend-content-l">
+						<h2>
+						<a href="#">$result.from.name<strong>
+						</strong></a>$result.subject					
+						</h2>		
+						<div class="desc verification-information">
+					    <p></p>
+						</div>
+				</div>
+				<div class="r-frien-button">
+					<a href="javascript:bind('$token','$result.id')"  class="friends-btn">$!result.action.get(0).name</a><!--当有 class="friends-btn" 出现“+好友”按钮-->	
+				</div>
+			</div>
+		#elseif($result.messageType == "FriendInvitation")		 
+			   <div class="friend-home-list">			
+				<a href="#">
+					<div class="friend-pic-icon"><img src="$result.from.avatar.large" alt="图标" /></div>
+				</a>
+				<div class="friend-content-l">
+					<h2>
+						<a href="#">$!result.from.name<strong></strong></a>
+						#if ($result.attribute.thirdpartyType == "Weibo") 
+						$result.subject
+						#else 
+						还没有安装多多客户端，快去下载一个吧。
+						#end
+					</h2>	
+					#if ($result.attribute.thirdpartyType == "Weibo") 
+					<div class="desc verification-information">
+					   <p></p>
+					</div>
+					#else 
+					<div class="desc verification-information">
+					   <p>你收集的和好友分享给你的有用东东都会自动推送到你的多多手机客户端中，这些东东可以离线查看。使用多多客户端你可以将通讯录中的好友添加为多多好友，这样就可以更方便的相互分享有用东东啦。</p>
+					</div>
+					#end	 		
+					
+				</div>
+				
+				<div class="r-frien-button">
+				#if ($result.attribute.thirdpartyType == "Weibo") 
+						<a href="javascript:showThirdFriend('$token','$result.id')"  class="friends-btn">添加好友</a><!--当有 class="friends-btn" 出现“+好友”按钮-->
+				#else 
+					<a href="javascript:download('$token', '$result.id')"  class="friends-btn">去下载</a><!--当有 class="friends-btn" 出现“+好友”按钮-->
+				#end
+				</div>
+			</div>
+			
+		#elseif($result.messageType == "InviteeSuggest")		 
+			   <div class="friend-home-list">			
+				<a href="#">
+					<div class="friend-pic-icon"><img src="$result.from.avatar.large" alt="图标" /></div>
+				</a>
+				<div class="friend-content-l">
+					<h2>
+						<a href="#">$!result.from.name<strong>
+						</strong></a>$result.subject
+						<!--<span class="$result.attribute.gender">$city</span>-->						
+					</h2>		 		
+					<div class="desc verification-information">
+					   <p></p>
+					</div>
+				</div>
+				
+				<div class="r-frien-button">
+				<a href="javascript:action('SendFriendRequest','$token','$result.id')"  class="friends-btn">添加好友</a><!--当有 class="friends-btn" 出现“+好友”按钮-->		
+				<a href="javascript:action('IgnoreFriendRequest','$token','$result.id')" class="no-background ignore">忽 略</a>		
+				</div>
+			</div>
+		#elseif($result.messageType == "ThirdpartyFriendSuggest")		 
+			   <div class="friend-home-list">			
+				<a href="#">
+					<div class="friend-pic-icon"><img src="$result.from.avatar.large" alt="图标" /></div>
+				</a>
+				<div class="friend-content-l">
+					<h2>
+						<a href="#">$!result.from.name<strong>
+						</strong></a>$result.subject
+						<!--<span class="$result.attribute.gender">$city</span>-->						
+					</h2>		 		
+					<div class="desc verification-information">
+					   <p></p>
+					</div>
+				</div>
+				
+				<div class="r-frien-button">
+				<a href="javascript:action('SendFriendRequest','$token','$result.id')"  class="friends-btn">添加好友</a><!--当有 class="friends-btn" 出现“+好友”按钮-->		
+				<a href="javascript:action('IgnoreFriendRequest','$token','$result.id')" class="no-background ignore">忽 略</a>		
+				</div>
+			</div>
+		#end
+			#set($city ="")
+	#end	
+		$paging.page($totle,$limit)	
+		</div>
+			
+	</div>
+	</div>
+	</div>
+
+<!--设置备注 -->
+<div id="showDialog"  style="display:none;">
+  <div id="pop-up"class="pop-up-later pop-up-playing-tag pop-up-add">
+			<h2>
+				为 <b id="setName"></b> 设置备注姓名
+			</h2>
+			<div class="recommend-list" >
+				<ul>
+					<li>
+						<p><input id="remarkName" type="text" name=""  maxLength= "16"/></p>
+					</li>
+				</ul>			
+			</div>
+			<div class="r-frien-button">
+				<a id="cancel" class="ignore" href="#">取消</a>
+				<a class="friends-btn" href="javascript:editNode()">确定</a>
+			</div>
+		</div>			
+  
+</div>
+<div id="showDeleteDialog"  style="display:none;">
+<div id="pop-up" class="pop-up-later pop-up-playing-tag pop-up-add">
+    <h2>确定清空所有记录？</h2>
+    <div class="r-frien-button"> <a class="ignore" href="javascript:layer_close()">取消</a> <a class="friends-btn" href="javascript:deleteMsg('','');">确定</a> </div>
+</div>
+</div>
+<input id="accountId" type="hidden" value=""/>
+<input id="friendId" type="hidden" value=""/>
+<input id="msgId" type="hidden" value=""/>
+<input id="name" type="hidden" value=""/>
+<!-- 尾部 -->
+#parse("/zh_CN/views/template/footer.vm" ) 

@@ -1,0 +1,177 @@
+	<div class="plug-in-2coffee-panel plug-in-2coffee-list">
+		<div class="plug-in-2coffee-panel-title">
+			<h2>
+				推荐给：
+			</h2>
+			<span>
+				 <a href="javascript:friendTab(0,$!lasts.size());">上次推荐过</a>｜
+				 <a href="javascript:friendTab(1,$!friends.size());">全部好友</a>｜
+				 <a href="javascript:friendTab(2,$!favorites.size());">常用联系人</a>
+				 <input type="hidden" id="friendSelected" value="" />
+			</span>
+		</div>
+		#if ($!lasts.size() > 0 && $!favorites.size() < 1)
+		<div id="friendTab0">
+		#else
+		<div id="friendTab0" style="display:none;">
+		#end
+			<div id="scrollbar0" class="scrollbar-list">
+				<div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>		
+				
+				#if (!$lasts || $!lasts.size() <= 0)
+				<div class="plug-in-2coffee-list-no">
+					您还没给您的任何好友推荐您觉得有价值的内容哦，<br>赶紧让您的好友见识见识您的品味与发现能力吧！  
+				</div>	
+				#end	
+				
+				#if ($lasts.size() > 0)
+				#if ($!lasts.size() < 6)				
+				<div class="viewport" style="height:125px;">
+				#else
+				<div class="viewport" style="height:230px;">
+				#end
+					<ul class="overview">
+					   #foreach ($f in $lasts)
+						<li fid="$f.id">
+							<span>
+								<a href="javascript:selectFriend('$f.id')">
+									<img src="$f.avatar.large" alt=""/>
+								</a>
+							</span>
+							<a href="javascript:selectFriend('$f.id')">
+								$text.subString($f.name, 8, 3)
+							</a>
+							#if ($!f.friend.alias && $!f.friend.alias!="")
+							<b><a href="javascript:selectFriend('$f.id')">
+								($text.subString($!f.friend.alias, 6, 3))
+							</a></b>
+							#end
+							<p><a href="javascript:selectFriend('$f.id')" >
+								<img class="fimg_$f.id" src="/zh_CN/images/plug-in-pic-3.png">
+							</a></p>
+							<input type="hidden" class="fck_friend" name="fck_friend" value="0" fname="$f.name"/>
+						</li>
+						#end
+					</ul>
+				</div>
+				#end
+			</div>
+		</div>
+		#if ($!lasts.size() < 1 && $!favorites.size() < 1)
+		<div id="friendTab1">
+		#else
+		<div id="friendTab1" style="display:none;">
+		#end
+			<div id="scrollbar1" class="scrollbar-list">
+				<div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>	
+				
+				#if (!$friends || $friends.size() < 1)
+				<div class="plug-in-2coffee-list-no">
+					你还没有任何好友，<br/>通过<strong><a href="/friend/find" style="color:#4585bf">找人</a>
+				        </strong>或<strong>
+				        <a href="/invite/outside" style="color:#4585bf">邀请好友</a>
+				        </strong>去找到你的朋友吧！
+				</div>	
+				#end	
+				
+				#if ($friends.size() > 0)		
+				#if ($!friends.size() < 6)				
+				<div class="viewport" style="height:125px;">
+				#else
+				<div class="viewport" style="height:230px;">
+				#end
+					<ul class="overview">
+						#foreach ($f1 in $friends)
+						<li fid="$f1.id">
+							<span>
+								<a href="javascript:selectFriend('$f1.id')">
+									<img src="$f1.avatar.large" alt=""/>
+								</a>
+							</span>
+							<a href="javascript:selectFriend('$f1.id')">
+								$text.subString($f1.name, 8, 3)
+							</a>
+							#if ($!f1.friend.alias && $!f1.friend.alias!="")
+							<b><a href="javascript:selectFriend('$f1.id')">
+								($text.subString($!f1.friend.alias, 6, 3))
+							</a></b>
+							#end
+							<p><a href="javascript:selectFriend('$f1.id')" >
+								<img class="fimg_$f1.id" src="/zh_CN/images/plug-in-pic-3.png" alt="">
+							</a></p>
+							<input type="hidden" class="fck_friend" name="fck_friend" value="0" fname="$f1.name"/>
+						</li>
+						#end
+					</ul>
+				</div>
+				#end
+			</div>			
+		</div>
+		#if ($!favorites.size() > 0)
+		<div id="friendTab2">
+		#else
+		<div id="friendTab2" style="display:none;">
+		#end
+			<div id="scrollbar2" class="scrollbar-list">
+				<div class="scrollbar"><div class="track"><div class="thumb"><div class="end"></div></div></div></div>	
+				
+				#if (!$favorites || $favorites.size() < 1)
+				<div class="plug-in-2coffee-list-no">
+					您目前还没有常用联系人哦，为了方便您们之间的飞书传情，<br>赶紧去<a href="/friend">设置</a>一些常用联系人吧！ 
+				</div>	
+				#end	
+				
+				#if ($favorites.size() > 0)			
+				#if ($!favorites.size() < 6)				
+				<div class="viewport" style="height:125px;">
+				#else
+				<div class="viewport" style="height:230px;">
+				#end
+					<ul class="overview">
+						#foreach ($f2 in $favorites)
+						<li fid="$f2.id">
+							<span>
+								<a href="javascript:selectFriend('$f2.id')">
+									<img src="$f2.avatar.large" alt=""/>
+								</a>
+							</span>
+							<a href="javascript:selectFriend('$f2.id')">
+								$text.subString($f2.name, 8, 3)
+							</a>
+							#if ($!f2.friend.alias && $!f2.friend.alias!="")
+							<b><a href="javascript:selectFriend('$f2.id')">
+								($text.subString($!f2.friend.alias, 6, 3))
+							</a></b>
+							#end
+							<p><a href="javascript:selectFriend('$f2.id')" >
+								<img class="fimg_$f2.id" src="/zh_CN/images/plug-in-pic-3.png" alt="">
+							</a></p>
+							<input type="hidden" class="fck_friend" name="fck_friend" value="0" fname="$f2.name"/>
+						</li>
+						#end
+					</ul>
+				</div>
+				#end
+			</div>			
+		</div>
+	</div>
+	
+	<div class="plug-in-2coffee-panel plug-in-2coffee-textarea">
+		<div class="plug-in-2coffee-recommend">	
+			<span id="ddSelectedFriends">
+				<b>
+				<!--
+				推荐给：
+				-->
+				</b>
+			</span>
+		</div>
+		<div class="plug-in-2coffee-textarea">
+			<textarea id="ddClpComment" cols="" rows="">我觉得这个东东可能对你有帮助，希望你喜欢哦！</textarea>
+			<b id="ddClpFont">还可以输入<font id="ddCommentRemain">140</font>个字</b>
+			<p>
+				<input id="ddCloseBtn" type="image" src="/zh_CN/images/plug-in-canceled.png" name="">
+				<input id="ddClipperBtn" type="image" src="/zh_CN/images/png_r9_c1.png" name="">
+			</p>
+		</div>
+	</div>

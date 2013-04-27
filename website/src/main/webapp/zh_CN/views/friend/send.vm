@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>好友列表</title>
+	<link rel="stylesheet" href="/zh_CN/css/main.css">
+	<link rel="stylesheet" href="/zh_CN/css/header.css">
+	<link rel="stylesheet" href="/zh_CN/css/register.css">
+	<link rel="stylesheet" href="/zh_CN/css/pop-up.css">
+	<link rel="stylesheet" href="/zh_CN/css/head.css" />
+	<script type="text/javascript" src="/js/jquery.min.js"></script>
+	<script lanuage="javascript">
+	function acceptFriend(id) {
+		jQuery.post("/friend/replyAdd", {friendId:id,type:1}, function(data) {
+			if (data == "0") {
+				alert("提交失败。");
+				return;
+			}
+			else if (data == "1") {
+				alert("成功添加好友。");
+			}
+			
+			document.location.reload();
+		});
+	}
+	function rejectFriend(id) {
+		jQuery.post("/friend/replyAdd", {friendId:id,type:2}, function(data) {
+			if (data == "0") {
+				alert("提交失败。");
+				return;
+			}
+			else if (data == "1") {
+				alert("你太绝情了，已忽略。");
+			}
+			
+			document.location.reload();
+		});
+	}
+	function removeFriend(id) {
+		if (!confirm('Are you sure?'))
+			return;
+			
+		jQuery.post("/friend/remove", {friendId:id}, function(data) {
+			if (data == "0") {
+				alert("断交失败。");
+				return;
+			}
+			else if (data == "1") {
+				alert("你太绝情了，已断交。");
+			}
+			
+			document.location.reload();
+		});
+	}
+	</script>
+</head>
+<body>
+#parse("/zh_CN/views/head.vm" )
+
+<div id="stage" class="left-right">
+	<div id="left-pane">
+		<div id="left-folder" class="left-friend">
+			<div class="title">
+				<h3>朋友管理</h3>
+			</div>
+			<ul class="left-floder-list">
+				<li><a href="/friend">朋友列表</a></li>
+				<li><a href="/friend/find">找人</a></li>
+				<li><a href="/friend/outsite">站外邀请</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="container">
+		<div id="select">
+			<div class='cssmenu'>
+				<li class='active '>
+					<a href='/friend'><span>朋友列表</span></a>
+				</li>
+				<li class="active-2">
+					<a href='/friend/receive'><span>收到的朋友邀请</span></a>
+				</li>
+			</div>
+			<h4>发出的朋友邀请</h4>
+		</div>
+		<div class="transverse">
+		#if ($friendLog)
+		#foreach ($f in $friendLog)
+		#if ($f.from.accountId == $uid)
+			<div class="panel friend-content">		
+				<div class="friend-content-l">
+					<img src="/images/logo-national-flag.gif" width="100"/>
+					<h2>接受人：<a href="">$f.to.name</a></h2>
+					<ul>
+						<li>申请时间：$date.format("yyyy-MM-dd HH:mm", $f.date)</li>
+					</ul>
+					<div class="desc">
+					</div>
+				</div>
+			</div>
+		#end
+		#end
+		#end
+		</div>
+	</div>
+</div>
+</body>
+</html>

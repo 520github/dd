@@ -1,0 +1,43 @@
+<div id="post_comment_pane" class="pop-up-later pop-up-recommend">
+	<!-- 评论-->
+	<div>
+		 用户平均评分： <span class="avgScore">6</span>
+	</div>
+	<div  class="pop-up-comment">
+		<div class="title-pop-up-comment">
+			<p>给出你的评价：</p>
+			<!--星星 -->
+			<div class="point">
+				<div class="shit_shit"></div>
+			</div>
+			</br>
+			<input type="hidden" id="scoreqq" value="0">
+			<div class="point">
+				<div class="star_star"></div>
+			</div>
+			
+		</div>
+
+		<p class="right-comment-r">还可以输入</p><p class="wordsnumberleft" id="wordsnumberleft">140</p><p>个字</p>
+		<!--文本输入框-->
+		<div class="text-box">
+			<textarea class="textarea_comment" id="textarea_comment" cols="100" rows="4" onclick="checkContent(this)" style="color:gray">我觉得这个东东可能对你有帮助，希望你喜欢哦！</textarea>
+		</div>
+
+		<div class="btm-box">
+			<input type="image" src="/images/confirm-1.png" value="$item.id" id="btnCommend" onclick="postcomment(this.value);" />
+		</div>
+
+	</div>
+
+	<div class="common">共$item.counter.comment条:</div>
+	
+</div>
+
+<div id="comment_layer_%contentId%" style="display:none" state="0">
+	<input type="hidden" id="PageNum" value="0">
+	<input type="hidden" id="PageSize" value="10">
+	<div id="zhankai_div" class="view rl">
+		<span>后面还有<p id="remainNum"></p>条评论,<a href="javascript:openComment('%repositoryId%','%contentId%','2')">展开</a>>></span>
+	</div>
+</div>

@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>多多 - 关于我们</title>
+<link href="/zh_CN/css/page.css" rel="stylesheet" type="text/css" />
+#parse("/zh_CN/views/css.vm" ) 
+</head>
+
+<body>
+#include("/zh_CN/views/index/head.html") 
+<div class="mainDiv">
+	<div class="aboutUsDiv">
+		<h3>香醇细润 妙言乐享</h3>
+		<p>多多是一个让你在网络中收集和保存发现的空间，更能让你把喜欢的信息分享给朋友，随时随地即可阅读，而且是假日无休、点按可及的无线多多馆。</p>
+		<p>它是你喜欢的灵感簿；它是你的贴身收件夹；它是令你不用繁琐的输入，就能与近友协同共享信息和资料的工具；它是一杯自己与朋友细抿畅享的多多。</p>
+	</div>
+	<hr class="abouotHr" />
+	<div class="aboutUsListDiv">
+		<h3 class="aboutListTitle">多多可以做什么：</h3>
+		<div class="abouList">
+			<div class="aboutIconDiv"><img src="/zh_CN/images/icon2.png" width="122" height="79" alt="多多 - 收藏你的喜欢和发现" /></div>
+			<div class="abouotListContent">
+				<h3>收藏你的喜欢和发现</h3>
+				<p>不论是兴趣或研究，只需要按一下鼠标，即可将你在网页上发现的所有内容—包括文章、图片、商品、视频与链接—储存到你的多多帳戶中，研磨出自己的味道。多多的香醇将被永久保存、离线查看，哪怕原内容已经被删掉了。</p>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="abouList">
+			<div class="aboutIconDiv"><img src="/zh_CN/images/icon3.png" width="122" height="79" alt="多多 - 个性的灵感剪贴簿" /></div>
+			<div class="abouotListContent">
+				<h3>个性的灵感剪贴簿</h3>
+				<p>所有你收集的素材就像精心挑选的多多豆，都会被自动编入索引，能被自由检索。如果你乐意，你可以加上标签或者把它放入不同的口袋中，只为在你需要之时助你灵感迸发。</p>
+			</div>
+			<div class="clear"></div>
+		</div>
+		
+		<div class="abouList">
+			<div class="aboutIconDiv"><img src="/zh_CN/images/icon4.png" width="122" height="79" alt="多多 - 亲密小圈子的互享空间" /></div>
+			<div class="abouotListContent">
+				<h3>亲密小圈子的互享空间</h3>
+				<p>如果你看到有趣的内容又想和大家分享，可以直接打開好友组共享，无需多余输入，你们即可相互协同，分享智慧和想法，同时还能将想法同步到你的微博中，与朋友共享的内容也可以离线查看呦。</p>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="abouList">
+			<div class="aboutIconDiv"><img src="/zh_CN/images/icon5.png" width="122" height="79" alt="多多 - 随时随地离线阅读" /></div>
+			<div class="abouotListContent">
+				<h3>随时随地离线阅读</h3>
+				<p>多多 几乎可以在每一台电脑、每一部手机和移动设备上永久收藏内容并离线查看，不管你是在家里或是去公司的路上，不管是windows或mac，ios或是android，这都不再成为距离。</p>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="abouList">
+			<div class="aboutIconDiv"><img src="/zh_CN/images/icon6.png" width="122" height="79" alt="多多 - 建立自己的资料仓库" /></div>
+			<div class="abouotListContent">
+				<h3>建立自己的资料仓库</h3>
+				<p>对倾注心力收集而来的资料，你可以依自己的喜欢分门别类，定期生成PDF文档储存，逐渐建立自己的资料仓库。</p>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>
+<div class="foot">
+	为了不断改进多多的功能，我们可能会定期向你征求意见与建议，希望你的支持！<br />要了解有关多多的更多信息，请访问：www.xxxxxx.com<br />（这是一封自动产生的email，请勿回复）	
+</div>
+</body>
+</html>

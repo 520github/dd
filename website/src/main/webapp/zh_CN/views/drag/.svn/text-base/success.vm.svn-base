@@ -1,0 +1,24 @@
+
+<div id="successTemp" style="display:none">
+	<div id="durian">	
+		<div class="durian">
+			<h1><span>多多</span></h1>
+			<div class="drag">
+				<div class="drag-success">
+					<img src="$dragImgPath/success.jpg">
+					<p style="display:none" id="successMeAndFriend">内容已经推送到你和你的朋友的手机，<br>请随时随地离线享用吧！</p>
+					<p style="display:none" id="successMe">内容已经推送到你的手机，<br>请随时随地离线享用吧！</p>
+				</div>	
+				<div class="ok-cancel-btn drag-success-btn">
+					<!--上传成功 非首页时 有 去看看按扭-->
+					<span id="durian-look-btn"><input class="durian-look-btn" type="button" value="去看看" onclick="DragUpload.goLook()"></span>					
+					<span><input class="durian-ok-btn" type="submit" value="关 闭" onclick="DragUpload.hiddenDragUpload()">	</span>
+					
+				</div>
+				<div class="drag-countdown">
+					3s后自动关闭
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

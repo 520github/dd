@@ -1,0 +1,39 @@
+#parse("/zh_CN/views/template/prefix.vm" )
+<head>
+    #set($browserTitle="微信公共帐号登陆绑定")
+	#parse("/zh_CN/views/weixin/meta_include.vm" )
+	<script src="/zh_CN/js/web/login.js"></script>
+</head>
+
+#parse("/zh_CN/views/weixin/head.vm" )
+	<div id="content">
+	    <input id="error" type="hidden" value="$!error"> 
+		<div class="account-login interface-login">
+			<h2>用以下帐号直接登录</h2>
+			<ul>
+				<li><a href="/weixin/thirdparty/Weibo/$!id"><img src="$weixinPath/sina-pic.png">新浪微博</a></li>
+				<li><a href="/weixin/thirdparty/Renren/$!id"><img src="$weixinPath/renren-pic.png">人人网</a></li>
+				<li><a href="/weixin/thirdparty/Tencent/$!id"><img src="$weixinPath/qq-pic.png">腾讯微博</a></li>
+			</ul>
+		</div>
+		<div class="account-login">
+			<h2>用多多收藏帐号进行登录</h2>
+			<form name="regForm" id="regForm" action="/weixin/login/$!id" method="post" onsubmit="return false;">
+				<ul>
+					<li>
+						<input id="loginName" name="loginName" type="text" placeholder="帐号">
+						<p id="uerror"></p>
+					</li>
+					<li>
+						<input id="password" name="password" type="password" placeholder="密码">
+						<p id="perror"></p>
+					</li>
+					<input type="submit" class="determine-btn" value="登录"/>		
+				</ul>
+			</form>
+			<p>
+				<a href="/weixin/register/$!id">还没有帐号？去注册&gt;&gt;</a>
+			</p>
+		</div>
+	</div>
+#parse("/zh_CN/views/weixin/foot.vm" )

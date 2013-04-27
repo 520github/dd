@@ -1,0 +1,94 @@
+#parse("/zh_CN/views/template/prefix.vm" ) 
+<head> 
+      #set($browserTitle="基本信息")
+      #parse("/zh_CN/views/template/meta_include.vm" ) 
+		<script src="/zh_CN/js/web/user/information.js"></script>
+		<script>
+		var account={"loginName":"$!account.loginName","name":"$!account.name","accountId":"$!account.id","gender":"$!account.gender","birthday":"$!account.birthday","province":"$!account.province","city":"$!account.city"};
+		</script>
+</head> 
+
+#parse("/zh_CN/views/head.vm" )
+<div id="stage" class="left-right">
+	<!--左边-->
+#parse("/zh_CN/views/user/user_left.vm" )
+<script>var left_li_focus="left_li_1";</script>
+
+<!--right-->
+	<div id="container">
+	
+	<!--选择-->
+	<div id="select">
+		<div class="select-title">
+		<h4>基本信息</h4>
+		<span></span> 
+      </div>
+	</div>
+
+		<div class="transverse file-set">
+			<div class="panel">		
+			<form action="/account/user/information" method="post" name="accountForm" id="accountForm">
+				<h5>以下信息将显示在个人资料页，方便大家了解你。</h5>
+			<ul class="form-set-list">
+				<li class="form-set-list-1">
+					<span>登录名：</span>
+					<b class="Remind Remind-2"><label id="loginName"></label></b>					
+					<b class="Remind">(仅自己可见)</b>					
+
+				</li>
+				<li class="form-set-list-2">
+					<span><b class="cloor">*</b> 昵称：</span>
+					<input name="name" id="name" type="text" maxlength="16" />
+					<b class="Remind-color"></b> 
+					
+				</li>
+				
+				<li class="form-set-list-5">
+					<span>你的性别：</span>
+					<p>
+						<input name="gender" type="radio" value="male"  /> 男
+					</p>
+					<p>
+						<input name="gender" type="radio" value="female" />女
+					</p>
+					<p>
+						<input name="gender" type="radio" value="unkown" checked="checked" />保密
+					</p>
+				</li>
+				<li class="form-set-list-4">
+					<span>生日：</span><input type="hidden" name="birthday" id="birthday" value=""/> 
+					<p>
+						<select id="year" onchange="change()">
+							
+						</select>
+					</p>
+					<p>
+						<select id="month" onchange="change()">
+							
+					</select>
+					</p>
+					<p>
+						<select id="day"></select>
+					</p>
+					<!--当输入错时出现提醒  红色-->
+					<b class="Remind Remind-2">(仅自己可见)</b>
+				</li>
+				<li class="form-set-list-4">
+					<span>个人简介：   </span>
+					<textarea name="describe" id="describe">#if( $!account.describe )$!account.describe#end</textarea>
+				</li> 
+				<li class="register-button">
+					<!--<input id="previewBtn" type="image" src="/zh_CN/images/preview.png"  class="register-btn1"/>预 览-->
+					<input id="saveBtn" type="image" src="/zh_CN/images/save-1.png"   class="register-btn2"/><!--保 存-->
+				</li>
+			</ul>
+			<div style="height:10px; clear:both; overflow:hidden; margin:0 auto;"></div>
+			</form>
+			</div>
+		</div>
+	</div>
+	</div>
+
+</div>
+	
+#parse("/zh_CN/views/template/footer.vm" ) 

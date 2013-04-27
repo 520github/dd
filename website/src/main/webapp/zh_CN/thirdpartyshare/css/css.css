@@ -1,0 +1,319 @@
+#head{
+	width:100%;
+	height:101px;
+	background:url(../images/top-back.gif) repeat-x;
+}
+
+.head{
+	width:940px	;
+	height:101px;
+	margin:0 auto;
+}
+
+#log img{
+	position:absolute;
+	top:5px;
+}
+
+#log,
+.title{
+	float:left;
+}
+
+.head .title{
+	margin-left:70px;
+	display:inline;
+}
+
+.head .title h1{
+	padding:20px 0 8px 0;
+	font-weight:bold;
+	font-size:30px;
+	line-height:48px;
+	color:#39547e;
+
+}
+.title p{
+	font-weight:bold;
+	line-height:24px;
+	color:#fff;
+}
+
+.nav-app{
+	float:right;
+	padding:35px 0 0 0;
+	line-height:40px;
+}
+
+.nav-app a{
+	color:#39547e;
+	font-weight:bold;
+}
+
+
+
+
+/*内容*/
+#content{
+	width:940px;
+	height:auto;
+	margin:0 auto;
+}
+
+#left-pane{
+	width:680px;
+	height:auto;
+}
+
+
+#left-pane .title{
+	margin:20px 0;	
+	width:680px;
+}
+
+#left-pane .title h2{
+	line-height:40px;
+	font-size:24px;
+	font-weight:bold;
+}
+#left-pane .title p{
+	font-size:12px;
+	color:#009991;
+	line-height:20px;
+}
+#left-pane .title p span{ color:#777; }
+
+.detail{
+	float:left;
+}
+
+.user-date{
+	
+}
+
+.user-portrait{
+	float:left;
+	margin: 5px 10px 0 0;	
+}
+
+.user-portrait img{
+	width:60px;
+	height:60px;
+}
+
+.user-right{
+	float:right;
+}
+
+.user-name{
+	font-size:18px;
+	font-weight:bold;
+	line-height:25px;
+	color:#606060;
+
+}
+
+.point{
+	
+}
+
+.point .line{
+	margin:0 0 0 20px;
+}
+
+.point .point-text{
+	width:580px;
+	padding:0 10px;
+	line-height:28px;
+	font-size:14px;
+	background:#e6e5e1;
+}
+
+
+
+.text p{
+	margin-bottom:20px;
+	font-size:12px;
+	line-height:18px;
+	text-indent:2em;
+}
+
+
+.text,
+.commodity{
+	float:right;
+	width:600px;
+	margin:20px 0;	
+}
+
+/*右边*/
+#right-pane{
+	width:206px;
+	height:auto;
+	margin-top:20px;
+}
+
+.phone-QR{
+	width:176px;
+	padding:10px 18px;
+	-moz-box-shadow:0px 0px 3px rgba(0, 0, 0, 0.3);
+	-webkit-box-shadow:0px 0px 3px rgba(0, 0, 0, 0.3);
+	box-shadow:0px 0px 3px rgba(0, 0, 0, 0.3);	
+}
+.phone-QR h3{
+	font-size:18px;
+	line-height:30px;
+	font-weight:bold;
+	color:#606060;
+}
+.phone-QR p{
+	font-size:12px;
+	line-height:18px;
+}
+
+.phone-QR img{margin:10px 0;}
+
+.phone-QR .btn-installation{
+	display:block;
+	width:100%;
+	text-align:center;
+	line-height:30px;
+	background:#02a89e;
+	color:#fff;
+}
+
+
+/*底部浮层*/
+#footer{
+	position:fixed;
+	width:100%;
+	height:85px;
+	background:url(../images/footer-back.png) repeat-x;
+	bottom:0;
+}
+.footer{
+	width:940px;
+	margin:0 auto;
+}
+
+.footer span{
+	float:left;
+	line-height:85px;
+	font-size:18px;
+	color:#fff;
+	font-weight:bold;
+}
+.footer ul{
+	float:left;
+	margin:0 100px 0 20px;	
+}
+.footer ul li{
+	float:left;
+	margin:20px 10px 0 0;
+
+}
+.footer ul li a img{
+	float:left;
+	margin-right:10px;
+}
+.footer ul li a{
+	line-height:48px;
+	text-decoration:underline;
+	color:#fff;
+}
+
+
+.footer-login-register,
+.footer-close{
+	float:right;
+	display:inline-block;
+}
+
+.footer-login-register a{
+	display:block;
+	width:100px;
+	margin-top:5px;
+	line-height:30px;
+	text-decoration:underline;
+	color:#fff;
+}
+
+.footer-close{
+	float:right;
+	margin:5px 0 0 85px; display:inline;
+}
+
+
+
+/*商品*/
+.commodity{
+	
+}
+
+.commodity-price{
+	font-size:36px;
+	font-weight:bold;
+	color:#ea4814;
+}
+
+
+.commodity-right{
+	margin-left:78px;
+	display:inline;
+}
+.details-btn a{
+	display:block;
+	width:162px;
+	height:32px;
+	margin-top:30px;
+	text-indent:-9999px;
+	overflow:hidden;
+	background:url(../images/details-btn.gif) repeat;
+}
+
+.details-btn a:hover{
+	background:url(../images/details-btn-hover.gif) repeat;
+}
+
+.commodity-img{margin-right:78px;}
+
+
+/*文档*/
+.document .commodity-img img{width:200px; height:200px;}
+.document .commodity-img{margin-right:50px;}
+
+.details-btn .open-btn{
+	background:url(../images/open-btn.png) repeat;	
+}
+.details-btn .open-btn:hover{
+	background:url(../images/open-btn-hover.png) repeat;
+}
+.details-btn .download-btn{
+	background:url(../images/download-btn.png) repeat;	
+}
+.details-btn .download-btn:hover{
+	background:url(../images/download-btn-hover.png) repeat;
+}
+
+.document .details-btn{float:left; margin-top:60px;}
+.document .details-btn a{float:left; margin:0 10px 0 0; display:inline;}
+
+.file-size{color:#474747; line-height:40px; font-weight:bold; font-size:14px;}
+
+
+/*视频*/
+.video-content{ width:478px; height:400px; background:#000; margin:20px auto 0;}
+
+/*图片*/
+.picture-content{ width:372px; background:#000; margin:20px auto 0;}
+.picture-content img{ max-width:372px;}
+
+
+/*图片文字*/
+.text-picture-content p{ line-height:30px;}
+
+
+@media screen and (max-width:480px){
+	    #right-pane{display:none; }
+    #footer{display:none;}
+}

@@ -1,0 +1,67 @@
+  <!--分享人模板-->
+  #if($shareFriends && $shareFriends.size() >0)
+  <div id="$!friendTypeId" class="plug-in-2coffee-panel-title">
+		<h2>
+		    <b class="plug-in-2coffee-panel-icon"><a href="javascript:friendAction.selectAllFriend('$!friendTypeId')">咖啡杯</a></b>
+			<a onclick="friendAction.toggleDiv('$!friendTypeId')">
+			$!friendTypeName
+			</a>
+			<!--打开箭头class="plug-in-pfeil-auf"  收起箭头class="plug-in-pfeil-weniger" -->
+			<span class="plug-in-pfeil-weniger" onclick="friendAction.toggleDiv('$!friendTypeId')"></span>
+		</h2>
+		
+		<div  class="plug-in-2coffee-panel-title-left" style="display:none">
+		   <div id="scroll_$!friendTypeId" >
+			    <ul >
+				    #foreach($friend in $shareFriends)
+					<li id="$!friend.uid" >
+					    <!--左边图片-->
+						<b class="plug-in-2coffee-panel-icon">
+						    <a href="javascript:friendAction.selectShareFriend('$!friend.uid','$!friendTypeId')">咖啡杯</a>
+						</b> 
+						<!--<b class="plug-in-2coffee-panel-icon-1"><a href="#">咖啡杯</a></b> 选中后class替换成plug-in-2coffee-panel-icon-1 -->
+						<!--肖像图片-->
+						<span class="plug-in-2coffee-panel-portrait">
+						    <img src="$friend.avatar" alt="" onclick="friendAction.selectShareFriend('$!friend.uid','$!friendTypeId')">
+						</span>
+						<!--昵称-->
+						<p class="plug-in-2coffee-panel-nickname">
+						    <a href="javascript:friendAction.selectShareFriend('$!friend.uid','$!friendTypeId')" title="$!friend.name">
+						    $text.subString($friend.name, 12, 3)
+						    </a>
+						    #if ($!friend.friend.alias && $!friend.friend.alias!="")
+								    <a href="javascript:friendAction.selectShareFriend('$!friend.uid','$!friendTypeId')" title="$!friend.friend.alias">
+									    ($text.subString($!friend.friend.alias, 12, 3))
+								    </a>
+							#end
+						</p>
+					</li>	
+					#end					
+			    </ul>
+		   </div>
+	   </div>
+  </div>
+  #end
+  #if(!$shareFriends || $shareFriends.size() <1)
+      <div id="notFoundFriendId" class="plug-in-2coffee-panel-title">
+		<h2>
+			<b class="plug-in-2coffee-panel-icon"><a >咖啡杯</a></b>
+			<a >
+			$!friendTypeName
+			</a>
+			<span class="plug-in-pfeil-auf" ></span>
+		</h2>
+		<div  class="plug-in-2coffee-panel-title-left" >
+		    <ul >
+		        <li >
+		           <br>
+		        </li>
+		        <li style="line-height:30px; padding-left:15px; color:#666">
+		           <br>
+		           $!bindDescription
+		           <a  href="javascript:$!bindAction" id="bindWeibo"  style="color:blue;">$!bindName</a>
+		        </li>
+		    </ul>
+		</div>
+     </div>
+  #end

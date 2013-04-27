@@ -1,0 +1,47 @@
+#parse("/zh_CN/views/template/prefix.vm" )
+<head>
+    #set($browserTitle="微信公共帐号绑定结果")
+	#parse("/zh_CN/views/weixin/meta_include.vm" )
+	<script>
+	    jQuery(document).ready(function(){
+	        var agent = browserUtil.getUserAgent();
+	        if(agent == "iphone") {
+	            jQuery("#goUrl").attr("href","$!iphoneDownloadUrl");
+	        }
+	    });
+	</script>
+</head>
+#parse("/zh_CN/views/weixin/head.vm" )	
+	<div id="content">
+		<div class="div-a">
+			<strong class="strong-text">
+			  #if($!result == "success")
+			             恭喜你，绑定成功啦！
+			  #else
+			     sorry，绑定失败啦！
+			  #end
+			</strong>
+			<p>
+				收藏重要信息方法：<br>
+				发送想要收藏的信息给”多多收藏“微信帐号>>收藏成功，目前支持保存类型为：文本、图片、链接。
+			</p>
+		</div>
+		<div class="div-text">
+			<span>查看已收藏信息办法：</span>
+			<p>
+				回复”m“给”多多收藏“微信帐号。如需帮助，回复”h“
+			</p>
+			<p>
+				如果你手机中还没有多多收藏：
+			</p>	
+			<a id="goUrl" class="determine-btn" href="$!androidDownloadUrl">下载多多收藏客户端</a>
+		</div>
+		<div class="div-b">
+			<p>
+				或者你可以直接访问<a href="http://www.mduoduo.com">www.mduoduo.com</a><br>
+				使用相同帐号登录后即可查看。
+			</p>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+#parse("/zh_CN/views/template/prefix.vm" )
+<head>
+    #set($browserTitle="微信公共账号注册绑定")
+	#parse("/zh_CN/views/weixin/meta_include.vm" )
+	<script src="/zh_CN/js/web/agreement.js"></script>
+	<script src="/zh_CN/js/web/newreg.js"></script>
+</head>
+
+#parse("/zh_CN/views/weixin/head.vm" )	
+	<div id="content">
+		<div class="account-login">
+			<h2>注册多多收藏帐号</h2>
+			<form name="regForm" id="regForm" action="/weixin/register/$!id" method="post">
+				<ul>
+					<li>
+						<input name="email" id="email" type="text" placeholder="邮箱／手机号">
+						<p id= "emailDes"></p>
+					</li>
+					<li>
+						<input name="name" id="name" placeholder="昵称">
+						<p id="msg_name"></p>
+						</li>
+					<li>
+						<input  name="password" id="password" type="password" placeholder="密码">
+						<p id="msg_pwd"></p>
+					</li>
+					<li class="">
+					    <input name="confirmpassword" id="confirmpassword" type="password" placeholder="确认密码"/>
+					    <p id="msg_pwdconfirm"></p>
+					</li>
+				</ul>
+				<input type="submit" class="determine-btn" value="已阅读并同意完成注册">
+			</from>
+			<p>
+					<!--
+					<a href="#" class="select-ico"><img src="$weixinPath/select-ico.png"></a>
+					<a href="#" class="select-ok-ico select-ico"><img src="$weixinPath/select-ico.png"></a>-->
+					<!--默认是select-ok-ico -->
+					<a href="/weixin/agreement">《多多网络服务条款》</a></p>
+		</div>
+		<div class="account-login interface-login">
+			<h2>用以下帐号直接登录</h2>
+			<ul>
+				<li><a href="/weixin/thirdparty/Weibo/$!id"><img src="$weixinPath/sina-pic.png">新浪微博</a></li>
+				<li><a href="/weixin/thirdparty/Renren/$!id"><img src="$weixinPath/renren-pic.png">人人网</a></li>
+				<li><a href="/weixin/thirdparty/Tencent/$!id"><img src="$weixinPath/qq-pic.png">腾讯微博</a></li>
+			</ul>
+			<p><a href="/weixin/$!id">已有帐号？去登录&gt;&gt;</a></p>
+		</div>
+	</div>
+	#parse("/zh_CN/views/user/agreement.vm" )
+#parse("/zh_CN/views/weixin/foot.vm" )

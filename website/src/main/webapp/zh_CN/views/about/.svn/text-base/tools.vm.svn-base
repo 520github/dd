@@ -1,0 +1,13 @@
+#parse("/zh_CN/views/template/prefix.vm" )
+<head>
+    #set($browserTitle="多多工具下载")
+	#parse("/zh_CN/views/template/meta_include.vm" )
+</head>
+
+#parse("/zh_CN/views/head.vm" )
+
+<div id="stage" class="download">
+	
+	#parse("/zh_CN/views/index/app.vm" )
+</div>
+#parse("/zh_CN/views/template/footer.vm" )

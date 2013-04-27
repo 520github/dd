@@ -1,0 +1,259 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta content="width=device-width, initial-scale=0.5, user-scalable=no" name="viewport"/>
+<title>无标题文档</title>
+<style type="text/css">
+	*{margin:0; padding: 0; border: 0;}
+	ul li, ol li{list-style-type: none;}
+	body{font-family:"微软雅黑";}
+	h1,h2,h3,h4{font-weight:normal;}
+	#use-manual{width:640px;  margin:0 auto; background:url(/zh_CN/images/back-.png); }
+.use-manual-content{width:582px; padding:20px 29px; }
+.use-manual-content h2{line-height: 100px; font-size: 40px;}
+.a-area ul{width:100%; border:2px solid #ababab; border-radius:10px; background:#fff;}
+.a-area ul li{ line-height:80px; font-size: 30px; padding:0 19px; border-bottom:2px solid #ababab; cursor:pointer}
+.a-area ul li img{ float:right; margin-top:20px; }
+.arrow-up, .arrow-down{display:block; overflow:hidden; width:54px; height:67px; float:right;}
+.a-area ul li .arrow-down img{margin-top: -48px;}
+.text{display:none; color: #777; text-align: center;}
+.text h3{font-size: 32px; color: #00b5e2;}
+.text h3, .text p, .text strong{text-align: left; }
+.text p{line-height: 48px;}
+.text strong{display: block;}.a-area .text img{ float:none; }
+.a-area ul li.border-none{border-bottom: none;}
+.indented-text { text-indent: 2em;}
+
+#foor-img{ margin: 20px 0 0;  line-height: 136px; background:url(/zh_CN/images/foor.png) no-repeat 79px 0px #fff; text-align:center; padding-left:31px; border-radius:10px; -webkit-border-radius:10px; -moz-border-radius:10px; font-size:40px; }
+</style>
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+
+</head>
+<body>
+<div id="use-manual">
+	<div class="use-manual-content">
+		<h2>如何使用</h2>
+		<div class="a-area">
+			<ul>
+				<li>
+					<span>收藏，获取内容</span>
+					<a href="#" class="arrow arrow-down"><img src="/zh_CN/images/arrow.png"></a>
+					<div class="text">
+						<h3>1、使用多多浏览器插件或书签收集</h3>
+						<p>安装多多的浏览器插件或书签后，就可以很方便的将网页、视频、图片、商品或者器是网页中选取的某一部分图文一键收藏到多多，这些东东可以在手机上离线查看。</p>
+						<img org-src="/zh_CN/images/img1.jpg">
+						<p>安装方法：使用电脑访问mduoduo.com/about/plugtool安装即可。</p>
+						<strong>安装多多浏览器插件</strong>		
+						<img org-src="/zh_CN/images/img2.jpg">		
+						<strong>把这个拖到你的浏览器书签栏</strong>		
+						<img org-src="/zh_CN/images/img3.jpg">	
+						<h3>2、电脑文件同步</h3>
+						<p>电脑中的经典，直接拖拽到多多网站（www.mduoduo.com)，快捷收藏，可以直接在手机上查看。如有哪个朋友需要也可以顺便分享给他。</p>
+						<img org-src="/zh_CN/images/img4.jpg">	
+						<h3>3、同步你的新浪微博和人人网中的</h3>
+						<p>多多可以帮你将SNS中收藏的内容全部收藏到多多，这样你就可以在一个地方查看全部的收藏了，并且，它们是被永久保存的，不必担心再次打开时内容确已不在。这些内容是仅你自己可见的，同时也支持在手机上离线查看的。注意：目前支持导入新浪微博收藏和人人网新欢的新鲜事，这些内容需要你授权后才可以被同步进多多中。</p>
+						<img org-src="/zh_CN/images/img5.jpg">																							
+						<p>遇到适合朋友的内容，收藏的同时顺便分享给朋友；而同时你也可以收到朋友们推荐给你的内容。如此，结识更多志趣相投的朋友，可以大大提高发现精彩内容的机会。与此同时，你也可以就某个内容与朋友一起探讨品评一翻。</p>
+						<img org-src="/zh_CN/images/img6.jpg">				
+					</div>	
+				</li>
+				<li>
+					<span>管理，查找内容</span>
+					<a href="#" class="arrow arrow-down "><img src="/zh_CN/images/arrow.png" ></a>
+					<div class="text">
+						<h3>1、通过已有文件夹筛选</h3>
+						<img org-src="/zh_CN/images/img8.jpg">
+						<h3>2、按标签或关键词查找</h3>
+						<p>多多目前已支持按来源的分类，和按照标签，类别，关键词的查找功能，你可以方便的管理和查找某一篇内容。而更多的分类和标签管理将在以后的版本中支持。</p>
+						<img org-src="/zh_CN/images/img9.jpg">
+						<h3>3、你可以对一个内容进行一些二处理</h3>
+						<p>你可以查看这个内容的评论，<br/>
+							如果你喜欢的话可以把它标记为最爱，<br/>
+							如果你觉得这个东东适合某个朋友可以顺便分享给他<br/>
+							如果你不喜欢这个东东，觉得它占地方，那就<br/>
+							选择删除吧
+						</p>
+						<img org-src="/zh_CN/images/img10.jpg">								
+						<p>可以在设置中管理离线的视频和文件在离线文章占用空间过多时可以使用清楚缓存功能进行清理，清除缓存将清除文字和图片等缓存信息，不会清除视频和文件，视频和文件需要在视频和文件管理中手动清除。
+						</p>
+						<img org-src="/zh_CN/images/img11.jpg">							
+					</div>
+				</li>
+				<li>
+					<span>离线功能</span>
+					<a id="offline" href="#offline" class="arrow arrow-down "><img src="/zh_CN/images/arrow.png"></a>
+					<div class="text">
+						<h3>1、普通离线，文字图片类</h3>
+						<p>启动客户端或在进行刷新操作时，多多将自动同步收藏内容到本地，达到离线。因此，如果收藏或需要同步的内容较多，建议最好在Wifi下进行同步。</p>
+						<img org-src="/zh_CN/images/img12.jpg">	
+						<h3>2、离线视频</h3>
+						<p>视频一般是比较大的，多多仅自动同步视频标题和简略信息，视频本身需要用户手动下载。</p>
+						<strong>选择在视频详情中</strong>								
+						<img org-src="/zh_CN/images/img13.jpg">
+						<strong>或者，在这里查看和管理离线视频</strong>	
+						<img org-src="/zh_CN/images/img14.jpg">												
+						<h3>2、离线文档</h3>
+						<strong>选择在文档详情中，下载和查看他们</strong>								
+						<img org-src="/zh_CN/images/img15.jpg">
+						<strong>或者，在这里查看和管理离线视频</strong>	
+						<img org-src="/zh_CN/images/img16.jpg">																																																		
+					</div>
+				</li>
+				<li class="border-none">
+					<span>分享和好友</span>
+					<a href="#" class="arrow arrow-down "><img src="/zh_CN/images/arrow.png"></a>
+					<div class="text">
+						<h3>1、将已收藏的内容分享给好友</h3>
+						<p>遇到适合好友的内容，你可以，在这个内容详情中点击【操作】，再点击【分享】即可，如下图所示</p>
+						<img org-src="/zh_CN/images/img17.jpg">
+						<h3>2、你还可以直接分享照片</h3>
+						<p>直接分享手机相册中的照片给好友<br/>拍摄照片直接分享给好友</p>
+						<img org-src="/zh_CN/images/img18.jpg">
+						<h3>3、如果你还没有好友</h3>
+						<p>你可以通过好友管理，进入添加好友界面，通过查找站内好友，或通过这些方式（人人网、新浪微薄、手机通讯录）来查找好友</p>
+						<p>如果你的朋友还不在多多<br/>那么去邀请他们吧<br/>你可以使用短信或邮件邀请，或者直接邀请新浪微博互粉好友和人人网好友加入多多。</p>						
+						<img org-src="/zh_CN/images/img19.jpg">
+						<img org-src="/zh_CN/images/img20.jpg">																																								
+					</div>
+				</li>								
+			</ul>
+		
+		<h2>常见问题</h2>		
+		<div class="a-area">
+			<ul>
+				<li >
+					<span>多多如何收藏内容</span>
+					<a href="#" class="arrow arrow-down "><img src="/zh_CN/images/arrow.png">	</a>				
+					<div class="text">
+						<p>方法1，使用多多收藏工具收集<p>
+						<p class="indented-text">安装多多的浏览器插件或书签后，就可以很方便的将网页、视频、图片、商品或者器是网页中选取的某一部分图文一键收藏到多多，这些东东可以在手机上离线查看。</p>
+						<p class="indented-text">安装方法：使用电脑访问<a href="http://mduoduo.com/about/plugtool">mduoduo.com/about/plugtool</a>按引导安装即可。</p>
+						<p>方法2，上传电脑文件或图片</p>
+						<p class="indented-text">电脑中的经典，直接拖拽到多多网站（www.mduoduo.com)，快捷收藏，可以直接在手机上查看。如有哪个朋友需要也可以顺便分享给他。</p>
+						<p>方法3，导入新浪微博收藏和人人网喜欢的新鲜事。</p>
+						<p>方法4，好友分享</p>
+						<p class="indented-text">遇到适合朋友的内容，收藏的同时顺便分享给朋友；而同时你也可以收到朋友们推荐给你的内容。</p>			
+					</div>	
+				</li>
+				<li>
+					<span>多多如何分享内容给朋友</span>
+					<a href="#" class="arrow arrow-down "><img src="/zh_CN/images/arrow.png"></a>					
+					<div class="text">
+						<p>方法1，在自己收藏时，顺便分享给好友。<p>
+						<p class="indented-text">可以在使用插件或书签收藏网络内容时，点击”分享给指定好友“，选择分享目标，点【确定】即可在收藏的同时完成分享内容给好友的操作。</p>
+						<p class="indented-text">安装方法：使用电脑访问<a href="http://mduoduo.com/about/plugtool">mduoduo.com/about/plugtool</a>按引导安装即可。</p>
+						<p>方法2，在上传电脑文件时，顺便分享给好友。</p>
+						<p class="indented-text">可以在使用拖拽或点选方式上传电脑中的文件或图片时，更改对象为“分享给自定义好友”之后选择分享目标，点发送。即可在上传的同时完成分享内容给好友的操作。</p>
+						<p>方法3，分享已收藏的内容。</p>
+						<p class="indented-text">选择某个想要分享的内容，点击”分享“按钮，选择分享对象，点击【确定】即可完成分享。</p>			
+					</div>
+				</li>
+				<li>
+					<span>手机图片分享如何使用</span>
+					<a href="#" class="arrow arrow-down "><img src="/zh_CN/images/arrow.png"></a>					
+					<div class="text">
+						<p>进入功能界面，功能界面在主界面的右侧，可以在各个列表中由右向左滑动屏幕或点击顶部的功能按钮进入。在点击图片分享后，选择分享对象，然后进入分享界面，在这里，可以选择分享相册中的照片，或者选择拍摄一张照片分享<p>			
+					</div>
+				</li>
+				<li>
+					<span>太多内容如何清理</span>
+					<a href="#" class="arrow arrow-down "><img src="/zh_CN/images/arrow.png"></a>					
+					<div class="text">
+						<p>无用内容<p>
+						<p>对于无用内容可以使用删除功能，彻底的删除他们。<p>							
+						<p>离线内容</p>
+						<p>离线的内容分为两类，一类是缓存内容，主要是文章和图片类的碎片信息，他们缓存在客户端本地，以保证你可以在离线情况下查看他们，当缓存过多时，你可以在设置中，使用清楚缓存功能，清除这些旧的离线文件（仅清除本地缓存，不删除云端存储），以释放这些空间用来缓存更需要的内容。
+另一类是离线存储，如离线视频和离线文档，你可以在设置中的”离线视频管理“和”离线文档管理“中管理他们，如果觉得哪些内容无用，而又占空间，可以在这里删除他们。</p>	
+					</div>	
+				</li>
+				<li>
+					<span>收藏视频会占流量吗</span>
+					<a href="#" class="arrow arrow-down "><img src="/zh_CN/images/arrow.png"></a>					
+					<div class="text">
+						<p>会占流量<p>
+						<p>收藏视频首先会收藏到云端，这时，在客户端实际只展示了一个页面，所耗费的流量比较少，如果要离线查看这个视频，需要手动保存这些视频到本地。<p>
+						<p>建议：你可以在Wifi下保存这些视频到本地，然后离线查看他们。这样可以保证下载的速度，同时不耗费流量。<p>										
+					</div>	
+				</li>	
+				<li>
+					<span>如何添加好友</span>
+					<a href="#" class="arrow arrow-down "><img src="/zh_CN/images/arrow.png"></a>					
+					<div class="text">
+						<p>多多的好友是需要验证的，如果你想要加某个人为好友，需要先向这个人发送一个添加好友的申请，待对方通过后，你们才会成为好友。所以在添加好友时，最好简单写点什么，好让对方更容易的判断你是谁，好为对方通过。</p>	
+						<strong>如何找到这些好友</strong>		
+						<p>1、添加推荐的好友；2、通过站内找人方式找到添加的对象；3、添加好友的好友；4、通过新浪微博、人人网、手机通讯录，找到在多多的好友，添加他们。</p>							
+					</div>	
+				</li>	
+				<li>
+					<span>如何邀请好友加入</span>
+					<a href="#" class="arrow arrow-down "><img src="/zh_CN/images/arrow.png"></a>					
+					<div class="text">
+						<p>在多多网站中，可以使用邀请链接，发邀请邮件给好友，发邀请短信给好友等3种方式。</p>		
+						<p>在客户端中，可以选择，使用短信或邮件直接邀请好友，或者邀请新浪微博互粉好友或人人网好友的方式邀请好友加入。</p>									
+					</div>	
+				</li>	
+				<li>
+					<span>收藏内容会消耗流量吗</span>
+					<a href="#" class="arrow arrow-down "><img src="/zh_CN/images/arrow.png"></a>					
+					<div class="text">
+						<p>收藏的内容会先收藏到云端，当使用客户端进行同步时，内容才会同步到客户端，所以，在收藏时是不会消耗流量的，但在同步时是需要消耗流量的。</p>		
+						<p>建议：同步内容时尽量在Wifi环境下，这样做的好处是，同步速度快，节省时间，并且不消耗流量。</p>									
+					</div>	
+				</li>	
+				<li>
+					<span>内容可以保存多久</span>
+					<a href="#" class="arrow arrow-down "><img src="/zh_CN/images/arrow.png"></a>					
+					<div class="text">
+						<p>内容是被永久保存的，直到你删除它。</p>			
+					</div>	
+				</li>
+				<li class="border-none">
+					<span>支持离线么，怎么用</span>
+					<a href="#" class="arrow arrow-down "><img src="/zh_CN/images/arrow.png"></a>					
+					<div class="text">
+						<strong>支持离线。</strong>
+						<p>当使用客户端进行同步内容时，就是我们通常说的刷新，一般的内容（图片和文字）就会被自动同步下来，而这些内容就被离线缓存了，你可以在离线情况下查看他们。而特殊的内容，比如视频或者文档，这些内容通常会比较大，就需要你手动操作来下载他们了。</p>	
+						<p>建议：在同步内容较多，或者有较大的视频和文档时，最好使用Wifi，这样可以保证下载的速度，同时不耗费流量。</p>		
+					</div>	
+				</li>																																								
+			</ul>
+
+		</div>
+	</div>
+
+	<div id="foor-img">
+		多多藏享	
+	</div>
+</div>
+<script type="text/javascript">
+	$(document).ready(function() {
+		var aAreaLi = $(".a-area ul li");
+		aAreaLi.each(function(){
+			 $(this).click(function() {
+			  	var item = $(this);
+
+			 	if(item.data("show")){
+			 		item.find(".arrow").removeClass("arrow-up").addClass("arrow-down");			 				 		
+			 		$("li > .text").hide();	
+			 		item.data("show", false);
+			 	}
+			 	else{			 		
+			 		$(".a-area ul li > .text").hide();
+			 		$(".arrow").removeClass("arrow-up").addClass("arrow-down");
+			 					 		window.scrollTo(0, item.offset().top - 10);	
+
+			 		item.find(".text").show();
+					item.data("show", true);
+					item.find("img").each(function(){
+						$(this).attr("src", $(this).attr("org-src"));
+					});
+				 	item.find(".arrow").removeClass("arrow-down").addClass("arrow-up");						
+				}
+			});
+		});
+
+	})
+</script>
+</body>
+</html>

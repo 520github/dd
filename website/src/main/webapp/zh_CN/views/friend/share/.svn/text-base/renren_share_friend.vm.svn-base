@@ -1,0 +1,7 @@
+#set($shareFriends = $renrens)
+#set($friendTypeName = '人人互粉好友')
+#set($friendTypeId = 'renrenId')
+#set($bindDescription = '你还没有绑定人人网，绑定后就可以将内容分享给人人网的互粉好友啦！马上绑定吧！')
+#set($bindName = '绑定人人网')
+#set($bindAction = "window.open('/account/renren/oauth/authority?authToken=" + $token+"')")
+#parse("/zh_CN/views/friend/share/thirdparty_share_friend_tp.vm")

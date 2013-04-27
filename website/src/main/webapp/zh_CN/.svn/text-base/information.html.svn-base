@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>注册</title>
+<link rel="stylesheet" href="css/registration.css" />
+<script language="javascript" type="text/javascript" src="js/web/jquery/jquery.js"></script>
+<script language="javascript" type="text/javascript" src="js/web/jquery/jquery-ui.js"></script>
+<script language="javascript" type="text/javascript" src="js/web/jquery/jquery.validate.js"></script>
+<script language="javascript" type="text/javascript" src="js/web/jquery/jquery.validate.min.js"></script>
+<script language="javascript" type="text/javascript" src="js/web/jquery/jquery.form.js"></script>
+<script language="javascript" type="text/javascript" src="js/web/information.js"></script>
+</head>
+
+<body>
+<div id="perfect-information">
+<form id="informationForm" name="informationForm" action="/account/default/information" method="post">
+	<div class="skip-button"><input type="button" value="跳过，稍后再填资料" /></div>
+	<div class="success-top">
+		<h1>完善资料多多可以根据你的喜好推荐精彩内容哦！</h1>
+	</div>
+	<div class="step">
+		<ul>
+			<li>第一步  填写你的相关资料 </li>
+			<li>第二步 通过你的资料为你推荐感兴趣的人 </li>
+			<li>第三步  进入多多</li>
+		</ul>
+	</div>
+	<div class="optional">
+	
+	<div class="remind">你感兴趣的领域：（最多可选3个）</div>
+	<div class="remind-button">
+		<ul>
+			<li>
+				<p><input type="checkbox" value="娱乐" name="interestString">娱乐</p>
+				<p><input type="checkbox" value="美食" name="interestString">美食</p>
+				<p><input type="checkbox" value="科技" name="interestString">科技</p>
+				<p><input type="checkbox" value="数" name="interestString">数码</p>
+			</li>
+			<li>
+				<p><input type="checkbox" value="时尚" name="interestString">时尚</p>
+				<p><input type="checkbox" value="幽默" name="interestString">幽默</p>
+				<p><input type="checkbox" value="热点" name="interestString">热点</p>
+				<p><input type="checkbox" value="体育" name="interestString">体育</p>
+			</li>
+		</ul>
+	</div>
+	</div>
+	
+	<div class="perfect-information-1">
+	<tr>
+
+              <th>你所处的行业：</th>
+              <td>
+		<select id="occupation" name="occupation" >		
+					<option value="互联网">
+						互联网
+					</option>
+					<option value="金融">
+						金融
+					</option>
+		</select>
+	</td>
+    </tr>
+	</div>
+	
+		<div class="optional">
+	<div class="remind">你的性别：</div>
+	<div class="remind-button">
+		<ul>
+			<li>
+				<p>
+				<input name="gender" type="radio" value="male" />男
+				</p>
+				<p><input name="gender" type="radio" value="female" />女</p>
+				<p><input name="gender" type="radio" value="unknow" checked  />保密</p>
+			</li>
+			
+		</ul>
+	</div>
+	
+	</div>
+	
+	<div class="register-button">
+	<input type="button" value="确定，保存" onclick=" return postInformation();">
+	</div>
+	</form>
+</div>
+
+
+
+</body>
+</html>

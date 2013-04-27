@@ -1,0 +1,47 @@
+#parse("/zh_CN/views/template/prefix.vm" )
+<head>
+    #set($browserTitle='firefox一键应用')
+    #parse("/zh_CN/views/template/meta.vm" )	
+	#parse("/zh_CN/views/app/onekeyfirefox/onekeyfirefoxinclude.vm" )
+	
+	<script>
+	    $(document).ready(function(){
+	        OneKeyFirefox.obj.getOneKeyFirefoxList();
+	    });
+	</script>
+</head>
+
+<body id="fierfox-key-application">	
+    #parse("/zh_CN/views/head/head_logout_index.vm" )
+    
+	<div id="center">
+	    <div class="a-area">
+    	    <strong class="size18 lh40">温馨提示</strong>
+            <p>你当前正在使用多多临时保存功能，临时保存的内容仅保存在本地缓存，建议登录多多，登录后内容可永久保存，可在任意终端查看，支持在手机上的离线阅读...</p>
+        </div>
+	    <div id = "onekeyFirefoxList" class="a-area b-area">
+		    <h2 class="size24 lh40">我的收藏</h2>
+        </div>    
+    </div>
+    
+    
+    #parse("/zh_CN/views/template/footer_index.vm" )
+	
+	<!--列表内容模板 -->
+	<div id="onekeyFirefoxListTemplate" style="display:none">
+	    <div class="b-area-list">
+        	  <div class="b-area-list-div">
+            	<h3 class="size18 lt">%title%</h3>
+                <span class="panel-info rt">%date%</span>
+            </div>
+            <div class="text">
+            	<p>
+            	%description%
+            	<span>
+            	    <a href="/app/firefox/detail?id=%id%" onclick="javascript:OneKeyFirefox.go2detail('%id%');return false;" >查看全文&gt;&gt;</a>
+            	</span>
+            	</p>
+            </div>
+        </div>
+	</div>
+</body>

@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8, IE=9"/>
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+<script type="text/javascript" src="/js/jquery.blockUI.js"></script>
+<script type="text/javascript" src="/js/json2.js"></script>
+<script type="text/javascript" src="/js/clipper/clipper.js"></script>
+<script type="text/javascript">
+Validator={
+               mobile:/^(13[0-9]|15[0-9]|186|182|187|188|189)\d{8}$/,
+               email: /^[0-9a-zA-Z_\-\.]*[0-9a-zA-Z_\-]@[0-9a-zA-Z_\-]+(\.[0-9a-zA-Z_\-]+)*$/,
+               password:/^.{6,16}$/
+};
+function validateUsername(displayError){
+	var username=$("#ddusername").val();
+	if(!Validator.mobile.test(username) && !Validator.email.test(username)){
+		if(displayError){
+			$("#ddUsernameTip").css("display","block");
+		}
+		return false;
+	}else{
+		$("#ddUsernameTip").css("display","none");
+		return true;
+	}
+}
+function validatePwd(displayError){
+	var pwd=$("#ddpwd").val();
+	if(!Validator.password.test(pwd)){
+		if(displayError){
+			$("#ddPwdTip").css("display","block");			
+		}
+		return false;
+	}else{
+		$("#ddPwdTip").css("display","none");
+		return true;
+	}
+}
+
+function submit(){
+	if(!validateUsername(true) || !validatePwd(true)){
+		return;
+	}
+
+	var username=$("#ddusername").val();
+	var password=$("#ddpwd").val();
+	var rememberMe=$("#ddrememberMe").val();
+	$.blockUI();
+	
+	$.post("/newbookmark/login?r="+Math.random()*99999999,{"username":username,"password":password,"rememberMe":rememberMe},function(data){
+			$.unblockUI();
+			if(data.success){
+				window.location='/newbookmark/private/fast_step_portal';
+			}else{
+				alert(data.msg);
+			}
+	});
+}
+
+$(document).ready(function(){
+    __coffee2innerEvent__.post2parentMessage('setHeight','100%');
+	$("#ddCloseBtn").click(function(){
+			__coffee2innerBusi__.close();
+	});
+	$("#ddusername").focus(function(){
+		if($(this).val()=="Email/手机号"){
+			$(this).val("");
+		}
+	});
+
+	$("#ddusername").blur(function(){validateUsername(true)});
+	$("#ddusername").keyup(function(e){
+		if(e.keyCode==13){
+			submit();
+		}else{
+			validateUsername(false);
+		}
+	});
+	$("#ddpwd").blur(function(){validatePwd(true);});
+	$("#ddpwd").keyup(function(e){
+		if(e.keyCode==13){
+			submit();
+		}else{
+			validatePwd(false)
+		}
+	});
+	$("#ddloginBTN").click(submit);
+});
+
+function postMsgToParent(action,data){
+	var message={"action":action};
+	if(data){
+		message["data"]=data;
+	}
+	window.parent.postMessage(JSON.stringify(message),"*");
+}
+
+
+</script>
+</head>
+<body style="background:#4C4C4C;">
+<div id="login" style="width:600px; margin:0 auto; height:auto; padding:5px ;-webkit-box-shadow: #6f6f6f 0px 4px 7px;-moz-box-shadow: #6f6f6f 0px 4px 7px;box-shadow: #6f6f6f 0px 4px 7px;-webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;	behavior: url(css/PIE.htc); ">
+	<input type="hidden" id="isLogin" value="no"/>
+	<!--关闭按钮-->
+	<div style="position:relative; z-index: 100;"><img id="ddCloseBtn" src="/zh_CN/images/close-pic.png" alt="" style="position:absolute; left:590px; top:-15px;cursor:pointer;" /></div>
+
+	<div style="-webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px;width:570px; height:auto; background:url(/zh_CN/images/body-bei.gif); padding:5px 15px 25px;  overflow:hidden; position:relative">
+		<h1 style="margin:0;"><img src="/zh_CN/images/logo-1.png" alt="" style="position: absolute;  top:12px;"/><span style="float:right; font-size:20px;line-height:61px; color:#4c4c4c;  ">登录多多</span></h1>
+	<div style="width:570px; background:#fff; overflow: hidden;border: 1px solid #f0f0f0; border-right:1px solid #d3d3d3; border-bottom:1px solid #d3d3d3;-webkit-border-radius: 5px; -moz-border-radius: 5px;border-radius: 5px; margin:55px 0 0 0; ">
+		<div style="width:350px;height:auto;  border-right:1px dashed #e2ded9; float:left;"	>
+			
+			<ul style="list-style-type:none; padding:0; margin:0 0 40px 0;">
+				<li style="widht:350px; height:auto; line-height:40px;margin:20px 0;"><input id="ddusername" type="text"  value="Email/手机号"style="
+				width:202px; height:33px;line-height:31px; border:1px solid #e6e6e6; margin:0 10px;
+				-webkit-border-radius: 5px;-moz-border-radius: 5px; border-radius: 5px;background: -webkit-gradient(linear, 0 0, 0 bottom, from(#ffffff), to(#f7f7f7));background: -webkit-linear-gradient(#ffffff, #f7f7f7);background: -moz-linear-gradient(#ffffff, #f7f7f7);
+				background: -ms-linear-gradient(#ffffff, #f7f7f7);background: -o-linear-gradient(#ffffff, #f7f7f7);background: linear-gradient(#ffffff, #f7f7f7);-pie-background: linear-gradient(#ffffff, #f7f7f7); padding:0 5px;margin:0 10px; "/>
+				<span style="float:left; text-align:right; width:100px;">邮箱/手机号</span></li>
+				<!--当用户输入不正确或没有填写时   用户不能为空-->
+				<li id="ddUsernameTip" style="display:none;line-height:20px; margin:0 0 0 110px; border:0px solid #ff0000; color:#ff0000;width:200px; ">用户名只能是邮箱或手机号</li>
+				
+				<li style="margin:20px 0;"><input id="ddpwd" type="password" style="width:202px; height:33px; line-height:31px; border:1px solid #e6e6e6; margin:0 10px;  -webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px;
+background: -webkit-gradient(linear, 0 0, 0 bottom, from(#ffffff), to(#f7f7f7));
+background: -webkit-linear-gradient(#ffffff, #f7f7f7);
+background: -moz-linear-gradient(#ffffff, #f7f7f7);
+background: -ms-linear-gradient(#ffffff, #f7f7f7);
+background: -o-linear-gradient(#ffffff, #f7f7f7);
+background: linear-gradient(#ffffff, #f7f7f7);
+-pie-background: linear-gradient(#ffffff, #f7f7f7);
+padding:0 5px;margin:0 10px;  "/><span style="float:left; text-align:right;width:100px; ">密码:</span></li>
+				<!--当用户没有填写时   密码不能为空-->
+				<li id="ddPwdTip" style="display:none;line-height:20px; margin:0 0 0 110px; border:0px solid #ff0000;color:#ff0000; width:200px; ">密码只能是6到16位字符</li>
+				
+				<li style="line-height:30px; padding:0 0 0 100px; font-size:12px; color:#464646; "><input id="ddrememberMe" type="checkbox" style="margin:7px 0 0 0px; width:30px; float:left; height:15px;"/>下次自动登录 <a href="#" style="display:none; padding:0 0px 0 55px; text-decoration:none; color:#008ecb;">忘记密码？</a></li>
+				<li style="margin:10px 0 0 120px;"><input id="ddloginBTN" type="image" src="/zh_CN/images/botton-2.png" /></li>
+			</ul>
+		</div>
+	
+		
+			<div style="width:179px; height:auto; overflow:hidden;  border-bottom:1px dashed #e2ded9; line-height:30px;padding: 20px 0 0 25px;">
+			没有多多帐号？
+			<span style="float: left; margin: 10px 0 20px; width: 186px;">
+				<input type="image" src="/zh_CN/images/registration.png" onclick="javaScript:window.open('http://www.mduoduo.com/account/default/register/')"/>
+			</span>
+		</div>
+		
+		<div style="line-height:50px; overflow: hidden; padding: 0px 0 0 25px;">
+			<span>使用合作网站帐号登录：</span>
+			<ul style="list-style:none; margin:0;padding:0">
+				<!--<li style="float: left; height: auto; line-height: 32px; margin: 10px 13px 0 0; padding: 0 0 0px; text-align: center; nwidth: 62px;"><a href="#"><img src="/zh_CN/images/qq-pic.gif" alt="qq"  style=" border:0;"/></a></li>-->
+				<li style="float: left; height: auto; line-height: 32px; margin: 10px 13px 0 0; padding: 0 0 0px; text-align: center; nwidth: 62px;"><a href="/account/weibo/oauth/" target="_blank"><img src="/zh_CN/images/sina-pic.gif" alt="sina"  style=" border:0;" /></a><a href="/account/weibo/oauth/" target="_blank">新浪微博</a></li>
+				<li style="float: left; height: auto; line-height: 32px; margin: 10px 13px 0 0;  padding: 0 0 0px; text-align: center; nwidth: 62px;"><a href="/account/google/oauth/" target="_blank"><img src="/zh_CN/images/mail-pic.gif" alt="mail"   style=" border:0;"/></a><a href="/account/google/oauth/" target="_blank">Gmail</a></li>
+			</ul>
+		</div>
+
+	</div>
+	</div>
+</div>
+</body>
+</html>

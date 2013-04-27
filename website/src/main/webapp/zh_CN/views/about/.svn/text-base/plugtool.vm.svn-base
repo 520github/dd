@@ -1,0 +1,173 @@
+#parse("/zh_CN/views/template/prefix.vm" )
+<head>
+	#parse("/zh_CN/views/template/meta_include.vm" )
+	<link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/ekfemiejmlknepcpgkkcpomnhibmljhh"/>
+	<link rel="" href="http://$!domainName/extension/多多采集工具.crx"/>
+	
+	<script>
+	    var url = "%E5%A4%9A%E5%A4%9A";//%E4%B8%A4%E6%9D%AF%E5%92%96%E5%95%A1
+	    var browserType="";
+		var browserVersion;
+		//var step3_ie="<p>右键收藏到多多<br><a href='#'>访问你想收藏的网站，点击多多的插<br>件按钮即可。</a></p>";
+		//var step3_firefox="<p>点击Firefox上的扩展插件<br><a href='#'>访问你想收藏的网站，点击多多的插<br>件按钮即可。</a></p>";
+		//var step3_chrome="<p>点击Chrome上的扩展插件<br><a href='#'>访问你想收藏的网站，点击多多的插<br>件按钮即可。</a></p>";
+	    jQuery(document).ready(function() {
+              var toolType = "$!toolType";
+              initBrowser();
+              var id = "";
+              if(toolType =="plug") {
+                  id = "plugTool";
+                  jQuery("#plug_div").show();
+                  jQuery("#bookmark_div").hide();
+              }
+              else if(toolType =="bookmark") {
+                  id = "bookmarkTool";
+                  jQuery("#plug_div").hide();
+                  jQuery("#bookmark_div").show();
+              } else if (browserType=="") {
+                  id = "bookmarkTool";
+                  jQuery("#plug_div").hide();
+                  jQuery("#bookmark_div").show();
+              } else {
+              	  id = "plugTool";
+                  jQuery("#plug_div").show();
+                  jQuery("#bookmark_div").hide();
+              }
+              jQuery(".left-floder-list #"+id + " a").css("background-position","-678px 5px");
+			  jQuery(".html ul li").hide();             
+              //if (id == "plugTool") {
+              jQuery("#chrome-none").hide();
+              jQuery("#mozilla-none").hide();
+              jQuery("#ie-none").hide();
+              jQuery("#cheetah-none").hide();
+              
+			  if(jQuery.browser.msie){
+				  	jQuery(".ie-nav a").addClass("select-style");
+				  	jQuery(".ie-nav").css({
+						"background":"#fff"
+				  	}); 
+				 	jQuery("#ie-none").show();
+			 	
+			  }else if(jQuery.browser.mozilla){
+					jQuery(".mozilla-nav a").addClass("select-style");
+					jQuery(".mozilla-nav").css({
+						"background":"#fff",
+					});
+					jQuery("#mozilla-none").show();	
+			  }else if(browserType == "chrome"){	
+					jQuery(".chrome-nav a").addClass("select-style");
+					jQuery(".chrome-nav").css({
+						"background":"#fff",
+					});
+					jQuery("#chrome-none").show();
+			  }else if(browserType == "liebao") {
+			        jQuery(".cheetah-nav a").addClass("select-style");
+					jQuery(".cheetah-nav").css({
+						"background":"#fff",
+					});
+					jQuery("#cheetah-none").show();
+			  }
+			  else {
+				    jQuery(".ie-nav a").addClass("select-style");
+				  	jQuery(".ie-nav").css({
+						"background":"#fff"
+				  	}); 
+				 	jQuery("#ie-none").show();
+			  }
+			  //}
+        });
+        
+        function initBrowser() {
+            browserType = browserUtil.getBrowserType();
+			browserVersion = browserUtil.getBrowserVersion();
+        }
+        
+        function show(id) {
+        	jQuery(".container-mozilla").hide();
+        	jQuery(".chrome-nav a").removeClass("select-style");
+        	jQuery(".ie-nav a").addClass("select-style");
+        	jQuery(".mozilla-nav a").addClass("select-style");
+        	jQuery(".cheetah-nav a").addClass("select-style");
+        	jQuery(".chrome-nav").css({
+					"background":"",
+			});
+			jQuery(".ie-nav").css({
+					"background":""
+			}); 
+			jQuery(".mozilla-nav").css({
+					"background":"",
+			});
+			jQuery(".cheetah-nav").css({
+					"background":"",
+			});
+        	if (id=='chrome') {
+        		jQuery(".chrome-nav a").addClass("select-style");
+				jQuery(".chrome-nav").css({
+					"background":"#fff",
+				});
+				jQuery("#chrome-none").show();
+        	} else if(id=='ie'){
+			  	jQuery(".ie-nav a").addClass("select-style");
+			  	jQuery(".ie-nav").css({
+					"background":"#fff"
+			  	}); 
+			 	jQuery("#ie-none").show();
+			}else if(id=='mozilla'){
+				jQuery(".mozilla-nav a").addClass("select-style");
+				jQuery(".mozilla-nav").css({
+					"background":"#fff",
+				});
+				jQuery("#mozilla-none").show();	
+			}else if(id == "cheetah") {
+			    jQuery(".cheetah-nav a").addClass("select-style");
+				jQuery(".cheetah-nav").css({
+					"background":"#fff",
+				});
+				jQuery("#cheetah-none").show();
+			}
+        } 
+        function downloadChrome() {
+        	
+        	if (jQuery.browser.msie) {
+        		window.open('https://chrome.google.com/webstore/search/'+url);
+        		return;
+        	}
+        	var v = browserVersion.split(".")[0];
+        	if (v >20) {
+        		chrome.webstore.install('https://chrome.google.com/webstore/detail/ekfemiejmlknepcpgkkcpomnhibmljhh',successCallback ,failureCallback);
+        	}else {
+        		window.open('http://$!domainName/extension/多多采集工具.crx');
+        	}
+        	
+        }
+        function successCallback(){
+			//alert('success')
+		}
+		function failureCallback(a){
+			var pattern = /cancelled/;
+		 	if (!pattern.test(a)) {
+		 	    window.open("https://chrome.google.com/webstore/detail/ekfemiejmlknepcpgkkcpomnhibmljhh");
+		 		//window.open('https://chrome.google.com/webstore/search/'+url);
+		 	}
+		}
+	</script>
+</head>	
+
+#parse("/zh_CN/views/head.vm" )
+<div id="stage" class="contentRight left-right">
+<div id="left-pane">
+	<div class="left-friend left-mouse-after" id="left-folder">
+		<ul class="left-floder-list">
+			<li id="plugTool" class="mouse-change"><a href="/about/plugtool?toolType=plug">多多采集工具下载</a></li>
+			<li id="bookmarkTool" class="mouse-change"><a href="/about/plugtool?toolType=bookmark">安装书签</a></li>
+      	</ul>
+	</div>
+</div>
+<div id="plug_div" style="display:none">
+    #parse("/zh_CN/views/about/plug_introduction.vm" )
+</div>
+<div id="bookmark_div" style="display:none">
+    #parse("/zh_CN/views/about/bookmark_introduction.vm" )
+</div>
+</div>
+#parse("/zh_CN/views/template/footer.vm" )

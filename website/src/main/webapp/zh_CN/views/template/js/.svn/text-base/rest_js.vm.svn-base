@@ -1,0 +1,5 @@
+<script src="/zh_CN/js/rest/rest.js"></script>
+<script src="/zh_CN/js/rest/userRest.js"></script>
+<script src="/zh_CN/js/rest/friendRest.js"></script>
+<script src="/zh_CN/js/rest/contentRest.js"></script>
+<script src="/zh_CN/js/rest/accountRest.js"></script>

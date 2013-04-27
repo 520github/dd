@@ -1,0 +1,78 @@
+#footer-fixed{
+	position:fixed;
+	bottom:0;
+	width:100%;
+	height:96px;
+	background:url(../images1/footer/footer-back.png);
+}
+
+.footer-fixed{
+	width:940px;
+	margin:0 auto;
+	font-weight:900;
+	color:#fff;
+}
+
+/*global scope*/
+.text-div,
+.account-connector,
+.account-connector ul li img{
+	float:left;
+}
+
+.footer-login-register,
+.close-btn{
+	float:right;
+}
+
+.account-connector ul li a,
+.footer-login-register a{
+	text-decoration:underline;
+	color:#fff;
+}
+
+/*component only*/
+.text-div{
+	line-height:18px;
+	padding:28px 50px 0 0;
+}
+
+.account-connector{
+	margin:25px 0 0 0;
+}
+
+.account-connector ul li{
+	line-height:48px;
+}
+
+.account-connector ul li img{
+	display:inline;
+	margin-right:10px;
+}
+
+.footer-login-register{
+	display:inline;
+	line-height:20px;
+	margin:20px 0px 0 0;
+}
+
+.footer-login-register a{
+	display:block;
+}
+
+.install-already-btn .install-btn a{
+	width:120px;
+	margin-top:8px;
+	background:#00ac96;
+	line-height:32px;
+	text-align:center;
+}
+
+.footer-login-register .color{
+	color:#73b7d0;
+}
+
+.close-btn img{
+	margin:25px 0px 0 75px;	
+}
+

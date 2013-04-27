@@ -1,0 +1,38 @@
+<script>
+    function go2editContract() {
+        $("#setUpTemp").hide();
+        _friendEditContact.getFriendsList();
+        $("#editContactTemp").show();
+    }
+</script>
+
+<div id="setUpTemp" style="display:none">
+	<div id="durian">	
+		<div class="durian">
+			<h1><span>设置</span></h1>
+			<div class="drag">
+				<div class="drag-push durian-set-up-web">
+					<h2 class="">设置默认推送对象：<span>（单选）</span></h2>
+					<div id="FavoritesAndMe" class="drag-list1 bak-color">
+						<h3 onclick="Settings.selectedPushType('FavoritesAndMe')">我和我的常用联系人 </h3>
+					</div>
+					<div id="All" class="drag-list1 drag-list2">
+						<h3 onclick="Settings.selectedPushType('All')">我和我的全部好友</h3>
+					</div>	
+					<div id="Me" class="drag-list1 drag-list2">
+						<h3 onclick="Settings.selectedPushType('Me')">仅我自己</h3>
+					</div>		
+					<input type="hidden" id="pushTypeValue">					
+				</div>
+				<div class="drag-edit-commonly">
+					<p>编辑常用联系人：</p><a href="javascript:go2editContract()">编辑</a>
+					
+				</div>
+				<div class="ok-cancel-btn drag-countdown">
+					<input class="durian-cancel-btn" type="button" value="取消" onclick="Settings.canclePushType()">
+					<input class="durian-ok-btn" type="submit" value="确定" onclick="_settings.saveSharingGroup()">		
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

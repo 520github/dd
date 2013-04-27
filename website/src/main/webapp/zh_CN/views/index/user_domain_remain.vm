@@ -1,0 +1,31 @@
+#if ($contentDetailList)
+	#foreach ($contentDetail in $contentDetailList)
+	第$velocityCount篇
+	<div class="panel">
+		<div class="panel-title">
+			<h2><a href="javascript:openItemDetail('$contentDetail.repository.id','$contentDetail.content.url','$contentDetail.content.contentType')" >$contentDetail.content.title</a></h2>
+			<div class="panel-info">
+				<span class="left">$contentDetail.repository.date</span>
+			</div>
+		</div>
+		<div class="panel-content">
+			$contentDetail.content.summary
+		</div>
+	
+		<div class="user-option">
+			<div class="from">
+				<p>来自：</p><span><img src="images/logo-national-flag.gif" alt="" /></span><a href="$contentDetail.content.url">$contentDetail.content.url</a>
+			</div>
+			<div class="user-option-select">
+				<ul>
+					     <li class="icon-1" title="$springMacroRequestContext.getMessage("later")"><a href="javascript:later('$contentDetail.repository.id','$!menuType')"></a></li>
+					     <li class="icon-2" title="$springMacroRequestContext.getMessage("favorite")"><a href="javascript:favorite('$contentDetail.repository.id','$!menuType')"></a></li>
+					     <li class="icon-3" title="转给好友"><a href="javascript:openShareFriendLayer('$contentDetail.repository.id','$contentDetail.content.id')"></a></li>
+					     <li class="icon-4" title="分享到SNS"><a href="javascript:alert('分享到SNS')"></a></li>
+					     <li class="icon-5" title="评论"><a href="javascript:openComment('$contentDetail.repository.id','$contentDetail.content.id','1')">$contentDetail.content.counter.comment</a></li>
+				  </ul>
+			</div>
+		</div><!-- end of user-option -->						
+	</div><!-- end of panel -->
+	#end
+#end

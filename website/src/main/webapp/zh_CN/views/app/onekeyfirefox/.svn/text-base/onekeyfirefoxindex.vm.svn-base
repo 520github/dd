@@ -1,0 +1,23 @@
+#parse("/zh_CN/views/template/prefix.vm" )
+<head>
+    #set($browserTitle='firefox一键应用')
+	#parse("/zh_CN/views/template/meta.vm" )
+</head>
+
+
+<body>
+    <form method="post" action="/app/firefox">
+        <ul>
+            <li>标题：<input type="text" name="title" size="70"></li>
+            <li>url  ：<input type="text" name="href" size="70"></li>
+            <li>内容：
+            <textarea name="text" cols="70" rows="6">
+            </textarea>
+            </li>
+            <li>
+                <input type="submit" value="提交存储" />
+            </li>
+        </ul>
+        
+    </form>
+</body>

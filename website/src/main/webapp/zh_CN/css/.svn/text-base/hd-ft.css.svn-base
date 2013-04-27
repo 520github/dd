@@ -1,0 +1,83 @@
+/* CSS reset */
+/*
+YUI 3.4.1 (build 4118)
+Copyright 2011 Yahoo! Inc. All rights reserved.
+Licensed under the BSD License.
+http://yuilibrary.com/license/
+*/
+
+/*========================== css 精灵========================== */
+/* .client a, .register-login a, .right-pic, .left-btn-slideshow span a, .right-btn-slideshow span a, .slideshow-content-said span, .slideshow-content-personal dl .portrait 
+, .slideshow-content-said p, .attention ul .sinaweibo a, .attention ul .qqweibo a, .footer-pic span, .slideshow-btn-register
+{background:url(../images/index.png) } */
+
+
+/*========================== 左右========================== */
+.lt{float:left;}
+.rt{float:right;}
+
+/*==========================  圆角========================== */
+.radius15{ border-radius:10px;  -moz-border-radius:10px; -webkit-border-radius:10px; }
+.radius25 img{ border-radius:30px;  -moz-border-radius:30px; -webkit-border-radius:30px; }
+
+
+/*========================== head========================== */
+#head{ width:100%; height:auto; display:inline-block; background:#fff; 	border-bottom: 1px solid #81cbe3;}
+.head{ width:940px; height:auto; margin:0 auto; line-height:64px; color:#666; display:block; }
+
+/*================nav================ */
+#nav{ width:300px; line-height:64px; }
+#nav a.home{ color:#0690cc;}
+#nav a:hover{ color:#0690cc;}
+#nav a{ padding:0 15px; color:#666; }
+
+/*================logo================ */
+.logo{ position:relative;   }
+.logo img{ position:absolute;   left:20px;  z-index:10;}
+
+
+
+/*================Client 客户端================ */
+.client{ margin-right:20px;}
+div.client a{background-position:-18px 10px; height:64px; display:inline-block; padding-left:30px;}
+
+/*================登录 注册================ */
+.register-login a{ width:85px; height:32px; text-indent:-999px; margin:16px 10px 0; float:left; overflow:hidden;}
+a.register, a.login { background-position:-145px -1px; }
+a.login { background-position:-246px -1px; }
+
+
+
+/*=============================尾部=============================*/
+#footer{ width:100%; height:80px; background:#e1f8fe;  }
+#footer .about a{ color:#0690cf; padding:0  10px 0 10px; }	
+#footer .copyRight{ line-height:20px; color:#7d5a44; margin:5px 0 0 0; padding:0 0 0 10px;width:500px; }
+#footer .copyRight strong{padding:0 10px 0 0 ;}
+
+.footer-left{width:500px;  margin-top:15px; }
+.attention{	max-width:300px;}
+.attention span{
+	line-height:80px;
+}
+.attention ul {
+	display:inline;
+	margin:20px 0 0 0
+}
+.attention ul li {
+	float:left;  margin:25px 0 0 10px;
+}
+
+.attention ul li.sinaweibo a, .attention ul li.qqweibo a{ display:block; overflow:hidden;   width:34px; height:34px; }
+.attention ul li.sinaweibo a img{ margin:-2px 0 0 0px;  }
+/* .attention ul li.sinaweibo a img:hover{ margin:-47px 0 0 0px;} */
+.attention ul li.qqweibo a img{ margin:-2px 0 0 -44px;}
+/* .attention ul li.qqweibo a img:hover{   margin:-47px 0 0 -44px;} */
+
+.footer-pic { width:940px; margin:0 auto;}
+.footer-pic span{ background-position:-141px -57px; width:95px; height:154px ; margin:-152px 0 0 45%;     display: inline-block;}
+
+
+
+
+
+

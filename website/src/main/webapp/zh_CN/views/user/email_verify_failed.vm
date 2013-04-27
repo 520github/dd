@@ -1,0 +1,72 @@
+#parse("/zh_CN/views/template/prefix.vm" ) 
+<head>
+#set($browserTitle="邮箱验证失败")
+#parse("/zh_CN/views/template/meta_include.vm" ) 
+<script type="text/javascript" src="/zh_CN/js/web/verify_email.js"></script> 
+</head>
+<body>
+#parse("/zh_CN/views/head.vm")
+<div id="stage" class="right-left">
+	<div id="container" class="left-register left-verification left-activation left-failure">
+		<div class="pic-top"></div>
+		<div class="verification-li">
+			<img src="/zh_CN/images/pic-15.png" alt="" />
+			<ul>
+				<li>邮箱验证失败！</li>
+				<li>
+					<p class="left-set">你的邮箱</p>
+					<p class="right-set">$!email</p>
+				</li>
+			</ul>
+		</div>
+		<div class="verification-li-a">
+			<span>验证失败，原因可能是：</span>
+			<p>你的验证链接过期</p>
+			<p>你输入的url错误</p>
+			<p>其他原因</p>
+		</div>
+		<div class="verification-li-b">
+			<span>你可以<a href="javascript:reSendVerifyEmail('$!email','$!invite','$!u')">再次发送确认邮件</a></span>
+			<span>或者，<a href="#if($!u) /account/default/profile/ #else /account/default/register/ #end">换个邮箱</a>试试</span>
+		</div>
+		<div class="pic-bottom"></div>
+	</div>
+	<!--右侧-->
+
+	<div id="right-pane" class="right-register">
+
+		<div class="sign-in">
+
+			已有多多帐号？
+
+			<span>
+				<input name="" type="image" src="/zh_CN/images/button-1.png" onclick="javaScript:doLogin()"/>
+			<span>
+
+		</div>
+
+		
+
+		<div class="cooperation-login">
+
+			<span>使用合作网站帐号登录：</span>
+
+			<ul>
+				<!--<li><a href="/account/qq/oauth/"><img src="/zh_CN/images/qq-pic.png" alt="qq" /></a><a href="/account/qq/oauth/">QQ</a></li>-->
+				<li><a href="/account/weibo/oauth/"><img src="/zh_CN/images/sina-pic.png" alt="sina" /></a><a href="/account/weibo/oauth/">新浪微博</a></li>
+				<li><a href="/account/google/oauth/"><img src="/zh_CN/images/mail-pic.png" alt="mail" /></a><a href="/account/google/oauth/">Gmail</a></li>
+			</ul>
+
+		</div>
+		<div class="do">
+			<span>“多多”可以为您做什么？</span>
+			<ul>
+				<li><span>·</span>第一杯多多，可以把任何互联网内容（文字、图片、视频、商品）同步到移动终端永久收藏、离线查看。</li>
+				<li><span>·</span>第二杯多多，可以把收藏内容分享给朋友，让TA共享第一杯多多的美味。</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+#parse("/zh_CN/views/template/footer.vm" )
+

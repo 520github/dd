@@ -1,0 +1,51 @@
+
+<div id="stage" class="download ">
+	<div class="title">
+		<h1 class="size30 lt">移动客户端下载 </h1>
+		<span class="rt size14"><a href="/about/plugtool">多多采集工具同样精彩，去看看吧！</a></span>
+	</div>	
+	<div class="download-a-area">
+		<div class="download-lf lt">
+			<img src="/zh_CN/images/downloadImg.jpg" alt="移动客户端下载" />
+		</div>
+		<div class="download-rt rt">
+			<h2 class="size18 lh40 weight9">在手机上阅读你收藏的内容，并将精彩的内容分享给你的朋友</h2>
+			<p>内容云存储、多终端同步<br/>视频、文章、商品、图片……来者不拒！</p>
+			<p>点对点精彩内容分享，只有你的好友最懂你！<br/>内容离线阅读、地铁、公交……<br/>没有网络一样看</p>
+			<dl class="qr">
+				<dt class="qr-pic"><img src="/zh_CN/images/QR.jpg" alt="" /></dt>
+								<dd>扫描二维码下载</dd>
+				<dt class="prompt lh25">使用微信，QuickMark等二维码扫描工具，打开扫描功能，拍下旁边的条码图案开始下载。</dt>
+
+			</dl>
+		</div>
+	</div> 
+	<!--版本工具下载-->
+		<div class="download-version">
+			<div class="iPhone-iPadA">
+				<dl>
+					<dt><img src="/zh_CN/images/iphone.png" alt="" /></dt>
+					<dd class="title-text size18">iphone版下载  </dd>
+					<dd class="button"><a href="https://itunes.apple.com/cn/app/duo-duo/id567772073" target="blank"> AppStore下载</a></dd>
+					<dd class="text-ce rt size12"><a href="/download/duoduoIphone.ipa">下载ipa安装包(手机需要越狱)</a></dd>
+				</dl>
+			</div>	
+			<div class="iPhone-iPadA android">
+				<dl>
+					<dt><img src="/zh_CN/images/android.png" alt="" /></dt>
+					<dd class="title-text size18">安卓版下载  </dd>
+					<dd class="button"><a href="/download/duoduoAndroid.apk">直接下载 </a></dd>
+				</dl>
+			</div>	
+			<div class="iPhone-iPadA wp8">
+				<dl>
+					<dt><img src="/zh_CN/images/wp7.png" alt="" /></dt>			
+					<dd class="title-text size18">win8版下载</dd>					
+					<dd class="button"><a href="javascript:alert('敬请期待！')">扫描二维码 </a></dd>
+				</dl>
+			</div>	
+		
+		</div>
+
+	<div class="a-area-pic">	</div>		
+</div>

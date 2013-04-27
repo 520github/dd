@@ -1,0 +1,48 @@
+#parse("/zh_CN/views/template/prefix.vm" ) 
+<head>     
+      #set($browserTitle="站内查找朋友") 
+      #parse("/zh_CN/views/template/meta_include.vm" )  
+      <script type="text/javascript" src="/js/message.js"></script>
+	  <script type="text/javascript" src="/js/friend.js"></script>
+</head> 
+
+#parse("/zh_CN/views/head.vm" )
+
+<div id="stage" class="left-right">
+    #set($leftTitle="查找")
+	#parse("/zh_CN/views/friend/friend_left.vm" )
+	<div id="container">
+		<div id="select">
+		    #set($selectedTitle="站内查找朋友")
+			#parse("/zh_CN/views/template/title.vm" )
+		</div>
+		<div class="transverse">
+			<div class="panel search-friends outside-invitation">		
+				<div class="a-few">在这里，轻松的找到你想找的朋友</div>
+				<ul class="form-set-list">
+					<form id="f1" action="/friend/findResult" method="get">
+					<li class="form-set-list-3">
+						<strong>按昵称查找</strong>
+						<span>你要查找的昵称</span>
+						<input name="name" type="text" />
+						<b class="Remind-color"></b>
+						<input value="查找" type="submit" class="submit">
+					</li>
+					</form>
+					<form id="f2" action="/friend/findResult" method="get">
+					<li class="form-set-list-3 account-search">
+					    <strong>按帐号查找（邮箱或者手机号码）</strong>
+						<span>按帐号查找:</span>
+						<input name="loginName" type="text" />
+						<b class="Remind-color"></b> 
+						<input value="查找" type="submit" class="submit">
+					</li>
+					</from>
+				</ul>
+				<div style="height:10px; clear:both; overflow:hidden; margin:0 auto;"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+#parse("/zh_CN/views/template/footer.vm" ) 

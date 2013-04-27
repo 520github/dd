@@ -1,0 +1,148 @@
+
+  <div id="detailTemplate" style="display:none; ">
+	<!--左边-->
+	<div id="left-detail">
+		<h4>还有谁分享过：</h4>
+		<!--还有谁分享过-->
+		<h5>最先分享：</h5>
+			<div class="personal-comments">
+					<dl>
+						<dt class="person-logo">
+							<img src="/images/logo-national-flag.gif" alt="">
+						</dt>
+						<dd class="right-line">
+							<p>%firstFromName%</p>
+							<span class="xing">
+								<i style="width:50px;"></i><!--一个星14px*12px-->
+							</span>
+						</dd>
+						<dd class="in-line">
+							<p class="money">
+							 %firstFromComment%
+							</p>
+						</dd>
+
+					</dl>
+					
+				</div>
+
+		<h5>最新分享：</h5>
+			<div class="personal-comments">
+					<dl>
+						<dt class="person-logo">
+							<img src="/images/logo-national-flag.gif" alt="">
+						</dt>
+						<dd class="right-line">
+							<p>艺述英国</p>
+							<span class="xing">
+								<i style="width:50px;"></i><!--一个星14px*12px-->
+							</span>
+						</dd>
+						<dd class="in-line">
+							<p class="money">#森小物#最近森女们都很喜欢花朵和浆果类的事物，可爱的植物散发着浓密的自然感和新鲜感~！</p>
+						</dd>
+
+					</dl>
+					<dl>
+						<dt class="person-logo">
+							<img src="/images/logo-national-flag.gif" alt="">
+						</dt>
+						<dd class="right-line">
+							<p>艺述英国</p>
+							<span class="xing">
+								<i style="width:50px;"></i><!--一个星14px*12px-->
+							</span>
+						</dd>
+						<dd class="in-line">
+							<p class="money">#森小物#最近森女们都很喜欢花朵和浆果类的事物，可爱的植物散发着浓密的自然感和新鲜感~！</p>
+						</dd>
+
+					</dl>
+					<dl>
+						<dt class="person-logo">
+							<img src="/images/logo-national-flag.gif" alt="">
+						</dt>
+						<dd class="right-line">
+							<p>艺述英国</p>
+							<span class="xing">
+								<i style="width:50px;"></i><!--一个星14px*12px-->
+							</span>
+						</dd>
+						<dd class="in-line">
+							<p class="money">#森小物#最近森女们都很喜欢花朵和浆果类的事物，可爱的植物散发着浓密的自然感和新鲜感~！</p>
+						</dd>
+
+					</dl>
+					
+				</div>
+
+		<!--上下按钮-->
+		<div id="up-down">
+			<ul>
+				<li class="up-button"><a href="#"><img src="/images/shanxia-shan.png" alt=""></a></li>
+				<li class="down-button"><a href="#"><img src="/images/shanxia-xia.png" alt=""></a></li>
+			</ul>
+		</div>		
+	</div>
+
+	<div id="right-detail" >
+	
+	<!--关闭按钮-->
+		<div id="close-button">
+			<a href="javascript:closeDetail();"><img alt="" src="/images/close-pic.png" onclick="closeDetail()"></a>
+		</div>
+		<div class="panel" style="height:706;border-width: 10px ; overflow-x:hidden;overflow-y:auto ">
+			<div class="return">
+			 <a href="javascript:openUrl('%url%')">查看原网页</a>
+			</div>
+			
+			<!--图片或商品-->
+			<div class="commodity-pic">
+			 <img src="%image%" alt="">
+		    </div> 
+		    
+		    <div class="panel-title">
+					<h2>
+					  %title%
+					</h2>
+					
+					<div class="panel-info">
+						<span class="left">%date%</span>
+					</div>
+					<!--商品-->
+				    <div class="price-button"><a >%price%</a></div>
+			</div>
+			<div class="panel-content">
+					%content%
+					<input type="hidden" id="contentId" value="%deatillllcontentId%">
+			</div>
+		
+				
+			<div class="user-option">
+				<div class="from">
+				来自：<span><img src="/images/logo-national-flag.gif" alt=""></span><a href="javascript:openUrl('%url%')">%url%</a>
+				</div>
+				
+				#parse("/zh_CN/views/content/personal/operatebutton.vm")
+			</div>
+			
+			<div class="comment_layer" style="display:none;" contentId="%contentId%" rid="%repositoryId%" state="0">
+			</div>
+		</div>
+		
+	</div>
+</div>
+<div id="cancelFriendShareDialog"  style="display:none;">
+<div id="pop-up" class="pop-up-later pop-up-playing-tag pop-up-add">
+    <h2>确定删除内容？</h2>
+    <div class="r-frien-button"> <a id="cancel" class="ignore" href="javascript:layer_close()">取消</a> <a class="friends-btn" href="javascript:cancelFriendShareMes(_repositoryId,_menuType);">确定</a> </div>
+</div>
+</div>
+<div id="cancelFavoriteDialog"  style="display:none;">
+<div id="pop-up" class="pop-up-later pop-up-playing-tag pop-up-add">
+    <h2>确定取消最爱？</h2>
+    <div class="r-frien-button"> <a id="cancel" class="ignore" href="javascript:layer_close()">取消</a> <a class="friends-btn" href="javascript:cancelFavoriteMes(_repositoryId,_menuType);">确定</a> </div>
+</div>
+</div>
+<div id="detail" style="display:none;position: absolute;width: 890px; ">
+</div>

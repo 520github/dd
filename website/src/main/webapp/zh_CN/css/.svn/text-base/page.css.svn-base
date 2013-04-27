@@ -1,0 +1,35 @@
+/* CSS Document */
+/*body{ padding:0; margin:0; background:url(/zh_CN/images/bodyBack.png) repeat; color:#000; font-family:"微软雅黑"}
+ul,li,h3,p,h4,h5{ padding:0 ; margin:0; list-style:none;}
+*/
+.mainDiv{ width:792px; margin:0 auto}
+.aboutUsDiv{width:482px; padding:44px 60px 40px 250px; background:url(/zh_CN/images/aboutIcon.png) no-repeat 61px 66px; height:180px;}
+.aboutUsDiv h3{ height:80px; line-height:80px; font-size:26px; font-weight:normal;}
+.aboutUsDiv p{ line-height:24px; font-size:14px; margin-bottom:10px;}
+.abouotHr{ height:0; overflow:hidden; border:none; border-bottom:1px dashed #bbaa9c}
+.aboutUsListDiv{ padding:0 60px;}
+.aboutListTitle{ height:100px; line-height:100px; font-weight:normal; font-size:22px;}
+.aboutIconDiv{ float:left; width:122px; height:79px; padding:12px 0}
+.abouotListContent{ float:right; width:526px;}
+.abouotListContent h3{ height:40px; line-height:40px; color:#b28c6a; font-size:16px; font-weight:normal;}
+.abouotListContent p{ line-height:22px; font-size:14px;}
+.clear{ clear:both; height:20px;}
+.foot{ border-top:1px solid #eae5e1 ; background:#fff url(/zh_CN/images/aboutlogo.png) no-repeat center 16px; height:58px; padding-top:132px; padding-bottom:20px; line-height:20px; text-align:center; color:#666666; font-size:12px;}
+.hellowTopDiv{ background:url(/zh_CN/images/hellowBack.png) no-repeat center 62px; padding-top:238px; text-align:center; line-height:24px; font-size:14px; color:#646362}
+.hellowTopDiv h3{ font-size:26px; font-weight:normal; height:68px; line-height:68px; color:#000;}
+.hellowPageLine{ background:url(/zh_CN/images/hellowLine.png) no-repeat; height:39px;}
+.hellowPageLine2{ background:url(/zh_CN/images/hellowLine2.png) no-repeat; height:56px;}
+.hellowContent{ background:#FFFFFF;}
+.hellowTitle{ height:68px; line-height:68px; font-size:24px; font-weight:normal; text-align:center;}
+.hellowTitleDiv{ border-bottom:1px dashed #bbaa9c; padding-bottom:26px; text-align:center; font-size:14px;}
+.hellowDivL{ float:left; width:344px; padding-left:94px;}
+.hellowDivL h4{ height:40px; line-height:40px; font-size:18px; font-weight:normal;}
+.hellowDivL ul{ padding-bottom:20px;} 
+.hellowDivL ul li{ line-height:24px; background:url(/zh_CN/images/dotIcon.png) no-repeat 0 5px; padding-left:20px; font-size:14px;}
+.hellowDivR{ float:right; width:190px; padding-right:76px;}
+.hellowDivR h5{height:46px; line-height:46px; font-size:16px; font-weight:normal;}
+.hellowDivR ul{ padding-bottom:20px;} 
+.hellowDivR ul li{ line-height:24px; background:url(/zh_CN/images/dotIcon.png) no-repeat 0 5px; padding-left:20px; font-size:14px;}
+.hellowDivR ul li a{ color:#0f6fcf; text-decoration:none;}
+.hellowP{ padding-left:94px; font-size:14px}
+.hellowP a{ color:#0f6fcf; text-decoration:none;}

@@ -1,0 +1,57 @@
+<script type="text/javascript"> var head_icon_change_id='menu-friend';</script>
+<script lanuage="javascript">
+
+   function getMsgCount(){
+       jQuery.ajax({
+		url : "/friend/Count",
+		headers:cookieUtil.getHeaderToken(),		
+		type : "get",
+		dataType : "json",
+		cache : false,
+		success : function(jsonObj) {
+	      $('#msg').html(jsonObj.msgCount);
+	      $('#list').html(jsonObj.friendCount);
+		}
+	})
+   
+   
+   }
+
+    jQuery(document).ready(function() {
+       getMsgCount();
+        var title = '$!leftTitle';
+        var id = "";
+        if(title.indexOf("消息") >-1) {
+            id = "friendMessage";
+        }
+        else if(title.indexOf("邀请") >-1) {
+            id = "inviteOutFriend";
+        }
+        else if(title.indexOf("查找") >-1) {
+            id = "searchInnerFriend";
+        }
+        else if(title.indexOf("我的好友") >-1) {
+            id = "friendList";
+        }
+        else if(title.indexOf("微博") >-1) {
+            id = "thirdFriends";
+        }
+        jQuery(".left-floder-list #"+id+" a").css("background-position","-678px 5px");
+    });
+      
+</script>
+
+<div id="left-pane">
+		<div id="left-folder" class="left-friend left-mouse-after">
+			<div class="title">
+				<h3>好友</h3>
+			</div>
+			<ul class="left-floder-list">
+				<li id="friendList" class="mouse-change"><a href="/friend" ><span id="list"></span>我的好友</a></li>
+				<li id="searchInnerFriend" class="mouse-change"><a href="/friend/find">站内查找朋友</a></li>
+				<li id="inviteOutFriend" class="mouse-change"><a href="/invite/outside">站外邀请朋友</a></li>
+				<li id="friendMessage" class="mouse-change"><a href="/friend/message"><span id="msg"></span>好友消息</a></li>
+				<li id="thirdFriends" class="mouse-change"><a href="/friend/weibo">微博好友</a></li>
+			</ul>
+		</div>
+	</div>

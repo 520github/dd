@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="/zh_CN/css/common.css" />
+<link rel="stylesheet" href="/zh_CN/css/head.css" />
+<link rel="stylesheet" href="/zh_CN/css/footer.css" />
+<link rel="stylesheet" href="/zh_CN/css/firefox.css" />
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+
+#include("/zh_CN/views/template/js/common_js.vm" )
+#include("/zh_CN/views/template/js/rest_js.vm" )
+#include("/zh_CN/views/template/js/drag_js.vm" )
+
+<script src="/zh_CN/js/common/html5/LocalStorageData.js"></script>
+<script src="/zh_CN/js/app/onekey-firefox/onekeyFirefoxData.js"></script>
+<script src="/zh_CN/js/app/onekey-firefox/onekeyFirefoxList.js"></script>
+<script src="/zh_CN/js/app/onekey-firefox/onekeyFirefoxDetail.js"></script>
+<script src="/zh_CN/js/app/onekey-firefox/onekeyFirefox.js"></script>
+<script src="/zh_CN/js/app/onekey-firefox/onekeyFirefoxSyncServer.js"></script>

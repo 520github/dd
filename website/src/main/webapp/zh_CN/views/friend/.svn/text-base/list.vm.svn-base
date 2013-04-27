@@ -1,0 +1,145 @@
+#parse("/zh_CN/views/template/prefix.vm" ) 
+<head>     
+      #set($browserTitle="我的好友") 
+      #parse("/zh_CN/views/template/meta_include.vm" )  
+      <script type="text/javascript" src="/js/message.js"></script>
+	  <script type="text/javascript" src="/js/friend.js"></script>
+	  <script type="text/javascript" src="/js/content/divlayer.js"></script>
+</head> 
+
+
+#parse("/zh_CN/views/head.vm" )
+<div id="stage" class="left-right">
+    #set($leftTitle="我的好友")
+    #set($myfriendnum="$friends.size()")
+	#parse("/zh_CN/views/friend/friend_left.vm" )
+	<div id="container" class="friend-list">
+		<div id="select">
+			#set($selectedTitle="我的好友")
+			#parse("/zh_CN/views/template/title.vm" )
+			<div class="check-box">
+				<ul>
+					#if($class=='/friend')
+						<li class="check-box-press-l" ><a href="/friend">全部</a></li>
+						<li class="check-box-press-d"><a href="/favoriteFriend">常用联系人</a></li>
+					#else
+						<li class="check-box-press-c"><a href="/friend">全部</a></li>
+						<li class="check-box-press-l check-box-press-r"><a href="/favoriteFriend">常用联系人</a></li>
+					#end
+					</ul>
+			</div>	
+			<div class="find">
+			
+				<form method="get" id="search" onsubmit="return false;">
+					<input id="name" name="q" type="text" size="40" placeholder="Search..." onkeydown="javascript:jianpanhuicheche();">
+				</form>
+				
+				<span class="right button-find">
+					<button onclick="javascript:search();">
+						<img src="/images/pic-2_03.png" alt="" />
+					</button>
+				</span>
+				
+			</div>	
+		</div>
+	  	
+		<div class="transverse">
+			#if ($friends)
+			<div class="panel friend-content" name="frienddivname">
+				#foreach ($f in $friends)
+					<div id="list$f.account.id" class="friend-home-list">
+						<div class="friend-pic-icon">
+							#if($f.account.id != $!kexiaoke)
+								<a href="/$f.account.id">
+							#else
+								<a>
+							#end
+							<img src="$f.account.middlePhotoUrl" />
+							</a>
+						</div>
+						<div class="friend-content-l">
+							<h2>
+								#if($f.account.id != $!kexiaoke)
+									<a href="/$f.account.id" id="$f.account.id" title="点击设置备注" nameremarkName="$f.account.name$!f.remarkName">
+								#else
+									<a>
+								#end
+									$f.account.name
+									#if($f.remarkName&&$f.remarkName!="")
+										($!f.remarkName)
+									#end
+								</a>
+								
+								#if ($f.account.gender == 'male')
+								<span class="male">
+								#elseif ($f.account.gender == 'female')
+								<span class="female">
+								#else
+								<span class="secrecy-m-f">
+								#end
+								</span> 
+							</h2>
+							#if ($f.favorite == 'Favorite')
+								<div id="div$f.account.id" title="取消常用联系人" onclick="javascript:showFavariteFriendDialog('$f.account.id','$f.favorite','$class');" class="often-star-pic not-star-pic"></div>
+							#else
+								<div id="div$f.account.id" title="设为常用联系人" onclick="javascript:dealFavoriteFriend('$f.account.id','$f.favorite','$class');" class="often-star-pic">设为常用联系人</div><!--实星星常用联系人-->
+							#end
+							<ul>
+								<li>
+									<!--已经成为朋友$math.abs($date.whenIs($!f.created).days)天 
+									<span>|</span> -->
+									#if($f.account.id != $!kexiaoke)
+										好友<a>$!f.account.friendNumber</a>
+									#else
+										我是大家的好好友
+									#end
+									
+								</li>
+							</ul>
+							<div class="desc verification-information">
+								<p>个人简介：$!f.account.introduce</p>
+							</div>
+						</div>
+						<div class="r-frien-button">
+							#if($f.sharedToMe>0)
+								<a href="javascript:aheadto('$f.account.id','$f.account.name');">
+							#else
+								<a href="javascript:void(0);">
+							#end
+								<b>$f.sharedToMe</b>为我分享
+							</a>
+							#if($f.account.id != $!kexiaoke)						
+								<a href="javascript:showRemoveFriendDialog('$f.account.id')"  class="no-background ignore">移除好友</a>
+							#end
+						</div>
+					</div>	<!--end of friend-home-list -->
+				#end	<!--end of foreach -->
+			</div>	<!--end of panel friend-content -->
+			#else
+				<div class="a-few">
+					#if($class=='/friend')
+						<div>你还没有好友，还不能与朋友共享多多！</div>
+					#else
+						<div>没有找到常用好友，去设置吧！</div>
+					#end
+				</div>
+			#end
+			<div id="findresult" style="display:none">没有符合条件的好友</div>
+		</div>
+	</div>	<!--end of container friend-list-->
+</div>
+
+<div id="favariteFriendDialog"  style="display:none;">
+<div id="pop-up" class="pop-up-later pop-up-playing-tag pop-up-add">
+    <h2>确定取消常用联系人？</h2>
+    <div class="r-frien-button"> <a id="cancel" class="ignore" href="javascript:layer_close()">取消</a> <a class="friends-btn" href="javascript:dealFavoriteFriend(_targetid,_actionFavorite,_direction);">确定</a> </div>
+</div>
+</div>
+<div id="showRemoveFriendDialog"  style="display:none;">
+<div id="pop-up" class="pop-up-later pop-up-playing-tag pop-up-add">
+    <h2>确定删除好友？</h2>
+    <div class="r-frien-button"> <a id="cancel" class="ignore" href="javascript:layer_close()">取消</a> <a class="friends-btn" href="javascript:removeFriend(_friendid);">确定</a> </div>
+</div>
+</div>
+
+#parse("/zh_CN/views/template/footer.vm" ) 

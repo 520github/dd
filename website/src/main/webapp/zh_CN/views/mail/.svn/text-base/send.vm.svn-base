@@ -1,0 +1,57 @@
+#parse("/zh_CN/views/template/prefix.vm" ) 
+<head>     
+      #set($browserTitle="发送邮件") 
+      #parse("/zh_CN/views/template/meta_include.vm" )  
+</head> 
+
+#parse("/zh_CN/views/head.vm" )
+
+<div id="stage" class="right-left">
+		<div class="form-set">
+			<!--邮箱注册内容-->
+			<form  action="/mail/send" method="post">
+				<ul class="form-set-list">
+					<li class="form-set-list-4" >
+						<span id="loginName"><b class="cloor"></b>邮箱服务器地址:</span>
+						<input name="mailServer" type="text" value="$!mail.mailServer"/>
+					</li>
+					<li class="form-set-list-4" >
+						<span> <b class="cloor"></b>发件人邮箱:</span>
+						<input name="from" type="text" value="$!mail.from"/>
+					</li>
+					<li class="form-set-list-4" >
+						<span> <b class="cloor"></b>发件人用户名:</span>
+						<input name="username"  type="text" value="$!mail.username"/>
+					</li>
+					<li class="form-set-list-4" >
+						<span> <b class="cloor"></b>发件人密码:</span>
+						<input name="password"  type="text" value="$!mail.password"/>
+					</li>
+					<li class="form-set-list-4" >
+						<span> <b class="cloor"></b>多多接收邮箱:</span>
+						<input name="to"  type="text" value="$!mail.to"/>
+					</li>
+					<li class="form-set-list-4" >
+						<span> <b class="cloor"></b>邮件标题:</span>
+						<input name="subject"  type="text" value="$!mail.subject"/>
+					</li>
+					<li class="form-set-list-4" >
+						<span> <b class="cloor"></b>邮件内容:</span>
+						<textarea name="content" cols="50" rows="10">
+						    $!mail.content
+						</textarea>
+					</li>
+					<li class="register-button register-button-r">
+					<input name="" type="image" src="/zh_CN/images/confirm-registration.png" />
+					</li>					
+				</ul>
+				
+			</form>
+		</div>
+		
+		<div id = "bottom" class="verification-li-a" >
+				<span >$!errorMes</span>
+	    </div>
+	</div>
+	
+#parse("/zh_CN/views/template/footer.vm" ) 

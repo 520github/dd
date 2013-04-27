@@ -1,0 +1,22 @@
+#parse("/zh_CN/views/template/prefix.vm" )
+<head>
+    #set($browserTitle='firefox一键应用')
+    #parse("/zh_CN/views/template/meta.vm" )
+	#parse("/zh_CN/views/app/onekeyfirefox/onekeyfirefoxinclude.vm" )
+	<script>
+	    $(document).ready(function(){
+	        var title = '$!title';
+	        var url = '$!url';
+	        var text = '$!content';
+	        OneKeyFirefox.obj.saveData(title,url,text);
+	        
+	    });
+	</script>
+</head>
+
+<body id="fierfox-key-application">
+	<div id="fierfox-key-application-preservation">
+		   <span>内容正在保存中...</span>
+	       <p style="display:none">现在就去<a href="#">查看内容</a></p>
+	</div>
+</body>

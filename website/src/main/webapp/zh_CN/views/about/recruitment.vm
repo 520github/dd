@@ -1,0 +1,93 @@
+#parse("/zh_CN/views/template/prefix.vm" )
+<head>
+    #set($browserTitle="多多-招聘")
+	#parse("/zh_CN/views/template/meta_include.vm" )
+	<script>
+	</script>
+</head>	
+
+#parse("/zh_CN/views/head.vm" )
+
+<div id="stage"  class="about-us recruitment">
+			<div class="banner">
+				<img src="/zh_CN/images/recruitment.jpg" alt="招聘" />
+			</div>
+			<div class="real-wrap">
+				<h2>
+					招 聘 
+				</h2>			
+				<p class="about-i"> 多多团队成员是一群快乐、热情的年轻人。 	</p>
+				<p class="about-i">	我们是一群务实的理想主义者！</p>
+				<p class="about-i"> 每一位同事：自治、进步、分享</p>
+				<p class="about-i">我们的团队：信任、坦诚、开放</p>
+				<p class="about-i"> 我们每个人都是公司的主人，我们是团结友爱的大家庭。</p>
+				<p class="about-i">  我们的特色文化活动欢乐多：CEO论坛/培训、研发兴趣小组、新人导师计划、CEO面对面、脑残帮及天使基金、体育部活动、拓展活动、欢乐家属日、下午茶文化、迟到文化（洗碗、做运动） ...</p>
+				<p class="about-i"> 如此温暖、激情的集体，相信你一定喜欢，还在等什么……</p>
+				<p class="about-i">  如果你是务实理想主义者，请加入我们，</p>
+				<p class="about-i">  如果你专注于移动互联网，请加入我们，</p>
+				<p class="about-i">  如果你想快乐的健康成长，请加入我们，</p>
+				<p class="about-i">  有兴趣可咨询我们，并通过Email至help@imduoduo.com，并注明申请的职位名称。</p>
+				<!--
+				<p class="about-i"> 巴别塔（北京）科技有限公司成立于2006年11月，是以Push、Sync技术自主研发为核心，整合移动通信产业链上、下游资源，历经五年的发展，现已成为移动互联网应用的领跑者。目前公司总部坐落于CBD核心区，另外上海和成都也都设立有分支机构，拥有员工110人，技术人才比例达到85%，近40项专利发明自主知识产权。
+				-->
+				</p>
+			</div>
+			<hr/ class="dashed">
+			<div class="real-wrap">
+				<ul class="real-wrap-title">
+					<li>高级 数据挖掘 工程师</li>
+				</ul>
+				<p  class="about-i">工作职责： </p>
+				<p  class="about-i">1、对海量业务数据进行分析，挖掘用户行为特征，构建用户精准营销的指标体系；</p>
+				<p  class="about-i">2、针对具体的业务问题，完成对各类业务数据进行抽取、转换、装载、清洗等工作，规划、设计基于数据挖掘的解决方案；</p>
+				<p  class="about-i">3、基于海量数据建立用户行为分析的模型；</p>
+				<p  class="about-i">4、内容推荐算法研发，内容推荐系统架构设计与实现。</p>
+				<p  class="about-i">职位要求： </p>
+				<p  class="about-i">1、全日制统招本科或以上学历，工作经验3年以上； </p>
+				<p  class="about-i">2、精通Linux操作系统原理，熟练掌握数据结构和常用算法，熟悉shell/perl/python脚本编程语言；精通MySQL、mongodb、oracle 等数据库； </p>
+				<p  class="about-i">3、具有丰富的海量数据掘项目实施经验，能独立完成挖掘项目的规划和实施； </p>
+				<p  class="about-i">4、熟悉各种开源分析工具，熟悉各类主流数据挖掘算法的实现；  </p>
+				<p  class="about-i">5、具有较强的利用数据分析/挖掘，解决业务问题的能力； </p>
+				<p  class="about-i">6、有电信行业咨询公司或互联网行业数据挖掘从业经历者优先； </p>
+				<p  class="about-i">7、在信息检索、中文分词、语义分词，数据挖掘等方面有丰富的经验者优先。 </p>
+				<ul class="real-wrap-title">
+					<li>IPhone 软件工程师</li>
+				</ul>
+				<p  class="about-i">工作职责：</p>
+				<p  class="about-i">1、从事iphone手机平台应用软件开发；</p>
+				<p  class="about-i">2、按照项目需求开发对应功能；</p>
+				<p  class="about-i">3、参与移动设备客户端、服务器的设计、审查、开发及维护；</p>
+				<p  class="about-i">4、能够对技术难点进行分析和调研；</p>
+				<p  class="about-i">5、能够熟练完成技术文档的编写；</p>
+				<p  class="about-i">6、与团队领导、测试组及产品发布组合作，保证整个过程的顺利进行；</p>
+				<p  class="about-i">职位要求：</p>
+				<p  class="about-i">1、计算机、通讯及相关专业；</p>
+				<p  class="about-i">2、具备扎实的Objective C、C/C++ 基础；</p>
+				<p  class="about-i">3、有2年以上C++工作经验，1年以上ios系统或Mac OS开发经验，至少完成过一个ios应用；</p>
+				<p  class="about-i">4、熟悉ios环境下Socket通信、HTTP编程；</p>
+				<p  class="about-i">5、具有诚实、乐观、富于责任感的精神，良好的职业道德和积极向上的心态；</p>
+				<p  class="about-i">6、善于沟通交流，有良好的团队协作精神和服务意识；</p>
+				<ul class="real-wrap-title">
+					<li>Android 软件工程师</li>
+				</ul>
+				<p  class="about-i">工作职责：</p>
+				<p  class="about-i">Android 平台软件设计与开发</p>
+				<p  class="about-i">职位要求：</p>
+				<p  class="about-i">1、精通JAVA语言；</p>
+				<p  class="about-i">2、熟悉Android OS系统体系结构、framework、以及底层库；</p>
+				<p  class="about-i">3、熟悉C/S应用结构；</p>
+				<p  class="about-i">4、熟悉Android下网络通信机制，对Socket通信、TCP/IP和http/https有较深刻的理解和经验；</p>
+				<p  class="about-i">5、熟悉Android平台UI设计，熟悉常用布局；</p>
+				<p  class="about-i">6、熟悉Android系统架构及相关技术，必须具备实际Android平台开发经验；</p>
+				<p  class="about-i">7、熟悉无线网络及多媒体应用开发；</p>
+				<p  class="about-i">8、思路清晰，思维敏捷，快速的学习能力，良好的英文资料阅读能力；</p>
+				<p  class="about-i">9、能承担较大工作压力，具备良好的沟通能力和团队合作精神；</p>
+
+			</div>
+			<div class="bottom-area-pic">
+				
+			</div>
+	</div>
+
+
+#parse("/zh_CN/views/template/footer.vm" )

@@ -1,0 +1,41 @@
+<html>
+<head>
+<script type="text/javascript" src="/js/jquery.min.js"></script>
+</head>
+<body>
+<script>
+var result = '$!result';
+var cause = '$!cause';
+var error = '$!error';
+var reffer = '$!reffer';
+var errorReffer = '$!errorReffer';
+if (result == 'success') {
+	
+	if (opener && opener.document) {
+		window.location="/account/thirdPartyFriends/weibo";
+	
+	} else {
+		
+		if (reffer) {
+			window.location.href="/account/thirdPartyFriends/weibo?reffer=" + reffer;
+		
+		} else {
+			window.location.href="/account/thirdPartyFriends/weibo";
+		}
+	}
+	
+} else {
+	
+	if (opener && opener.document) {
+    	window.close();
+	
+	} else if (errorReffer) {
+		window.location.href=errorReffer;
+		
+	} else {
+		window.history.go(-2);
+	}
+}
+</script>
+</body>
+</html>

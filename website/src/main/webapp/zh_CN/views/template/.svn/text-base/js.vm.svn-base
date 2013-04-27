@@ -1,0 +1,17 @@
+    <script type="text/javascript" src="/js/constant.js"></script>
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/json2.js"></script>
+	<script type="text/javascript" src="/js/browser.js"></script>
+	<script type="text/javascript" src="/js/layer/layer.js"></script>
+	<script type="text/javascript" src="/js/popup.js"></script>
+	<script type="text/javascript" src="/js/jquery.blockUI.js"></script>
+	<script type="text/javascript" src="/js/jquery.form.js"></script>
+	<script type="text/javascript" src="/js/easySlider1.7.js"></script>
+	<script type="text/javascript" src="/js/jqueryui/js/jquery-ui-1.8.20.custom.min.js"></script>
+	<script type="text/javascript" src="/zh_CN/js/web/jquery/jquery.cookie.js"></script>
+	<script type="text/javascript" src="/zh_CN/js/web/head.js"></script>
+	<script src="/zh_CN/js/componet/jquery.rollbar.min.js"></script>
+	
+    #include("/zh_CN/views/template/js/common_js.vm" )
+    #include("/zh_CN/views/template/js/rest_js.vm" )
+    #include("/zh_CN/views/template/js/drag_js.vm" )

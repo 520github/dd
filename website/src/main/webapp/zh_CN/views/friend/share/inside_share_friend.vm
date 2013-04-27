@@ -1,0 +1,14 @@
+#set($shareFriends = $lasts)
+#set($friendTypeName = '最近联系')
+#set($friendTypeId = 'lastId')
+#parse("/zh_CN/views/friend/share/inside_share_friend_tp.vm")	
+
+#set($shareFriends = $favorites)
+#set($friendTypeName = '常用联系人')
+#set($friendTypeId = 'favoriteId')
+#parse("/zh_CN/views/friend/share/inside_share_friend_tp.vm")
+
+#set($shareFriends = $friends)
+#set($friendTypeName = '所有好友')
+#set($friendTypeId = 'friendId')
+#parse("/zh_CN/views/friend/share/inside_share_friend_tp.vm")

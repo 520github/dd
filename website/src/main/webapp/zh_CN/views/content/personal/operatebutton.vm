@@ -1,0 +1,31 @@
+            <div id="allBtn" class="user-option-select">
+				  <ul>
+				    <div id="laterBtn" style="display:none">
+					     <li class="icon-1" title="$springMacroRequestContext.getMessage("later")"><a href="javascript:later('%repositoryId%','$!menuType')"></a></li>
+					</div>
+				    <div id="addTagBtn" style="display:none">
+					     <li class="icon-6" title="$springMacroRequestContext.getMessage("buttonTag")"><a href="javascript:openAddTagLayer('%repositoryId%','%contentId%')"></a></li>
+					</div>
+					<div id="favoriteBtn" style="display:none">
+					     <li class="icon-2 icon-color" title="最爱"><a href="javascript:favoriteMes('%repositoryId%','$!menuType')"></a></li>
+					</div>
+					<div id="publicBtn" style="display:none">
+					     <li class="icon-2 icon-color" title="最爱"><a href="javascript:favoritePublicMes('%repositoryId%','$!menuType')"></a></li>
+					</div>
+					<div id="cancelFavoriteBtn" style="display:none">
+					     <li class="icon-collection" title="取消最爱"><a href="javascript:showCancelFavoriteDialog('%repositoryId%','$!menuType')" ></a></li>
+					</div>
+					<div id="ShareFriendBtn" style="display:none">
+					     <li class="icon-3" title="转给好友"><a href="javascript:ShareInit.obj.init('%repositoryId%','%contentId%')"></a></li>
+					</div>		
+					<div id="commentBtn" style="display:none">
+					     <li class="icon-5" title="评论"><a href="javascript:openComment('%repositoryId%','%contentId%','1')"></a>%comment%</li>
+					</div>
+					<div id="snsBtn" style="display:none">
+					     <li class="icon-4" title="分享到SNS"><a href="javascript:alert('分享到SNS')"></a>%collect%</li>
+					</div>
+					<div id="deleteFriendShareBtn" style="display:none">
+					     <li class="icon-7" title="删除"><a href="javascript:showCancelFriendShareDialog('%repositoryId%','$!menuType')"></a></li>
+					</div>
+				  </ul>
+			 </div>

@@ -1,0 +1,127 @@
+#parse("/zh_CN/views/template/prefix.vm" ) 
+<head>
+#set($browserTitle="完善个人信息")
+#parse("/zh_CN/views/template/meta_include.vm" ) 
+<script src="/js/message.js"></script>
+<script src="/js/friend.js"></script>
+<script src="/zh_CN/js/web/thirdFriendMatch.js"></script>
+<script src="/js/jquery.tinyscrollbar.min.js"></script>
+<script type="text/javascript">
+		$(document).ready(function(){
+			//Example 1
+			var oScroll1 = $('#scrollbar1');
+			if(oScroll1.length > 0){
+				oScroll1.tinyscrollbar();
+			}
+
+			//Other stuff
+			var oCon = document.getElementById('mcon');
+			if(oCon ){
+				var oLink = document.createElement('a');
+				var oText = document.createTextNode("Click here for my email."); 
+				var sParts = ['ma','ilto:wie','ringen','@gm','ail.com'];
+				oLink.href = sParts[0]+sParts[1]+sParts[2]+sParts[3]+sParts[4];
+				oCon.appendChild(oLink);
+				oLink.appendChild(oText);
+			}
+		});
+		</script>
+
+<title>档案设置</title>
+</head>
+<body>
+#parse("/zh_CN/views/head.vm")
+<div id="stage" class="right-left registration single fans">
+	<div id="container" class="left-register">
+		<div class="title">
+			<h1 class="title-registration size24 lh70 color7 weight9">添加新浪微博互粉好友</h1>
+		</div>
+		<!--导语-->
+		<div class="lead">
+			<h2 class="title-deputy size14 lh24">添加好友后，您可以收到好友分享的有趣东东，也可以把自己发现的分享给好友。<br/>不想现在添加，可以直接点击 <a href="javascript:finish()">完成</a></h2>
+		</div>
+		<!--互粉好友 添加-->
+		<div id="scrollbar1" class="fans-content scrollbar-list">
+								
+		
+			<div class="fans-people viewport">
+			<div class="scrollbar">
+                    <div class="track">
+                        <div class="thumb">
+                            <div class="end"></div>
+                        </div>
+                    </div>
+                </div>	
+					<div class="overview">
+
+				<!--提示标题-->
+				<div class="fans-list">
+					 <h2 class="lh35 weight9 size14">已在多多的微博互粉好友 <span>（${duoduoContacts.size()}人）</span></h2>
+					 <ul class="list">
+					 #if($duoduoContacts&&$duoduoContacts.size()>0)
+					     #foreach ($contact in $duoduoContacts)
+					 	<li class="weight9">
+							<a href="/$!contact.account.id"><img src="$!contact.account.avatar.large" alt="" /></a>
+							<span class="lh30" title="$!contact.account.name">
+							    <a href="/$!contact.account.id">$text.subString($!contact.account.name, 12, 3)</a>
+							</span>
+							<!--当鼠标经过时出现 <b></b>-->
+							<b><a href="javaScript:showDialog('$!contact.account.id','$!contact.account.name')" class="add-btn size14 lh28">添 加</a></b>
+						</li>
+						#end
+					#end
+					 </ul>
+				</div>
+				<!--提示标题-->
+				<div class="fans-list">
+					 <h2 class="lh35 weight9 size14">还不在多多的微博互粉好友 <span>（${notDuoduoContacts.size()}人）</span></h2>
+					 <ul class="list">
+					 	#if($notDuoduoContacts&&$notDuoduoContacts.size()>0)
+					     #foreach ($contact in $notDuoduoContacts)
+					 	<li class="weight9">
+							<a href="#"><img src="$!contact.avatar" alt="" /></a>
+							<span class="lh30" title="$!contact.name">
+							    <a href="#">$text.subString($!contact.name, 12, 3)</a>
+							</span>
+							<!--当鼠标经过时出现 <b></b>-->
+							<b><a href="javaScript:inviteFriend('$!token', '$!contact.name')" class="add-btn size14 lh28">邀请</a></b>
+						</li>
+						 #end
+					    #end
+					 </ul>
+				</div>
+				
+				
+			</div>
+			</div>
+			<!--完成按钮-->
+				<div class="complete-btn">
+					<span><a href="javascript:finish()">
+					完成
+					</a>
+					</span>
+				</div>
+		</div>
+	</div>
+</div>
+<div id="invite"  style="display:none;">
+<div id="pop-up" class="pop-up-later pop-up-playing-tag pop-up-add sina-friends display:none">
+    <h2> 邀请新浪微博互粉好友 </h2>
+    <div class="text-box">
+        <textarea rows="" cols="" id="inviteMessage" name="inviteMessage"></textarea>
+    </div>
+	<div class="count" id="message_size">
+		98/120
+	</div>
+    <div class="r-frien-button"> <a class="ignore" href="javascript:layer_close()" >取消</a> <a class="friends-btn" href="javascript:sendInvite()">发送邀请</a> </div>
+</div>
+</div>
+<div id="sendBroadcast"  style="display:none;">
+<div id="pop-up" class="pop-up-later pop-up-playing-tag pop-up-add">
+    <h2>你的微博好友没有在多多呢，快邀请他们一起来玩吧！</h2>
+    <div class="r-frien-button"> <a id="cancel" class="ignore" href="javascript:closeBroadcast('$!reffer')">取消</a> <a class="friends-btn" href="javascript:sendBroadcast('$!token', '$!reffer');">确定</a> </div>
+</div>
+</div>
+#parse("/zh_CN/views/user/addFriendView.vm" )
+<input id="isPoll" type="hidden" value="false">
+#parse("/zh_CN/views/template/footer.vm" )

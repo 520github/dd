@@ -1,0 +1,131 @@
+
+ #parse("/zh_CN/views/template/prefix.vm" ) 
+<head>     
+      #set($browserTitle="系统消息")
+      #parse("/zh_CN/views/template/meta_include.vm" ) 
+	  	<script type="text/javascript" src="/js/friend.js"></script>
+	  	<script type="text/javascript" src="/zh_CN/js/web/thirdFriendMatch.js"></script>	  	
+</head>
+<!-- 头部 -->
+#parse("/zh_CN/views/head.vm" ) 
+<div id="stage" class="left-right">
+		#parse("/zh_CN/views/index/messages_left.vm" )
+
+<!--right-->
+	<div id="container">
+		<!--个人信息-->
+		
+	<div id="select">
+	   #set($selectedTitle="系统信息")
+	   #parse("/zh_CN/views/template/title.vm" )
+	   #if($messagesList.size() > 0)
+		<span class="btn-right"><a href="javascript:deleteAllMessage();">清空所有记录</a></span>
+	   #else
+	   		<!--<div class="a-few">你还没有好友消息</div>-->	   		
+       #end
+    </div>
+		
+		<!--横屏 排列-->
+		<div class="transverse" >       
+				
+		 #if($messagesList.size() <= 0)		 
+			<div class="a-few">你还没有系统消息</div>
+		 #else	   	
+		 <div class="panel friend-content friend-home fridnds-news">	
+	   	#end
+	#foreach ($message in $messagesList)	
+		#if($message.messageType == "Binding")
+			<div class="friend-home-list">		
+				<a href="#">
+					<div class="friend-pic-icon"><img src="$message.from.avatar.large" alt="图标" /></div>
+				</a>	
+				<div class="friend-content-l">
+						<h2>
+						<a href="#">$message.from.name<strong>
+						</strong></a>$message.subject					
+						</h2>		
+						<div class="desc verification-information">
+					    <p></p>
+						</div>
+				</div>
+				<div class="r-frien-button">
+					<a href="javascript:bind('$token','$message.id')"  class="friends-btn">绑定微博</a><!--当有 class="friends-btn" 出现“+好友”按钮-->	
+				</div>
+			</div>
+		#elseif($message.messageType == "FriendInvitation")		 
+			   <div class="friend-home-list">			
+				<a href="#">
+					<div class="friend-pic-icon"><img src="$message.from.avatar.large" alt="图标" /></div>
+				</a>
+				<div class="friend-content-l">
+					<h2>
+						<a href="#">$!message.from.name<strong>
+						</strong></a>$message.subject
+						<!--<span class="$result.attribute.gender">$city</span>-->						
+					</h2>		 		
+					<div class="desc verification-information">
+					   <p></p>
+					</div>
+				</div>
+				
+				<div class="r-frien-button">
+				<a href="javascript:showThirdFriend('$token','$message.id')"  class="friends-btn">添加好友</a><!--当有 class="friends-btn" 出现“+好友”按钮-->				
+				</div>
+			</div>
+			
+		#elseif($message.messageType == "InviteeSuggest")		 
+			   <div class="friend-home-list">			
+				<a href="#">
+					<div class="friend-pic-icon"><img src="$message.from.avatar.large" alt="图标" /></div>
+				</a>
+				<div class="friend-content-l">
+					<h2>
+						<a href="#">$!message.from.name<strong>
+						</strong></a>$message.subject
+						<!--<span class="$result.attribute.gender">$city</span>-->						
+					</h2>		 		
+					<div class="desc verification-information">
+					   <p></p>
+					</div>
+				</div>
+				
+				<div class="r-frien-button">
+				<a href="javascript:action('SendFriendRequest','$token','$message.id')"  class="friends-btn">添加好友</a><!--当有 class="friends-btn" 出现“+好友”按钮-->		
+				<a href="javascript:action('IgnoreFriendRequest','$token','$message.id')" class="no-background ignore">忽 略</a>		
+				</div>
+			</div>
+		#elseif($message.messageType == "ThirdpartyFriendSuggest")		 
+			   <div class="friend-home-list">			
+				<a href="#">
+					<div class="friend-pic-icon"><img src="$message.from.avatar.large" alt="图标" /></div>
+				</a>
+				<div class="friend-content-l">
+					<h2>
+						<a href="#">$!message.from.name<strong>
+						</strong></a>$message.subject
+						<!--<span class="$result.attribute.gender">$city</span>-->						
+					</h2>		 		
+					<div class="desc verification-information">
+					   <p></p>
+					</div>
+				</div>
+				
+				<div class="r-frien-button">
+				<a href="javascript:action('SendFriendRequest','$token','$message.id')"  class="friends-btn">添加好友</a><!--当有 class="friends-btn" 出现“+好友”按钮-->		
+				<a href="javascript:action('IgnoreFriendRequest','$token','$message.id')" class="no-background ignore">忽 略</a>		
+				</div>
+			</div>
+			
+		#end
+			
+	#end	
+		$paging.page($!totalNumber,10);
+		</div>
+			
+	</div>
+	</div>
+	</div>
+
+
+<!-- 尾部 -->
+#parse("/zh_CN/views/template/footer.vm" ) 

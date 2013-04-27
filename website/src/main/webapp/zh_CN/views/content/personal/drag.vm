@@ -1,0 +1,157 @@
+		<link rel="stylesheet" href="/zh_CN/css/dm.css">
+		<script>
+		    var fileName = "";
+		    var cycleId;
+			jQuery(document).ready(function() {
+		        onLoad();
+		    });
+			function handleFileUpload(file){
+				console.log("Uploading " + file.name);
+				var reader = new FileReader();
+				var xhr = new XMLHttpRequest();
+				var filename = file.name;		
+				fileName = filename;		
+				xhr.open("POST", "service/storage", true);
+				xhr.setRequestHeader("Accept", "application/json");
+				var data;
+				if(window.FormData){
+					// chrome 12+ And Firefox 5+
+					var formData = new FormData();
+					formData.append('file', file);
+					formData.append('filename', filename);
+					data = formData;
+				}
+				else{
+					console.log("Unsupported browser! I cannot find FormData object.");
+					return false;
+				}
+				xhr.upload.addEventListener("progress", _onUploadProgress);
+				xhr.onreadystatechange = function(x) {
+					if (xhr.readyState == 4 && xhr.status == 200) {
+						var responseData = JSON.parse(xhr.responseText);
+						//alert(responseData.id+"|"+responseData.contentId);
+						if(responseData.id=="errorFileType") {
+						    window.clearInterval(cycleId);
+						    $(".progressbar p").css("width",0);
+						    $(".upload span").html("请上传图片格式的文件哦！");
+						    $(".upload").show();
+							$(".progressbar").hide();
+						}
+						else if (responseData.id) {
+						    share2friend(responseData.contentId,responseData.id);
+							//onuploadcomplete(responseData.id);
+						}
+					}
+				};
+				xhr.send(data);
+			}
+
+			function _onUploadProgress(e) {
+				console.log(e);
+			}
+			
+			function onLoad(){				
+					document.addEventListener("dragenter", function(e){
+						e.stopPropagation();
+						$("#dm").show();
+					}, true);
+					document.addEventListener("dragover", function(e){
+							e.dataTransfer.effectAllowed = 'none';
+					}, true);
+					document.addEventListener("dragleave", function(e){
+						if(e.clientX == 0 && e.clientY == 0){
+							$("#dm").hide();
+						}
+					}, false);
+					document.addEventListener("drop", function(e){			
+							e.preventDefault();
+							$("#dm").hide();
+					}, false);					
+					$(".upload").bind({
+						drop :  function(e){
+							e.preventDefault();			
+							e.stopPropagation();
+							$(".upload").hide();
+							$(".progressbar").show();	
+							cycleId = window.setInterval("setProgressbar()",100);				
+							handleFileUpload(e.originalEvent.dataTransfer.files[0]);
+						},
+						dragover : function(e){
+							e.preventDefault();
+							e.stopPropagation();
+							e.originalEvent.dataTransfer.effectAllowed = 'all';
+						}
+					});
+			}
+			function onuploadcomplete(id){
+				var img = $(document.createElement("img")).attr("src", id);
+				$("#dm").empty().append(img);
+			}
+			
+			function getJSON(url, data, callback) {
+				jQuery.ajax({
+					url : url,
+					dataType : 'json',
+					type : 'POST',
+					cache : false,
+					async : false,
+					data : data,
+					success : callback
+				});
+		   }
+		   
+		   function share2friend(id,url) {
+		       var title = "图片-"+fileName+"";
+		       var data = {
+		            "contentType":"Image",
+		            "url":url,
+		            "title":title,
+		            "tag":'Collect',
+		            "toFriends":'all',
+		            "comment" : $("#ddClpComment").val(),
+					"score" : $("#ddCliperScore").val(),
+					"id":id
+		       };
+		       getJSON("/newbookmark/private/store", data,
+					function(data) {
+					    var code = data.code;
+					    window.clearInterval(cycleId);
+					    if(code ==200) {
+					        //alert("操作成功");
+					        $(".progressbar p").css("width",200);
+					        $(".progressbar span").html("文件上传成功并分享成功！");
+					        window.location.reload();
+					    }
+					    else {
+					        $(".progressbar span").html("sorry,文件上传失败了！");
+					        $(".progressbar p").css("width",0);
+					    }
+			   });
+		   }
+		   
+		   function setProgressbar() {
+		       var maxWidth = 200;
+		       var step = 20;
+		       var width = $(".progressbar p").css("width");
+		       if(width.indexOf("px")>-1)width = width.substring(0,width.indexOf("px"));
+		       width = parseInt(width) + step;
+		       if(width >=maxWidth) {
+	               width = maxWidth - step;
+	           }
+		       $(".progressbar p").css("width",width+"px");    
+		   }
+		   
+		</script>
+		
+		<div id="dm" style="display:none">
+			<!--上传-->
+			<div class="upload">
+			    <span style="text-align:center"></span>
+				<img src="/zh_CN/images/upload.jpg" alt="">
+			</div> 
+			<!--进度条-->
+			<div class="progressbar" style="display:none;">
+				<span></span>
+				<p style="width:0px;"></p>
+			</div>
+		</div>

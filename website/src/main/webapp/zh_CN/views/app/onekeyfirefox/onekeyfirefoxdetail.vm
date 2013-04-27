@@ -1,0 +1,41 @@
+#parse("/zh_CN/views/template/prefix.vm" )
+<head>
+    #set($browserTitle='firefox一键应用')
+	#parse("/zh_CN/views/template/meta.vm" )
+    #parse("/zh_CN/views/app/onekeyfirefox/onekeyfirefoxinclude.vm" )
+
+	<script>
+	    $(document).ready(function(){
+	        var id = '$!id';
+	        var okFirefox = new OneKeyFirefox();
+	        okFirefox.showOneKeyFirefoxDetail(id);
+	    });
+	</script>
+</head>
+
+<body>
+    <div id="center">
+		  <div class="a-area">
+	    	<strong class="size18 lh40">温馨提示</strong>
+	        <p>你当前正在使用多多临时保存功能，临时保存的内容仅保存在本地缓存，建议登录多多，登录后内容可永久保存，可在任意终端查看，支持在手机上的离线阅读...</p>
+	    </div>    
+	</div>
+	
+	<!--详情内容模板 -->
+	<div id="onekeyFirefoxDetailTemplate" style="display:none">
+	    <div class="a-area b-area">
+	        <div class="b-area-list fierfox-key-article">
+	        	<div class="b-area-list-div">
+	            	<h3 class="size18 lt">%title%</h3>
+	                <span class="panel-info rt">%date%</span>
+	            </div>
+	            <div class="text">
+	            	<p>
+	            	    %text%
+	            	</p>
+	            </div>
+	        </div>
+        </div>
+	</div>
+	
+</body>

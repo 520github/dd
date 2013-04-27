@@ -1,0 +1,36 @@
+#single{
+	width:100%; 
+	height:396px;  
+		min-height:80%; 
+}
+.top-img{ margin:0 auto; background-image:url(../images1/back-img.png); width:1155px; height:72px;}
+.login{
+	background:url(../images1/tologin/back.png) no-repeat bottom left;
+	height:355px;
+}
+
+.login-center {width:383px; background:url(../images1/tologin/back-pic2.png) no-repeat right top;}
+.rt-center{ width:284px; height:341px; border:1px solid #d9d9d9; padding:12px 26px; 
+	background: #ffffff; /* Old browsers */
+	background: -moz-linear-gradient(top,  #ffffff 20%, #eaeaea 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(20%,#ffffff), color-stop(100%,#eaeaea)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #ffffff 20%,#eaeaea 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #ffffff 20%,#eaeaea 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #ffffff 20%,#eaeaea 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #ffffff 20%,#eaeaea 100%); /* W3C */
+}
+.rt-center h2{ margin:5px 0 20px 0;}
+.sina-webo-login a{ width:284px; height:44px; display:block; text-indent:-9999px; overflow:hidden; background:url(../images1/btn/btn-weibo-login.png) no-repeat;}
+
+.or-login{ background:url(../images1/tologin/logo-pic.png) no-repeat bottom;  height:50px; line-height:30px; text-align:center; color:#cfcfcf;}
+.input-text li { margin:10px 0 5px 0;}
+.input-text .an-error{ color:#F06C06;  margin:0; line-height:16px; }
+.input-text li input[type=text], .input-text li input[type=password] { width:268px; height:34px; line-height:34px; 
+
+}
+.input-text input[type=submit]{
+	background:url(../images1/btn/btn-enter.png) no-repeat; width:136px; height:47px; 
+}
+.input-text li .forget {color:#0690cf; line-height:40px;}
+
+.pic-bottom-login{ background:url(../images1/tologin/back-pic1.png) no-repeat; width:338px; height:67px;}

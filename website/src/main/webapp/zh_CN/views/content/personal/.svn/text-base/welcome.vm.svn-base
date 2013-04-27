@@ -1,0 +1,11 @@
+#if($!menuType == "unread" && $!isFirstLogin =="true11")
+<div class="publicity-figure">
+	<h1>欢迎使用多多！</h1>
+	<h5 class="h5-list-1">如果你想永久收藏在互联网上看到的精彩内容，那赶紧<a href="/about/plugtool?toolType=plug">安装多多采集工具</a>吧！</h5>
+	<h5 class="">如果觉得随时随地离线浏览你在（互联网上喜欢）多多收藏的内容，</h5>
+	<h5 class="h5-list-3">就请<a href="/download">下载多多手机客户端</a>吧！</h5>
+	<h5 class="h5-list-2">如果你觉得独乐不如众乐，想把精彩内容跟某一个好朋友分享，</h5>
+	<h5 class="h5-list-4">就多<a href="/friend/find">邀请些朋友来多多</a>吧！</h5>			
+</div>
+<div style="height:10px; clear:both; voerflow:hidden; "></div>
+#end	

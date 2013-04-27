@@ -1,0 +1,34 @@
+#parse("/zh_CN/views/template/prefix.vm" )
+<head>
+    #set($browserTitle="微信公共帐号内容列表")
+	#parse("/zh_CN/views/weixin/meta_include.vm" )
+	<script src="/zh_CN/js/common/cookieUtil.js"></script>
+    <script src="/zh_CN/js/common/objectUtil.js"></script>
+    <script src="/zh_CN/js/common/fileUtil.js"></script>
+    <script src="/zh_CN/js/componet/mustache.js"></script>
+    <script src="/zh_CN/js/page/template/template.js"></script>
+    <script src="/zh_CN/js/page/template/content/contentTemplate.js"></script>
+    <script src="/zh_CN/js/page/template/content/weixinContentListTemplate.js"></script>
+	<script src="/zh_CN/js/rest/rest.js"></script>
+    <script src="/zh_CN/js/rest/contentRest.js"></script>
+    <script src="/zh_CN/js/business/content/contentB.js"></script>
+    <script src="/zh_CN/js/business/content/contentWeixinBusiness.js"></script>
+	<script>
+	    jQuery(document).ready(function(){
+	        ContentWeixinBusiness.obj.searchContentList();
+	    });
+	</script>
+</head>
+
+<body>	
+    <input type="hidden" name="accountId" id="accountId" value="$!accountId"/>
+    <input type="hidden" name="offset" value="0">
+    <input type="hidden" name="limit" value="5">
+	<div id="weixinContent">
+		
+	</div>
+	<div class="more-btn">
+	    <a href="javascript:ContentWeixinBusiness.obj.searchContentList()">再多一点</a>
+    </div>
+	#parse("/zh_CN/views/weixin/list_template.vm" )
+#parse("/zh_CN/views/weixin/foot.vm" )

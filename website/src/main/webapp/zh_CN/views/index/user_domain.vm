@@ -1,0 +1,304 @@
+#parse("/zh_CN/views/content/personal/resource.vm" )
+<link rel="stylesheet" href="/zh_CN/js/web/jquery/pagination.css" />
+<script type="text/javascript" src="/zh_CN/js/web/jquery/jquery.pagination.js"></script>
+<script type="text/javascript" src="/js/message.js"></script>
+<script type="text/javascript" src="/js/friend.js"></script>
+<script type="text/javascript" src="/js/content_Index.js"></script>
+<script type="text/javascript" >
+$(document).ready(function(){
+	var reg=/[''"":;\.\/<>~!@#%&]/g;
+	$("#showDialog_message").keyup(function(){
+		$(this).val($(this).val().replace(reg,""));
+		var str=$(this).val();
+		if(str.length>140){
+			$(this).val(str.substring(0, 140));
+		}	
+	});
+	
+	$("#showDialog_message").focus(initShowDialog_message);
+	$("#showDialog_remark").focus(initShowDialog_remark);
+	
+	$("#Pagination").pagination($!total, {
+		num_edge_entries: 2,
+		num_display_entries: 3,
+		current_page:$!pageIndex,
+		callback: loadData,
+		link_to:"/$user.id?limit=$!limit&pageIndex=__id__",
+		items_per_page:$!limit,
+		prev_text:'上一页',
+		next_text:'下一页'
+	});	
+	
+});
+function loadData(){
+}
+
+function showRemarkDialog(){
+	$("#remarkDialog_remark").val("");
+	jQuery.layer({
+	    v_box : 1,
+	    v_istitle:false,
+	    v_dom : '#remarkDialog',	//id
+	    v_area : ['1000px','420px'],
+	    v_btns : 0,
+	    v_showclose:false
+	});
+}
+function modifyRemark(){
+		$("#remarkDialog_remark").val($("#remarkDialog_remark").val().replace(/ /g,""));
+		var str=jQuery.trim($("#remarkDialog_remark").val());
+		jQuery.post("/friend/$!user.id/remarkName", {remarkName:str}, function(data) {
+			if(data.result=='success'){
+				$("#anchorRemark").text("("+str+")");
+			}
+		});	
+		layer_close();
+}
+
+</script>
+</head>
+<body>
+#parse("/zh_CN/views/head.vm" )
+
+	<div id="stage" class="left-right">
+		#parse("/zh_CN/views/index/_left.vm" )
+		<div id="container">
+		
+<div id="select">
+		<!--标题-->
+	<div class="select-title">
+		<h4>#if(!$isMe)Ta#else我#end的主页</h4>	
+		<span></span> 
+	</div>
+</div>
+
+		<!--横屏 排列-->
+		<div class="transverse" >
+		<!--个人信息-->
+			<div class="panel friend-content he-index ">		
+				<div class="friend-home-list he-index-info">		<!--TA的个信息-->		
+
+					<div class="r-frien-button">
+						#if ($isMe)
+							<a href="/account/user/information" >修改</a>
+						#else
+							#if ($isMyFriend)
+								#if($user.id != $!kexiaoke)
+								<a href="javascript:removeFriend('$user.id')" >解除好友</a>
+								#end
+								<span>己经为好友<strong>$math.abs($date.whenIs($!friend.created).days)</strong>天</span>
+							#else
+								<a href="javascript:showDialog('$user.id')" class="friends-btn">加为好友</a>
+							#end
+						#end
+					</div>
+
+
+					<div class="friend-content-l">
+						<h2>
+							$!user.name
+							<strong>
+								#if ($isMyFriend && !$isMe)
+									<a href="javascript:showRemarkDialog()" id="anchorRemark">
+										#if($!friend.remarkName && $!friend.remarkName!="")
+											($!friend.remarkName)
+										#else
+											(备注)
+										#end
+									</a>
+								#end
+							</strong>
+							<span class="$!user.gender"></span>
+						</h2>
+						#if($isMyFriend && !$isMe)
+							#if($!friend.friendType=='Favorite')
+								<div title="取消常用联系人" id="div$!friend.friendId" onclick="javascript:showFavariteFriendDialog('$!friend.friendId','$!friend.friendType','/friend');" class="often-star-pic not-star-pic">非常用联系人</div>
+							#else
+								<div title="设为常用联系人" id="div$!friend.friendId" onclick="javascript:dealFavoriteFriend('$!friend.friendId','$!friend.friendType','/friend');" class="often-star-pic">常用联系人</div><!--实星星常用联系人-->
+							#end
+						#end
+						<ul>
+							<li>
+							#if($user.id != $!kexiaoke)
+							好友<a>$!total</a>
+							#else
+							我是大家的好好友
+							#end
+							</li>
+						</ul>
+						<!--多多邮箱-->
+						<div class="emal-2coffee">
+							#*#if($isMe)
+								多多邮箱：<b>$!user.duoduoEmail</b>
+							#else
+								#if($isMyFriend || !$!user.mailConfig.friendsVisible)多多邮箱：$!user.duoduoEmail#end
+							#end
+							<br/>
+						
+							常用邮箱：
+							#if($!user.mailConfig.mails)
+								#foreach ($m in $!user.mailConfig.mails)
+									<b>$m</b>#if($velocityCount != $!user.mailConfig.mails.size())|#end
+								#end
+							#end
+								*#
+						</div>						
+						<div class="desc verification-information">
+							<strong>个人简介:</strong><p>$!user.introduce</p>
+						</div>
+					</div>
+					<div style="height:10px; clear:both; overflow:hidden; margin:0 auto;"></div>
+				</div>
+				<!--TA的好友-->
+				<div class="he-index-title">
+					<h2>#if(!$isMe)Ta#else我#end的好友</h2>
+				</div>
+				#if (! $friends)
+					<div style="padding-left:20px;">没有好友。</div>
+				#else
+					#foreach ($f in $friends)
+						<div class="friend-home-list">				
+						<div class="friend-pic-icon">
+							#if($f.account.id != $!kexiaoke)
+								<a href="/$f.account.id">
+							#else
+								<a>
+							#end
+							<img src="$f.account.middlePhotoUrl" />
+							</a>
+						</div>
+						<div class="friend-content-l">
+							<h2>
+								#if($f.account.id != $!kexiaoke)
+									<a href="/$f.account.id">
+								#else
+									<a>
+								#end
+								$f.account.name
+								#if($f.myFriend && $f.remarkName && $f.remarkName!="")
+									<strong>($f.remarkName)</strong>
+								#end
+								</a>
+								#if ($f.account.gender == 'male')
+								<span class="male">
+								#elseif ($f.account.gender == 'female')
+								<span class="female">
+								#else
+								<span class="secrecy-m-f">
+								#end	
+							</h2>
+							<ul>
+								<li>
+								
+								#if($f.account.id != $!kexiaoke)
+									好友<a>$!f.account.friendNumber</a>
+								#else
+									我是大家的好好友
+								#end
+								
+								</li>
+							</ul>
+							<div class="desc verification-information">
+								<p>
+									$!f.account.introduce
+								</p>
+							</div>
+						</div>
+						
+						<div class="r-frien-button">
+							#if ($f.myFriend)
+							
+								#if($f.sharedToMe>0)
+									<a href="javascript:aheadto('$f.account.id','$f.account.name');">
+								#else
+									<a href="javascript:void(0);">
+								#end
+									<b>$f.sharedToMe</b>为我分享
+								</a>
+								#if($f.account.id != $!kexiaoke)			
+									<a href="javascript:removeFriend('$f.account.id')"  class="no-background ignore">移除好友</a>
+								#end
+							#else
+								<a href="javascript:showDialog('$f.account.id')" class="friends-btn">加为好友</a>
+							#end
+						</div>
+						</div>					
+					#end
+				#end
+				
+		
+			</div>
+			<!--个人信息-->
+			
+			<div id="Pagination" ></div>
+		</div>
+		<!--横屏 排列-->
+		
+		
+	</div>
+	<!-- end of container -->
+	</div>
+
+<!--添加好友-begin-->	
+<div id="showDialog"  style="display:none;">
+<div id="pop-up"class="pop-up-later pop-up-playing-tag pop-up-add">
+	<h2>
+		添加 <b id="showDialog_name"></b> 为好友
+	</h2>
+	<div class="recommend-list" >
+		<ul>
+			<li><input type="hidden" name="showDialog_accountId" id="showDialog_accountId" value="" />
+				<p><input type="text"  name="showDialog_remark" id="showDialog_remark" maxlength="16" /><font></font></p>
+			</li>
+		</ul>			
+	</div>
+	<div class="text-box">
+		<textarea rows="" cols="" id="showDialog_message" name="showDialog_message">写一段附言呗！让他知道你是谁~~~!</textarea>
+	</div>
+	<div class="r-frien-button">
+		<a class="ignore" href="javascript:layer_close()" >取消</a>
+		<a class="friends-btn" href="javascript:addFriend()">发送申请</a>
+	</div>
+</div>
+</div>
+<!--添加好友-end-->
+
+<!--修改备注-begin-->
+<div id="remarkDialog"  style="display:none;">
+<div id="pop-up"class="pop-up-later pop-up-playing-tag pop-up-add">
+	<h2>
+		为 <b >$!user.name</b> 设置备注姓名
+	</h2>
+	<div class="recommend-list" >
+		<ul>
+			<li>
+				<p><input type="text" name="remarkDialog_remark" id="remarkDialog_remark" maxlength="16" /><font></font></p>
+			</li>
+		</ul>			
+	</div>
+	<div class="r-frien-button">
+		<a class="ignore" href="javascript:layer_close()">取消</a>
+		<a class="friends-btn" href="javascript:modifyRemark()">确定</a>
+	</div>
+</div>
+</div>
+<!--修改备注-end-->
+
+<div id="messageTemplate"class="pop-up-later pop-up-success" style="display:none">
+	<span>
+		<img />%message%
+	</span>
+</div>
+<div id="messageId" >
+	<div id="pop-up" class="pop-up-later" style="display:none"></div>
+</div>
+
+<div id="favariteFriendDialog"  style="display:none;">
+<div id="pop-up" class="pop-up-later pop-up-playing-tag pop-up-add">
+    <h2>确定取消常用联系人？</h2>
+    <div class="r-frien-button"> <a id="cancel" class="ignore" href="javascript:layer_close()">取消</a> <a class="friends-btn" href="javascript:dealFavoriteFriend(_targetid,_actionFavorite,_direction);">确定</a> </div>
+</div>
+</div>
+	
+</body>
+</html>

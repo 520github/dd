@@ -1,0 +1,78 @@
+#parse("/zh_CN/views/template/prefix.vm" ) 
+<head>
+#set($browserTitle="注册")
+#parse("/zh_CN/views/template/meta_include.vm" ) 
+<script src="/zh_CN/js/web/reg1.js"></script>
+
+</head>
+<body>
+#parse("/zh_CN/views/head.vm")
+<div id="stage" class="single single-1">
+	<div id="container" class="set-up">
+		<div class="set-up-top">
+			<img src="/zh_CN/images/pic5.gif" alt="" />
+			<ul>
+				<li>恭喜你，验证成功！请设置登录密码，完成注册</li>
+				<li>
+					<p class="left-set">你注册的帐号为</p>
+					<p class="right-set">$!loginName</p>
+				</li>
+			</ul>
+		</div>
+		<div class="set-up-top set-up-top-1">
+			<img src="/zh_CN/images/pic-6.gif" alt="" />
+		<div class="form-set">
+		<form name="regForm" id="regForm" action="/account/default/register" method="post">
+			<input type="hidden" name="registerType" value="$!registerType">
+			<input type="hidden" name="mobileToken" value="$!mobileToken">
+			<input type="hidden" name="emailToken" value="$!emailToken">
+			<input type="hidden" name="loginName" value="$!loginName">
+			<input type="hidden" name="optype" value="$!optype">
+			<!--邮箱注册内容-->
+
+			<ul class="form-set-list">
+				<li class="form-set-list-2 form-set-list-8">
+					<span><b class="cloor">*</b> 多多邮箱:</span>
+					<input id="duoduoEmail" name="duoduoEmail" type="text" value="$!ddEmail" />
+					<b class="Remind">@$!mailSuffix</b> 
+					<!--当输入错时出现提醒  红色-->
+					<b class="Remind Remind-2"></b>
+				</li>
+				<li class="form-set-list-3">
+					<p>创建专属多多邮箱，用来接收自己和好友邮件发来的精彩内容</p>
+				</li>
+				<li class="form-set-list-2">
+					<span><b class="cloor">*</b> 创建密码:</span>
+					<input name="password" id="password" type="password" />
+					<b class="Remind">长度为6-16位字符，区分大小写</b> 
+					<!--当输入错时出现提醒  红色-->
+					<b class="Remind Remind-2"></b>
+				</li>
+				<li class="form-set-list-3">
+					<span><b class="cloor">*</b> 昵称:</span>
+					<input name="name" id="name" type="text" maxLength= "16"/>
+					<!--当输入错时出现提醒  红色-->
+					<b class="Remind Remind-2"></b>
+				</li>
+				<li class="form-set-list-4">
+					<span>邀请码</span>
+					#if($!invite != "")
+						<input name="inviteCode" id="inviteCode" type="text" readonly="readonly" value="$invite"/>
+					#else 
+						<input name="inviteCode" id="inviteCode" type="text" />
+					#end
+					<!--当输入错时出现提醒  红色-->
+					<b class="Remind-2"></b>
+				</li>
+				<li class="register-button">
+					<input class="find-btn" type="submit" value="提交">
+				</li>
+			</ul>
+			</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+#parse("/zh_CN/views/template/footer.vm" ) 
+

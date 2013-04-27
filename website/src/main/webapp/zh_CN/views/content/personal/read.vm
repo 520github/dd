@@ -1,0 +1,3 @@
+#parse("/zh_CN/views/content/personal/listresource.vm" )
+</head>
+#parse("/zh_CN/views/content/personal/iframe.vm" )
