@@ -1,0 +1,42 @@
+#parse("/zh_CN/views/content/personal/resource.vm" )
+	<script lanuage="javascript">
+	function getFriendList() {
+		var friendList = "[{'id':'0','name':'全部'}";
+		#if ($friends)
+		#foreach ($f in $friends)
+		friendList += ",{'id':'$f.id','name':'$f.name'}";
+		#end
+		#end
+		friendList += "]";
+		var json = eval("(" + friendList + ")");
+		var html = "";
+		for (var i=0; i<json.length; i++) {
+			html += '<a href="javascript:queryFriend(\''+json[i].id+'\')">'+json[i].name+'</a>&nbsp;&nbsp;&nbsp;';
+			if (i % 6 == 0 && i != 0) {
+				html += "<br>";
+			}
+		}
+		
+		$("#friends").html(html);
+	}
+    jQuery(document).ready(function() {
+          token = cookieUtil.getHeaderToken();
+          jQuery("input[name='tag']").attr("value","$friendTag");
+	      scrollPage();
+	      getFriendList();
+      });
+	</script>
+</head>
+<body>
+<div id="favoriteContent">
+    #parse("/zh_CN/views/content/personal/left.vm" )
+	
+	#parse("/zh_CN/views/content/personal/right.vm" )
+
+    #parse("/zh_CN/views/content/personal/flow.vm" )
+	
+	<div id="friends" style="display:none">
+	</div>
+</div>
+</body>
+</html>

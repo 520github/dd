@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>你好</title>
+<style type="text/css">
+
+</style>
+</head>
+
+<body>
+<div style="background:url(http://$!domainName/zh_CN/email_images/bodyBack.png) repeat;  padding:0; margin:0 auto; width:580px; color:#000; font-family:'微软雅黑';" >
+<div style="background:url(http://$!domainName/zh_CN/email_images/bodyBack.png) repeat;  padding:0; margin:0 auto; width:580px; color:#000; font-family:'微软雅黑';" >
+<div class="nihaoTopDiv" style=" background:url(http://$!domainName/zh_CN/email_images/logoIcon.png) no-repeat center 30px; padding-top:150px;">
+	<h3 style="height:46px; font-size:24px; font-weight:normal; text-align:center; line-height:46px;">你好</h3>
+	<p class="nihaoP1" style="height:46px; font-size:16px;  text-align:center; line-height:46px; color:#666666"><span style="color:#77aa4b; font-weight:bold;">$name</span>邀请你加入多多</p>
+	<p class="nihaoP2" style="height:46px; font-size:16px; text-align:center; line-height:46px; color:#b79372; font-family:"楷体">关注我们信赖的人，透过Ta的品味、鉴赏力、发现力去发现世界</p>
+	<div class="nihaoBtnDiv" style="text-align:center; padding-bottom:36px; border-bottom:1px dashed #bbaa9c;">
+		<a href="http://$!domainName/account/default/register/" style="text-decoration: none;"><button class="greenBtn1" style="background:url(http://$!domainName/zh_CN/email_images/buttonGreen.png) no-repeat; width:122px; height:39px; padding:0; margin:0; border:none; color:#fff; font-weight:bold; text-shadow:1px 1px #4d6c2c; font-size:16px;">快速注册</button></a>
+		<a href="http://$!domainName/about/tools" style="text-decoration: none;"><button class="greenBtn1" style="background:url(http://$!domainName/zh_CN/email_images/buttonGreen.png) no-repeat; width:122px; height:39px; padding:0; margin:0; border:none; color:#fff; font-weight:bold; text-shadow:1px 1px #4d6c2c; font-size:16px;">下载应用</button></a>
+		<a href="http://$!domainName/help/us" style="text-decoration: none;"><button class="greenBtn2" style="background:url(http://$!domainName/zh_CN/email_images/buttonGreen1.png) no-repeat; width:122px; height:39px; padding:0; margin:0; border:none; color:#77aa4b; font-weight:bold; text-shadow:1px 1px #fff; font-size:16px;">了解更多</button></a></div>
+</div>
+<div class="nihaoMiddleDiv" style="border-bottom:1px dashed #bbaa9c;">
+	<div class="mainDiv">
+		<h3 style="line-height:24px; font-size:14px; font-weight:normal ; padding:20px 0; text-align:center">多多是一款快捷的社会化分享工具，它可以一键推送互联网或电脑里的文案、图片、视频到好友手机。<br>多多还是一款拥有离线阅读功能的云端收藏工具，它可以帮助你轻松管理有价值的收藏。</h3>
+		<table cellpadding="0" cellspacing="0">
+			<tr>
+				<td width="320"><img src="http://$!domainName/zh_CN/email_images/icon1.png" /><h4 style="line-height:34px; font-size:16px; font-weight:normal ;color:#bb8f63; height:34px;">我的私密分享</h4>
+					<p style="ine-height:20px; font-size:14px; font-weight:normal ;color:#666666; width:268px; padding-bottom:15px;">亲爱的朋友，我眼见的美好，只想分享给心中的那个你。网站上的所有内容，无论文章、图片、视频、商品，使用点对点分享，特别的内容只给特别的你。
+	</p></td>
+				<td><img src="http://$!domainName/zh_CN/email_images/icon2.png" /><h4 style="line-height:34px; font-size:16px; font-weight:normal ;color:#bb8f63; height:34px;">朋友分享给我</h4><p style="ine-height:20px; font-size:14px; font-weight:normal ;color:#666666; width:268px; padding-bottom:15px;">幸福是有几个知心好友，知道我的喜好，愿意与我分享志同道合的兴趣、肝胆相照的勉励、知寒问暖的心灵鸡汤。在多多，有知心朋友也有无私分享。</p></td>
+			</tr>
+			<tr>
+				<td><img src="http://$!domainName/zh_CN/email_images/icon3.png" /><h4 style="line-height:34px; font-size:16px; font-weight:normal ;color:#bb8f63; height:34px;">心愿商品</h4><p style="ine-height:20px; font-size:14px; font-weight:normal ;color:#666666; width:268px; padding-bottom:15px;">心中总有一张愿望购物单，想要精打细算，却不想在电商大战里沦陷。把心仪的商品全部收集多多，比价、管理、分享我的购物点滴很方便。</p></td>
+				<td><img src="http://$!domainName/zh_CN/email_images/icon4.png" /><h4 style="line-height:34px; font-size:16px; font-weight:normal ;color:#bb8f63; height:34px;">在地铁同样也能精彩</h4><p style="ine-height:20px; font-size:14px; font-weight:normal ;color:#666666; width:268px; padding-bottom:15px;">有人说在地铁上阅读很文艺范儿，我只是不愿在路上蹉跎了大好时光。随时随地用移动设备上离线查看，在地铁也不受信号阻碍，我可以一路精彩到家。</p></td>
+			</tr>
+		</table>
+	</div>
+</div>
+<div class="nihaoMiddleDiv1">
+	<div class="mainDiv" style="width:580px; margin:0 auto">
+		<h3 style="line-height:24px; font-size:14px; font-weight:normal ; padding:20px 0; text-align:center">获得多多的工具</h3>
+		<table cellpadding="0" cellspacing="0">
+			<tr>
+				<td align="center"><img src="http://$!domainName/zh_CN/email_images/icon5.png" /><br /><p style="line-height:50px; font-size:14px; font-weight:normal ;color:#b38c6a; width:268px; padding-bottom:15px;">［多多］网页采集工具</p></td>
+				<td align="center"><img src="http://$!domainName/zh_CN/email_images/icon6.png" /><br /><p style="line-height:50px; font-size:14px; font-weight:normal ;color:#b38c6a; width:268px; padding-bottom:15px;"> 多多手机应用</p></td>
+			</tr>
+		</table>	
+	</div>
+</div>
+<div class="foot" style="border-top:1px solid #eae5e1 ; background:#fff url(http://$!domainName/zh_CN/email_images/logo.png) no-repeat center 16px; height:58px; padding-top:132px; padding-bottom:20px; line-height:20px; text-align:center; color:#666666; font-size:12px;">
+	为了不断改进多多的功能，我们可能会定期向你征求意见与建议，希望你的支持！<br />要了解有关多多的更多信息，请访问：$!domainName<br />（这是一封自动产生的email，请勿回复）	
+</div>
+</div>
+</div>
+</body>
+</html>

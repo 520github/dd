@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>register</title>
+<script language="javascript" type="text/javascript" src="js/web/jquery/jquery.js"></script>
+<script language="javascript" type="text/javascript" src="js/web/jquery/jquery-ui.js"></script>
+<script language="javascript" type="text/javascript" src="js/web/jquery/jquery.validate.js"></script>
+<script language="javascript" type="text/javascript" src="js/web/jquery/jquery.validate.min.js"></script>
+<script language="javascript" type="text/javascript" src="js/web/jquery/jquery.form.js"></script>
+
+</head>
+
+<body>
+<form action="/account/default/profile" method="post">
+nickname<input id="nickName" name="nickName" value="$name"/>
+photo <img id="pic" src="$picurl" />
+email<input id="email" name="email" value=""/>
+phone<input id="phone" name="phone" value=""/>
+invate code<input id="invatecode" name="invatecode" value=""/>
+<input type="submit" value="submit" />
+</form>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+#parse("/zh_CN/views/content/personal/resource.vm" )
+
+	<script lanuage="javascript">
+    jQuery(document).ready(function() {
+          token = cookieUtil.getHeaderToken();
+          jQuery("input[name='tag']").attr("value","Later");
+	      scrollPage();
+      });
+	</script>
+</head>
+<body>
+   <div id="laterlookContent">
+    #parse("/zh_CN/views/content/personal/left.vm" )
+	
+	#parse("/zh_CN/views/content/personal/right.vm" )
+
+    #parse("/zh_CN/views/content/personal/flow.vm" )
+</div>
+</body>
+</html>

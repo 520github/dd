@@ -1,0 +1,44 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>收藏</title>
+	<link rel="stylesheet" href="/css/css.css" />
+	<link rel="stylesheet" href="/css/registration.css" />
+	<script type="text/javascript" src="/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/json2.js"></script>
+	<script type="text/javascript" src="/js/layer/layer.js"></script>
+	<script type="text/javascript" src="/js/content.js"></script>
+	<script type="text/javascript" src="/js/scrollpagination.js"></script>
+	<script lanuage="javascript">
+	var token;
+	function scrollPage() {
+	    jQuery('#content').scrollPagination({
+		    'contentPage': '', // the page where you are searching for results/search/personal/favorite_data
+		    'contentData': {refresh:""}, // you can pass the children().size() to know where is the pagination
+		    'scrollTarget': jQuery(window), // who gonna scroll? in this example, the full window
+		    'heightOffset': 10, // how many pixels before reaching end of the page would loading start? positives numbers only please
+		    'beforeLoad': function(){ // before load, some function, maybe display a preloader div
+		    	jQuery('#loading').fadeIn();	
+		    },
+		    'afterLoad': function(elementsLoaded){ // after loading, some function to animate results and hide a preloader div
+		    	 jQuery('#loading').fadeOut();
+		    	 var i = 0;
+		    	 jQuery(elementsLoaded).fadeInWithDelay();
+		    	 //alert("ttt:" + jQuery("input[name='isLastPage']").val());
+		    	 if (jQuery("input[name='isLastPage']").val()=="true"){ // if more than 100 results loaded stop pagination (only for test)
+		    	 	//jQuery('#nomoreresults').fadeIn();
+		    		jQuery('#content').stopScrollPagination();
+		    	 }
+		    }
+	        });
+	   
+	      // code for fade in element by element with delay
+          jQuery.fn.fadeInWithDelay = function(){
+	         var delay = 0;
+	         return this.each(function(){
+		        jQuery(this).delay(delay).animate({opacity:1}, 200);
+		        delay += 100;
+	      });
+         };
+	}
+	</script>

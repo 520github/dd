@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>欢迎</title>
+
+</head>
+<body>
+<div style="background:url(http://$!domainName/zh_CN/email_images/bodyBack.png) repeat;  padding:0; margin:0 auto; width:580px; color:#000; font-family:'微软雅黑';" >
+<div class="nihaoTopDiv" style=" background:url(http://$!domainName/zh_CN/email_images/logoIcon.png) no-repeat center 30px; padding-top:150px;">
+	<h3 style="height:46px; font-size:24px; font-weight:normal; text-align:center; line-height:46px;">欢迎</h3>
+	<p class="nihaoP1" style="height:46px; font-size:16px;  text-align:center; line-height:46px; color:#666666"><span style="color:#77aa4b; font-weight:bold;">$!nickname</span>欢迎來到多多！</p>
+	<p class="nihaoP2" style="height:46px; font-size:16px; text-align:center; line-height:46px; color:#b79372; font-family:"楷体"">请花几分钟浏览我们为您准备的入门帮助和使用技巧：</p>
+	<table class="nihaoBtnTable" cellpadding="10" cellspacing="0"  style="padding-bottom:36px; margin:0 auto">
+		<tr>
+			<td align="center"><img src="http://$!domainName/zh_CN/email_images/icon7.png" /><br />什么是收藏？</td>
+			<td align="center"><img src="http://$!domainName/zh_CN/email_images/icon8.png" /><br />如何与其他人分享？</td>
+		</tr>
+	</table>
+</div>
+<div class="nihaoMiddleDiv" style="border-top:1px dashed #bbaa9c;">
+	<div class="mainDiv">
+		<h3 style="line-height:24px; font-size:14px; font-weight:normal ; padding:20px 0; text-align:center;  padding:0 ; margin:0; list-style:none;">多多是一个让你在网络中收集和永久保存发现的空间，更能让你把喜欢的信息分享给朋友，随时随地即可阅读，而且是假日无休、点按可及的无线多多馆。</h3>
+		<table cellpadding="0" cellspacing="0">
+			<tr>
+				<td width="320"><img src="http://$!domainName/zh_CN/email_images/icon1.png" /><h4 style="line-height:34px; font-size:16px; font-weight:normal ;color:#bb8f63; height:34px;  padding:0 ; margin:0; list-style:none;">收藏你的喜欢和发现</h4><p  style="line-height:20px; font-size:14px; font-weight:normal ;color:#666666; width:268px; padding-bottom:15px;">将你在网页上发现的文章、图片、商品、视频与链接储存到你的多多帳戶中，永久保存、离线查看。
+	</p></td>
+				<td><img src="http://$!domainName/zh_CN/email_images/icon2.png" /><h4 style="line-height:34px; font-size:16px; font-weight:normal ;color:#bb8f63; height:34px;  padding:0 ; margin:0; list-style:none;">随时随地离线阅读</h4><p style="line-height:20px; font-size:14px; font-weight:normal ;color:#666666; width:268px; padding-bottom:15px;">不管是在家里或是去公司的路上，不管是windows，ios或是android，随时随地永久收藏内容并离线查看。</p></td>
+			</tr>
+			<tr>
+				<td><img src="http://$!domainName/zh_CN/email_images/icon3.png" /><h4 style="line-height:34px; font-size:16px; font-weight:normal ;color:#bb8f63; height:34px;  padding:0 ; margin:0; list-style:none;">亲密小圈子的互享空间</h4><p style="line-height:20px; font-size:14px; font-weight:normal ;color:#666666; width:268px; padding-bottom:15px;">分享有趣的内容，和好友组相互协同，分享智慧和想法。还可以将想法同步到你的微博中。</p></td>
+				<td><img src="http://$!domainName/zh_CN/email_images/icon4.png" /><h4 style="line-height:34px; font-size:16px; font-weight:normal ;color:#bb8f63; height:34px;  padding:0 ; margin:0; list-style:none;">建立自己的资料仓库</h4><p style="line-height:20px; font-size:14px; font-weight:normal ;color:#666666; width:268px; padding-bottom:15px;">对倾注心力收集而来的资料，你可以依自己的喜欢分门别类，定期生成PDF文档储存，建立自己的资料仓库。</p></td>
+			</tr>
+		</table>
+		<h3 style="line-height:24px; font-size:14px; font-weight:normal ; padding:20px 0; text-align:center; padding:0 ; margin:0; list-style:none;">恭喜！终于看完了这一大篇电子邮件。请开始尽情体验！<br />如果你还有什么问题，请访问<a href="http://$!domainName/help/us" style="color:#80b240;">帮助</a></h3>
+	</div>
+</div>
+<div class="foot" style="border-top:1px solid #eae5e1 ; background:#fff url(http://$!domainName/zh_CN/email_images/logo.png) no-repeat center 16px; height:58px; padding-top:132px; padding-bottom:20px; line-height:20px; text-align:center; color:#666666; font-size:12px;">
+	为了不断改进多多的功能，我们可能会定期向你征求意见与建议，希望你的支持！<br />要了解有关多多的更多信息，请访问：<a href="$!domainName">$!domainName</a><br />（这是一封自动产生的email，请勿回复）	
+</div>
+</div>
+</body>
+</html>
+

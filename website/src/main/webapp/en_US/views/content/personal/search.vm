@@ -1,0 +1,71 @@
+<!--右侧-->
+	<div class="content-right" id="search">
+		 <h1>
+		   #if($menuType == "favorite")
+		     $springMacroRequestContext.getMessage("favorite")  
+		   #elseif($menuType == "laterlook")
+		     $springMacroRequestContext.getMessage("laterlook")
+		   #elseif($menuType == "read")
+		     $springMacroRequestContext.getMessage("read")  
+		   #else
+		              未读
+		   #end
+		   (<span id="numCount">0</span>) 	
+		 </h1>
+		 
+		 <!--工具栏-->
+		 <div class="filter-tools">
+			<ul>
+				<li class="filter">$springMacroRequestContext.getMessage("filterCondition")
+				<p><a href="javascript:openContentTypeLayer()">$springMacroRequestContext.getMessage("contentType")</a></p>
+				<p><a href="javascript:openContentSourceLayer()">$springMacroRequestContext.getMessage("contentSource")</a></p>
+				#if($menuType == "favorite")
+				<p><a href="javascript:openQueryTagLayer()">$springMacroRequestContext.getMessage("tag")</a></p>
+				#end
+				#if($menuType == "friend")
+				   <p><a href="javascript:openFriendLayer()">$springMacroRequestContext.getMessage("friendList")</a></p>
+				#end
+				</li>
+				<li class="order">
+				$springMacroRequestContext.getMessage("sortType")
+						<select id="sortType" class="u354 u354_text_sketch" onchange="getDataList('refresh')">
+						<option value="timeline" >$springMacroRequestContext.getMessage("sortTime")</option>
+						<option value="comment">$springMacroRequestContext.getMessage("sortComment")</option>
+						<option value="visit">$springMacroRequestContext.getMessage("sortVisit")</option>
+						<option value="share">$springMacroRequestContext.getMessage("sortShare")</option>
+						<option value="collect">$springMacroRequestContext.getMessage("sortCollent")</option>
+						</select>
+				</li>
+				
+				<!--搜索search-->
+				<li class="search">
+				    <input type="hidden" name="currentPage" value="1"  />
+				    <input type="hidden" name="itemsPerPage" value="20"  />
+				    <input type="hidden" name="isLastPage" value="false"  />
+				    <input type="hidden" name="contentType"  />
+				    <input type="hidden" name="contentSource"  />
+				    <input type="hidden" name="indexType" value="1" />				    
+				    <input type="hidden" name="userTag"  />
+				    <input type="hidden" name="tag"  />
+				    <input type="hidden" name="token" value="$token" />
+				    <input type="hidden" name="offset" value="0"  />
+				    <input type="hidden" name="limit" value="5"  />
+				    <input type="hidden" name="scroll" value="true"  />
+					<input type="text"   name="keyword"  class="search-box"/>
+					<input type="button" value="$springMacroRequestContext.getMessage("search")" class="search-button" onclick="getDataList('refresh')">
+				</li>
+			</ul>
+		 </div>
+		 <div class="filter-tools" id="selectedCond" style="display:block">
+		   已选择条件：
+		 #if($menuType == "favorite")
+		   标签[<span id="selectedTag" style="color:red"></span>]
+		 #end
+		 #if($menuType == "friend")
+		   标签[<span id="selectedTag" style="color:red"></span>]
+		   朋友[<span id="selectedFriend" style="color:red"></span>]
+		 #end
+		   内容来源[<span id="selectedContentSource" style="color:red"></span>]
+		   内容类型[<span id="selectedContentType" style="color:red"></span>]
+		 </div>
+    </div>

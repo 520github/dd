@@ -1,0 +1,36 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>test</title>
+	<script type="text/javascript" >
+   function a (l) {
+   var exdate=new Date();
+	exdate.setDate(exdate.getDate()+1000)
+	document.cookie="language=" +escape(l)+
+	";expires="+exdate.toGMTString();
+	
+	history.go(0);
+   }
+   </script>
+</head>
+<body>
+	<p>Started.</p>
+	<p>
+		<a href="javascript:void((function(){if(!document.getElementById('ddAutoClip')){var i=!/*@cc_on!@*/0?document.createElement('input'):document.createElement('<input/>');i.type='hidden';i.id = 'ddAutoClip';i.value='true';document.body.appendChild(i);}else{document.getElementById('ddAutoClip').value='true';}var%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://$!domainName/js/clipper/bookmark.js?r='+Math.random()*99999999);document.body.appendChild(e)})());">
+				+多多书签
+		</a>
+	</p>
+	<p>
+		<a href="/extension/dd_chrome_extension.crx">多多采集工具</a>
+	</p>
+	<p>
+		<a href="/search/personal/favorite">我的收藏</a>
+	</p>
+	 $springMacroRequestContext.getMessage("title")
+	 
+	  <input type="button" value="change_zh" onclick="javascript:a('zh_CN')"/>
+	  <input type="button" value="change_en" onclick="javascript:a('en_US')"/>
+	  <input type="button" value="change_zu_ZA" onclick="javascript:a('zu_ZA')"/>
+ 	<a href="user/login">$springMacroRequestContext.getMessage("Login")</a>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>test</title>
+</head>
+<body>
+	<form method="post">
+		<p>$springMacroRequestContext.getMessage("Email")<input type="text" name="email" /></p>
+		<p>$springMacroRequestContext.getMessage("Password")<input type="password" name="password" /></p>
+		<p><input type="submit" value="$springMacroRequestContext.getMessage("Login")" /></p>
+	</form>
+	<a href="/user/loginByAuth?consumer=google">login by google</a>
+	<a href="/user/loginByAuth?consumer=twitter">login by twitter</a>
+	<a href="/user/loginByAuth?consumer=facebook">login by facebook</a>
+	<p>$!error</p>
+</body>
+</html>

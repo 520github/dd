@@ -1,0 +1,105 @@
+/* #footer{ width:100%; height:59px; background:#bbaa9c;  }
+#footer .about{color:#fff;  font-weight:900; line-height:30px; }
+#footer .about a{ color:#fff; padding:0  10px 0 10px; }	
+#footer .copyRight{ line-height:20px; color:#7d5a44; margin:5px 0 0 0; padding:0 0 0 10px;width:500px; }
+#footer .copyRight strong{font-weight:900; padding:0 10px 0 0 ;}
+
+.footer-left{
+	width:500px;
+	float:left;
+}
+.left-right-footer{
+	width:980px; 
+	margin:0 auto;
+}
+.attention{
+	float:right;	
+	margin:15px 0 0 0 ;
+	max-width:300px;
+}
+.attention span{
+	float:left;
+	line-height:35px;
+	color:#7d5944;
+}
+.attention ul {
+	display:inline;
+	margin:20px 0 0 0
+}
+.attention ul li {
+	float:left;
+}
+.attention-sina{
+	width:33px;
+	height:34px;
+	overflow:hidden;
+}
+.attention-sina  img{
+	margin-top:-35px;
+}
+.attention-sina  img:hover{
+	margin-top:-35px;
+}   */
+
+
+/*==========================  字体大小========================== */
+.size14{ font-size:14px;}
+.size16{ font-size:16px;}
+.size15{ font-size:15px;}
+.size17{ font-size:17px;}
+.size22{ font-size:22px;}
+
+/*==========================  颜色 ========================== */
+.color1{color:#333;}
+.color2{color:#666;}
+.color3{color:#999;}
+.color4{color:#0690cf;}
+.color5{color:#66d2ff;}
+.color6{color:#fff;}
+
+
+/*==========================  行高 ========================== */
+.lh20{line-height:20px;}
+.lh22{line-height:22px;}
+.lh24{line-height:24px;}
+.lh25{line-height:25px;}
+.lh30{line-height:30px;}
+.lh50{line-height:50px;}
+
+/*==========================   字体粗细========================== */
+.weight9{ font-weight:900;}
+
+/*========================== 左右========================== */
+.lt{float:left;}
+.rt{float:right;}
+
+
+
+ .left-right-footer{  width:940px; margin:0 auto;}
+/*=============================尾部=============================*/
+#footer{ width:100%; height:80px; background:#e1f8fe;  }
+#footer .about a{ color:#0690cf; padding:0  10px 0 10px; }	
+#footer .copyRight{ line-height:20px; color:#7d5a44; margin:5px 0 0 0; padding:0 0 0 10px;width:500px; }
+#footer .copyRight strong{padding:0 10px 0 0 ;}
+
+.footer-left{width:500px;  margin-top:15px; }
+.attention{	max-width:300px;}
+.attention span{
+	line-height:80px;
+}
+.attention ul {
+	display:inline;
+	margin:20px 0 0 0
+}
+.attention ul li {
+	float:left;  margin:25px 0 0 10px;
+}
+.attention ul li.sinaweibo a, .attention ul li.qqweibo a{ display:block; overflow:hidden;   width:34px; height:34px; }
+.attention ul li.sinaweibo a img{ margin:-2px 0 0 0px;  }
+/* .attention ul li.sinaweibo a img:hover{ margin:-47px 0 0 0px;} */
+.attention ul li.qqweibo a img{ margin:-2px 0 0 -44px;}
+/* .attention ul li.qqweibo a img:hover{   margin:-47px 0 0 -44px;} */
+
+.footer-pic { width:940px; margin:0 auto;}
+.footer-pic span{ background-position:-141px -57px; width:95px; height:154px ; margin:-152px 0 0 45%;     display: inline-block;}
+

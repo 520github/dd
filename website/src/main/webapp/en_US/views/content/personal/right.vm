@@ -1,0 +1,18 @@
+
+    <div class="content-right" id="content">
+    </div>
+    
+    <div id="pages" class="content-right" align="center"> 
+      <span id="prePage" >
+          <a  href="javascript:onPage('pre')" >上页</a> 
+          &nbsp;&nbsp;&nbsp;
+      </span>
+                      第<span id="pageNum">1</span>页
+      <span id="nextPage" >
+          &nbsp;&nbsp;&nbsp; 
+          <a href="javascript:onPage('next')" >下页</a> 
+      </span>            
+      
+	 </div>
+    
+    <div class="content-right" id="nomoreresults" style="display:none">Sorry, no more results for your pagination.</div>

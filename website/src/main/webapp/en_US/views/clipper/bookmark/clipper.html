@@ -1,0 +1,25 @@
+<div style="width:920px; background:#000; margin:0 auto; height:auto; padding:20px ;">
+	<div style="width:910px; height:auto; background:#fff; padding:10px 0;  overflow:hidden;">
+	<h1 style="padding:0 10px 0 0 ;line-height:50px; font-size:16px; width:900px; text-align:right;">你使用的帐号是：${account.name}</h1>
+	<!--网页快照-->
+	<div style="width:400px; height:300px; margin:0px 0px 0px 10px; float:left; overflow: scroll;" id="ddPreview">
+		
+	</div>
+	
+	<div style=" float:right; width:480px;">
+		<h2 style="font-size:14px; line-height:30px;">同步到:</h2>
+	<ul style="list-style-type:none;font-size:12px;">
+		<li style="width:480px; line-height:25px; float:left;">
+			<p style="float:left; width:90px;"><input id="ddReadLater" type="checkbox"/>稍后读</p>
+			<p style="float:left; width:90px;"><input id="ddCollect" type="checkbox"/>收藏</p>
+		</li>
+	</ul>
+	
+	<!-- 确定  取消-->
+	<div style=" float:right; ">
+		<p style=" float:left; padding:50px 30px 0px 0; "><input id="ddClipperBtn" type="button" value="确定"  style="padding:10px 30px;"/></p>
+		<p style=" float:left; padding:50px 30px 0px 0; "><input type="button" value="取消"  style="padding:10px 30px;" onclick="jQueryDD('#ddbmDialog').dialog('close')"/></p>
+	</div>
+	</div>
+	</div>
+</div>

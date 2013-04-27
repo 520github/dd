@@ -1,0 +1,16 @@
+   #parse("/zh_CN/views/head.vm" )
+   
+    <!--左侧-->
+	<div class="content-left">
+	<div class="list">
+		<ul>
+			<li><a href="/private/later">$springMacroRequestContext.getMessage("laterlook") </a></li>
+			<li><a href="/private/friend">$springMacroRequestContext.getMessage("friendList")</a></li>
+			<li><a href="javascript:alert('感谢你的支持，请看下回分解！')">达人分享</a></li>
+			<li><a href="/private/favorite">$springMacroRequestContext.getMessage("favorite") </a></li>
+			<li><a href="/private/read">$springMacroRequestContext.getMessage("read")</a></li>
+		</ul>
+	</div>
+	</div>
+	
+	#parse("/zh_CN/views/content/personal/search.vm" )

@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>验证</title>
+</head>
+
+<body>
+<div class="mainDiv" style="width:690px; margin:0 auto; background:url(http://$!domainName/zh_CN/email_images/bodyBack.png) repeat;">
+	<div class="mailTop" style="background:url(http://$!domainName/zh_CN/email_images/logo1.png) no-repeat right 13px; height:120px; padding-bottom:30px;">
+		<div style=" font-size:12px; color:#cac9c6; height:60px; line-height:60px; padding-top:10px;"></div>
+		<p style="font-size:12px; height:24px; line-height:24px;">您好，这里是多多支持中心。</p>
+		<h4 style="font-size:16px; height:24px; line-height:24px;  padding:0 ; margin:0; list-style:none;">申请加入多多时，需要邮件认证。</h4>
+	</div>
+	<div class="mailContent" style="background:url(http://$!domainName/zh_CN/email_images/mailBack.png) no-repeat; width:628px; height:163px;padding:30px 28px 0; ">
+		<h4 style="color:#80b141; height:40px; line-height:40px; font-size:16px;  padding:0 ; margin:0; list-style:none;">请随此链接回到多多主页，即完成邮件认证。</h4>
+		<p style="height:30px; line-height:30px; font-size:12px; font-weight:bold;">Link</p>
+		<div style="font-size:14px"><a href="http://$!domainName/account/default/verifyEmail?token=${token}&invite=$!invite&email=$!email&u=$!u" style="color:#2facd5">http://$!domainName/account/default/verifyEmail?token=${token}&invite=$!invite&email=$!email&u=$!u</a><br />(如果以上链接无法点击，请将上面的地址复制到你的浏览器的地址栏进入多多。）</div>
+	</div>
+	<div class="mailBottom" >
+		<p class="mailBottom1"style="padding:30px 0;">谢谢.<br /><a href="http://$!domainName" target="_blank">多多.com</a></p>
+		<p class="mailBottom2" style="paddin-bottomg:30px; font-size:12px;">如有咨询事项，或需要帮助，请与多多支持中心联系。<br /><span style="color:#666666">要了解有关多多的更多信息，请访问：<a href="$!domainName">$!domainName</a></span></p>
+	</div>
+</div>
+</body>
+</html>
+
+

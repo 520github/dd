@@ -1,0 +1,11 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>多多跳转源链接</title>
+</head>
+
+<frameset rows="150,*" border="0">
+     <frame  src="/zh_CN/views/content/personal/head.html" name="leftFrame" id="leftFrame" scrolling="no" noresize="noresize" />
+     <frame  src="$url" name="mainFrame" id="mainFrame"  noresize="noresize"/>
+ </frameset>
+</html>

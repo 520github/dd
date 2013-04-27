@@ -1,0 +1,49 @@
+#parse("/zh_CN/views/content/personal/resource.vm" )
+
+	<script lanuage="javascript">
+    jQuery(document).ready(function() {
+          token = cookieUtil.getHeaderToken();
+          jQuery("input[name='tag']").attr("value","Collect");
+          //获取我的标签数据列表
+	      getTagList(token);
+	      
+	      scrollPage();
+     });
+     
+     //取消收藏
+	   function cancelFavorite(repositoryId) {
+	      if(confirm('好不容易收藏，你真舍得抛弃吗？')) {
+	         cancelContentFavorite(repositoryId);
+	      }
+	   }
+	   
+	   //取消内容收藏
+	   function cancelContentFavorite(repositoryId) {
+	      var data = {
+			  repositoryType:"ReadLater",	
+			  tag:["Uncollect"]
+		  };
+	      jQuery.ajax({
+	           url:"/service/content/personal/item/"+repositoryId,
+	           type:"put",
+	           contentType:"application/json",
+	           data:JSON.stringify(data),
+	           headers:token,
+	           success:function(resp){
+	               jQuery("#"+repositoryId).remove();
+	               redureOrAddCountValue(-1);
+	           }
+	       });
+	   }
+	</script>
+</head>
+<body>
+<div id="favoriteContent">
+    #parse("/zh_CN/views/content/personal/left.vm" )
+	
+	#parse("/zh_CN/views/content/personal/right.vm" )
+
+    #parse("/zh_CN/views/content/personal/flow.vm" )
+</div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+*{ margin:0; padding:0px; border:0;}
+a{ color:#000;  text-decoration:none;}
+a:hover{ color:#fofofo; text-decoration:none;}
+ul li ,ol li { list-style-type:none;}
+body{ font-size:12px; font-family:"寰蒋闆呴粦"; font-weight:normal;}
+
+#content{width:960px; height:auto; margin:0 auto; }
+
+.content-left{ width:250px; height:auto; float:left; background:#e0e0e0}
+.content-left .list{ width:250px;}
+.content-left .list ul li {line-height:30px; text-align:center; width:250px; border-bottom:1px solid #fff; border-top:1px solid #a7a7a7;}
+.content-left .list ul li:hover{ background:#0ac8ff;}
+.content-right h1{line-height:50px; padding:0 0 20px 0;} 
+.content-right{ width:960px; height:auto;float:right; border:1px solid #000;}
+
+.filter-tools{width:95%; overflow:hidden; height:auto; margin:0 auto;}
+.filter-tools .filter{ width:43%; height:auto; line-height:30px; }
+.filter-tools ul li{float:left;}
+.filter-tools .filter p{float:right; background:#0ac8ff; margin:0 10px 0 0; padding:0px 10px;}
+.filter-tools .order{ width:30%; line-height:30px; margin:0 0 0 20px; }
+.filter-tools .order select{ width:80px; height:20px; border:1px solid #000;}
+.filter-tools .search{width:20%;}
+.filter-tools .search .search-box{ width:80
+	px; height:20px;border:1px solid #000;}
+.panel{ width:95%; height:auto;border:1px solid #cecece;margin:20px auto 0; padding:10px 10px; overflow:hidden;}
+.panel-title{ width:95%; height:auto; line-height:30px; }
+.panel-title h2{ width:95%; height:auto; line-height:30px; text-align:center;font-size:16px;display: block;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;-o-text-overflow: ellipsis;}
+.panel .panel-user { width:95%;}
+.panel .panel-user li{line-height:50px; float:left; padding:0 15px; color:#959595;}
+.panel .panel-user .source { width:40%;
+display:block;/*瀹氫箟涓哄潡绾�/
+ width:40%;/*瑕佹樉绀烘枃瀛楃殑瀹藉害*/
+ overflow:hidden; /*瓒呭嚭鐨勯儴鍒嗛殣钘忚捣鏉ャ�*/
+ white-space:nowrap;/*涓嶆樉绀虹殑鍦版柟鐢ㄧ渷鐣ュ彿...浠ｆ浛*/
+    text-overflow:ellipsis;/* 鏀寔 IE */
+    -o-text-overflow: ellipsis;    /* 鏀寔 Opera */
+}
+
+.panel-content{ line-height:25px; float:left; text-indent:15px;}
+.panel-info{ width:95%;float:left; line-height:30px; height:auto; margin:20px 0;}
+.panel-info span{float:left;}
+.panel-info  .take{padding:0 0 0 30px;display:block;/*瀹氫箟涓哄潡绾�/
+ width:40%;/*瑕佹樉绀烘枃瀛楃殑瀹藉害*/
+ overflow:hidden; /*瓒呭嚭鐨勯儴鍒嗛殣钘忚捣鏉ャ�*/
+ white-space:nowrap;/*涓嶆樉绀虹殑鍦版柟鐢ㄧ渷鐣ュ彿...浠ｆ浛*/
+    text-overflow:ellipsis;/* 鏀寔 IE */
+    -o-text-overflow: ellipsis;    /* 鏀寔 Opera */}
+.panel-info .right{ float:right;}
+.panel-info .right input{ padding:10px 10px; line-height:30px;}
+
+.panel .add{ width:95%; float:left;}
+.panel .add input{background:#00a3c6; padding:10px 10px;}
+
+
+/*璇︽儏椤�/
+
+.details-page{ width:960px; height:auto;float:right; border:1px solid #000;}
+.details-page .panel{ border:none;}
+.panel .skip-button {
+    float: right;
+    height: auto;
+    width: 960px;
+}
+.panel .skip-button input {
+    float: right;
+}
+
+/*鐐瑰嚮鎵撴爣绛惧脊鍑哄皬绐楀彛*/
+.small-window{width:300px; height:auto; border:1px solid #000; }
+.small-window ul li{ line-height:25px; padding:10px 0;}
+.small-window h3{line-height:25px;}
+.small-window input{ width:150px; height:22px; border:1px solid #000;}

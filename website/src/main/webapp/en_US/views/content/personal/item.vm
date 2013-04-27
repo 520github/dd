@@ -1,0 +1,159 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>详情</title>
+	<link rel="stylesheet" href="/css/css.css" />
+	<script type="text/javascript" src="/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/layer/layer.js"></script>
+	<script type="text/javascript" src="/js/content.js"></script>
+	<script lanuage="javascript">
+	    //取消收藏
+	   function cancelFavorite(repositoryId) {
+	      if(confirm('好不容易收藏，你真舍得抛弃吗？')) {
+	           var result = window.opener.cancelContentFavorite(repositoryId);
+	           if(result) {
+	               alert("取消收藏成功！");
+	               window.close();
+	           }
+	      }    
+	   }
+	   
+	   // 发表评论
+	   function postcomment(repositoryId){
+	   
+	   		var token = cookieUtil.getHeaderToken();
+	   		var param = getQueryPara();
+	   
+	   		jQuery.ajax({
+	           url:"/service/comment/$item.repository.contentId",
+	           type:"get",
+	           data:param,
+	           //contentType:"application/json;charset=utf-8",
+	           headers:token,
+	           success:function(resp) {
+	               ;
+	           },
+	           complete:function() {
+	               try{
+	                  refresh_div();
+	               }catch(e){
+	               }
+	           }
+	       }
+	       );
+	   }
+	   
+	   function refresh_div(){
+	   		alert("need refresh_div");
+	   }
+	   
+	   //获取query参数
+	   function getQueryPara() {
+	       var param = new Array();
+	       
+	       var comment = jQuery("textarea[id='comment']").val();
+	       if(comment == null)comment = "null comment";
+	       
+	       var score = jQuery("input[id='score']").val();
+	       if(score == null)comment = "3";
+	       
+	       
+		   param.push({name: "comment",  value: comment});
+		   param.push({name: "score",  value: score});
+	       return param;
+	   }
+	   
+	</script>
+</head>
+
+
+<body >
+<div id="content">
+		<div class="content-right details-page">
+		<div class="panel">
+				<div class="skip-button">
+					<input type="button" value="返回我的收藏">
+					<input type="hidden" name="token" value="$token" />
+				</div>
+				<div class="panel-title">
+					<h2>$!item.content.title</h2>
+				</div>
+				<ul class="panel-user">
+						<li>$item.repository.date_i18n</li>
+						<li class="source">来源：<a href="javascript:openUrl('$!item.content.url')" >$!item.content.url</a></li>
+				</ul>
+				<div class="panel-info">
+					<div class="right">
+						<input class="" type="submit" value="分享" onclick="alert('你想分享给谁啊！')">
+						<input class="" type="button" value="取消收藏" onclick="cancelFavorite('$item.repository.id')" >
+					</div>
+				</div>
+				<div class="panel-content">
+				<!--
+				<img src="images/lion-001.jpg" alt="" />
+				-->
+				#if($item.content.contentType == "Product")
+				
+				    商品名称：$!item.content.productPayload.name
+				   <br>
+				     商品价格：$!item.content.productPayload.price
+				   <br>
+				   <img src="$!item.content.productPayload.picture" alt="" />
+				#elseif($item.content.contentType == "Image")
+				   <img src="$!item.content.archiveUrl" alt="" />
+				#else
+				   $!item.content.htmlPayload.content
+				#end
+				
+				</div>
+				
+				<!--	评论部分	-->
+				
+				<div class="rating-wrap">
+			        <ul>
+			            <li>
+			            	<a class="one-star" title="很差" data-hint="很差" data-rate-value="10" href="javascript:;"></a>
+			            </li>
+			            <li>
+			            	<a class="two-stars" title="差" data-hint="差" data-rate-value="20" href="javascript:;"></a>
+			            </li>
+			            <li>
+			            	<a class="three-stars" title="还行" data-hint="还行" data-rate-value="30" href="javascript:;"></a>
+			            </li>
+			            <li>
+			            	<a class="four-stars" title="好" data-hint="好" data-rate-value="40" href="javascript:;"></a>
+			            </li>
+			            <li>
+			            	<a class="five-stars" title="很好" data-hint="很好" data-rate-value="50" href="javascript:;"></a>
+			            </li>
+			        </ul>
+			    </div>
+				<div id="comment">
+					<p>
+					请发表评论:
+						<textarea id="comment" cols="200" rows="4"></textarea>
+					</p>
+					<p>
+						<input type="submit" value="评论" id="btnCommend" onclick="postcomment('$item.repository.id');"/>
+						<input type="hidden" value="3" id="score" />
+					</p>
+					
+					<div id="commentlist">
+						#foreach($comment in $comment_list)
+							<div class="user-info">
+								昵称:$comment.accountId   评分:$comment.score
+							</div>
+							<div class="comment-rst">
+								<div id="comment_id">
+									$comment.text
+								</div>
+							</div>
+						#end
+						
+					</div>
+					
+				</div>
+				
+		</div>
+</div>
+</body>

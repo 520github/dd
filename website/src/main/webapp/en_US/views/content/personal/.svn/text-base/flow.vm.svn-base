@@ -1,0 +1,124 @@
+   <!--列表内容模板 -->
+<div id="itemTemplate" style="display:none">
+    <div class="panel" id="%repositoryId%">
+			<div class="panel-title">
+					<h2 >
+					   <a href="javascript:openItemDetail('%repositoryId%')" >%title%</a>
+					</h2>
+			</div>
+			<ul class="panel-user">
+						<li>%collect%次收藏</li>
+						<li>%comment%次评论</li>
+						<li>%share%次分享</li>
+						<li>%visit%次阅读</li>
+						<!--
+						<li class="source">来源：%url%</li>
+						-->
+			</ul>
+				<div class="panel-content">	
+				%image%
+				%summary%
+				</div>
+				<div class="panel-info">
+				        <span class="left">%date%   </span> <span class="take">来自：<a href="javascript:openUrl('%url%')" >%url%</a></span>
+					<div class="right">
+					  #if($menuType == "favorite")					  
+						<input type="button" value="$springMacroRequestContext.getMessage("buttonTag")" onclick="openAddTagLayer('%repositoryId%')">
+						<input type="submit" value="$springMacroRequestContext.getMessage("buttonShare")" onclick="openShareFriendLayer('%repositoryId%')">
+						<input id="buttonCancleFavorite" type="button" value="$springMacroRequestContext.getMessage("buttonCancleFavorite")" onclick="cancelFavorite('%repositoryId%')">
+					  #elseif($menuType == "laterlook")
+					    <input type="submit" value="$springMacroRequestContext.getMessage("buttonShare")" onclick="openShareFriendLayer('%repositoryId%')">
+						<input id="buttonCancleFavorite" type="button" value="$springMacroRequestContext.getMessage("favorite")" onclick="favorite('%repositoryId%')">
+					  #elseif($menuType == "unread")
+					    <input id="buttonCancleFavorite" type="button" value="$springMacroRequestContext.getMessage("favorite")" onclick="favorite('%repositoryId%')">
+					    <input type="submit" value="$springMacroRequestContext.getMessage("buttonShare")" onclick="openShareFriendLayer('%repositoryId%')">
+					  #elseif($menuType == "read")
+					    <input id="buttonCancleFavorite" type="button" value="$springMacroRequestContext.getMessage("favorite")" onclick="favorite('%repositoryId%')">
+					    <input type="submit" value="$springMacroRequestContext.getMessage("buttonShare")" onclick="openShareFriendLayer('%repositoryId%')">
+					  #elseif($menuType == "friend")
+					    <input type="button" value="$springMacroRequestContext.getMessage("buttonTag")" onclick="openAddTagLayer('%repositoryId%')">
+						<input type="submit" value="$springMacroRequestContext.getMessage("buttonShare")" onclick="openShareFriendLayer('%repositoryId%')">
+					  #end
+					</div>
+				</div>
+				<div id="userTag" class="add">
+					%tag%
+				</div>
+		</div>
+</div>
+
+<!--点击打标签弹出小窗口 -->
+<div class="small-window" id="addTag" style="display:none;">
+    <h3>标签</h3>
+    <ul>
+    	<li>
+    		<p>标签：（仅限12个字符，用空格分隔）</p>
+    		<p><input type="text" name="userTagValue" value="最多添加三个标签"></P>
+    	</li>
+    	<li>
+    		<p>该文章的热门标签：</p>
+    		<p>人文、地理、娱乐、美术</P>
+    	</li>
+    	<li>
+    		<p>我的常用标签：</p>
+    		<p>$!myUseTag</P>
+    	</li>
+    	<li><input name="tagButton" type="button" value="保存" onclick="addTag()"></li>
+    </ul>
+</div>		
+
+<!--点击打标签弹出小窗口 -->
+<div class="small-window" id="shareFriend" style="display:none;">
+
+</div>	
+
+<!--内容类型 -->
+<div id="contentType" style="display:none">
+   <a class="take" href="javascript:queryContentType('','全部')" >
+                全部
+   </a>
+   &nbsp; &nbsp;
+   <a class="take" href="javascript:queryContentType('HtmlClip','网页链接')" >
+                网页链接
+   </a>
+   &nbsp; &nbsp;
+   <a class="take" href="javascript:queryContentType('Web','文本')" >
+                文本
+   </a>
+   &nbsp; &nbsp;
+   <a class="take" href="javascript:queryContentType('Image','图片')" >
+                图片
+   </a>
+   &nbsp; &nbsp;
+   <a class="take" href="javascript:queryContentType('Product','商品')" >
+                商品
+   </a>
+</div>
+
+<!--内容来源 -->
+<div id="contentSource" style="display:none">
+   <a class="take" href="javascript:queryContentSource('','全部来源')" >
+                全部来源
+   </a>
+   &nbsp; &nbsp;
+   <a class="take" href="javascript:queryContentSource('Plugin','来自多多插件')" >
+                来自多多插件
+   </a>
+   &nbsp; &nbsp;
+   <a class="take" href="javascript:queryContentSource('Shared','来自达人分享')" >
+                来自达人分享
+   </a>
+   &nbsp; &nbsp;
+   <a class="take" href="javascript:queryContentSource('Square','来自广场')" >
+                来自广场
+   </a>
+   &nbsp; &nbsp;
+   <a class="take" href="javascript:queryContentSource('Friend','来自我关注的人')" >
+                来自我关注的人
+   </a>
+</div>
+
+<!--选择标签 -->
+<div id="selectTag" style="display:none">
+   
+</div>
