@@ -1,0 +1,15 @@
+K 10
+svn:ignore
+V 54
+.classpath
+.project
+.settings
+build-number.txt
+target
+
+K 13
+svn:mergeinfo
+V 121
+/origin/server/the-point/branches/extension-360-compatible:9102-9172
+/origin/server/the-point/tags/duoduo-2.2.1:9072-9101
+END

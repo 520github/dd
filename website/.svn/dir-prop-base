@@ -1,0 +1,20 @@
+K 10
+svn:ignore
+V 47
+.settings
+.project
+target
+.classpath
+*.jupiter
+
+K 13
+svn:mergeinfo
+V 444
+/origin/server/the-point/branches/2.4/website:9298-9478
+/origin/server/the-point/branches/2.5/website:9547-9752
+/origin/server/the-point/branches/extension-360-compatible/website:9102-9282
+/origin/server/the-point/branches/extension-speed-up/website:8898-9047
+/origin/server/the-point/tags/duoduo-2.0.30/website:8754-8897
+/origin/server/the-point/tags/duoduo-2.2.1/website:9072-9101
+/origin/server/the-point/tags/duoduo-2.2.18/website:9292-9297
+END
