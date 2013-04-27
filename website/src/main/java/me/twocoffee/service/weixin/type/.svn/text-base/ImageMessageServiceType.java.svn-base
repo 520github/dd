@@ -1,0 +1,16 @@
+package me.twocoffee.service.weixin.type;
+
+import me.twocoffee.service.weixin.WeiXinPublicRequestEntity;
+import me.twocoffee.service.weixin.WeiXinPublicConstant.ServiceType;
+
+public class ImageMessageServiceType extends AbstractServiceType {
+	@Override
+	public ServiceType getServiceType(WeiXinPublicRequestEntity request) {
+		super.getServiceType(request);
+		
+		if(this.serviceType == null) {
+			this.serviceType = ServiceType.SaveImage;
+		}
+		return this.serviceType;
+	}
+}
