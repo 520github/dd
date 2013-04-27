@@ -1,0 +1,18 @@
+supportSmtpHost=smtp.163.com
+supportSmtpPort=25
+supportMailUsername=babeetatest
+supportMailPwd=bbtbbt
+supportEmail="=?UTF-8?B?5Lik5p2v5ZKW5ZWh?=" <babeetatest@163.com>
+minEmailVerifyIntervalInMinutes=2
+minMobileVerifyIntervalInMinutes=1
+maxEmailVerifyTimes=10
+maxMobileVerifyTimes=10
+emailVerifyTimesLimitCycleInHours=24
+mobileVerifyTimesLimitCycleInHours=24
+emailTokenLifeInHour=48
+mobileTokenLifeInMinutes=30
+registerRecommendAccount=support@mduoduo.com
+\uFF03always
+showFriendsView=
+#2012-12-26 14:30:20
+latestFetchDate=

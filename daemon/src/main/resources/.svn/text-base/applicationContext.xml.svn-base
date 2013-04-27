@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans  
+            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd  
+            http://www.springframework.org/schema/context  
+            http://www.springframework.org/schema/context/spring-context-3.0.xsd  
+            http://www.springframework.org/schema/tx  
+            http://www.springframework.org/schema/tx/spring-tx-3.0.xsd  
+            http://www.springframework.org/schema/jdbc  
+            http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd 
+            http://www.springframework.org/schema/task 
+            http://www.springframework.org/schema/task/spring-task-3.0.xsd">
+	<context:annotation-config />
+
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource"
+		p:basename="i18n.messages" />
+	<bean id="springContext" class="me.twocoffee.common.SpringContext">
+	</bean>
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath*:/db.properties</value>
+				<value>classpath*:/config.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- db -->
+	<bean id="mongo" class="com.mongodb.Mongo" scope="singleton"
+		lazy-init="false">
+		<constructor-arg index="0" type="java.lang.String"
+			value="db.cloud.mduoduo.in" />
+		<constructor-arg index="1" type="int" value="27017" />
+	</bean>
+
+	<bean id="morphia" class="com.google.code.morphia.Morphia" />
+
+	<bean id="datastore" class="me.twocoffee.common.MongoDataStore"
+		init-method="init">
+		<constructor-arg ref="morphia" />
+		<!-- Mongo连接器 -->
+		<constructor-arg ref="mongo" />
+		<!-- 数据库名 -->
+		<constructor-arg value="mduoduo" />
+
+		<property name="modelPackages">
+			<list>
+				<value>me.twocoffee.entity</value>
+			</list>
+		</property>
+		<property name="connectionsPerHost" value="1000" />
+		<property name="threadsAllowedToBlockForConnectionMultiplier"
+			value="5000" />
+	</bean>
+
+	<bean id="dfs" class="me.twocoffee.common.dfs.fastdfs.FastdfsFileOperator">
+		<constructor-arg value="fdfs_client.conf" />
+	</bean>
+
+	<!-- 自动搜索Controller标注的类 -->
+	<context:component-scan base-package="me.twocoffee.dao" />
+	<context:component-scan base-package="me.twocoffee.service" />
+	<context:component-scan base-package="me.twocoffee.common.auth" />
+	<bean id="searcher" class="me.twocoffee.service.impl.ContentSearcherImpl">
+		<constructor-arg value="http://search.cloud.mduoduo.in:8081/solr/content" />
+	</bean>
+	<bean id="accountSearcher" class="me.twocoffee.service.impl.AccountSearcherImpl">
+		<constructor-arg value="http://search.cloud.mduoduo.in:8081/solr/account" />
+	</bean>
+
+	<bean id="velocityEngine"
+		class="org.springframework.ui.velocity.VelocityEngineFactoryBean">
+		<property name="resourceLoaderPath">
+			<value>/</value>
+		</property>
+		<property name="velocityProperties">
+			<props>
+				<!-- <prop key="resource.loader">file</prop> <prop key="file.resource.loader.class"> 
+					org.apache.velocity.runtime.resource.loader.FileResourceLoader </prop> <prop 
+					key="file.resource.loader.path">${webapp.root}</prop> <prop key="file.resource.loader.cache">true</prop> -->
+				<prop key="input.encoding">UTF-8</prop>
+				<prop key="output.encoding">UTF-8</prop>
+				<prop key="default.contentType">text/html; charset=UTF-8</prop>
+			</props>
+		</property>
+	</bean>
+	<bean id="smsBase" class="me.twocoffee.service.SmsBase">
+		<constructor-arg index="0" type="java.lang.String"
+			value="11267" />
+		<constructor-arg index="1" type="java.lang.String"
+			value="10" />
+		<constructor-arg index="2" type="java.lang.String"
+			value="xuegang" />
+		<constructor-arg index="3" type="java.lang.String"
+			value="e10adc3949ba59abbe56e057f20f883e" />
+		<constructor-arg index="4" type="java.lang.String"
+			value="300" />
+		<constructor-arg index="5" type="java.lang.String"
+			value="http://gateway.woxp.cn:6630/utf8/web_api/" />
+		<!-- <property name="xeid" value="11267" /> <property name="xac" value="10" 
+			/> <property name="xuid" value="xuegang" /> <property name="xpwdmd5" value="e10adc3949ba59abbe56e057f20f883e" 
+			/> <property name="xgateid" value="300" /> <property name="xurl" value="http://gateway.woxp.cn:6630/utf8/web_api/" 
+			/> -->
+	</bean>
+	<bean id="sanWangXinTong" class="me.twocoffee.service.SanWangXinTong">
+		<constructor-arg index="0" type="java.lang.String"
+			value="http://sms.3wxt.cn/servlet/SendSMSmt" />
+		<constructor-arg index="1" type="java.lang.String"
+			value="zs00129" />
+		<constructor-arg index="2" type="java.lang.String"
+			value="a1234129" />
+		<constructor-arg index="3" type="java.lang.String"
+			value="true" />
+	</bean>
+	<bean id="velocityConfig"
+		class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
+		<property name="configLocation" value="classpath*:/velocity.properties" />
+		<property name="velocityEngine" ref="velocityEngine" />
+	</bean>
+	<bean id="viewResolver" class="me.twocoffee.i18n.I18nVelocityViewResoler">
+		<property name="cache" value="true" />
+		<property name="prefix" value="views/" />
+		<property name="suffix" value=".vm" />
+		<!-- if you want to use the Spring Velocity macros, set this property to 
+			true -->
+		<property name="exposeSpringMacroHelpers" value="true" />
+		<property name="contentType" value="text/html;charset=UTF-8"></property>
+		<property name="toolboxConfigLocation">
+			<value>toolbox.xml</value>
+		</property>
+	</bean>
+	<bean id="localeResolver" class="me.twocoffee.i18n.CoffeeCookieLocaleResolver">
+		<property name="cookieName" value="language" />
+		<property name="cookieMaxAge" value="100000" />
+	</bean>
+
+	<bean id="taobaoHPVisitor"
+		class="me.twocoffee.service.fetch.impl.product.fetcher.visitor.TaobaoHPVisitor"
+		scope="prototype">
+		<property name="resultHandler" ref="taobaoResultHandler" />
+	</bean>
+	<bean id="tmallHPVisitor"
+		class="me.twocoffee.service.fetch.impl.product.fetcher.visitor.TmallHPVisitor"
+		scope="prototype">
+		<property name="resultHandler" ref="tmallResultHandler" />
+	</bean>
+	<bean id="visitorFactory"
+		class="me.twocoffee.service.fetch.impl.product.fetcher.SpringContextVisitorFactory">
+		<property name="visitorNames">
+			<map>
+				<entry key="taobao" value="taobaoHPVisitor" />
+				<entry key="tmail" value="tmallHPVisitor" />
+				<entry key="jingdong" value="jdHPVisitor" />
+			</map>
+		</property>
+	</bean>
+
+	<bean id="javaMailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="${supportSmtpHost}" />
+		<property name="port" value="${supportSmtpPort}" />
+		<property name="username" value="${supportMailUsername}" />
+		<property name="password" value="${supportMailPwd}" />
+		<property name="defaultEncoding" value="utf-8" />
+	</bean>
+
+	<bean id="sendEmailService" class="me.twocoffee.service.impl.SendEmailServiceImpl">
+		<property name="supportEmail" value="${supportEmail}"></property>
+		<property name="javaMailSender" ref="javaMailSender"></property>
+		<property name="velocityEngine" ref="velocityEngine"></property>
+	</bean>
+	<bean id="sendSMSService" class="me.twocoffee.service.impl.SendSMSServiceImpl">
+		<!-- <property name="velocityEngine" ref="velocityEngine"></property> <property 
+			name="smsBase" ref="smsBase"></property> <property name="sanWangXinTong" 
+			ref="sanWangXinTong"></property> -->
+		<constructor-arg index="0" ref="velocityEngine" />
+		<constructor-arg index="1" ref="smsBase" />
+		<constructor-arg index="2" ref="sanWangXinTong" />
+		<constructor-arg index="3" type="java.lang.String"
+			value="dongshifang" />
+	</bean>
+	<bean id="accountServiceImpl" class="me.twocoffee.service.impl.AccountServiceImpl">
+		<property name="minEmailVerifyIntervalInMinutes" value="${minEmailVerifyIntervalInMinutes}"></property>
+		<property name="minMobileVerifyIntervalInMinutes" value="${minMobileVerifyIntervalInMinutes}"></property>
+		<property name="maxEmailVerifyTimes" value="${maxEmailVerifyTimes}"></property>
+		<property name="maxMobileVerifyTimes" value="${maxMobileVerifyTimes}"></property>
+		<property name="emailVerifyTimesLimitCycleInHours" value="${emailVerifyTimesLimitCycleInHours}"></property>
+		<property name="mobileVerifyTimesLimitCycleInHours" value="${mobileVerifyTimesLimitCycleInHours}"></property>
+		<property name="emailTokenLifeInHour" value="${emailTokenLifeInHour}"></property>
+		<property name="mobileTokenLifeInMinutes" value="${mobileTokenLifeInMinutes}"></property>
+		<property name="tokenDao" ref="tokenDao"></property>
+		<property name="sendEmailService" ref="sendEmailService"></property>
+		<property name="recommendAccountName" value="${registerRecommendAccount}" />
+	</bean>
+
+	<bean id="tokenDao" class="me.twocoffee.dao.impl.TokenDaoImpl">
+		<constructor-arg ref="datastore">
+		</constructor-arg>
+	</bean>
+
+	<bean id="authClient" class="me.twocoffee.common.auth.AuthClient">
+		<property name="authHandlers">
+			<map>
+				<entry key="Weibo" value-ref="defaultOauth2Authhandler" />
+				<entry key="QQ" value-ref="defaultOauth2Authhandler" />
+				<entry key="Facebook" value-ref="defaultOauth2Authhandler" />
+				<entry key="Twitter" value-ref="defaultOauth1Authhandler" />
+				<entry key="Gmail" value-ref="defaultOauth2Authhandler" />
+			</map>
+		</property>
+		<property name="callbackHandlers">
+			<map>
+				<entry key="Weibo" value-ref="sinaOauth2CallbackHandler" />
+				<entry key="QQ" value-ref="tencentOauth2CallbackHandler" />
+				<entry key="Facebook" value-ref="facebookOauth2CallbackHandler" />
+				<entry key="Twitter" value-ref="twritterOauth1CallbackHandler" />
+				<entry key="Gmail" value-ref="googleOauth2CallbackHandler" />
+			</map>
+		</property>
+	</bean>
+	<bean id="apnsServiceFactory" class="me.twocoffee.common.push.apns.ApnsServiceFactoryImpl">
+		<property name="password" value="1234" />
+		<property name="sandBox" value="${apns.issandbox}" />
+	</bean>
+	<bean id="fetchServiceImpl" class="me.twocoffee.service.fetch.impl.FetchServiceImpl"
+		init-method="init" destroy-method="shutdown">
+	</bean>
+
+	<task:executor id="taskExecutor" pool-size="5-100"
+		queue-capacity="1024" keep-alive="120" />
+
+	<bean id="queueClient" class="com.surftools.BeanstalkClientImpl.ClientImpl">
+		<constructor-arg value="queue.cloud.mduoduo.in" />
+		<constructor-arg value="11300" />
+		<constructor-arg value="false" />
+	</bean>
+	<bean id="friendShareQueue" class="me.twocoffee.daemon.mq.FriendShareQueueHandler">
+	</bean>
+	<bean id="acknowledgmentQueue" class="me.twocoffee.daemon.mq.acknowledgmentQueueHandler">
+	</bean>
+	<bean id="queueSender" class="me.twocoffee.common.mq.MessageQueueSender">
+		<constructor-arg ref="queueClient" />
+	</bean>
+	<bean id="messageQueueManager" class="me.twocoffee.daemon.MessageQueueManager"
+		init-method="startServer" destroy-method="stopServer">
+		<constructor-arg>
+			<list>
+				<ref local="friendShareQueue" />
+				<ref local="acknowledgmentQueue" />
+			</list>
+		</constructor-arg>
+		<constructor-arg ref="taskExecutor" />
+		<constructor-arg ref="queueClient" />
+	</bean>
+	<bean id="thirdPartyContactService"
+		class="me.twocoffee.service.thirdparty.impl.ThirdPartyContactMatcherServiceImpl">
+		<property name="thirdpartyService" ref="thirdPartyServiceImpl"></property>
+		<property name="accountService" ref="accountServiceImpl"></property>
+		<property name="matchers">
+			<map>
+				<entry key="Weibo" value-ref="weiboContactMatcher" />
+				<entry key="Phone" value-ref="phoneContactMatcher" />
+				<entry key="QQ" value-ref="qqContactMatcher" />
+			</map>
+		</property>
+	</bean>
+
+	<bean id="jobDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="thirdPartyContentJob" />
+		<property name="targetMethod" value="execute" />
+		<property name="concurrent" value="false" />
+	</bean>
+
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="cronTrigger" />
+				<ref bean="authCronTrigger" />
+			</list>
+		</property>
+		<property name="quartzProperties">
+			<props>
+				<prop key="org.quartz.threadPool.threadCount">1</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="cronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="jobDetail" />
+		<!-- run every morning at 0 AM -->
+		<!-- <property name="cronExpression" value="0 0 0 * * ?" /> -->
+		<property name="cronExpression" value="10 */15 * * * ?" />
+	</bean>
+	<bean id="authJobDetail"
+		class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="thirdPartyAuthJob" />
+		<property name="targetMethod" value="execute" />
+		<property name="concurrent" value="false" />
+	</bean>
+
+	<bean id="authCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="authJobDetail" />
+		<!-- run every morning at 0 AM -->
+		<property name="cronExpression" value="0 0 8 * * ?" />
+	</bean>
+	
+	<bean id="thirdPartyServiceImpl" class="me.twocoffee.service.thirdparty.impl.ThirdPartyServiceImpl">
+		<property name="thirdPartyClients">
+			<map>
+				<entry key="Weibo" value-ref="weiboClient" />
+				<entry key="Renren" value-ref="renrenClient" />
+				<entry key="Tencent" value-ref="tencentWeiboClient" />
+			</map>
+		</property>
+	</bean>
+	<!-- <bean id="heatTasker" class="me.twocoffee.daemon.task.HeatTasker"> 
+		</bean> <bean id="heatJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean"> 
+		<property name="targetObject" ref="heatTasker"/> <property name="targetMethod" 
+		value="runTasker"/> <property name="concurrent" value="false"/> </bean> <bean 
+		id="heatTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean"> 
+		<property name="jobDetail" ref="heatJobDetail" /> <property name="startDelay" 
+		value="1000" /> <property name="repeatInterval" value="5000" /> </bean> <bean 
+		id="schedulerFactory" class="org.springframework.scheduling.quartz.SchedulerFactoryBean"> 
+		<property name="triggers"> <list> <ref local="heatTrigger"/> </list> </property> 
+		</bean> -->
+		
+	<bean id="configurationService" class="me.twocoffee.service.impl.SimpleConfigurationImpl">
+		<property name="showFriendsViewFlag" value="${showFriendsView}" />
+		<property name="latestFetchDate" value="${latestFetchDate}" />
+	</bean>
+	
+</beans>
