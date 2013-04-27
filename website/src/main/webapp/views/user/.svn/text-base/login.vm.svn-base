@@ -1,0 +1,15 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>test</title>
+</head>
+<body>
+	<form method="post">
+		<p>Email<input type="text" name="email" /></p>
+		<p>Password<input type="password" name="password" /></p>
+		<p><input type="submit" value="Login" /></p>
+	</form>
+	<a href="/user/login">新用户注册</a>
+	<p>$!error</p>
+</body>
+</html>

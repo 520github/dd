@@ -1,0 +1,14 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>test</title>
+</head>
+<body>
+	<p>Started.</p>
+	<p>
+		<a href="javascript:void((function(){var%20e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','http://$!domainName/js/clipper/bookmark.js?r='+Math.random()*99999999);e.setAttribute('id','ddClipScript');e.setAttribute('autoOpen',true);e.setAttribute('crawlUrl','http://$!domainName');document.body.appendChild(e)})());">
+				+多多
+		</a>
+	</p>
+</body>
+</html>

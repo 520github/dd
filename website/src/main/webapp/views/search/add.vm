@@ -1,0 +1,47 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>add index</title>
+</head>
+<body>
+	<form method="post">
+		<p>Id:<input type="text" name="id" /></p>
+	    <p>accountId:<input name="accountId" type="text" /></p>
+	    <p>indexType:
+	    	<select name="indexType">
+	    		<option value="1">收藏</option>
+	    		<option value="2">稍后看</option>
+	    		<option value="3">广场</option>
+	    	</select>
+	    </p>
+	    <p>source:
+	    	<select name="source">
+	    		<option value="1">来自插件</option>
+	    		<option value="2">分享</option>
+	    		<option value="3">广场</option>
+	    		<option value="4">我关注的人</option>
+	    	</select>
+	    </p>
+	    <p>contentType:
+	    	<select name="contentType">
+	    		<option value="1">链接</option>
+	    		<option value="2">文本</option>
+	    		<option value="3">图文</option>
+	    		<option value="4">商品</option>
+	    	</select>
+	    </p>
+	    <p>commentCount:<input name="commentCount" type="text" value="0"/></p>
+	    <p>visitCount:<input name="visitCount" type="text" value="0"/></p>
+	    <p>collectCount:<input name="collectCount" type="text" value="0"/></p>
+	    <p>shareCount:<input name="shareCount" type="text" value="0"/></p>
+	    <p>created:<input name="created" type="text" value="2012-05-20"/></p>
+	    <p>title:<input name="title" type="text" /></p>
+	    <p>content:<textarea id="content" cols="10" rows="4"></textarea></p>
+	    <p>tag:<input name="tag" type="text" /></p>
+	    <p>language:<input name="language" type="text" value="cn" /></p>
+		<p><input type="submit" value="Add" /></p>
+	</form>
+	
+	<p>$!error</p>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>add index</title>
+</head>
+<body>
+	<div>
+		<form method="get">
+			<p>Key:<input type="text" name="q" /></p>
+			<p>AccountId:<input type="text" name="accountId" /></p>
+			<p>language:<input name="language" type="text" value="cn" /></p>
+		    <p>indexType:
+		    	<select name="indexType">
+		    		<option value="1">收藏</option>
+		    		<option value="2">稍后看</option>
+		    		<option value="3">广场</option>
+		    	</select>
+		    </p>
+		    <p>source:
+		    	<select name="source">
+		    		<option value="1">来自插件</option>
+		    		<option value="2">分享</option>
+		    		<option value="3">广场</option>
+		    		<option value="4">我关注的人</option>
+		    	</select>
+		    </p>
+		    <p>contentType:
+		    	<select name="contentType">
+		    		<option value="1">链接</option>
+		    		<option value="2">文本</option>
+		    		<option value="3">图文</option>
+		    		<option value="4">商品</option>
+		    	</select>
+		    </p>
+		    <p>tag:
+		    	<select name="tag">
+		    		<option value="软件">软件</option>
+		    		<option value="游戏">游戏</option>
+		    		<option value="手机">手机</option>
+		    	</select>
+		    </p>
+		    <p>sort:
+				<select name="sort">
+		    		<option value="0">日期</option>
+		    		<option value="1">评论</option>
+		    		<option value="2">阅读</option>
+		    		<option value="3">分享</option>
+		    		<option value="4">收藏</option>
+		    	</select>
+			</p>
+			<p><input type="submit" value="Search" /></p>
+		</form>
+		
+		<p>$!error</p>
+	</div>
+	<div>
+		#if ($result)
+			<h2>$result.total</h2>
+			#foreach ($id in $result.result)
+				<p>$id</p>
+			#end
+		#end
+	</div>
+</body>
+</html>
